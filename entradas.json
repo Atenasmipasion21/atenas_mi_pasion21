@@ -6,25 +6,13 @@
     "imagen": "Atenas 81 vs Oberá 85.png",
     "link": "analisis-obera.html"
   },
-  {
-    "titulo": "As\u00ed fue la transmisi\u00f3n desde Radio Mariano Moreno",
-    "descripcion": "Reviv\u00ed nuestra cobertura del partido con an\u00e1lisis, entrevistas y emociones desde la cabina.",
-    "fecha": "15 de mayo de 2025",
-    "imagen": "https://via.placeholder.com/600x300?text=Radio+Mariano+Moreno",
-    "link": "#"
-  },
+
   {
     "titulo": "Tabla de posiciones",
     "descripcion": "Actualizada al día de hoy",
     "fecha": "17 de mayo de 2025",
-    "imagen": "https://via.placeholder.com/600x300?text=Historia+1982",
+    "imagen": "Tabla.png",
     "link": "#"
   },
-  {
-    "titulo": "Juveniles que ilusionan",
-    "descripcion": "Conoc\u00e9 a las promesas del club que se destacan en la Liga y piden pista en el equipo mayor.",
-    "fecha": "5 de mayo de 2025",
-    "imagen": "https://via.placeholder.com/600x300?text=Juveniles+de+Atenas",
-    "link": "#"
-  }
+ 
 ]
