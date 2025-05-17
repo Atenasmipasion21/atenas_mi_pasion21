@@ -1,0 +1,30 @@
+[
+  {
+    "titulo": "Atenas 89 \u2013 Gimnasia 76: Cr\u00f3nica del triunfazo",
+    "descripcion": "Una noche m\u00e1gica en el Cerutti. Con una gran actuaci\u00f3n de los juveniles, Atenas venci\u00f3 a Gimnasia en un partido clave.",
+    "fecha": "16 de mayo de 2025",
+    "imagen": "https://via.placeholder.com/600x300?text=Atenas+89+-+Gimnasia+76",
+    "link": "#"
+  },
+  {
+    "titulo": "As\u00ed fue la transmisi\u00f3n desde Radio Mariano Moreno",
+    "descripcion": "Reviv\u00ed nuestra cobertura del partido con an\u00e1lisis, entrevistas y emociones desde la cabina.",
+    "fecha": "15 de mayo de 2025",
+    "imagen": "https://via.placeholder.com/600x300?text=Radio+Mariano+Moreno",
+    "link": "#"
+  },
+  {
+    "titulo": "1982: El a\u00f1o que nos hizo eternos",
+    "descripcion": "Un recorrido por el v\u00ednculo entre Atenas, la transici\u00f3n democr\u00e1tica y el deporte cordob\u00e9s.",
+    "fecha": "10 de mayo de 2025",
+    "imagen": "https://via.placeholder.com/600x300?text=Historia+1982",
+    "link": "#"
+  },
+  {
+    "titulo": "Juveniles que ilusionan",
+    "descripcion": "Conoc\u00e9 a las promesas del club que se destacan en la Liga y piden pista en el equipo mayor.",
+    "fecha": "5 de mayo de 2025",
+    "imagen": "https://via.placeholder.com/600x300?text=Juveniles+de+Atenas",
+    "link": "#"
+  }
+]
