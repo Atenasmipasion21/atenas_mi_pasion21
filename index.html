@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -21,8 +21,11 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
 
- <!-- Hero -->
+<body class="bg-black text-white">
+
+  <!-- Hero -->
   <header class="bg-success text-white text-center py-5">
     <h1 class="display-4"><strong>Atenas mi pasión</strong></h1>
     <h4>El corazón griego late en Córdoba</h4>
@@ -30,33 +33,33 @@
   </header>
 
   <!-- Entradas -->
-  <main class="container md-8">
-    <div class="row g-4">
+  <main class="container my-5">
+    <div class="row g-4" id="entradas">
 
       <!-- Entrada de blog -->
-       <div class="col-md-6">
-        <div class="card h-100">
-          <img src="¡Gracias Atenas!.png"class="card-img-top" alt="Imagen del partido">
+      <div class="col-md-6">
+        <div class="card h-100 bg-dark text-white">
+          <img src="¡Gracias Atenas!.png" class="card-img-top img-fluid" alt="Imagen del partido">
           <div class="card-body">
             <h5 class="card-title">FIN DE TEMPORADA</h5>
           </div>
           <div class="card-footer text-muted">Publicado el 18 de mayo de 2025</div>
         </div>
       </div>
- 
-    <div class="col-md-6">
-        <div class="card h-100">
-          <img src="playoff.png" class="card-img-top" alt="Imagen del partido">
+
+      <div class="col-md-6">
+        <div class="card h-100 bg-dark text-white">
+          <img src="playoff.png" class="card-img-top img-fluid" alt="Imagen del partido">
           <div class="card-body">
-            <h5 class="card-title">Playoffs Posibles para Atenas</h5
+            <h5 class="card-title">Playoffs Posibles para Atenas</h5>
           </div>
           <div class="card-footer text-muted">Publicado el 18 de mayo de 2025</div>
         </div>
       </div>
       
       <div class="col-md-6">
-        <div class="card h-100">
-          <img src="Atenas 81 vs Oberá 85.png" class="card-img-top" alt="Imagen del partido">
+        <div class="card h-100 bg-dark text-white">
+          <img src="Atenas 81 vs Oberá 85.png" class="card-img-top img-fluid" alt="Imagen del partido">
           <div class="card-body">
             <h5 class="card-title">Atenas 81 – Obera 85: Dura derrota de Local</h5>
             <a href="analisis-obera.html" class="btn btn-success">Leer más</a>
@@ -65,11 +68,10 @@
         </div>
       </div>
 
-      <!-- Otra entrada -->
       <div class="col-md-6">
-        <div class="card h-100">
-          <img src="Tabla.png" class="card-img-top" alt="Tabla de Posiciones">
-           <div class="card-body">
+        <div class="card h-100 bg-dark text-white">
+          <img src="Tabla.png" class="card-img-top img-fluid" alt="Tabla de Posiciones">
+          <div class="card-body">
             <h5 class="card-title">Tablas de Posiciones</h5>
             <p class="card-text">Actualizada</p>
             <a href="#" class="btn btn-success">Leer más</a> 
@@ -79,56 +81,49 @@
       </div>
 
     </div>
-      <script>
-    fetch('entradas.json')
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById('entradas');
-        data.forEach(post => {
-          const card = `
-            <div class="col-md-6 mb-4">
-              <div class="card h-100">
-                <img src="${post.imagen}" class="card-img-top" alt="Imagen del post">
-                <div class="card-body">
-                  <h5 class="card-title">${post.titulo}</h5>
-                  <p class="card-text">${post.descripcion}</p>
-                  <a href="${post.link}" class="btn btn-success">Leer más</a>
+
+    <!-- JS para cargar entradas dinámicamente -->
+    <script>
+      fetch('entradas.json')
+        .then(response => response.json())
+        .then(data => {
+          const container = document.getElementById('entradas');
+          data.forEach(post => {
+            const card = `
+              <div class="col-md-6 mb-4">
+                <div class="card h-100 bg-dark text-white">
+                  <img src="${post.imagen}" class="card-img-top img-fluid" alt="Imagen del post">
+                  <div class="card-body">
+                    <h5 class="card-title">${post.titulo}</h5>
+                    <p class="card-text">${post.descripcion}</p>
+                    <a href="${post.link}" class="btn btn-success">Leer más</a>
+                  </div>
+                  <div class="card-footer text-muted">Publicado el ${post.fecha}</div>
                 </div>
-                <div class="card-footer text-muted">Publicado el ${post.fecha}</div>
-              </div>
-            </div>`;
-          container.innerHTML += card;
+              </div>`;
+            container.innerHTML += card;
+          });
         });
-      });
-  </script>
+    </script>
   </main>
-<!-- ... resto del HTML ... -->
-
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
 
   <!-- Footer -->
- 
-
- <footer class="text-center text-white py-4 mt-5" style="background-color: #111;">
-  <div class="container">
-    <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba </p>
-    <div class="d-flex justify-content-center gap-3">
-      <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white text-decoration-none">
-        🎥 YouTube
-      </a>
-      <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white text-decoration-none">
-        📸 Instagram
-      </a>
+  <footer class="text-center text-white py-4 mt-5" style="background-color: #111;">
+    <div class="container">
+      <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba </p>
+      <div class="d-flex justify-content-center gap-3">
+        <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white text-decoration-none">
+          🎥 YouTube
+        </a>
+        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white text-decoration-none">
+          📸 Instagram
+        </a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
+  <!-- JS Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 
 </body>
 </html>
