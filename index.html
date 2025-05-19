@@ -22,9 +22,7 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
-<body class="bg-black text-white">
-
+<body>
   <!-- Hero -->
   <header class="bg-success text-white text-center py-5">
     <h1 class="display-4"><strong>Atenas mi pasión</strong></h1>
@@ -32,14 +30,13 @@
     <h5>Crónicas, historias y transmisiones de Atenas</h5>
   </header>
 
-  <!-- Entradas -->
+  <!-- Entradas actuales -->
   <main class="container my-5">
-    <div class="row g-4" id="entradas">
-
-      <!-- Entrada de blog -->
+    <div class="row g-4">
+      <!-- Entrada destacada con modal -->
       <div class="col-md-6">
-        <div class="card h-100 bg-dark text-white">
-          <img src="¡Gracias Atenas!.png" class="card-img-top img-fluid" alt="Imagen del partido">
+        <div class="card h-100">
+          <img src="¡Gracias Atenas!.png" class="card-img-top" alt="Imagen del partido" data-bs-toggle="modal" data-bs-target="#modalGracias">
           <div class="card-body">
             <h5 class="card-title">FIN DE TEMPORADA</h5>
           </div>
@@ -47,21 +44,40 @@
         </div>
       </div>
 
+      <!-- Modal -->
+      <div class="modal fade" id="modalGracias" tabindex="-1" aria-labelledby="modalGraciasLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content bg-dark text-white">
+            <div class="modal-header border-0">
+              <h5 class="modal-title" id="modalGraciasLabel">FIN DE TEMPORADA</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body text-center">
+              <img src="¡Gracias Atenas!.png" class="img-fluid" alt="Fin de Temporada">
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="col-md-6">
-        <div class="card h-100 bg-dark text-white">
-          <img src="playoff.png" class="card-img-top img-fluid" alt="Imagen del partido">
+        <div class="card h-100">
+          <img src="playoff.png" class="card-img-top" alt="Imagen del partido">
           <div class="card-body">
             <h5 class="card-title">Playoffs Posibles para Atenas</h5>
           </div>
           <div class="card-footer text-muted">Publicado el 18 de mayo de 2025</div>
         </div>
       </div>
-      
+    </div>
+
+    <!-- Entradas anteriores -->
+    <h3 class="mt-5 mb-4 text-success">Entradas anteriores</h3>
+    <div class="row g-4">
       <div class="col-md-6">
-        <div class="card h-100 bg-dark text-white">
-          <img src="Atenas 81 vs Oberá 85.png" class="card-img-top img-fluid" alt="Imagen del partido">
+        <div class="card h-100">
+          <img src="Atenas 81 vs Oberá 85.png" class="card-img-top" alt="Imagen del partido">
           <div class="card-body">
-            <h5 class="card-title">Atenas 81 – Obera 85: Dura derrota de Local</h5>
+            <h5 class="card-title">Atenas 81 – Oberá 85: Dura derrota de Local</h5>
             <a href="analisis-obera.html" class="btn btn-success">Leer más</a>
           </div>
           <div class="card-footer text-muted">Publicado el 17 de mayo de 2025</div>
@@ -69,61 +85,31 @@
       </div>
 
       <div class="col-md-6">
-        <div class="card h-100 bg-dark text-white">
-          <img src="Tabla.png" class="card-img-top img-fluid" alt="Tabla de Posiciones">
+        <div class="card h-100">
+          <img src="Tabla.png" class="card-img-top" alt="Tabla de Posiciones">
           <div class="card-body">
             <h5 class="card-title">Tablas de Posiciones</h5>
             <p class="card-text">Actualizada</p>
-            <a href="#" class="btn btn-success">Leer más</a> 
+            <a href="#" class="btn btn-success">Leer más</a>
           </div>
           <div class="card-footer text-muted">Publicado el 17 de mayo de 2025</div>
         </div>
       </div>
-
     </div>
-
-    <!-- JS para cargar entradas dinámicamente -->
-    <script>
-      fetch('entradas.json')
-        .then(response => response.json())
-        .then(data => {
-          const container = document.getElementById('entradas');
-          data.forEach(post => {
-            const card = `
-              <div class="col-md-6 mb-4">
-                <div class="card h-100 bg-dark text-white">
-                  <img src="${post.imagen}" class="card-img-top img-fluid" alt="Imagen del post">
-                  <div class="card-body">
-                    <h5 class="card-title">${post.titulo}</h5>
-                    <p class="card-text">${post.descripcion}</p>
-                    <a href="${post.link}" class="btn btn-success">Leer más</a>
-                  </div>
-                  <div class="card-footer text-muted">Publicado el ${post.fecha}</div>
-                </div>
-              </div>`;
-            container.innerHTML += card;
-          });
-        });
-    </script>
   </main>
 
   <!-- Footer -->
   <footer class="text-center text-white py-4 mt-5" style="background-color: #111;">
     <div class="container">
-      <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba </p>
+      <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba</p>
       <div class="d-flex justify-content-center gap-3">
-        <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white text-decoration-none">
-          🎥 YouTube
-        </a>
-        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white text-decoration-none">
-          📸 Instagram
-        </a>
+        <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white text-decoration-none">🎥 YouTube</a>
+        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white text-decoration-none">📸 Instagram</a>
       </div>
     </div>
   </footer>
 
-  <!-- JS Bootstrap -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
