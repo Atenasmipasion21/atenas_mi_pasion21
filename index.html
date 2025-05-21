@@ -111,48 +111,49 @@
     </div>
   </footer>
 
-  <script>
-    const posts = [
-      {
-        titulo: "📢 ¡Atenas ya tiene rival en los Playoffs! 🏀💚",
-        descripcion: "Atenas jugará el próximo sábado en el Templo del Rock ante Obras.",
-        fecha: "2025-05-24",
-        imagen: "Atenas clasificado a playoffs 2024_25.png",
-        link: "analisis-obra.html"
-      }
-      {
-        titulo: "📢 ¡En vivo! 🏀💚",
-        descripcion: "Atenas jugará el próximo sábado en el Templo del Rock ante Obras.",
-        fecha: "2025-05-24",
-        imagen: "Atenas clasificado a playoffs 2024_25.png",
-        link: "analisis-obra.html"
-      };
+ <script>
+  const posts = [
     {
-        titulo: "📢 ¡Atenas ya tiene rival en los Playoffs! 🏀💚",
-        descripcion: "Atenas jugará el próximo sábado en el Templo del Rock ante Obras.",
-        fecha: "2025-05-24",
-        imagen: "Atenas clasificado a playoffs 2024_25.png",
-        link: "analisis-obra.html"
-      }
-    ];
+      titulo: "📢 ¡Atenas ya tiene rival en los Playoffs! 🏀💚",
+      descripcion: "Atenas jugará el próximo sábado en el Templo del Rock ante Obras.",
+      fecha: "2025-05-24",
+      imagen: "Atenas clasificado a playoffs 2024_25.png",
+      link: "analisis-obra.html"
+    },
+    {
+      titulo: "🎙️ ¡En vivo! Escuchá la transmisión 🏀💚",
+      descripcion: "Seguí el partido de Atenas vs Obras desde las 20:00 por Radio Mariano Moreno.",
+      fecha: "2025-05-24",
+      imagen: "vivo-atenas.png",
+      link: "vivo.html"
+    },
+    {
+      titulo: "📈 Tabla actualizada – Posiciones de la Liga",
+      descripcion: "Así está la tabla tras la victoria de Oberá frente a Atenas.",
+      fecha: "2025-05-17",
+      imagen: "tabla-actualizada.png",
+      link: "tabla.html"
+    }
+  ];
 
-    posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+  posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
-    const container = document.getElementById('entradas');
-    posts.forEach(post => {
-      const card = `
-        <div class="card mb-4">
-          <img src="${post.imagen}" alt="${post.titulo}" class="card-img-top img-fluid" />
-          <div class="modal-body rounded">
-            <h5 class="card-title">${post.titulo}</h5>
-            <p class="card-text">${post.descripcion}</p>
-            <a href="${post.link}" class="btn btn-success">Leer más</a>
-          </div>
-          <div class="card-footer text-muted">Publicado el ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
+  const container = document.getElementById('entradas');
+  posts.forEach(post => {
+    const card = `
+      <div class="card mb-4">
+        <img src="${post.imagen}" alt="${post.titulo}" class="card-img-top img-fluid" />
+        <div class="modal-body rounded">
+          <h5 class="card-title">${post.titulo}</h5>
+          <p class="card-text">${post.descripcion}</p>
+          <a href="${post.link}" class="btn btn-success">Leer más</a>
         </div>
-      `;
-      container.innerHTML += card;
-    });
-  </script>
+        <div class="card-footer text-muted">Publicado el ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
+      </div>
+    `;
+    container.innerHTML += card;
+  });
+</script>
+
 </body>
 </html>
