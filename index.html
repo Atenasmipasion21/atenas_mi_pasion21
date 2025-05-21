@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés</title>
+  <meta name="description" content="El blog no oficial de Atenas. Noticias, historia y pasión por el básquet de Córdoba desde 1982.">
+  <meta name="keywords" content="Atenas, básquet, Córdoba, Liga Nacional, transmisiones deportivas, historia, crónicas, Radio Mariano Moreno">
+  <meta name="author" content="Atenas mi pasión">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
     html, body {
       height: 100%;
@@ -14,34 +19,55 @@
       background-size: cover;
       color: #fff;
     }
+
     header {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
       background-color: rgba(40, 167, 69, 0.95);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     }
+
     .card {
       background-color: rgba(0, 0, 0, 0.85);
       color: #fff;
+      height: 100%;
     }
+
+    .card img {
+      object-fit: cover;
+      width: 100%;
+      height: 200px;
+      border-radius: 0.25rem 0.25rem 0 0;
+    }
+
     .modal-body {
       background-color: rgba(255, 255, 255, 0.9);
       color: #000;
+      padding: 1rem;
     }
+
     .sidebar {
       background-color: rgba(0, 0, 0, 0.7);
       padding: 1rem;
       border-radius: 10px;
+      color: #fff;
     }
+
     a {
       color: #28a745;
     }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       background-color: #111;
     }
-    .badge {
-      font-size: 0.75rem;
-    }
   </style>
 </head>
+
 <body>
   <header class="text-white text-center py-3">
     <h1 class="display-5 mb-0">Atenas mi pasión</h1>
@@ -51,13 +77,27 @@
   <main class="container my-4">
     <div class="row">
       <!-- Entradas -->
-      <div class="col-md-8" id="entradas"></div>
+      <div class="col-lg-9">
+        <div class="row" id="entradas">
+          <!-- Entradas se cargan aquí -->
+        </div>
+      </div>
 
       <!-- Sidebar -->
-      <div class="col-md-4">
+      <div class="col-lg-3">
+        <div class="sidebar mb-4">
+          <h5>Archivo por mes</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">📅 Mayo 2025</a></li>
+            <li><a href="#">📅 Abril 2025</a></li>
+          </ul>
+        </div>
         <div class="sidebar">
           <h5>Entradas anteriores</h5>
-          <ul class="list-unstyled" id="archivo-sidebar"></ul>
+          <ul class="list-unstyled">
+            <li><a href="analisis-obera.html">Atenas 81 – Oberá 85 (17/5)</a></li>
+            <li><a href="#">Tablas de Posiciones – Actualizada</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -75,56 +115,51 @@
     const posts = [
       {
         titulo: "📢 ¡Atenas ya tiene rival en los Playoffs! 🏀💚",
-        descripcion: "Atenas jugará el próximo sábado en el Templo del Rock ante Obras.",
+        descripcion: "¿Qué pasó? Atenas jugará el sábado ante Obras. ¿Cuándo? 25 de mayo. ¿Dónde? En el Templo del Rock. ¿Quién lo transmite? Radio Atenas. ¿Por qué es importante? Porque se juega la clasificación.",
         fecha: "2025-05-24",
         imagen: "Atenas clasificado a playoffs 2024_25.png",
         link: "analisis-obra.html",
-        etiquetas: ["Playoffs", "Análisis", "Liga Nacional"]
+        categoria: "Partidos"
       },
       {
         titulo: "🎙️ ¡En vivo! Escuchá la transmisión 🏀💚",
-        descripcion: "Seguí el partido de Atenas vs Obras desde las 20:00 por Radio Atenas mi pasión.",
+        descripcion: "¿Qué? Transmisión en vivo de Atenas vs Obras. ¿Cuándo? 25 de mayo – 20:00 hs. ¿Dónde? YouTube Radio Atenas. ¿Quién? Equipo Atenas mi Pasión. ¿Por qué? Por la pasión de siempre. ¿Cómo? Con relato y análisis en vivo.",
         fecha: "2025-05-24",
         imagen: "Partido en Vivo_ Atenas vs Obras.png",
         link: "https://www.youtube.com/@radioatenasmipasion",
-        etiquetas: ["Transmisión", "En Vivo", "Liga Nacional"]
+        categoria: "Transmisiones"
+      },
+      {
+        titulo: "📸 Post partido: Las mejores imágenes",
+        descripcion: "¿Qué pasó? Un repaso visual del partidazo vs Obras. ¿Cuándo? Luego del partido. ¿Dónde? Galería exclusiva. ¿Quién? Nuestro equipo multimedia. ¿Por qué? Para revivir la emoción. ¿Cómo? En imágenes únicas.",
+        fecha: "2025-05-24",
+        imagen: "galeria_atenas_obras.png",
+        link: "#",
+        categoria: "Multimedia"
       }
     ];
 
+    const container = document.getElementById('entradas');
     posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
-    const container = document.getElementById('entradas');
-    const archivo = {};
-
     posts.forEach(post => {
-      // Crear HTML de la tarjeta
-      const etiquetasHTML = post.etiquetas.map(tag => `<span class="badge bg-success me-1">${tag}</span>`).join(' ');
       const card = `
-        <div class="card mb-4">
-          <img src="${post.imagen}" alt="${post.titulo}" class="card-img-top img-fluid" />
-          <div class="modal-body rounded">
-            <h5 class="card-title">${post.titulo}</h5>
-            <p class="card-text">${post.descripcion}</p>
-            <p><strong>Etiquetas:</strong> ${etiquetasHTML}</p>
-            <a href="${post.link}" class="btn btn-success">Leer más</a>
+        <div class="col-md-6 col-xl-4 d-flex mb-4">
+          <div class="card w-100">
+            <img src="${post.imagen}" alt="${post.titulo}" class="card-img-top img-fluid" />
+            <div class="modal-body rounded">
+              <h5 class="card-title">${post.titulo}</h5>
+              <p class="card-text">${post.descripcion}</p>
+              <span class="badge bg-success mb-2">${post.categoria}</span><br/>
+              <a href="${post.link}" class="btn btn-success">Leer más</a>
+            </div>
+            <div class="card-footer text-muted">📅 ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
           </div>
-          <div class="card-footer text-muted">Publicado el ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
         </div>
       `;
       container.innerHTML += card;
-
-      // Agregar al archivo cronológico
-      const fecha = new Date(post.fecha);
-      const claveArchivo = fecha.toLocaleString('es-AR', { month: 'long', year: 'numeric' });
-      if (!archivo[claveArchivo]) archivo[claveArchivo] = [];
-      archivo[claveArchivo].push(post);
-    });
-
-    // Mostrar archivo en sidebar
-    const archivoSidebar = document.getElementById('archivo-sidebar');
-    Object.keys(archivo).sort((a, b) => new Date(b) - new Date(a)).forEach(periodo => {
-      archivoSidebar.innerHTML += `<li><a href="#">${periodo}</a></li>`;
     });
   </script>
+
 </body>
 </html>
