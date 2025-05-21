@@ -138,3 +138,143 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés</title>
+  <meta name="description" content="El blog no oficial de Atenas. Noticias, historia y pasión por el básquet de Córdoba desde 1982.">
+  <meta name="keywords" content="Atenas, básquet, Córdoba, Liga Nacional, transmisiones deportivas, historia, crónicas, Radio Mariano Moreno">
+  <meta name="author" content="Atenas mi pasión">
+  <meta property="og:title" content="Atenas mi pasión – Noticias del club">
+  <meta property="og:description" content="Todo sobre Atenas: crónicas, historia, transmisiones y más.">
+  <meta property="og:image" content="https://via.placeholder.com/1024x300?text=Atenas+mi+pasi%C3%B3n">
+  <meta property="og:url" content="https://atenasmipasion21.github.io">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <style>
+    body {
+      background: url('estadio3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    .card {
+      background-color: rgba(0, 0, 0, 0.85);
+      border: 1px solid #28a745;
+    }
+    .card-img-top {
+      object-fit: cover;
+      max-height: 200px;
+    }
+    .sidebar {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      border-radius: 10px;
+    }
+    .sidebar h5 {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: .5rem;
+    }
+    a {
+      color: #28a745;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    h5 {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="bg-success text-white text-center py-4">
+    <h1 class="display-4">Atenas mi pasión</h1>
+    <p class="lead">Crónicas, historias y transmisiones de Atenas desde 1982</p>
+  </header>
+
+  <main class="container my-4">
+    <div class="row">
+      <!-- Entradas principales -->
+      <div class="col-md-8" id="entradas"></div>
+
+      <!-- Sidebar -->
+      <div class="col-md-4">
+        <div class="sidebar">
+          <h5>Entradas anteriores</h5>
+          <ul class="list-unstyled">
+            <li><a href="analisis-obera.html">Atenas 81 – Oberá 85: Dura derrota de Local (17/5)</a></li>
+            <li><a href="#">Tablas de Posiciones – Actualizada (17/5)</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-center text-white py-4 mt-5" style="background-color: #111;">
+    <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba </p>
+    <div class="d-flex justify-content-center gap-3">
+      <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white">🎥 YouTube</a>
+      <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white">📸 Instagram</a>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="playoffsModal" tabindex="-1" aria-labelledby="playoffsLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content text-dark">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="playoffsLabel">📢 ¡Atenas ya tiene rival en los Playoffs!</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>🟩 Rival confirmado:</strong> Obras Sanitarias</p>
+          <p><strong>🟥 Fechas clave:</strong> Sábado 24/5 y Lunes 26/5</p>
+          <p><strong>📍 Ubicación:</strong> El Templo del Rock, Ciudad de Buenos Aires</p>
+          <p><strong>📊 Instancia:</strong> Reclasificación – Liga Nacional 2025</p>
+          <p><strong>📈 Formato:</strong> Serie al mejor de 5 – ¡primero que gane 3, avanza!</p>
+          <hr>
+          <p><strong>💬 ¿Por qué es importante?</strong> Porque después de una temporada de lucha y reconstrucción, Atenas vuelve a decir presente en los Playoffs. Nos espera una serie durísima ante Obras, pero con historia, corazón y el aliento de todo Córdoba... ¡vamos a dar pelea!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const posts = [
+      {
+        titulo: "📢 ¡Atenas ya tiene rival en los Playoffs! 🏀💚",
+        descripcion: "Después de una temporada de reconstrucción, Atenas vuelve a decir presente en los Playoffs de la Liga Nacional.",
+        fecha: "2025-05-24",
+        imagen: "Atenas clasificado a playoffs 2024_25.png",
+        link: "#",
+        modal: true
+      }
+    ];
+
+    // Ordenar por fecha descendente
+    posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+    const container = document.getElementById('entradas');
+    posts.forEach((post, index) => {
+      const target = post.modal ? `data-bs-toggle="modal" data-bs-target="#playoffsModal"` : `href="${post.link}"`;
+      const card = `
+        <div class="card mb-4">
+          <img src="${post.imagen}" class="card-img-top" alt="${post.titulo}">
+          <div class="card-body">
+            <h5 class="card-title">${post.titulo}</h5>
+            <p class="card-text">${post.descripcion}</p>
+            <a ${target} class="btn btn-success">Ver detalles</a>
+          </div>
+          <div class="card-footer text-muted">Publicado el ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
+        </div>
+      `;
+      container.innerHTML += card;
+    });
+  </script>
+</body>
+</html>
