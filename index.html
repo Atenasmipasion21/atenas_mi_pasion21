@@ -85,13 +85,11 @@
 
   <main class="container my-4">
     <div class="row">
-      <!-- Entradas -->
-      <div class="col-md-8" id="entradas">
-        <!-- Tarjetas se cargan por JS -->
-      </div>
+      <!-- Entradas (9 columnas) -->
+      <div class="col-lg-9" id="entradas"></div>
 
-      <!-- Sidebar -->
-      <div class="col-md-4">
+      <!-- Sidebar (3 columnas) -->
+      <div class="col-lg-3 mt-4 mt-lg-0">
         <div class="sidebar">
           <h5>Entradas anteriores</h5>
           <ul class="list-unstyled">
@@ -111,42 +109,50 @@
     </div>
   </footer>
 
- <script>
-  const posts = [
-    {
-      titulo: "📢 ¡Atenas ya tiene rival en los Playoffs! 🏀💚",
-      descripcion: "Atenas jugará el próximo sábado en el Templo del Rock ante Obras.",
-      fecha: "2025-05-24",
-      imagen: "Atenas clasificado a playoffs 2024_25.png",
-      link: "analisis-obra.html"
-    },
-    {
-      titulo: "🎙️ ¡En vivo! Escuchá la transmisión 🏀💚",
-      descripcion: "Seguí el partido de Atenas vs Obras desde las 20:00 por Radio Atenas mi pasión.",
-      fecha: "2025-05-24",
-      imagen: "Partido en Vivo_ Atenas vs Obras.png",
-      link: "https://www.youtube.com/@radioatenasmipasion"
-    },
-  ];
+  <script>
+    const posts = [
+      {
+        titulo: "📢 ¡Atenas ya tiene rival en los Playoffs! 🏀💚",
+        descripcion: "Atenas jugará el próximo sábado en el Templo del Rock ante Obras.",
+        fecha: "2025-05-24",
+        imagen: "Atenas clasificado a playoffs 2024_25.png",
+        link: "analisis-obra.html"
+      },
+      {
+        titulo: "🎙️ ¡En vivo! Escuchá la transmisión 🏀💚",
+        descripcion: "Seguí el partido de Atenas vs Obras desde las 20:00 por Radio Atenas mi pasión.",
+        fecha: "2025-05-24",
+        imagen: "Partido en Vivo_ Atenas vs Obras.png",
+        link: "https://www.youtube.com/@radioatenasmipasion"
+      }
+    ];
 
-  posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+    posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
-  const container = document.getElementById('entradas');
-  posts.forEach(post => {
-    const card = `
-      <div class="card mb-4">
-        <img src="${post.imagen}" alt="${post.titulo}" class="card-img-top img-fluid" />
-        <div class="modal-body rounded">
-          <h5 class="card-title">${post.titulo}</h5>
-          <p class="card-text">${post.descripcion}</p>
-          <a href="${post.link}" class="btn btn-success">Leer más</a>
+    const container = document.getElementById('entradas');
+    const row = document.createElement('div');
+    row.className = "row g-4";
+
+    posts.forEach(post => {
+      const col = document.createElement('div');
+      col.className = "col-12 col-md-6 col-lg-4";
+
+      col.innerHTML = `
+        <div class="card h-100">
+          <img src="${post.imagen}" alt="${post.titulo}" class="card-img-top img-fluid" />
+          <div class="modal-body rounded">
+            <h5 class="card-title">${post.titulo}</h5>
+            <p class="card-text">${post.descripcion}</p>
+            <a href="${post.link}" class="btn btn-success">Leer más</a>
+          </div>
+          <div class="card-footer text-muted">Publicado el ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
         </div>
-        <div class="card-footer text-muted">Publicado el ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
-      </div>
-    `;
-    container.innerHTML += card;
-  });
-</script>
+      `;
 
+      row.appendChild(col);
+    });
+
+    container.appendChild(row);
+  </script>
 </body>
 </html>
