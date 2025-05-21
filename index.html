@@ -1,42 +1,132 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>Página en Construcción</title>
-    <style>
-        body {
-            background-color: #f2f2f2;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: #333;
-        }
-        .container {
-            text-align: center;
-            border: 3px dashed #999;
-            padding: 40px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            max-width: 400px;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atenas mi pasión – Noticias, Crónicas y Relatos del Básquet Cordobés</title>
+  <meta name="description" content="El blog no oficial de Atenas. Crónicas, transmisiones, historia y pasión por el básquet de Córdoba desde 1982." />
+  <meta name="keywords" content="Atenas, básquet, Córdoba, Liga Nacional, transmisiones deportivas, historia, crónicas, Radio Mariano Moreno" />
+  <meta name="author" content="Atenas mi pasión" />
+  <meta property="og:title" content="Atenas mi pasión – Noticias del club" />
+  <meta property="og:description" content="Todo sobre Atenas: crónicas, historia, transmisiones y más." />
+  <meta property="og:image" content="https://via.placeholder.com/1024x300?text=Atenas+mi+pasi%C3%B3n" />
+  <meta property="og:url" content="https://atenasmipasion21.github.io" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: url('estadio3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .bg-overlay {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .card {
+      background-color: rgba(255, 255, 255, 0.95);
+      color: black;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card-img-top {
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .sidebar {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 1rem;
+      border-radius: 12px;
+      color: #111;
+    }
+
+    footer {
+      background-color: #111;
+    }
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Página en construcción</h1>
-        <p>¡Pronto estará disponible!</p>
+  <header class="text-white text-center py-5 bg-success bg-gradient">
+    <h1 class="display-5 fw-bold">Atenas mi pasión</h1>
+    <p class="lead">Crónicas, historias y transmisiones del club más grande de Córdoba</p>
+  </header>
+
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Entradas principales -->
+      <div class="col-lg-8 mb-4">
+        <div class="row" id="entradas"></div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <div class="sidebar">
+          <h5 class="fw-bold">📌 Entradas anteriores</h5>
+          <ul id="entradas-anteriores" class="list-unstyled"></ul>
+          <hr />
+          <div class="d-flex flex-column">
+            <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="btn btn-danger mb-2">🎥 Canal de YouTube</a>
+            <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="btn btn-primary">📸 Instagram</a>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <footer class="text-white text-center py-4 mt-5">
+    <div class="container">
+      <p>© 2025 Atenas mi pasión - Hecho con ❤️ desde Córdoba</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      fetch('entradas.json')
+        .then(response => response.json())
+        .then(data => {
+          const entradasContainer = document.getElementById('entradas');
+          const anterioresContainer = document.getElementById('entradas-anteriores');
+
+          // Ordenar por fecha descendente
+          data.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+          data.forEach((entrada, index) => {
+            const card = `
+              <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                  <img src="${entrada.imagen}" class="card-img-top" alt="${entrada.titulo}" />
+                  <div class="card-body">
+                    <h5 class="card-title">${entrada.titulo}</h5>
+                    <p class="card-text">${entrada.descripcion || ''}</p>
+                    <a href="${entrada.link}" class="btn btn-success">Leer más</a>
+                  </div>
+                  <div class="card-footer text-muted small">Publicado el ${entrada.fecha}</div>
+                </div>
+              </div>
+            `;
+
+            entradasContainer.innerHTML += card;
+
+            if (index >= 3) {
+              const li = `<li><a href="${entrada.link}" class="text-decoration-none">📅 ${entrada.fecha} - ${entrada.titulo}</a></li>`;
+              anterioresContainer.innerHTML += li;
+            }
+          });
+        });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
