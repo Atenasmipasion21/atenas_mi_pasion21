@@ -100,15 +100,15 @@
           // Ordenar por fecha descendente
           data.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
-          data.forEach((entrada, index) => {
+          data.forEach((entradas, index) => {
             const card = `
               <div class="col-md-6 mb-4">
                 <div class="card h-100 shadow-sm">
-                  <img src="${entrada.imagen}" class="card-img-top" alt="${entrada.titulo}" />
+                  <img src="${entradas.imagen}" class="card-img-top" alt="${entrada.titulo}" />
                   <div class="card-body">
-                    <h5 class="card-title">${entrada.titulo}</h5>
-                    <p class="card-text">${entrada.descripcion || ''}</p>
-                    <a href="${entrada.link}" class="btn btn-success">Leer más</a>
+                    <h5 class="card-title">${entradas.titulo}</h5>
+                    <p class="card-text">${entradas.descripcion || ''}</p>
+                    <a href="${entradas.link}" class="btn btn-success">Leer más</a>
                   </div>
                   <div class="card-footer text-muted small">Publicado el ${entrada.fecha}</div>
                 </div>
