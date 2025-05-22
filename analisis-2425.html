@@ -120,36 +120,29 @@
       </div>
 
       <!-- Formspree comment form -->
-      <form
-        action="https://formspree.io/f/manozjvn"
-        method="POST"
-        enctype="multipart/form-data"
-        class="mt-4"
-      >
-        <div class="mb-3">
-          <label for="email" class="form-label">atenasmispasion21@gmail.com</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            class="form-control"
-            placeholder="tuemail@ejemplo.com"
-            required
-          />
-        </div>
-        <div class="mb-3">
-          <label for="upload" class="form-label">Archivo (opcional)</label>
-          <input
-            type="file"
-            id="upload"
-            name="upload"
-            class="form-control"
-            accept="image/*,application/pdf"
-          />
-        </div>
+<form
+  action="https://formspree.io/f/manozjvn"
+  method="POST"
+  class="mt-4"
+>
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Tu nombre</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre" required>
+  </div>
 
-        <button type="submit" class="btn btn-primary">Enviar comentario</button>
-      </form>
+  <div class="mb-3">
+    <label for="comentario" class="form-label">Tu comentario</label>
+    <textarea class="form-control" id="comentario" name="comentario" rows="4" placeholder="Escribí tu opinión aquí..." required></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Tu email</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Tu correo electrónico" required>
+  </div>
+
+  <button type="submit" class="btn btn-success">Enviar comentario</button>
+</form>
+
     </article>
   </div>
 
