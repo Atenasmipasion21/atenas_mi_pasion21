@@ -3,41 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atenas mi pasión – Blog de Básquet Cordobés</title>
+  <title>Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés</title>
+  <meta name="description" content="El blog no oficial de Atenas. Noticias, historia y pasión por el básquet de Córdoba desde 1982.">
+  <meta name="keywords" content="Atenas, básquet, Córdoba, Liga Nacional, transmisiones deportivas, historia, crónicas, Radio Mariano Moreno">
+  <meta name="author" content="Atenas mi pasión">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-    body {
-      background-color: #f8f9fa;
+    html, body {
+      height: 100%;
+      margin: 0;
+      overflow-x: hidden;
+      background: url('estadio3.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
     }
 
     header {
-      background-color: #28a745;
-      color: white;
-      padding: 1rem 0;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      background-color: rgba(40, 167, 69, 0.95);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .card {
+      background-color: rgba(0, 0, 0, 0.85);
+      color: #fff;
+      height: 100%;
     }
 
     .card img {
-      width: 100%;
-      aspect-ratio: 16/9;
       object-fit: cover;
+      width: 100%;
+      height: 435px;
       border-radius: 0.25rem 0.25rem 0 0;
     }
 
-    .sidebar {
-      background-color: #fff;
+    .modal-body {
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #000;
       padding: 1rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
 
-    footer {
-      background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 1.5rem 0;
-      margin-top: 3rem;
+    .sidebar {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 1rem;
+      border-radius: 10px;
+      color: #fff;
     }
 
     a {
@@ -47,47 +61,25 @@
     a:hover {
       text-decoration: underline;
     }
+
+    footer {
+      background-color: #111;
+    }
   </style>
 </head>
-<body>
 
-  <header>
-    <h1 class="display-5">Atenas mi pasión</h1>
-    <p class="lead mb-0">Crónicas, historia y básquet cordobés desde 1982</p>
+<body>
+  <header class="text-white text-center py-3">
+    <h1 class="display-5 mb-0">Atenas mi pasión</h1>
+    <p class="lead mb-0">Crónicas, historias y transmisiones de Atenas desde 1982</p>
   </header>
 
-  <main class="container my-5">
+  <main class="container my-4">
     <div class="row">
       <!-- Entradas -->
       <div class="col-lg-9">
-        <div class="row g-4">
-          <!-- Card 1 -->
-          <div class="col-md-6 col-xl-4">
-            <div class="card h-100">
-              <img src="imagen1.jpg" alt="Atenas vuelve a playoffs" class="img-fluid" />
-              <div class="card-body">
-                <h5 class="card-title">Atenas vuelve a playoffs después de 8 años</h5>
-                <p class="card-text">El club regresa a la élite tras una temporada de reconstrucción e identidad.</p>
-                <span class="badge bg-success mb-2">Análisis</span><br>
-                <a href="analisis-2425.html" class="btn btn-success">Leer más</a>
-              </div>
-              <div class="card-footer text-muted">📅 24/05/2025</div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="col-md-6 col-xl-4">
-            <div class="card h-100">
-              <img src="partido-vivo.jpg" alt="Transmisión en vivo" class="img-fluid" />
-              <div class="card-body">
-                <h5 class="card-title">🎙️ ¡En vivo! Escuchá Atenas vs Obras</h5>
-                <p class="card-text">Relato en vivo desde la Estructura Pretensa. ¡No te lo pierdas!</p>
-                <span class="badge bg-success mb-2">Transmisiones</span><br>
-                <a href="https://www.youtube.com/watch?v=KTBOJK8Hx1g&t=300s" target="_blank" class="btn btn-success">Ver en YouTube</a>
-              </div>
-              <div class="card-footer text-muted">📅 24/05/2025</div>
-            </div>
-          </div>
+        <div class="row" id="entradas">
+          <!-- Entradas se cargan aquí -->
         </div>
       </div>
 
@@ -111,13 +103,59 @@
     </div>
   </main>
 
-  <footer>
-    <p class="mb-2">© 2025 Atenas mi pasión – Hecho con ❤️ en Córdoba</p>
+  <footer class="text-center text-white py-4 mt-5">
+    <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba</p>
     <div class="d-flex justify-content-center gap-3">
-      <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank">🎥 YouTube</a>
-      <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank">📸 Instagram</a>
+      <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white">🎥 YouTube</a>
+      <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white">📸 Instagram</a>
     </div>
   </footer>
+
+  <script>
+    const posts = [
+      {
+        "titulo": "Atenas vuelve a playoffs después de 8 años: un regreso con identidad y desafío",
+        "descripcion": "Después de una temporada marcada por la reconstrucción y la consolidación, Atenas regresa a los playoffs de la Liga Nacional 2024/25.\n\nEl histórico club cordobés sostiene la base campeona de la Liga Argentina y crece bajo la conducción de Gustavo Peirone. Con una fortaleza indiscutible en su cancha, la Estructura Pretensa Atenas, el equipo mostró una notable adaptación al máximo nivel. Sin embargo, el gran desafío sigue siendo mejorar su rendimiento fuera de casa para avanzar y consolidarse entre los mejores del básquet nacional.\n\nEn esta entrada te contamos cómo el club se prepara para dar pelea en la élite y qué factores marcaron su camino hasta esta instancia.",
+        "fecha": "2025-05-24",
+        "imagen": "Imagen de WhatsApp 2025-05-16 a las 23.01.15_c489e7d3.jpg",
+        "link": "analisis-2425.html",
+        "categoria": "Análisis",
+        "alt": "Jugadores de Atenas celebrando en la cancha durante un partido de playoffs"
+      },
+      {
+        "titulo": "🎙️ ¡En vivo! Escuchá la transmisión 🏀💚",
+        "descripcion": "¿Qué? Transmisión en vivo de Atenas vs Obras. ¿Cuándo? 25 de mayo – 20:00 hs. ¿Dónde? YouTube Radio Atenas. ¿Quién? Equipo Atenas mi Pasión. ¿Por qué? Por la pasión de siempre. ¿Cómo? Con relato y análisis en vivo.",
+        "fecha": "2025-05-24",
+        "imagen": "Partido en Vivo_ Atenas vs Obras.png",
+        "link": "https://www.youtube.com/watch?v=KTBOJK8Hx1g&t=300s",
+        "categoria": "Transmisiones",
+        "alt": "Banner promocional del partido en vivo Atenas vs Obras con horario y detalles"
+      }
+    ];
+
+    const container = document.getElementById('entradas');
+    posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+
+    posts.forEach(post => {
+      const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
+
+      const card = `
+        <div class="col-md-6 col-xl-4 d-flex mb-4">
+          <div class="card w-100">
+            <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
+            <div class="modal-body rounded">
+              <h5 class="card-title">${post.titulo}</h5>
+              <p class="card-text">${post.descripcion}</p>
+              <span class="badge bg-success mb-2">${post.categoria}</span><br/>
+              <a href="${post.link}" class="btn btn-success" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>Leer más</a>
+            </div>
+            <div class="card-footer text-muted">📅 ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
+          </div>
+        </div>
+      `;
+      container.innerHTML += card;
+    });
+  </script>
 
 </body>
 </html>
