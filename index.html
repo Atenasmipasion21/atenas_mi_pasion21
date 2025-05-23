@@ -32,21 +32,12 @@
       background-color: rgba(0, 0, 0, 0.85);
       color: #fff;
       height: 100%;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-      z-index: 10;
-      position: relative;
     }
 
     .card img {
       object-fit: cover;
       width: 100%;
       border-radius: 0.25rem 0.25rem 0 0;
-      transition: transform 0.3s ease;
     }
 
     .modal-body {
@@ -142,23 +133,6 @@
     </div>
   </main>
 
-  <!-- Modal para la entrada FECHA - HORA - TELEVISION -->
-  <div class="modal fade" id="fechaHoraModal" tabindex="-1" aria-labelledby="fechaHoraModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title" id="fechaHoraModalLabel">FECHA - HORA - TELEVISION</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body">
-          <img src="Calendario Playoffs Atenas 2023 (1).png" alt="Calendario Playoffs Atenas" class="img-fluid rounded mb-3" />
-          <p>Jugadores de Atenas celebrando en la cancha durante un partido de playoffs.</p>
-          <p>Fechas y horarios confirmados para los próximos partidos de Atenas en la Liga Nacional de Básquetbol.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <footer class="text-center text-white py-4 mt-5">
     <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba</p>
     <div class="d-flex justify-content-center gap-3">
@@ -167,19 +141,8 @@
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
     const posts = [
-      {
-        "titulo": "🎥 ¡En vivo! Transmisión Atenas vs Obras",
-        "descripcion": "Este sábado desde las 19:45 hs transmitimos en vivo por YouTube. No te pierdas el relato y análisis exclusivo.",
-        "fecha": "2025-05-24",
-        "imagen": "transmision-en-vivo.png",
-        "link": "https://www.youtube.com/watch?v=KTBOJK8Hx1g&t=300s",
-        "categoria": "Transmisión",
-        "alt": "Transmisión en vivo de Atenas vs Obras"
-      },
       {
         "titulo": "FECHA - HORA - TELEVISION",
         "descripcion": "",
@@ -203,53 +166,41 @@
     const container = document.getElementById('entradas');
     const banner = document.getElementById('streamBanner');
 
-    // Ordenar por fecha descendente para mostrar primero las más nuevas
-    posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+    // Ordenar por fecha descendente (las entradas sin fecha quedan abajo)
+    posts.sort((a, b) => {
+      const dateA = a.fecha ? new Date(a.fecha) : new Date(0);
+      const dateB = b.fecha ? new Date(b.fecha) : new Date(0);
+      return dateB - dateA;
+    });
 
     posts.forEach(post => {
-      const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
-
-      // Mostrar banner si hay título con "¡En vivo!"
+      // Mostrar banner solo si hay una entrada 'en vivo' (en esta versión no hay, por eso no se muestra)
       if (post.titulo.includes("¡En vivo!")) {
         banner.classList.remove("d-none");
+        // No agregamos esta entrada al listado para evitar duplicado
+        return;
       }
 
-      let cardHtml = '';
+      // Crear la tarjeta para el resto de las entradas
+      const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
 
-      if (post.titulo === "FECHA - HORA - TELEVISION") {
-        // Tarjeta con modal trigger para esta entrada
-        cardHtml = `
-          <div class="col-md-6 col-xl-4 d-flex mb-4">
-            <div class="card w-100" role="button" data-bs-toggle="modal" data-bs-target="#fechaHoraModal" style="cursor:pointer;">
-              <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
-              <div class="modal-body rounded">
-                <h5 class="card-title">${post.titulo}</h5>
-                <span class="badge bg-success mb-2">${post.categoria}</span><br/>
-                <small class="text-muted">Haz clic para ver fechas y horas</small>
-              </div>
-              <div class="card-footer text-muted">📅 ${post.fecha ? new Date(post.fecha).toLocaleDateString('es-AR') : ''}</div>
+      const card = `
+        <div class="col-md-6 col-xl-4 d-flex mb-4">
+          <div class="card w-100">
+            <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
+            <div class="modal-body rounded">
+              <h5 class="card-title">${post.titulo}</h5>
+              <p class="card-text">${post.descripcion.replace(/\n/g, '<br>')}</p>
+              <span class="badge bg-success mb-2">${post.categoria}</span><br/>
+              <a href="${post.link}" class="btn btn-success" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>Leer más</a>
             </div>
+            <div class="card-footer text-muted">📅 ${post.fecha ? new Date(post.fecha).toLocaleDateString('es-AR') : ''}</div>
           </div>
-        `;
-      } else {
-        cardHtml = `
-          <div class="col-md-6 col-xl-4 d-flex mb-4">
-            <div class="card w-100">
-              <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
-              <div class="modal-body rounded">
-                <h5 class="card-title">${post.titulo}</h5>
-                <p class="card-text">${post.descripcion.replace(/\n/g, '<br>')}</p>
-                <span class="badge bg-success mb-2">${post.categoria}</span><br/>
-                <a href="${post.link}" class="btn btn-success" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>Leer más</a>
-              </div>
-              <div class="card-footer text-muted">📅 ${post.fecha ? new Date(post.fecha).toLocaleDateString('es-AR') : ''}</div>
-            </div>
-          </div>
-        `;
-      }
-
-      container.innerHTML += cardHtml;
+        </div>
+      `;
+      container.innerHTML += card;
     });
   </script>
+
 </body>
 </html>
