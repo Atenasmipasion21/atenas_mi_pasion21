@@ -100,9 +100,9 @@
   <main class="container my-4">
     <!-- Banner destacado para la transmisión -->
     <div class="banner d-none" id="streamBanner">
-      <h2 class="mb-3">🎙️ ¡En vivo este sábado! Atenas vs Obras – 19:45 hs</h2>
-      <p>Sumate a la transmisión por YouTube: relato, análisis y pasión por el Griego 💚</p>
-      <a href="https://www.youtube.com/watch?v=KTBOJK8Hx1g&t=300s" target="_blank" rel="noopener noreferrer" class="btn btn-success">Ver en vivo</a>
+      <h2 class="mb-3" id="bannerTitulo"></h2>
+      <p id="bannerDescripcion"></p>
+      <a href="#" id="bannerLink" target="_blank" rel="noopener noreferrer" class="btn btn-success">Ver en vivo</a>
     </div>
 
     <div class="row">
@@ -144,6 +144,15 @@
   <script>
     const posts = [
       {
+        "titulo": "¡En vivo! Atenas vs Obras – Sábado 19:45 hs",
+        "descripcion": "Sumate a la transmisión en vivo por YouTube: relato, análisis y pasión por el Griego 💚",
+        "fecha": "2025-05-24",
+        "imagen": "transmision-vivo.jpg",
+        "link": "https://www.youtube.com/watch?v=KTBOJK8Hx1g&t=300s",
+        "categoria": "Transmisión",
+        "alt": "Banner transmisión en vivo de Atenas"
+      },
+      {
         "titulo": "FECHA - HORA - TELEVISION",
         "descripcion": "",
         "fecha": "",
@@ -165,23 +174,31 @@
 
     const container = document.getElementById('entradas');
     const banner = document.getElementById('streamBanner');
+    const bannerTitulo = document.getElementById('bannerTitulo');
+    const bannerDescripcion = document.getElementById('bannerDescripcion');
+    const bannerLink = document.getElementById('bannerLink');
 
-    // Ordenar por fecha descendente (las entradas sin fecha quedan abajo)
-    posts.sort((a, b) => {
+    // Buscar entrada 'en vivo' para mostrar banner
+    const enVivoPost = posts.find(post => post.titulo.toLowerCase().includes('en vivo'));
+
+    if (enVivoPost) {
+      banner.classList.remove('d-none');
+      bannerTitulo.textContent = enVivoPost.titulo;
+      bannerDescripcion.textContent = enVivoPost.descripcion;
+      bannerLink.href = enVivoPost.link;
+    }
+
+    // Filtrar posts que no sean el 'en vivo' para mostrar en lista
+    const postsFiltrados = posts.filter(post => !post.titulo.toLowerCase().includes('en vivo'));
+
+    // Ordenar posts filtrados por fecha descendente (fecha vacía última)
+    postsFiltrados.sort((a, b) => {
       const dateA = a.fecha ? new Date(a.fecha) : new Date(0);
       const dateB = b.fecha ? new Date(b.fecha) : new Date(0);
       return dateB - dateA;
     });
 
-    posts.forEach(post => {
-      // Mostrar banner solo si hay una entrada 'en vivo' (en esta versión no hay, por eso no se muestra)
-      if (post.titulo.includes("¡En vivo!")) {
-        banner.classList.remove("d-none");
-        // No agregamos esta entrada al listado para evitar duplicado
-        return;
-      }
-
-      // Crear la tarjeta para el resto de las entradas
+    postsFiltrados.forEach(post => {
       const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
 
       const card = `
@@ -201,6 +218,5 @@
       container.innerHTML += card;
     });
   </script>
-
 </body>
 </html>
