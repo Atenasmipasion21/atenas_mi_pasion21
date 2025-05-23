@@ -7,8 +7,8 @@
   <meta name="description" content="El blog no oficial de Atenas. Noticias, historia y pasión por el básquet de Córdoba desde 1982.">
   <meta name="keywords" content="Atenas, básquet, Córdoba, Liga Nacional, transmisiones deportivas, historia, crónicas, Radio Mariano Moreno">
   <meta name="author" content="Atenas mi pasión">
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     html, body {
@@ -37,8 +37,8 @@
     .card img {
       object-fit: cover;
       width: 100%;
-      height: 180px;
       border-radius: 0.25rem 0.25rem 0 0;
+      cursor: pointer;
     }
 
     .modal-body {
@@ -65,6 +65,37 @@
     footer {
       background-color: #111;
     }
+
+    /* Banner destacado transmisión en vivo */
+    .banner-live {
+      background-color: rgba(40, 167, 69, 0.9);
+      color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .banner-live:hover {
+      background-color: rgba(40, 167, 69, 1);
+    }
+
+    .banner-live img {
+      max-height: 120px;
+      object-fit: contain;
+    }
+
+    .banner-live-content {
+      padding: 1rem 1rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .banner-live h4 {
+      margin-bottom: 0.5rem;
+    }
   </style>
 </head>
 
@@ -76,10 +107,21 @@
 
   <main class="container my-4">
     <div class="row">
-      <!-- Entradas y banner -->
-      <div class="col-lg-9">
-        <div id="stream-banner" class="mb-4"></div>
+      <!-- Banner destacado transmisión -->
+      <div class="col-12">
+        <a href="https://www.youtube.com/watch?v=KTBOJK8Hx1g&t=300s" target="_blank" rel="noopener noreferrer" class="banner-live d-flex align-items-center text-white text-decoration-none">
+          <img src="Partido en Vivo_ Atenas vs Obras.png" alt="Banner transmisión en vivo Atenas vs Obras" class="img-fluid" />
+          <div class="banner-live-content">
+            <h4>🎙️ ¡En vivo! Escuchá la transmisión 🏀💚</h4>
+            <p>Transmisión en vivo de Atenas vs Obras - 25 de mayo – 19:45 hs. Por YouTube Radio Atenas - ¡No te lo pierdas!</p>
+          </div>
+        </a>
+      </div>
+    </div>
 
+    <div class="row">
+      <!-- Entradas -->
+      <div class="col-lg-9">
         <div class="row" id="entradas">
           <!-- Entradas se cargan aquí -->
         </div>
@@ -113,6 +155,33 @@
     </div>
   </footer>
 
+  <!-- Modal para Fechas -->
+  <div class="modal fade" id="modalFechas" tabindex="-1" aria-labelledby="modalFechasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalFechasLabel">Fechas, Horarios y Televisión - Playoffs Atenas 2025</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img src="Calendario Playoffs Atenas 2023 (1).png" alt="Calendario Playoffs Atenas 2023" class="img-fluid mb-3" />
+          <p>Aquí puedes agregar el calendario detallado de los partidos de Atenas en los playoffs:</p>
+          <ul class="text-start">
+            <li>25 de mayo – 19:45 hs – Atenas vs Obras – Transmisión en vivo por YouTube Radio Atenas</li>
+            <li>28 de mayo – 21:00 hs – Atenas vs Gimnasia – Canal Local (por confirmar)</li>
+            <li>1 de junio – 20:00 hs – Atenas vs Rival X – Streaming oficial</li>
+            <!-- Más fechas -->
+          </ul>
+          <p>¡No te pierdas ningún detalle y acompaña a Atenas en esta gran campaña!</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     const posts = [
       {
@@ -126,72 +195,56 @@
       },
       {
         "titulo": "Atenas vuelve a playoffs después de 8 años: un regreso con identidad y desafío",
-        "descripcion": "Después de una temporada marcada por la reconstrucción y la consolidación, Atenas regresa a los playoffs de la Liga Nacional 2024/25.\n\nEl histórico club cordobés sostiene la base campeona de la Liga Argentina y crece bajo la conducción de Gustavo Peirone. Con una fortaleza indiscutible en su cancha, la Estructura Pretensa Atenas, el equipo mostró una notable adaptación al máximo nivel. Sin embargo, el gran desafío sigue siendo mejorar su rendimiento fuera de casa para avanzar y consolidarse entre los mejores del básquet nacional.\n\nEn esta entrada te contamos cómo el club se prepara para dar pelea en la élite y qué factores marcaron su camino hasta esta instancia.",
-        "fecha": "2025-05-24",
-        "imagen": "Imagen de WhatsApp 2025-05-16 a las 23.01.15_c489e7d3.jpg",
-        "link": "analisis-2425.html",
-        "categoria": "Análisis",
-        "alt": "Jugadores de Atenas celebrando en la cancha durante un partido de playoffs"
+        "descripcion": "Después de una temporada marcada por la reconstrucción y la consolidación, Atenas regresa a los playoffs de la Liga Nacional, prometiendo pasión y competencia.",
+        "fecha": "18/05/2025",
+        "imagen": "Atenas vuelve a playoffs.jpg",
+        "link": "https://radioatenasmipasion.blogspot.com/2025/05/atenas-vuelve-playoffs-despues-8-anos.html",
+        "categoria": "Noticias",
+        "alt": "Jugadores de Atenas celebrando una canasta importante en un partido de playoffs"
       },
       {
-        "titulo": "🎙️ ¡En vivo! Escuchá la transmisión 🏀💚",
-        "descripcion": "Transmisión en vivo de Atenas vs Obras - 25 de mayo – 19:45 hs. ¿Dónde? YouTube Radio Atenas - Por la pasión de siempre - Con relato y análisis en vivo.",
-        "fecha": "2025-05-24",
+        "titulo": "Entradas agotadas para el duelo Atenas vs Obras el 25 de mayo",
+        "descripcion": "La expectativa por el partido Atenas vs Obras es máxima, con todas las entradas vendidas y el estadio Carlos Cerutti a reventar.",
+        "fecha": "20/05/2025",
+        "imagen": "Entradas agotadas.jpg",
+        "link": "https://radioatenasmipasion.blogspot.com/2025/05/entradas-agotadas-para-duelo-atenas-vs.html",
+        "categoria": "Noticias",
+        "alt": "Multitud de hinchas de Atenas con camisetas y banderas en la entrada del estadio"
+      },
+      {
+        "titulo": "🎙️ Transmisión en vivo – Atenas vs Obras – 25 de mayo – 19:45 hs",
+        "descripcion": "Seguinos en vivo por YouTube Radio Atenas para vivir la emoción del partido entre Atenas y Obras en los playoffs.",
+        "fecha": "25/05/2025",
         "imagen": "Partido en Vivo_ Atenas vs Obras.png",
         "link": "https://www.youtube.com/watch?v=KTBOJK8Hx1g&t=300s",
-        "categoria": "Transmisiones",
-        "alt": "Banner promocional del partido en vivo Atenas vs Obras con horario y detalles"
+        "categoria": "Transmisión",
+        "alt": "Banner transmisión en vivo Atenas vs Obras"
       }
     ];
 
-    // Mostrar banner destacado para el stream
-    const streamPost = posts.find(p => p.categoria === "Transmisiones");
-    if (streamPost) {
-      const banner = `
-        <div class="card bg-success text-white mb-4 shadow">
-          <div class="row g-0 align-items-center">
-            <div class="col-md-4">
-              <img src="${streamPost.imagen}" alt="${streamPost.alt}" class="img-fluid rounded-start" />
-            </div>
-            <div class="col-md-8 p-3">
-              <h3 class="card-title">${streamPost.titulo}</h3>
-              <p class="card-text">${streamPost.descripcion}</p>
-              <a href="${streamPost.link}" target="_blank" rel="noopener noreferrer" class="btn btn-light">
-                Ver transmisión
-              </a>
-            </div>
-          </div>
-        </div>
-      `;
-      document.getElementById('stream-banner').innerHTML = banner;
-    }
-
-    // Cargar demás posts, excluyendo el stream que ya está en banner
+    // Renderizar entradas (sin incluir banner porque está hardcodeado arriba)
     const container = document.getElementById('entradas');
-    posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
-    let allCards = '';
     posts.forEach(post => {
-      if(post.categoria === "Transmisiones") return;
+      if (post.categoria !== "Transmisión") {  // Excluimos el banner de las entradas normales
+        const card = document.createElement('div');
+        card.className = 'col-md-6 col-lg-4 mb-4';
 
-      const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
-
-      const card = `
-        <div class="col-md-6 col-xl-4 d-flex mb-4">
-          <div class="card w-100">
-            <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
-            <div class="modal-body rounded">
+        card.innerHTML = `
+          <article class="card h-100">
+            <a href="${post.link}" target="_blank" rel="noopener noreferrer">
+              <img src="${post.imagen}" alt="${post.alt}" loading="lazy" />
+            </a>
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title">${post.titulo}</h5>
+              ${post.fecha ? `<small class="text-muted mb-2">${post.fecha}</small>` : ''}
               <p class="card-text">${post.descripcion}</p>
-              <span class="badge bg-success mb-2">${post.categoria}</span><br/>
-              <a href="${post.link}" class="btn btn-success" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>Leer más</a>
+              <a href="${post.link}" target="_blank" rel="noopener noreferrer" class="mt-auto btn btn-success">Leer más</a>
             </div>
-            <div class="card-footer text-muted">📅 ${post.fecha ? new Date(post.fecha).toLocaleDateString('es-AR') : 'Fecha no disponible'}</div>
-          </div>
-        </div>
-      `;
-      allCards += card;
+          </article>
+        `;
+        container.appendChild(card);
+      }
     });
-    container.innerHTML = allCards;
   </script>
 </body>
 </html>
