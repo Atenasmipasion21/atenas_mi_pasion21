@@ -167,47 +167,32 @@
       }
     ];
 
-    const container = document.getElementById('entradas');
+posts.forEach(post => {
+  const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
 
-    posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+  // Mostrar el banner si es la entrada "En vivo"
+  if (post.titulo.includes("¡En vivo!")) {
+    banner.classList.remove("d-none");
+    return; // Salteamos la generación de tarjeta para no mostrarla
+  }
 
-    posts.forEach(post => {
-      const isExternal = post.link?.startsWith('http://') || post.link?.startsWith('https://');
-      let card = "";
+  const card = `
+    <div class="col-md-6 col-xl-4 d-flex mb-4">
+      <div class="card w-100">
+        <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
+        <div class="modal-body rounded">
+          <h5 class="card-title">${post.titulo}</h5>
+          <p class="card-text">${post.descripcion}</p>
+          <span class="badge bg-success mb-2">${post.categoria}</span><br/>
+          <a href="${post.link}" class="btn btn-success" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>Leer más</a>
+        </div>
+        <div class="card-footer text-muted">📅 ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
+      </div>
+    </div>
+  `;
+  container.innerHTML += card;
+});
 
-      if (post.modalId) {
-        card = `
-          <div class="col-md-6 col-xl-4 d-flex mb-4">
-            <div class="card w-100" role="button" data-bs-toggle="modal" data-bs-target="#${post.modalId}">
-              <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
-              <div class="modal-body rounded">
-                <h5 class="card-title">${post.titulo}</h5>
-                <span class="badge bg-success mb-2">${post.categoria}</span>
-              </div>
-              <div class="card-footer text-muted">📅 ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
-            </div>
-          </div>
-        `;
-      } else {
-        card = `
-          <div class="col-md-6 col-xl-4 d-flex mb-4">
-            <div class="card w-100">
-              <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
-              <div class="modal-body rounded">
-                <h5 class="card-title">${post.titulo}</h5>
-                <p class="card-text">${post.descripcion}</p>
-                <span class="badge bg-success mb-2">${post.categoria}</span><br/>
-                <a href="${post.link}" class="btn btn-success" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>Leer más</a>
-              </div>
-              <div class="card-footer text-muted">📅 ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
-            </div>
-          </div>
-        `;
-      }
-
-      container.innerHTML += card;
-    });
-  </script>
 
   <!-- Modal -->
   <div class="modal fade" id="modalFechas" tabindex="-1" aria-labelledby="modalFechasLabel" aria-hidden="true">
