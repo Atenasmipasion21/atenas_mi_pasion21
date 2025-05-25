@@ -9,6 +9,9 @@
   <meta name="author" content="Atenas mi pasión">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome para iconos -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
   <style>
     html, body {
       height: 100%;
@@ -87,6 +90,20 @@
     .btn-success:hover {
       background-color: #218838;
     }
+
+    /* Estilo para encabezados mensuales con ícono */
+    .encabezado-mes {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+    }
   </style>
 </head>
 
@@ -97,16 +114,22 @@
   </header>
 
   <main class="container my-4">
-    <div class="banner" id="streamBanner">
+    <!-- Banner destacado para la transmisión -->
+    <div class="banner d-none" id="streamBanner">
       <h2 class="mb-3">🎙️ ¡En vivo este sábado! Atenas vs Obras – 19:45 hs</h2>
       <p>Sumate a la transmisión por YouTube: relato, análisis y pasión por el Griego 💚</p>
       <a href="https://www.youtube.com/watch?v=KTBOJK8Hx1g&t=300s" target="_blank" rel="noopener noreferrer" class="btn btn-success">Ver en vivo</a>
     </div>
 
     <div class="row">
+      <!-- Entradas -->
       <div class="col-lg-9">
-        <div class="row" id="entradas"></div>
+        <div class="row" id="entradas">
+          <!-- Entradas se cargarán aquí -->
+        </div>
       </div>
+
+      <!-- Sidebar -->
       <div class="col-lg-3">
         <div class="sidebar mb-4">
           <h5>Archivo por mes</h5>
@@ -120,7 +143,6 @@
           <ul class="list-unstyled">
             <li><a href="analisis-obera.html">Atenas 81 – Oberá 85 (17/5)</a></li>
             <li><a href="analisis-obra.html">¡Atenas ya tiene rival en los Playoffs!</a></li>
-             <li><a href="analisis-2425.html">Atenas vuelve a playoffs después de 8 años</a></li>
           </ul>
         </div>
       </div>
@@ -137,72 +159,107 @@
 
   <script>
     const posts = [
-        {
-        "titulo": "Ganó Obra!!! 🏀",
-        "descripcion": "A pesar de reaccionar no pudo!!.",
-        "fecha": "2025-05-25",
-        "imagen": "Liga Nacional de Básquet 2025_ Obras vs Atenas.png",
-        "link": "partido1.html",
-        "categoria": "Análisis",
-        "alt": "Banner promocional del partido en vivo Atenas vs Obras"
-      },
-       {
+      {
         "titulo": "FECHA - HORA - TELEVISION",
         "descripcion": "",
-        "fecha": "2025-05-24",
+        "fecha": "",
         "imagen": "Calendario Playoffs Atenas 2023 (1).png",
-        "modalId": "modalFechas",
+        "link": "#",
         "categoria": "Fechas",
+        "alt": "Jugadores de Atenas celebrando en la cancha durante un partido de playoffs",
+        "modal": true
+      },
+      {
+        "titulo": "Atenas vuelve a playoffs después de 8 años: un regreso con identidad y desafío",
+        "descripcion": "Después de una temporada marcada por la reconstrucción y la consolidación, Atenas regresa a los playoffs de la Liga Nacional 2024/25.\n\nEl histórico club cordobés sostiene la base campeona de la Liga Argentina y crece bajo la conducción de Gustavo Peirone. Con una fortaleza indiscutible en su cancha, la Estructura Pretensa Atenas, el equipo mostró una notable adaptación al máximo nivel. Sin embargo, el gran desafío sigue siendo mejorar su rendimiento fuera de casa para avanzar y consolidarse entre los mejores del básquet nacional.\n\nEn esta entrada te contamos cómo el club se prepara para dar pelea en la élite y qué factores marcaron su camino hasta esta instancia.",
+        "fecha": "2025-05-24",
+        "imagen": "Imagen de WhatsApp 2025-05-16 a las 23.01.15_c489e7d3.jpg",
+        "link": "analisis-2425.html",
+        "categoria": "Análisis",
         "alt": "Jugadores de Atenas celebrando en la cancha durante un partido de playoffs"
       },
-     
       {
         "titulo": "🎙️ ¡En vivo! Escuchá la transmisión 🏀💚",
-        "descripcion": "Transmisión en vivo de Atenas vs Obras - 25 de mayo – 19:45 hs. YouTube Radio Atenas - Relato y análisis en vivo.",
+        "descripcion": "Transmisión en vivo de Atenas vs Obras - 25 de mayo – 19:45 hs. ¿Dónde? YouTube Radio Atenas - Por la pasión de siempre - Con relato y análisis en vivo.",
         "fecha": "2025-05-24",
         "imagen": "Partido en Vivo_ Atenas vs Obras.png",
         "link": "https://www.youtube.com/watch?v=KTBOJK8Hx1g&t=300s",
         "categoria": "Transmisiones",
-        "alt": "Banner promocional del partido en vivo Atenas vs Obras"
+        "alt": "Banner promocional del partido en vivo Atenas vs Obras con horario y detalles"
       }
     ];
 
-posts.forEach(post => {
-  const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
+    const container = document.getElementById('entradas');
+    const banner = document.getElementById('streamBanner');
 
-  // Mostrar el banner si es la entrada "En vivo"
-  if (post.titulo.includes("¡En vivo!")) {
-    banner.classList.remove("d-none");
-    return; // Salteamos la generación de tarjeta para no mostrarla
-  }
+    // Ordenar posts de más reciente a más antiguo
+    posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
-  const card = `
-    <div class="col-md-6 col-xl-4 d-flex mb-4">
-      <div class="card w-100">
-        <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
-        <div class="modal-body rounded">
-          <h5 class="card-title">${post.titulo}</h5>
-          <p class="card-text">${post.descripcion}</p>
-          <span class="badge bg-success mb-2">${post.categoria}</span><br/>
-          <a href="${post.link}" class="btn btn-success" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>Leer más</a>
+    // Mostrar banner solo si hay entrada en vivo y ocultar esa entrada
+    posts.forEach(post => {
+      if (post.titulo.includes("¡En vivo!")) {
+        banner.classList.remove("d-none");
+      }
+    });
+
+    // Filtrar para mostrar entradas excepto la de "¡En vivo!" en listado
+    const postsToShow = posts.filter(post => !post.titulo.includes("¡En vivo!"));
+
+    // Función para obtener mes en formato "Mayo 2025"
+    function obtenerMes(fechaStr) {
+      if (!fechaStr) return "Sin fecha";
+      const fecha = new Date(fechaStr);
+      const opciones = { year: 'numeric', month: 'long' };
+      return fecha.toLocaleDateString('es-AR', opciones);
+    }
+
+    // Agrupar entradas por mes
+    let mesActual = '';
+    postsToShow.forEach(post => {
+      const mes = obtenerMes(post.fecha);
+      if (mes !== mesActual) {
+        mesActual = mes;
+        container.innerHTML += `
+          <div class="col-12">
+            <div class="encabezado-mes">
+              <i class="fas fa-calendar-alt me-2"></i> ${mes.charAt(0).toUpperCase() + mes.slice(1)}
+            </div>
+          </div>
+        `;
+      }
+
+      const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
+
+      let cardHTML = `
+        <div class="col-md-6 col-xl-4 d-flex mb-4">
+          <div class="card w-100 ${post.modal ? "post-modal-trigger" : ""}" ${post.modal ? 'data-bs-toggle="modal" data-bs-target="#modalFechaHora"' : ""} style="cursor: ${post.modal ? 'pointer' : 'default'};">
+            <img src="${post.imagen}" alt="${post.alt}" class="card-img-top img-fluid" />
+            <div class="modal-body rounded">
+              <h5 class="card-title">${post.titulo}</h5>
+              <p class="card-text">${post.descripcion}</p>
+              <span class="badge bg-success mb-2">${post.categoria}</span><br/>
+              <a href="${post.link}" class="btn btn-success" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>Leer más</a>
+            </div>
+            <div class="card-footer text-muted">📅 ${post.fecha ? new Date(post.fecha).toLocaleDateString('es-AR') : ''}</div>
+          </div>
         </div>
-        <div class="card-footer text-muted">📅 ${new Date(post.fecha).toLocaleDateString('es-AR')}</div>
-      </div>
-    </div>
-  `;
-  container.innerHTML += card;
-});
+      `;
 
+      container.innerHTML += cardHTML;
+    });
 
-  <!-- Modal -->
-  <div class="modal fade" id="modalFechas" tabindex="-1" aria-labelledby="modalFechasLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
+  </script>
+
+  <!-- Modal para FECHA - HORA - TELEVISION -->
+  <div class="modal fade" id="modalFechaHora" tabindex="-1" aria-labelledby="modalFechaHoraLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
-        <div class="modal-body">
-          <h5 class="modal-title mb-3" id="modalFechasLabel">Calendario de Playoffs – Atenas</h5>
-          <img src="Calendario Playoffs Atenas 2023 (1).png" class="img-fluid mb-3 rounded" alt="Calendario Playoffs Atenas" />
-          <p>Conocé las fechas y horarios confirmados para los partidos de Atenas en esta fase de playoffs. Se actualiza en tiempo real.</p>
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title" id="modalFechaHoraLabel">FECHA - HORA - TELEVISION</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body p-0">
+          <img src="Calendario Playoffs Atenas 2023 (1).png" alt="Calendario de Playoffs Atenas 2023" class="img-fluid rounded-bottom" />
         </div>
       </div>
     </div>
