@@ -18,20 +18,17 @@
     h1, h2, h3 {
       color: #00543D;
     }
-    .card {
-      border: none;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
-      margin-bottom: 20px;
-      height: 435px; /* altura fija */
-      width: 474px;  /* ancho fijo */
-      display: flex;
-      flex-direction: column;
-      margin-left: auto;
-      margin-right: auto; /* centrar cards */
-    }
+   .card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  margin-bottom: 20px;
+  height: auto; /* altura fija de la card */
+  display: flex;
+  flex-direction: column;
+}
     .card:hover {
       transform: scale(1.02);
     }
@@ -41,10 +38,6 @@
       object-fit: cover;
     }
     @media (max-width: 768px) {
-      .card {
-        width: 100%; /* responsivo en móvil */
-        height: auto;
-      }
       .card img {
         height: 300px;
       }
@@ -86,7 +79,7 @@
       <!-- Jugador 1 -->
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card text-center">
-          <img src="atenas-2025-1-1.jpg" alt="Nakye Sanders - Atenas 2025">
+          <img src="atenas-2025-1-1.jpg"alt="Nakye Sanders - Atenas 2025">
           <div class="card-body">
             <h5><span class="badge bg-success">1</span></h5>
             <h4 class="card-title"><strong>Nakye Sanders</strong></h4>
@@ -164,3 +157,126 @@
       <!-- Jugador 22 -->
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card text-center">
+          <img src="maidana-1.jpg" alt="Jerónimo Maidana - Atenas 2025">
+          <div class="card-body">
+            <h5><span class="badge bg-success">22</span></h5>
+            <h4 class="card-title"><strong>Jerónimo Maidana</strong></h4>
+            <h6>20/10/04</h6>
+            <p class="card-text">Ala-pivot<br>Altura: 2.01 m</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jugador 55 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center">
+          <img src="tomatis-1.jpg" alt="Thiago Tomattis - Atenas 2025">
+          <div class="card-body">
+            <h5><span class="badge bg-success">55</span></h5>
+            <h4 class="card-title"><strong>Thiago Tomattis</strong></h4>
+            <h6>25/10/06</h6>
+            <p class="card-text">Escolta<br>Altura: 1.94 m</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jugador 77 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center">
+          <img src="atenas-2025-77-1.jpg" alt="Juan Cruz Oberto - Atenas 2025">
+          <div class="card-body">
+            <h5><span class="badge bg-success">77</span></h5>
+            <h4 class="card-title"><strong>Juan Cruz Oberto</strong></h4>
+            <h6>25/01/97</h6>
+            <p class="card-text">Pivot<br>Altura: 2.00 m</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jugador 10 - placeholder -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center">
+          <img src="mise-1.jpg" alt="Germán Misetich - Atenas 2025">
+          <div class="card-body">
+            <h5><span class="badge bg-success">00</span></h5>
+            <h4 class="card-title"><strong>Germán Misetich</strong></h4>
+            <h6>03/03/05</h6>
+            <p class="card-text">Alero<br>Altura: -</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jugador 11 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center">
+          <img src="atenas-2025-00-1.jpg" alt="Santiago Ferreyra - Atenas 2025">
+          <div class="card-body">
+            <h5><span class="badge bg-success">00</span></h5>
+            <h4 class="card-title"><strong>Santiago Ferreyra</strong></h4>
+            <h6>11/03/97</h6>
+            <p class="card-text">Escolta<br>Altura: 1.90 m</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jugador 12 -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center">
+          <img src="atenas-2025-00-1-1.jpg" alt="Marc Loving - Atenas 2025">
+          <div class="card-body">
+            <h5><span class="badge bg-success">00</span></h5>
+            <h4 class="card-title"><strong>Marc Loving</strong></h4>
+            <h6>16/09/94</h6>
+            <p class="card-text">Alero<br>Altura: 2.03 m</p>
+          </div>
+        </div>
+      </div>
+         <!-- dt -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card text-center">
+          <img src="peirone-1.jpg" alt="Gustavo Peirone - Atenas 2025">
+          <div class="card-body">
+            <h5><span class="badge bg-success">DT</span></h5>
+            <h4 class="card-title"><strong>Gustavo Peirone</strong></h4>
+            <h6>24/01/70</h6>
+            <p class="card-text">3 temporada<br></p>
+          </div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <p class="mt-4">Foto: <strong>Prensa Atenas - Página oficial Liga Nacional de Basquetbol</strong></p>
+    <a href="index.html" class="btn btn-success mt-3">← Volver al inicio</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 ATENAS MI PASIÓN | Seguinos en redes</p>
+    <a href="https://www.youtube.com/@atenasmipasion" class="text-white me-2">YouTube</a>
+    <a href="#" class="text-white me-2">Instagram</a>
+    <a href="#" class="text-white">Facebook</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
