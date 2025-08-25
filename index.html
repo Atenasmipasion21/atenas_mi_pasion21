@@ -7,6 +7,20 @@
   <meta name="description" content="El blog no oficial de Atenas. Noticias, historia y pasión por el básquet de Córdoba desde 1982.">
   <meta name="keywords" content="Atenas, básquet, Córdoba, Liga Nacional, transmisiones deportivas, historia, crónicas, Radio Mariano Moreno">
   <meta name="author" content="Atenas mi pasión">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés">
+  <meta property="og:description" content="Noticias, historia y transmisiones de Atenas desde 1982.">
+  <meta property="og:image" content="estadio3.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://atenasmipasion21.github.io/atenas_mi_pasion21/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés">
+  <meta name="twitter:description" content="Noticias, historia y transmisiones de Atenas desde 1982.">
+  <meta name="twitter:image" content="estadio3.png">
+
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
@@ -32,7 +46,9 @@
     .card {
       background-color: rgba(0, 0, 0, 0.85);
       color: #fff;
-      height: 100%;
+      min-height: 435px;
+      width: 474px;
+      margin: auto;
     }
 
     .card img {
@@ -123,31 +139,28 @@
           <!-- Entradas dinámicas -->
         </div>
       </div>
-    <div class="col-lg-3">
+      <div class="col-lg-3">
         <div class="sidebar mb-4">
           <h5>Archivo por mes</h5>
-          <ul class="list-unstyled" id="sidebarArchivo"></ul>
+          <ul class="list-unstyled" id="sidebarArchivoMeses"></ul>
         </div>
         <div class="sidebar mb-4">
           <h5>Entradas anteriores</h5>
-        <ul class="list-unstyled" id="sidebarArchivo">
+          <ul class="list-unstyled" id="sidebarArchivoEntradas">
             <li><a href="analisis-obera.html">Atenas 81 – Oberá 85 (17/5)</a></li>
             <li><a href="analisis-obra.html">¡Atenas ya tiene rival en los Playoffs!</a></li>
             <li><a href="analisis-2425.html">Atenas vuelve a playoffs después de 8 años</a></li>
             <li><a href="partido1.html">Partido 1 - Se lo LLevo Obra</a></li>
           </ul>
-           <ul class="list-unstyled" id="sidebarArchivo"></ul>
         </div>
-     <div class="sidebar mb-4">
-         <h4>Plantel</h4>
-          <ul class="list-unstyled" id="sidebarArchivo">
+        <div class="sidebar mb-4">
+          <h4>Plantel</h4>
+          <ul class="list-unstyled" id="sidebarArchivoPlantel">
             <li><a href="plantel2.html">Liga Nacional 2025/26</a></li>
           </ul>
         </div>
+      </div>
     </div>
-      
-    </div>
-
   </main>
 
   <footer class="text-center text-white py-4 mt-5">
@@ -178,7 +191,7 @@
 
   <script>
     const posts = [
-     {
+      {
         "titulo": " Como vemos al Griego para la LNB 2025/26",
         "descripcion": "Según el punto de vista de nuestro comentarista",
         "fecha": "2025-08-18",
@@ -228,30 +241,29 @@
         "descripcion": "Transmisión en vivo de Atenas vs Obras - 25 de mayo – 19:45 hs.",
         "fecha": "2025-05-24",
         "imagen": "Partido en Vivo_ Atenas vs Obras.png",
-        "link": "",
+        "link": "https://www.youtube.com/@radioatenasmipasion",
         "categoria": "Transmisiones",
         "alt": "Banner promocional del partido en vivo Atenas vs Obras con horario y detalles"
       }
-       
     ];
 
     const container = document.getElementById('entradas');
     const banner = document.getElementById('streamBanner');
-    const sidebarArchivo = document.getElementById('sidebarArchivo');
+    const sidebarArchivoMeses = document.getElementById('sidebarArchivoMeses');
 
     // Ordenar por fecha
     posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
     // Mostrar banner si hay transmisión en vivo
     posts.forEach(post => {
-      if (post.titulo.includes("¡En vivo!")) {
+      if (post.categoria === "Transmisiones") {
         banner.classList.remove("d-none");
         banner.querySelector("a").href = post.link;
       }
     });
 
     // Filtrar posts normales
-    const postsToShow = posts.filter(post => !post.titulo.includes("¡En vivo!"));
+    const postsToShow = posts.filter(post => post.categoria !== "Transmisiones");
 
     function obtenerMes(fechaStr) {
       if (!fechaStr) return "Sin fecha";
@@ -289,13 +301,13 @@
 
           container.innerHTML += `
             <div class="col-md-6 col-xl-4 d-flex mb-4">
-              <div class="card w-100 ${post.modal ? "post-modal-trigger" : ""}" 
-                   ${post.modal ? 'data-bs-toggle="modal" data-bs-target="#modalFechaHora"' : ""} 
-                   style="cursor: ${post.modal ? 'pointer' : 'default'};">
-                <img src="${imgSrc}" alt="${altText}" class="card-img-top img-fluid" />
+              <div class="card w-100" itemscope itemtype="https://schema.org/BlogPosting">
+                <img src="${imgSrc}" alt="${altText}" class="card-img-top img-fluid" itemprop="image"/>
                 <div class="card-body rounded">
-                  <h5 class="card-title">${post.titulo}</h5>
-                  <p class="card-text">${post.descripcion}</p>
+                  <h5 class="card-title" itemprop="headline">${post.titulo}</h5>
+                  <p class="card-text" itemprop="description">${post.descripcion}</p>
+                  <meta itemprop="datePublished" content="${post.fecha}">
+                  <meta itemprop="author" content="Atenas mi pasión">
                   <span class="badge bg-success mb-2">${post.categoria}</span><br/>
                   <a href="${post.link}" class="btn btn-success" ${isExternal ? 'target="_blank" rel="noopener noreferrer"' : ''}>Leer más</a>
                 </div>
@@ -306,8 +318,8 @@
         });
       });
 
-    // Generar archivo lateral
-    sidebarArchivo.innerHTML = Object.keys(entradasPorMes)
+    // Generar archivo lateral por meses
+    sidebarArchivoMeses.innerHTML = Object.keys(entradasPorMes)
       .map(mes => `<li><a href="#">📅 ${mes.charAt(0).toUpperCase() + mes.slice(1)}</a></li>`)
       .join('');
   </script>
@@ -315,37 +327,3 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
