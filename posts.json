@@ -1,0 +1,18 @@
+[
+  {
+    "titulo": "Atenas vence a Gimnasia en el Cerutti",
+    "fecha": "2025-08-25",
+    "imagen": "img/atenas-gimnasia.jpg",
+    "descripcion": "Gran triunfo de Atenas en casa con una sólida defensa.",
+    "categoria": "Crónica",
+    "link": "cronicas/atenas-vs-gimnasia.html"
+  },
+  {
+    "titulo": "Nuevo refuerzo: Santiago Ferreyra",
+    "fecha": "2025-07-16",
+    "imagen": "img/ferreyra.jpg",
+    "descripcion": "El escolta cordobés vuelve a la Liga Nacional con el Griego.",
+    "categoria": "Noticias",
+    "link": "noticias/santiago-ferreyra.html"
+  }
+]
