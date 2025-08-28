@@ -1,8 +1,8 @@
 [
   {
-    "titulo": "Atenas vence a Gimnasia en el Cerutti",
+    "titulo": "Marc",
     "fecha": "2025-08-25",
-    "imagen": "",
+    "imagen": "atenas-2025-00-1-1.jpg",
     "descripcion": "Gran triunfo de Atenas en casa con una sólida defensa.",
     "categoria": "Crónica",
     "link": "cronicas/atenas-vs-gimnasia.html"
@@ -16,4 +16,5 @@
     "link": "noticias/santiago-ferreyra.html"
   }
 ]
+
 
