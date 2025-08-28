@@ -1,260 +1,160 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés</title>
-  <meta name="description" content="El blog no oficial de Atenas. Noticias, historia y pasión por el básquet de Córdoba desde 1982.">
-  <meta name="keywords" content="Atenas, básquet, Córdoba, Liga Nacional, transmisiones deportivas, historia, crónicas, Radio Mariano Moreno">
-  <meta name="author" content="Atenas mi pasión">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Atenas mi pasión – Noticias y Crónicas del Básqué Cordobés">
-  <meta property="og:description" content="Noticias, historia y transmisiones de Atenas desde 1982.">
-  <meta property="og:image" content="estadio3.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://atenasmipasion21.github.io/atenas_mi_pasion21/">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Atenas mi pasión – Noticias y Crónicas del Básqué Cordobés">
-  <meta name="twitter:description" content="Noticias, historia y transmisiones de Atenas desde 1982.">
-  <meta name="twitter:image" content="estadio3.png">
-
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      overflow-x: hidden;
-      background: url('estadio3.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-    }
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1030;
-      background-color: rgba(40, 167, 69, 0.95);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-    .card {
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #fff;
-      min-height: 435px;
-      width: 474px;
-      margin: auto;
-    }
-    .card img {
-      object-fit: cover;
-      width: 100%;
-      border-radius: 0.25rem 0.25rem 0 0;
-    }
-    .modal-body {
-      background-color: rgba(255, 255, 255, 0.9);
-      color: #000;
-      padding: 1rem;
-    }
-    .sidebar {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 1rem;
-      border-radius: 10px;
-      color: #fff;
-      margin-bottom:1rem;
-    }
-    a { color: #28a745; }
-    a:hover { text-decoration: underline; }
-    footer { background-color: #111; }
-    .banner {
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #fff;
-      padding: 1.5rem;
-      text-align: center;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      animation: fade-in 1.5s ease-in-out;
-    }
-    @keyframes fade-in {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .btn-success { background-color: #28a745; border: none; }
-    .btn-success:hover { background-color: #218838; }
-    .encabezado-mes {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      color: #fff;
-      font-size: 1.25rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 10px rgba(0,0,0,0.3); }
-      100% { transform: scale(1.02); box-shadow: 0 0 20px rgba(0,0,0,0.6); }
-    }
-    .radio-player {
-      background-color: #28a745; 
-      border: 2px solid #1e7e34; 
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-      color: #fff;
-      padding: 0.75rem;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .radio-player audio {
-      background-color: #1e7e34;
-      border-radius: 5px;
-      outline: none;
-      width: 100%;
-    }
-    .youtube-channel {
-      background-color: #28a745;
-      border: 2px solid #1e7e34;
-      border-radius: 10px;
-      text-align: center;
-      padding: 0.75rem;
-      color: #fff;
-    }
+    body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
+    .navbar { background-color: #004d2e; }
+    .navbar-brand, .nav-link { color: #fff !important; }
+    .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
+    .banner { width: 100%; height: 400px; background-image: url('banner-atenas.jpg'); background-size: cover; background-position: center; margin-bottom: 30px; }
+    .card { height: 435px; margin-bottom: 20px; }
+    .card-img-top { height: 250px; object-fit: cover; }
+    .btn-verde { background-color: #008000; color: #fff; border: none; }
+    .btn-verde:hover { background-color: #006400; }
+    .sidebar { background-color: #e6f2e6; padding: 15px; margin-bottom: 20px; }
+    footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; }
+    .youtube-embed, .radio-embed { width: 100%; height: 250px; margin-bottom: 20px; }
+    .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
   </style>
 </head>
-
 <body>
-  <header class="text-white text-center py-3">
-    <h1 class="display-5 mb-0">Atenas mi pasión</h1>
-    <p class="lead mb-0">Crónicas, historias y transmisiones de Atenas desde 1982</p>
-  </header>
 
-  <main class="container my-4">
-    <!-- Banner de transmisión -->
-    <div class="banner d-none" id="streamBanner">
-      <h2 class="mb-3">🎙️Sumate a la transmisión por YouTube: relato, análisis y pasión por el Griego 💚 </h2>
-      <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-success">Ver en vivo</a>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-9">
-        <div class="row" id="entradas"></div>
-      </div>
-
-      <div class="col-lg-3">
-        <!-- Mini Banner En Vivo -->
-        <div id="liveBanner" class="sidebar d-none" style="background-color:#28a745; border:2px solid #1e7e34; text-align:center; animation: pulse 1.5s infinite alternate;">
-          <h5>📡 En vivo ahora</h5>
-          <p style="font-weight:500; margin-bottom:0.5rem;">Transmisión de Atenas mi pasión</p>
-          <div class="d-flex flex-column gap-2">
-            <a id="liveRadio" href="#" target="_blank" class="btn btn-light btn-sm">🎙️ Radio en vivo</a>
-            <a id="liveYT" href="#" target="_blank" class="btn btn-light btn-sm">🎥 YouTube en vivo</a>
-          </div>
-        </div>
-
-        <!-- Archivo por mes -->
-        <div class="sidebar">
-          <h5>Archivo por mes</h5>
-          <ul class="list-unstyled" id="sidebarArchivoMeses"></ul>
-        </div>
-
-        <!-- Entradas anteriores -->
-        <div class="sidebar">
-          <h5>Entradas anteriores</h5>
-          <ul class="list-unstyled" id="sidebarArchivoEntradas">
-            <li><a href="analisis-obera.html">Atenas 81 – Oberá 85 (17/5)</a></li>
-            <li><a href="analisis-obra.html">¡Atenas ya tiene rival en los Playoffs!</a></li>
-            <li><a href="analisis-2425.html">Atenas vuelve a playoffs después de 8 años</a></li>
-            <li><a href="partido1.html">Partido 1 - Se lo LLevo Obra</a></li>
-          </ul>
-        </div>
-
-        <!-- Plantel -->
-        <div class="sidebar">
-          <h4>Plantel</h4>
-          <ul class="list-unstyled" id="sidebarArchivoPlantel">
-            <li><a href="plantel2.html">Liga Nacional 2025/26</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer class="text-center text-white py-4 mt-5">
-    <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba</p>
-    <div class="d-flex justify-content-center gap-3">
-      <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white">🎥 YouTube</a>
-      <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white">📸 Instagram</a>
-    </div>
-    <div class="mt-3">
-      <img src="https://visitor-badge.laobi.icu/badge?page_id=atenas-mi-pasion" alt="Visitantes">
-    </div>
-  </footer>
-
-  <!-- Modal Calendario -->
-  <div class="modal fade" id="modalCalendario" tabindex="-1" aria-labelledby="modalCalendarioLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title" id="modalCalendarioLabel">Calendario de partidos</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body" id="modalCalendarioBody">
-          <ul>
-            <li>FECHA - HORA - RIVAL - LUGAR</li>
-            <li>FECHA - HORA - RIVAL - LUGAR</li>
-            <li>FECHA - HORA - RIVAL - LUGAR</li>
-          </ul>
-        </div>
-      </div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Atenas mi pasión</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon" style="color:white;">☰</span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#noticias">Noticias</a></li>
+        <li class="nav-item"><a class="nav-link" href="#multimedia">Multimedia</a></li>
+        <li class="nav-item"><a class="nav-link" href="#calendario">Próximos Partidos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#historia">Historia</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- BANNER -->
+<div class="banner"></div>
 
-  <script>
-    // Configuración de transmisiones
-    const radioLink = "https://stream.zeno.fm/iawl3xy09qztv";
-    const ytLink = "https://www.youtube.com/@radioatenasmipasion";
+<div class="container">
+  <div class="row">
 
-    document.getElementById('liveRadio').href = radioLink;
-    document.getElementById('liveYT').href = ytLink;
+    <!-- MAIN CONTENT -->
+    <div class="col-lg-8">
 
-    // Activar mini-banner
-    const liveBanner = document.getElementById('liveBanner');
-    liveBanner.classList.remove('d-none');
+      <!-- NOTICIAS -->
+      <section id="noticias">
+        <h2 class="section-title">Últimas Noticias</h2>
+        <div class="row row-cols-1 row-cols-md-2 g-4" id="noticias-grilla"></div>
+      </section>
 
-    // Entradas ejemplo
-    const entradas = [
-      {fecha:'2025-08-28', titulo:'Como vemos al Griego para la LNB 2025/26', img:'pretemporada.jpg', link:'Audio de WhatsApp 2025-08-21 a las 15.46.17_25a11df0.waptt.mp3', categoria:'Liga Nacional'},
-    ];
+      <!-- MULTIMEDIA -->
+      <section id="multimedia" class="mt-5">
+        <h2 class="section-title">Multimedia</h2>
+        <div id="multimedia-content"></div>
+      </section>
 
-    const contenedorEntradas = document.getElementById('entradas');
+      <!-- CALENDARIO -->
+      <section id="calendario" class="mt-5">
+        <h2 class="section-title">Próximos Partidos</h2>
+        <ul class="list-group list-group-flush" id="partidos-list"></ul>
+      </section>
 
-    entradas.sort((a,b) => new Date(b.fecha) - new Date(a.fecha));
+      <!-- HISTORIA -->
+      <section id="historia" class="mt-5">
+        <h2 class="section-title">Historia del Club</h2>
+        <p>Atenas es uno de los clubes más importantes de Córdoba, con múltiples títulos nacionales y provinciales. Fundado en 1982, ha formado jugadores destacados y mantiene una fuerte conexión con la comunidad local.</p>
+      </section>
 
-    entradas.forEach(e => {
-      const col = document.createElement('div');
-      col.className = 'col-md-6 col-lg-6 my-2 d-flex justify-content-center';
-      col.innerHTML = `
-        <div class="card">
-          <img src="${e.img}" alt="${e.titulo}" />
-          <div class="card-body">
-            <h5 class="card-title">${e.titulo}</h5>
-            <p class="card-text">${e.categoria}</p>
-            <a href="${e.link}" class="btn btn-success">Ver más</a>
-          </div>
-        </div>
-      `;
-      contenedorEntradas.appendChild(col);
-    });
-  </script>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="col-lg-4">
+      <div class="sidebar">
+        <h4>Redes Sociales</h4>
+        <ul class="list-unstyled">
+          <li><a href="https://www.facebook.com/clubatenas" target="_blank">Facebook</a></li>
+          <li><a href="https://www.instagram.com/clubatenasoficial" target="_blank">Instagram</a></li>
+          <li><a href="https://www.youtube.com/@radioatenasmipasion" target="_blank">YouTube / Radio</a></li>
+        </ul>
+
+        <h4 class="mt-4">Transmisión en vivo</h4>
+        <div id="sidebar-radio"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="text-center">
+  <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achaval</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- DATOS DIRECTOS (sin fetch) -->
+<script>
+const data = {
+  "noticias": [
+    { "titulo": "Atenas se impone en la Liga Nacional", "descripcion": "Resumen del partido y resultados destacados del último enfrentamiento.", "imagen": "noticia1.jpg" },
+    { "titulo": "Nuevo fichaje confirmado", "descripcion": "Detalles del jugador que se suma al plantel para la temporada 2025.", "imagen": "noticia2.jpg" },
+    { "titulo": "Crónica del último partido", "descripcion": "Detalles y análisis del enfrentamiento reciente.", "imagen": "noticia3.jpg" },
+    { "titulo": "Entrevista exclusiva a jugador", "descripcion": "Conoce la visión del jugador sobre la temporada actual.", "imagen": "noticia4.jpg" }
+  ],
+  "Próximos partidos": [
+    { "equipo": "Atenas", "fecha": "", "link": "#" },
+    { "equipo": "Atenas", "fecha": "", "link": "#" }
+  ],
+  "multimedia": { "youtube": "TU_VIDEO_ID", "radio": "TU_CANAL_ID" }
+};
+
+// Noticias
+const noticiasGrilla = document.getElementById('noticias-grilla');
+data.noticias.forEach(n => {
+  const col = document.createElement('div');
+  col.className = 'col';
+  col.innerHTML = `
+    <div class="card">
+      <img src="${n.imagen}" class="card-img-top" alt="${n.titulo}">
+      <div class="card-body">
+        <h5 class="card-title">${n.titulo}</h5>
+        <p class="card-text">${n.descripcion}</p>
+        <a href="#" class="btn btn-verde">Leer más</a>
+      </div>
+    </div>`;
+  noticiasGrilla.appendChild(col);
+});
+
+// Multimedia
+const multimedia = document.getElementById('multimedia-content');
+multimedia.innerHTML = `
+  <iframe class="youtube-embed" src="https://www.youtube.com/embed/${data.multimedia.youtube}" frameborder="0" allowfullscreen></iframe>
+  <iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=${data.multimedia.radio}" frameborder="0" allowfullscreen></iframe>
+`;
+
+// Sidebar radio
+document.getElementById('sidebar-radio').innerHTML = `<iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=${data.multimedia.radio}" frameborder="0" allowfullscreen></iframe>`;
+
+// Partidos
+const partidosList = document.getElementById('partidos-list');
+data.partidos.forEach(p => {
+  const li = document.createElement('li');
+  li.className = 'list-group-item d-flex justify-content-between align-items-center';
+  li.innerHTML = `${p.equipo} – ${p.fecha} <a href="${p.link}" class="btn btn-verde btn-sm">Ver transmisión</a>`;
+  partidosList.appendChild(li);
+});
+</script>
+
 </body>
 </html>
-
-
-
-
-
