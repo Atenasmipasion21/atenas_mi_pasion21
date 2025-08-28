@@ -21,6 +21,7 @@
     footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; }
     .youtube-embed, .radio-embed { width: 100%; height: 250px; margin-bottom: 20px; }
     .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
+    .table-success { background-color: #008000 !important; color: #fff; }
   </style>
 </head>
 <body>
@@ -75,6 +76,20 @@
       <section id="historia" class="mt-5">
         <h2 class="section-title">Historia del Club</h2>
         <p>Atenas es uno de los clubes más importantes de Córdoba, con múltiples títulos nacionales y provinciales. Fundado en 1982, ha formado jugadores destacados y mantiene una fuerte conexión con la comunidad local.</p>
+
+        <h4 class="mt-4">Títulos obtenidos</h4>
+        <div class="table-responsive">
+          <table class="table table-striped table-bordered">
+            <thead class="table-success">
+              <tr>
+                <th>Año</th>
+                <th>Torneo</th>
+                <th>Resultado</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-titulos"></tbody>
+          </table>
+        </div>
       </section>
 
     </div>
@@ -103,17 +118,31 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- DATOS DIRECTOS (sin fetch) -->
+<!-- DATOS AUTOGENERADOS -->
 <script>
 const data = {
   "noticias": [
-    { "titulo": "Atenas se pone en marcha", "descripcion": "Nuestro comentarista nos cuenta.", "imagen": "pretemporada.jpg" },
+    { "titulo": "Atenas se impone en la Liga Nacional", "descripcion": "Resumen del partido y resultados destacados del último enfrentamiento.", "imagen": "noticia1.jpg" },
+    { "titulo": "Nuevo fichaje confirmado", "descripcion": "Detalles del jugador que se suma al plantel para la temporada 2025.", "imagen": "noticia2.jpg" },
+    { "titulo": "Crónica del último partido", "descripcion": "Detalles y análisis del enfrentamiento reciente.", "imagen": "noticia3.jpg" },
+    { "titulo": "Entrevista exclusiva a jugador", "descripcion": "Conoce la visión del jugador sobre la temporada actual.", "imagen": "noticia4.jpg" }
   ],
-  "Próximos partidos": [
-    { "equipo": "Atenas", "fecha": "", "link": "#" },
-    { "equipo": "Atenas", "fecha": "", "link": "#" }
+  "partidos": [
+    { "equipo": "Atenas vs Gimnasia", "fecha": "28/08 21:30", "link": "#" },
+    { "equipo": "Atenas vs Instituto", "fecha": "03/09 20:00", "link": "#" }
   ],
-  "multimedia": { "youtube": "TU_VIDEO_ID", "radio": "TU_CANAL_ID" }
+  "multimedia": { "youtube": "TU_VIDEO_ID", "radio": "TU_CANAL_ID" },
+  "titulos": [
+    { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 1990, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 1991, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 1992, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 1998, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 1999, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 2002, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 2009, torneo: "Liga Nacional", resultado: "Campeón" }
+  ]
 };
 
 // Noticias
@@ -127,7 +156,7 @@ data.noticias.forEach(n => {
       <div class="card-body">
         <h5 class="card-title">${n.titulo}</h5>
         <p class="card-text">${n.descripcion}</p>
-        <a href="Audio de WhatsApp 2025-08-21 a las 15.46.17_25a11df0.waptt.mp3" class="btn btn-verde">Leer más</a>
+        <a href="#" class="btn btn-verde">Leer más</a>
       </div>
     </div>`;
   noticiasGrilla.appendChild(col);
@@ -151,9 +180,15 @@ data.partidos.forEach(p => {
   li.innerHTML = `${p.equipo} – ${p.fecha} <a href="${p.link}" class="btn btn-verde btn-sm">Ver transmisión</a>`;
   partidosList.appendChild(li);
 });
+
+// Títulos de Historia
+const tablaTitulos = document.getElementById('tabla-titulos');
+data.titulos.forEach(t => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${t.año}</td><td>${t.torneo}</td><td>${t.resultado}</td>`;
+  tablaTitulos.appendChild(tr);
+});
 </script>
 
 </body>
 </html>
-
-
