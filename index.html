@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -122,12 +122,12 @@
 </head>
 
 <body>
-  <header class="text-white text-center py-3">
+  <header role="banner" class="text-white text-center py-3">
     <h1 class="display-5 mb-0">Atenas mi pasión</h1>
     <p class="lead mb-0">Crónicas, historias y transmisiones de Atenas desde 1982</p>
   </header>
 
-  <main class="container my-4">
+  <main role="main" class="container my-4">
     <div class="banner d-none" id="streamBanner">
       <h2 class="mb-3">🎙️Sumate a la transmisión por YouTube: relato, análisis y pasión por el Griego 💚 </h2>
       <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-success">Ver en vivo</a>
@@ -140,6 +140,16 @@
         </div>
       </div>
       <div class="col-lg-3">
+        <!-- Sidebar Radio -->
+        <div class="sidebar mb-4">
+          <h5>📻 Radio en vivo</h5>
+          <audio controls autoplay preload="none" style="width: 100%;">
+            <source src="https://tuservidor.com/stream" type="audio/mpeg">
+            Tu navegador no soporta la reproducción de audio en línea.
+          </audio>
+          <p class="mt-2 mb-0">Escuchá la transmisión en vivo de <strong>Atenas mi pasión</strong>.</p>
+        </div>
+
         <div class="sidebar mb-4">
           <h5>Archivo por mes</h5>
           <ul class="list-unstyled" id="sidebarArchivoMeses"></ul>
@@ -163,14 +173,14 @@
     </div>
   </main>
 
-  <footer class="text-center text-white py-4 mt-5">
+  <footer role="contentinfo" class="text-center text-white py-4 mt-5">
     <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba</p>
     <div class="d-flex justify-content-center gap-3">
       <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white">🎥 YouTube</a>
       <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white">📸 Instagram</a>
     </div>
     <div class="mt-3">
-      <img src="https://visitor-badge.laobi.icu/badge?page_id=atenas-mi-pasion" alt="Visitas al blog">
+      <img src="https://visitor-badge.laobi.icu/badge?page_id=atenas-mi-pasion" alt="Visitas al blog" loading="lazy">
     </div>
   </footer>
 
@@ -183,7 +193,7 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body p-0">
-          <img src="Calendario Playoffs Atenas 2023 (1).png" alt="Calendario de Playoffs Atenas 2023" class="img-fluid rounded-bottom" />
+          <img src="Calendario Playoffs Atenas 2023 (1).png" alt="Calendario de Playoffs Atenas 2023" class="img-fluid rounded-bottom" loading="lazy" />
         </div>
       </div>
     </div>
@@ -251,10 +261,8 @@
     const banner = document.getElementById('streamBanner');
     const sidebarArchivoMeses = document.getElementById('sidebarArchivoMeses');
 
-    // Ordenar por fecha
     posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
-    // Mostrar banner si hay transmisión en vivo
     posts.forEach(post => {
       if (post.categoria === "Transmisiones") {
         banner.classList.remove("d-none");
@@ -262,7 +270,6 @@
       }
     });
 
-    // Filtrar posts normales
     const postsToShow = posts.filter(post => post.categoria !== "Transmisiones");
 
     function obtenerMes(fechaStr) {
@@ -280,7 +287,6 @@
       entradasPorMes[mes].push(post);
     });
 
-    // Ordenar meses por fecha más reciente
     Object.keys(entradasPorMes)
       .sort((a, b) => new Date(entradasPorMes[b][0].fecha) - new Date(entradasPorMes[a][0].fecha))
       .forEach(mes => {
@@ -288,7 +294,7 @@
 
         container.innerHTML += `
           <div class="col-12">
-            <div class="encabezado-mes">
+            <div class="encabezado-mes" id="mes-${mes.replace(/\s+/g, '-')}">
               <i class="fas fa-calendar-alt me-2"></i> ${mes.charAt(0).toUpperCase() + mes.slice(1)}
             </div>
           </div>
@@ -302,7 +308,7 @@
           container.innerHTML += `
             <div class="col-md-6 col-xl-4 d-flex mb-4">
               <div class="card w-100" itemscope itemtype="https://schema.org/BlogPosting">
-                <img src="${imgSrc}" alt="${altText}" class="card-img-top img-fluid" itemprop="image"/>
+                <img src="${imgSrc}" alt="${altText}" class="card-img-top img-fluid" itemprop="image" loading="lazy"/>
                 <div class="card-body rounded">
                   <h5 class="card-title" itemprop="headline">${post.titulo}</h5>
                   <p class="card-text" itemprop="description">${post.descripcion}</p>
@@ -318,9 +324,8 @@
         });
       });
 
-    // Generar archivo lateral por meses
     sidebarArchivoMeses.innerHTML = Object.keys(entradasPorMes)
-      .map(mes => `<li><a href="#">📅 ${mes.charAt(0).toUpperCase() + mes.slice(1)}</a></li>`)
+      .map(mes => `<li><a href="#mes-${mes.replace(/\s+/g, '-')}">📅 ${mes.charAt(0).toUpperCase() + mes.slice(1)}</a></li>`)
       .join('');
   </script>
 
