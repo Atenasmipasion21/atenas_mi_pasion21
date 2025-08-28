@@ -1,4 +1,4 @@
-fetch("posts.json")
+fetch("posts.js")
   .then(response => response.json())
   .then(posts => {
     const container = document.getElementById("posts-container");
@@ -28,3 +28,4 @@ fetch("posts.json")
     });
   })
   .catch(error => console.error("Error cargando posts:", error));
+
