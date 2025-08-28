@@ -9,7 +9,7 @@
   <meta name="author" content="Atenas mi pasión">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés">
+  <meta property="og:title" content="Atenas mi pasión – Noticias y Crónicas del Básqué Cordobés">
   <meta property="og:description" content="Noticias, historia y transmisiones de Atenas desde 1982.">
   <meta property="og:image" content="estadio3.png">
   <meta property="og:type" content="website">
@@ -17,7 +17,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés">
+  <meta name="twitter:title" content="Atenas mi pasión – Noticias y Crónicas del Básqué Cordobés">
   <meta name="twitter:description" content="Noticias, historia y transmisiones de Atenas desde 1982.">
   <meta name="twitter:image" content="estadio3.png">
 
@@ -118,6 +118,31 @@
       display: flex;
       align-items: center;
     }
+
+    /* Estilo del reproductor de radio */
+    .radio-player {
+      background-color: #28a745; 
+      border: 2px solid #1e7e34; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+      color: #fff;
+      padding: 0.75rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .radio-player audio {
+      background-color: #1e7e34;
+      border-radius: 5px;
+      outline: none;
+      width: 100%;
+    }
+
+    .radio-player p {
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
   </style>
 </head>
 
@@ -139,21 +164,25 @@
           <!-- Entradas dinámicas -->
         </div>
       </div>
+
       <div class="col-lg-3">
-        <!-- Sidebar Radio -->
+        <!-- Reproductor de radio -->
         <div class="sidebar mb-4">
-          <h5>📻 Radio en vivo</h5>
-          <audio controls autoplay preload="none" style="width: 100%;">
-            <source src="https://stream.zeno.fm/iawl3xy09qztv" type="audio/mpeg">
-            Tu navegador no soporta la reproducción de audio en línea.
-          </audio>
-          <p class="mt-2 mb-0">Escuchá la transmisión en vivo de <strong>Atenas mi pasión</strong>.</p>
+          <div class="radio-player">
+            <h5>📻 Radio en vivo</h5>
+            <audio controls autoplay preload="none">
+              <source src="https://tuservidor.com/stream" type="audio/mpeg">
+              Tu navegador no soporta la reproducción de audio en línea.
+            </audio>
+            <p>Escuchá la transmisión en vivo de <strong>Atenas mi pasión</strong></p>
+          </div>
         </div>
 
         <div class="sidebar mb-4">
           <h5>Archivo por mes</h5>
           <ul class="list-unstyled" id="sidebarArchivoMeses"></ul>
         </div>
+
         <div class="sidebar mb-4">
           <h5>Entradas anteriores</h5>
           <ul class="list-unstyled" id="sidebarArchivoEntradas">
@@ -163,6 +192,7 @@
             <li><a href="partido1.html">Partido 1 - Se lo LLevo Obra</a></li>
           </ul>
         </div>
+
         <div class="sidebar mb-4">
           <h4>Plantel</h4>
           <ul class="list-unstyled" id="sidebarArchivoPlantel">
@@ -261,8 +291,10 @@
     const banner = document.getElementById('streamBanner');
     const sidebarArchivoMeses = document.getElementById('sidebarArchivoMeses');
 
+    // Ordenar por fecha
     posts.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
 
+    // Mostrar banner si hay transmisión en vivo
     posts.forEach(post => {
       if (post.categoria === "Transmisiones") {
         banner.classList.remove("d-none");
@@ -294,7 +326,7 @@
 
         container.innerHTML += `
           <div class="col-12">
-            <div class="encabezado-mes" id="mes-${mes.replace(/\s+/g, '-')}">
+            <div class="encabezado-mes">
               <i class="fas fa-calendar-alt me-2"></i> ${mes.charAt(0).toUpperCase() + mes.slice(1)}
             </div>
           </div>
@@ -324,13 +356,12 @@
         });
       });
 
+    // Generar archivo lateral por meses
     sidebarArchivoMeses.innerHTML = Object.keys(entradasPorMes)
-      .map(mes => `<li><a href="#mes-${mes.replace(/\s+/g, '-')}">📅 ${mes.charAt(0).toUpperCase() + mes.slice(1)}</a></li>`)
+      .map(mes => `<li><a href="#">📅 ${mes.charAt(0).toUpperCase() + mes.slice(1)}</a></li>`)
       .join('');
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
