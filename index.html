@@ -7,7 +7,6 @@
   <meta name="description" content="El blog no oficial de Atenas. Noticias, historia y pasión por el básquet de Córdoba desde 1982.">
   <meta name="keywords" content="Atenas, básquet, Córdoba, Liga Nacional, transmisiones deportivas, historia, crónicas, Radio Mariano Moreno">
   <meta name="author" content="Atenas mi pasión">
-  <link rel="canonical" href="https://atenasmipasion21.github.io/atenas_mi_pasion21/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés">
@@ -25,21 +24,6 @@
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Blog",
-    "name": "Atenas mi pasión",
-    "url": "https://atenasmipasion21.github.io/atenas_mi_pasion21/",
-    "description": "Noticias, historia y pasión por el básquet de Córdoba desde 1982",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Atenas mi pasión"
-    }
-  }
-  </script>
 
   <style>
     html, body {
@@ -63,7 +47,7 @@
       background-color: rgba(0, 0, 0, 0.85);
       color: #fff;
       min-height: 435px;
-      max-width: 474px;
+      width: 474px;
       margin: auto;
     }
 
@@ -181,12 +165,12 @@
 
   <footer class="text-center text-white py-4 mt-5">
     <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba</p>
-    <div class="d-flex justify-content-center gap-3" role="navigation" aria-label="Enlaces principales">
+    <div class="d-flex justify-content-center gap-3">
       <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white">🎥 YouTube</a>
       <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white">📸 Instagram</a>
     </div>
     <div class="mt-3">
-      <img src="https://visitor-badge.laobi.icu/badge?page_id=atenas-mi-pasion" alt="Visitas al blog" loading="lazy">
+      <img src="https://visitor-badge.laobi.icu/badge?page_id=atenas-mi-pasion" alt="Visitas al blog">
     </div>
   </footer>
 
@@ -199,7 +183,7 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body p-0">
-          <img src="Calendario Playoffs Atenas 2023 (1).png" alt="Calendario de Playoffs Atenas 2023" class="img-fluid rounded-bottom" loading="lazy"/>
+          <img src="Calendario Playoffs Atenas 2023 (1).png" alt="Calendario de Playoffs Atenas 2023" class="img-fluid rounded-bottom" />
         </div>
       </div>
     </div>
@@ -211,7 +195,7 @@
         "titulo": " Como vemos al Griego para la LNB 2025/26",
         "descripcion": "Según el punto de vista de nuestro comentarista",
         "fecha": "2025-08-18",
-        "imagen": "pretemporada.webp",
+        "imagen": "pretemporada.jpg",
         "link": "Audio de WhatsApp 2025-08-21 a las 15.46.17_25a11df0.waptt.mp3",
         "categoria": "Opinion",
         "alt": ""
@@ -220,7 +204,7 @@
         "titulo": " Atenas se pone en marcha",
         "descripcion": "Pretemporada",
         "fecha": "2025-08-18",
-        "imagen": "plantel2025261.webp",
+        "imagen": "plantel2025261.jpg",
         "link": "info.html",
         "categoria": "Info",
         "alt": ""
@@ -229,7 +213,7 @@
         "titulo": " Segundo refuerzo para la temporada 2025/26",
         "descripcion": "Bienvenido Marc",
         "fecha": "2025-08-12",
-        "imagen": "atenas-202531.webp",
+        "imagen": "atenas-202531.jpg",
         "link": "alta2.html",
         "categoria": "Info",
         "alt": ""
@@ -247,7 +231,7 @@
         "titulo": "Primer refuerzo para la temporada 2025/26",
         "descripcion": "Bienvenido Santi",
         "fecha": "2025-07-16",
-        "imagen": "atenas-20252.webp",
+        "imagen": "atenas-20252.jpg",
         "link": "altas.html",
         "categoria": "Info",
         "alt": ""
@@ -256,7 +240,7 @@
         "titulo": "🎙️ ¡En vivo! Escuchá la transmisión 🏀💚",
         "descripcion": "Transmisión en vivo de Atenas vs Obras - 25 de mayo – 19:45 hs.",
         "fecha": "2025-05-24",
-        "imagen": "Partido en Vivo_ Atenas vs Obras.webp",
+        "imagen": "Partido en Vivo_ Atenas vs Obras.png",
         "link": "https://www.youtube.com/@radioatenasmipasion",
         "categoria": "Transmisiones",
         "alt": "Banner promocional del partido en vivo Atenas vs Obras con horario y detalles"
@@ -305,20 +289,20 @@
         container.innerHTML += `
           <div class="col-12">
             <div class="encabezado-mes">
-              <i class="fas fa-calendar-alt me-2" aria-hidden="true"></i> ${mes.charAt(0).toUpperCase() + mes.slice(1)}
+              <i class="fas fa-calendar-alt me-2"></i> ${mes.charAt(0).toUpperCase() + mes.slice(1)}
             </div>
           </div>
         `;
 
         entradasPorMes[mes].forEach(post => {
           const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
-          const imgSrc = post.imagen && post.imagen.trim() !== "" ? post.imagen : "placeholder.webp";
+          const imgSrc = post.imagen && post.imagen.trim() !== "" ? post.imagen : "placeholder.jpg";
           const altText = post.alt && post.alt.trim() !== "" ? post.alt : `${post.titulo} – ${post.categoria}`;
 
           container.innerHTML += `
             <div class="col-md-6 col-xl-4 d-flex mb-4">
               <div class="card w-100" itemscope itemtype="https://schema.org/BlogPosting">
-                <img src="${imgSrc}" alt="${altText}" class="card-img-top img-fluid" itemprop="image" loading="lazy"/>
+                <img src="${imgSrc}" alt="${altText}" class="card-img-top img-fluid" itemprop="image"/>
                 <div class="card-body rounded">
                   <h5 class="card-title" itemprop="headline">${post.titulo}</h5>
                   <p class="card-text" itemprop="description">${post.descripcion}</p>
