@@ -1,387 +1,61 @@
-<!DOCTYPE html>
-<html lang="es-AR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés</title>
-  <meta name="description" content="El blog no oficial de Atenas. Noticias, historia y pasión por el básquet de Córdoba desde 1982.">
-  <meta name="keywords" content="Atenas, básquet, Córdoba, Liga Nacional, transmisiones deportivas, historia, crónicas, Radio Mariano Moreno">
-  <meta name="author" content="Atenas mi pasión">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Atenas mi pasión – Noticias y Crónicas del Básqué Cordobés">
-  <meta property="og:description" content="Noticias, historia y transmisiones de Atenas desde 1982.">
-  <meta property="og:image" content="estadio3.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://atenasmipasion21.github.io/atenas_mi_pasion21/">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Atenas mi pasión – Noticias y Crónicas del Básqué Cordobés">
-  <meta name="twitter:description" content="Noticias, historia y transmisiones de Atenas desde 1982.">
-  <meta name="twitter:image" content="estadio3.png">
-
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      overflow-x: hidden;
-      background: url('estadio3.png') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1030;
-      background-color: rgba(40, 167, 69, 0.95);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .card {
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #fff;
-      min-height: 435px;
-      width: 474px;
-      margin: auto;
-    }
-
-    .card img {
-      object-fit: cover;
-      width: 100%;
-      border-radius: 0.25rem 0.25rem 0 0;
-    }
-
-    .modal-body {
-      background-color: rgba(255, 255, 255, 0.9);
-      color: #000;
-      padding: 1rem;
-    }
-
-    .sidebar {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 1rem;
-      border-radius: 10px;
-      color: #fff;
-      margin-bottom:1rem;
-    }
-
-    a {
-      color: #28a745;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      background-color: #111;
-    }
-
-    .banner {
-      background-color: rgba(0, 0, 0, 0.85);
-      color: #fff;
-      padding: 1.5rem;
-      text-align: center;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      animation: fade-in 1.5s ease-in-out;
-    }
-
-    @keyframes fade-in {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .btn-success {
-      background-color: #28a745;
-      border: none;
-    }
-
-    .btn-success:hover {
-      background-color: #218838;
-    }
-
-    .encabezado-mes {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      color: #fff;
-      font-size: 1.25rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-    }
-
-    /* Animación para banner en vivo */
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 10px rgba(0,0,0,0.3); }
-      100% { transform: scale(1.02); box-shadow: 0 0 20px rgba(0,0,0,0.6); }
-    }
-
-    /* Radio Player */
-    .radio-player {
-      background-color: #28a745; 
-      border: 2px solid #1e7e34; 
-      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
-      color: #fff;
-      padding: 0.75rem;
-      border-radius: 10px;
-      text-align: center;
-    }
-
-    .radio-player audio {
-      background-color: #1e7e34;
-      border-radius: 5px;
-      outline: none;
-      width: 100%;
-    }
-
-    .radio-player p {
-      color: #fff;
-      font-weight: 500;
-      font-size: 0.95rem;
-      margin-top: 0.5rem;
-    }
-
-    /* YouTube Player */
-    .youtube-channel {
-      background-color: #28a745;
-      border: 2px solid #1e7e34;
-      border-radius: 10px;
-      text-align: center;
-      padding: 0.75rem;
-      color: #fff;
-    }
-
-    .youtube-channel h5 {
-      margin-bottom: 0.5rem;
-    }
-
-    .youtube-channel p {
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-    }
-  </style>
-</head>
-
-<body>
-  <header class="text-white text-center py-3">
-    <h1 class="display-5 mb-0">Atenas mi pasión</h1>
-    <p class="lead mb-0">Crónicas, historias y transmisiones de Atenas desde 1982</p>
-  </header>
-
-  <main class="container my-4">
-    <div class="banner d-none" id="streamBanner">
-      <h2 class="mb-3">🎙️Sumate a la transmisión por YouTube: relato, análisis y pasión por el Griego 💚 </h2>
-      <a href="" target="_blank" rel="noopener noreferrer" class="btn btn-success">Ver en vivo</a>
-    </div>
-
-    <div class="row">
-      <div class="col-lg-9">
-        <div class="row" id="entradas">
-          <!-- Entradas dinámicas -->
-        </div>
-      </div>
-
-      <div class="col-lg-3">
-        <!-- Mini Banner En Vivo -->
-        <div id="liveBanner" class="sidebar d-none" style="background-color:#28a745; border:2px solid #1e7e34; text-align:center; animation: pulse 1.5s infinite alternate;">
-          <h5>📡 En vivo ahora</h5>
-          <p style="font-weight:500; margin-bottom:0.5rem;">Transmisión de Atenas mi pasión</p>
-          <div class="d-flex flex-column gap-2">
-            <a id="liveRadio" href="https://stream.zeno.fm/iawl3xy09qztv" target="_blank" class="btn btn-light btn-sm">🎙️ Radio en vivo</a>
-            <a id="liveYT" href="#" target="_blank" class="btn btn-light btn-sm">🎥 YouTube en vivo</a>
-          </div>
-        </div>
-
-        <!-- Archivo por mes -->
-        <div class="sidebar">
-          <h5>Archivo por mes</h5>
-          <ul class="list-unstyled" id="sidebarArchivoMeses"></ul>
-        </div>
-
-        <!-- Entradas anteriores -->
-        <div class="sidebar">
-          <h5>Entradas anteriores</h5>
-          <ul class="list-unstyled" id="sidebarArchivoEntradas">
-            <li><a href="analisis-obera.html">Atenas 81 – Oberá 85 (17/5)</a></li>
-            <li><a href="analisis-obra.html">¡Atenas ya tiene rival en los Playoffs!</a></li>
-            <li><a href="analisis-2425.html">Atenas vuelve a playoffs después de 8 años</a></li>
-            <li><a href="partido1.html">Partido 1 - Se lo LLevo Obra</a></li>
-          </ul>
-        </div>
-
-        <!-- Plantel -->
-        <div class="sidebar">
-          <h4>Plantel</h4>
-          <ul class="list-unstyled" id="sidebarArchivoPlantel">
-            <li><a href="plantel2.html">Liga Nacional 2025/26</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <footer class="text-center text-white py-4 mt-5">
-    <p class="mb-2">© 2025 Atenas mi pasión - Hecho con ❤️ en Córdoba</p>
-    <div class="d-flex justify-content-center gap-3">
-      <a href="https://www.youtube.com/@radioatenasmipasion" target="_blank" class="text-white">🎥 YouTube</a>
-      <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" class="text-white">📸 Instagram</a>
-    </div>
-    <div class="mt-3">
-      <img src="https://visitor-badge.laobi.icu/badge?page_id=atenas-mi-pasion" alt="Visitas al blog">
-    </div>
-  </footer>
-
-  <!-- Modal -->
-  <div class="modal fade" id="modalFechaHora" tabindex="-1" aria-labelledby="modalFechaHoraLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-white">
-          <h5 class="modal-title" id="modalFechaHoraLabel">FECHA - HORA - TELEVISION</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body p-0">
-          <img src="Calendario Playoffs Atenas 2023 (1).png" alt="Calendario de Playoffs Atenas 2023" class="img-fluid rounded-bottom" />
-        </div>
-      </div>
+<!-- Sidebar Mejorado -->
+<div class="col-lg-3">
+  <!-- Banner de transmisión en vivo -->
+  <div id="liveBanner" class="sidebar mb-4 d-none" style="background-color:#28a745; border:2px solid #1e7e34; text-align:center; animation: pulse 1.5s infinite alternate;">
+    <h5>📡 En vivo ahora</h5>
+    <p style="font-weight:500; margin-bottom:0.5rem;">Transmisión de Atenas mi pasión</p>
+    <div class="d-flex flex-column gap-2">
+      <a id="liveRadio" href="#" target="_blank" class="btn btn-light btn-sm">🎙️ Radio en vivo</a>
+      <a id="liveYT" href="#" target="_blank" class="btn btn-light btn-sm">🎥 YouTube en vivo</a>
     </div>
   </div>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Archivo por mes -->
+  <div class="sidebar mb-4">
+    <h5>Archivo por mes</h5>
+    <ul class="list-unstyled" id="sidebarArchivoMeses"></ul>
+  </div>
 
-  <script>
-    const posts = [
-      {
-        "titulo": "Como vemos al Griego para la LNB 2025/26",
-        "descripcion": "Según el punto de vista de nuestro comentarista",
-        "fecha": "2025-08-18",
-        "imagen": "pretemporada.jpg",
-        "link": "Audio de WhatsApp 2025-08-21 a las 15.46.17_25a11df0.waptt.mp3",
-        "categoria": "Opinion",
-        "alt": ""
-      },
-      {
-        "titulo": "Atenas se pone en marcha",
-        "descripcion": "Pretemporada",
-        "fecha": "2025-08-18",
-        "imagen": "plantel2025261.jpg",
-        "link": "info.html",
-        "categoria": "Info",
-        "alt": ""
-      },
-      {
-        "titulo": "Segundo refuerzo para la temporada 2025/26",
-        "descripcion": "Bienvenido Marc",
-        "fecha": "2025-08-12",
-        "imagen": "atenas-202531.jpg",
-        "link": "alta2.html",
-        "categoria": "Info",
-        "alt": ""
-      },
-      {
-        "titulo": "Atenas se prepara para la temporada 2025/26",
-        "descripcion": "Altas y Bajas del equipo, toda la información aquí",
-        "fecha": "2025-08-11",
-        "imagen": "",
-        "link": "temporada2526.html",
-        "categoria": "Info",
-        "alt": ""
-      },
-      {
-        "titulo": "Primer refuerzo para la temporada 2025/26",
-        "descripcion": "Bienvenido Santi",
-        "fecha": "2025-07-16",
-        "imagen": "atenas-20252.jpg",
-        "link": "altas.html",
-        "categoria": "Info",
-        "alt": ""
-      },
-      {
-        "titulo": "🎙️ ¡En vivo! Escuchá la transmisión 🏀💚",
-        "descripcion": "Transmisión en vivo de Atenas vs Obras - 25 de mayo – 19:45 hs.",
-        "fecha": "2025-05-24",
-        "imagen": "Partido en Vivo_ Atenas vs Obras.png",
-        "link": "https://www.youtube.com/@radioatenasmipasion",
-        "categoria": "Transmisiones",
-        "alt": "Banner promocional del partido en vivo Atenas vs Obras con horario y detalles"
-      }
-    ];
+  <!-- Entradas anteriores -->
+  <div class="sidebar mb-4">
+    <h5>Entradas anteriores</h5>
+    <ul class="list-unstyled" id="sidebarArchivoEntradas">
+      <li><a href="analisis-obera.html">Atenas 81 – Oberá 85 (17/5)</a></li>
+      <li><a href="analisis-obra.html">¡Atenas ya tiene rival en los Playoffs!</a></li>
+      <li><a href="analisis-2425.html">Atenas vuelve a playoffs después de 8 años</a></li>
+      <li><a href="partido1.html">Partido 1 - Se lo LLevo Obra</a></li>
+    </ul>
+  </div>
 
-    const container = document.getElementById('entradas');
-    const sidebarArchivoMeses = document.getElementById('sidebarArchivoMeses');
-    const liveBanner = document.getElementById('liveBanner');
-    const liveRadio = document.getElementById('liveRadio');
-    const liveYT = document.getElementById('liveYT');
+  <!-- Plantel -->
+  <div class="sidebar mb-4">
+    <h4>Plantel</h4>
+    <ul class="list-unstyled" id="sidebarArchivoPlantel">
+      <li><a href="plantel2.html">Liga Nacional 2025/26</a></li>
+    </ul>
+  </div>
+</div>
 
-    // Ordenar posts por fecha descendente
-    posts.sort((a,b) => new Date(b.fecha) - new Date(a.fecha));
+<style>
+  @keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+    100% { transform: scale(1.02); box-shadow: 0 0 20px rgba(0,0,0,0.6); }
+  }
+</style>
 
-    // Mostrar banner en vivo si hay transmisión
-    const livePosts = posts.filter(p => p.categoria === "Transmisiones");
-    if(livePosts.length > 0){
-      const livePost = livePosts[0];
-      liveBanner.classList.remove("d-none");
-      liveRadio.href = "https://tuservidor.com/stream"; // Reemplazar con tu radio
-      liveYT.href = livePost.link; // YouTube
-    }
+<script>
+  // Banner de transmisión
+  const liveBanner = document.getElementById('liveBanner');
+  const liveRadio = document.getElementById('liveRadio');
+  const liveYT = document.getElementById('liveYT');
 
-    // Posts normales
-    const postsToShow = posts.filter(p => p.categoria !== "Transmisiones");
+  // Verificamos si hay transmisión
+  const livePosts = posts.filter(post => post.categoria === "Transmisiones");
 
-    function obtenerMes(fechaStr){
-      if(!fechaStr) return "Sin fecha";
-      const fecha = new Date(fechaStr);
-      return fecha.toLocaleDateString('es-AR',{year:'numeric',month:'long'});
-    }
-
-    const entradasPorMes = {};
-    postsToShow.forEach(post=>{
-      const mes = obtenerMes(post.fecha);
-      if(!entradasPorMes[mes]) entradasPorMes[mes] = [];
-      entradasPorMes[mes].push(post);
-    });
-
-    Object.keys(entradasPorMes)
-      .sort((a,b)=>new Date(entradasPorMes[b][0].fecha)-new Date(entradasPorMes[a][0].fecha))
-      .forEach(mes=>{
-        entradasPorMes[mes].sort((a,b)=>new Date(b.fecha)-new Date(a.fecha));
-        container.innerHTML += `<div class="col-12"><div class="encabezado-mes"><i class="fas fa-calendar-alt me-2"></i> ${mes.charAt(0).toUpperCase()+mes.slice(1)}</div></div>`;
-        entradasPorMes[mes].forEach(post=>{
-          const isExternal = post.link.startsWith('http://') || post.link.startsWith('https://');
-          const imgSrc = post.imagen && post.imagen.trim()!=="" ? post.imagen : "placeholder.jpg";
-          const altText = post.alt && post.alt.trim()!=="" ? post.alt : `${post.titulo} – ${post.categoria}`;
-          container.innerHTML += `
-            <div class="col-md-6 col-xl-4 d-flex mb-4">
-              <div class="card w-100" itemscope itemtype="https://schema.org/BlogPosting">
-                <img src="${imgSrc}" alt="${altText}" class="card-img-top img-fluid" itemprop="image" loading="lazy"/>
-                <div class="card-body rounded">
-                  <h5 class="card-title" itemprop="headline">${post.titulo}</h5>
-                  <p class="card-text" itemprop="description">${post.descripcion}</p>
-                  <meta itemprop="datePublished" content="${post.fecha}">
-                  <meta itemprop="author" content="Atenas mi pasión">
-                  <span class="badge bg-success mb-2">${post.categoria}</span><br/>
-                  <a href="${post.link}" class="btn btn-success" ${isExternal?'target="_blank" rel="noopener noreferrer':''}>Leer más</a>
-                </div>
-                <div class="card-footer text-muted">📅 ${post.fecha ? new Date(post.fecha).toLocaleDateString('es-AR') : ''}</div>
-              </div>
-            </div>
-          `;
-        });
-      });
-
-    // Sidebar Meses
-    sidebarArchivoMeses.innerHTML = Object.keys(entradasPorMes).map(mes=>`<li><a href="#">📅 ${mes.charAt(0).toUpperCase()+mes.slice(1)}</a></li>`).join('');
-  </script>
-</body>
-</html>
-
+  if(livePosts.length > 0){
+    const livePost = livePosts[0];
+    liveBanner.classList.remove("d-none");
+    liveRadio.href = "https://tuservidor.com/stream"; // tu link de radio
+    liveYT.href = livePost.link; // link a YouTube
+  }
+</script>
