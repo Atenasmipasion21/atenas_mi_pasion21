@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés</title>
-  <meta name="description" content="El blog no oficial de Atenas: noticias, crónicas, multimedia y palmarés nacional e internacional.">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
-    .navbar { background-color: #004d2e; }
-    .navbar-brand, .nav-link { color: #fff !important; }
-    .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
-    .banner { width: 100%; height: 400px; background-image: url('banner-atenas.jpg'); background-size: cover; background-position: center; margin-bottom: 30px; }
-    .card { height: 435px; margin-bottom: 20px; display: flex; flex-direction: column; }
-    .card-img-top { height: 250px; object-fit: cover; }
-    .card-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-    .btn-verde { background-color: #008000; color: #fff; border: none; }
-    .btn-verde:hover { background-color: #006400; }
-    .sidebar { background-color: #e6f2e6; padding: 15px; margin-bottom: 20px; }
-    footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; text-align: center; }
-    .youtube-embed, .radio-embed { width: 100%; height: 250px; margin-bottom: 20px; }
-    .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
-    .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
-    #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés</title>
+<meta name="description" content="El blog no oficial de Atenas: noticias, crónicas, multimedia y palmarés nacional e internacional.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
+  .navbar { background-color: #004d2e; }
+  .navbar-brand, .nav-link { color: #fff !important; }
+  .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
+  .banner { width: 100%; height: 400px; background-image: url('banner-atenas.jpg'); background-size: cover; background-position: center; margin-bottom: 30px; }
+  .card { height: 435px; margin-bottom: 20px; display: flex; flex-direction: column; }
+  .card-img-top { height: 250px; object-fit: cover; }
+  .card-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+  .btn-verde { background-color: #008000; color: #fff; border: none; }
+  .btn-verde:hover { background-color: #006400; }
+  .sidebar { background-color: #e6f2e6; padding: 15px; margin-bottom: 20px; }
+  footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; text-align: center; }
+  .youtube-embed, .radio-embed { width: 100%; height: 250px; margin-bottom: 20px; }
+  .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
+  .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+  #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
+</style>
 </head>
 <body>
 
@@ -58,7 +58,7 @@
       <!-- NOTICIAS -->
       <section id="noticias">
         <h2 class="section-title">Últimas Noticias</h2>
-        <div class="row row-cols-1 row-cols-md-2 g-4" id="noticias-grilla"></div>
+        <div class="row" id="noticias-grilla"></div>
       </section>
 
       <!-- MULTIMEDIA -->
@@ -70,7 +70,7 @@
       <!-- CALENDARIO -->
       <section id="calendario" class="mt-5">
         <h2 class="section-title">Próximos Partidos</h2>
-        <ul class="list-group list-group-flush" id="partidos-list">
+        <ul class="list-group list-group-flush">
           <li class="list-group-item text-center">Próximos partidos aún no programados.</li>
         </ul>
       </section>
@@ -78,7 +78,7 @@
       <!-- HISTORIA -->
       <section id="historia" class="mt-5">
         <h2 class="section-title">Historia del Club</h2>
-        <p>Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, <strong>con múltiples títulos nacionales e internacionales </strong>. Fundado el <strong>17 de abril de 1938</strong>, su presidente actual es <strong>Germán Baralle</strong></p>
+        <p>Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, <strong>con múltiples títulos nacionales e internacionales</strong>. Fundado el <strong>17 de abril de 1938</strong>, su presidente actual es <strong>Germán Baralle</strong></p>
 
         <h4 class="mt-4">Títulos obtenidos</h4>
         <div class="table-responsive">
@@ -123,27 +123,74 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-// Datos dinámicos
-const data = {
-  noticias: [
-    { 
-      titulo: "Comenzó la temporada 2025/26", 
-      descripcion: "Comentamos cómo vemos a Atenas para esta temporada.", 
-      imagen: "pretemporada.jpg",
-      contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
-      audio: "jose.mp3"
-    },
-    { 
-      titulo: "Refuerzos destacados", 
-      descripcion: "Analizamos los nuevos jugadores que se suman al equipo.", 
-      imagen: "refuerzos.jpg",
-      contenido: "El equipo incorporó jugadores clave que fortalecerán el plantel y aportarán experiencia en la Liga Nacional. Lo analiza nuestro comentarista.",
-      audio: "jose.mp3"
-    }
-  ],
-  multimedia: { youtube: "BzY15_tfnVs", radio: "TU_CANAL_ID" },
+// Noticia única
+const noticia = {
+  titulo: "Comenzó la temporada 2025/26",
+  descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
+  contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
+  imagen: "pretemporada.jpg",
+  audio: "comentario-temporada.mp3"
+};
+
+// Mostrar noticia en grilla con modal y audio
+const noticiasGrilla = document.getElementById('noticias-grilla');
+const col = document.createElement('div');
+col.className = 'col';
+col.innerHTML = `
+  <div class="card">
+    <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}">
+    <div class="card-body">
+      <h5 class="card-title">${noticia.titulo}</h5>
+      <p class="card-text">${noticia.descripcion}</p>
+      <a href="#" class="btn btn-verde" data-bs-toggle="modal" data-bs-target="#noticiaModal">Leer más</a>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="noticiaModal" tabindex="-1" aria-labelledby="noticiaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="noticiaModalLabel">${noticia.titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>${noticia.contenido}</p>
+          <img src="${noticia.imagen}" class="img-fluid mb-3" alt="${noticia.titulo}">
+          <audio controls>
+            <source src="${noticia.audio}" type="audio/mpeg">
+            Tu navegador no soporta audio.
+          </audio>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-verde" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+`;
+noticiasGrilla.appendChild(col);
+
+// Pausar audio al cerrar el modal
+const modal = document.getElementById('noticiaModal');
+modal.addEventListener('hidden.bs.modal', function () {
+  const audios = modal.querySelectorAll('audio');
+  audios.forEach(a => a.pause());
+});
+
+// Multimedia
+const multimedia = document.getElementById('multimedia-content');
+multimedia.innerHTML = `
+  <iframe class="youtube-embed" src="https://www.youtube.com/embed/BzY15_tfnVs" frameborder="0" allowfullscreen></iframe>
+  <iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
+`;
+
+// Sidebar radio
+document.getElementById('sidebar-radio').innerHTML = `<iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>`;
+
+// Títulos Historia
+const dataTitulos = {
   titulosNacionales: [
     { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
     { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
@@ -163,83 +210,22 @@ const data = {
     { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
     { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
     { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
- ]
+  ]
 };
 
-// Noticias con modal y audio
-const noticiasGrilla = document.getElementById('noticias-grilla');
-data.noticias.forEach((n, index) => {
-  const col = document.createElement('div');
-  col.className = 'col';
-  col.innerHTML = `
-    <div class="card">
-      <img src="${n.imagen}" class="card-img-top" alt="${n.titulo}">
-      <div class="card-body">
-        <h5 class="card-title">${n.titulo}</h5>
-        <p class="card-text">${n.descripcion}</p>
-        <a href="jose.mp3" class="btn btn-verde" data-bs-toggle="modal" data-bs-target="#noticiaModal${index}">Leer más</a>
-      </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="noticiaModal${index}" tabindex="-1" aria-labelledby="noticiaModalLabel${index}" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="noticiaModalLabel${index}">${n.titulo}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-          </div>
-          <div class="modal-body">
-            <p>${n.contenido}</p>
-            <img src="${n.imagen}" class="img-fluid mb-3" alt="${n.titulo}">
-            <audio controls>
-              <source src="${jose.mp3}" type="audio/mpeg">
-              Tu navegador no soporta audio.
-            </audio>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-verde" data-bs-dismiss="modal">Cerrar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-  noticiasGrilla.appendChild(col);
-});
-
-// Pausar audio al cerrar el modal
-const modales = document.querySelectorAll('.modal');
-modales.forEach(modal => {
-  modal.addEventListener('hidden.bs.modal', function () {
-    const audios = modal.querySelectorAll('audio');
-    audios.forEach(a => a.pause());
-  });
-});
-
-// Multimedia
-const multimedia = document.getElementById('multimedia-content');
-multimedia.innerHTML = `
-  <iframe class="youtube-embed" src="https://www.youtube.com/embed/${data.multimedia.youtube}" frameborder="0" allowfullscreen></iframe>
-  <iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=${data.multimedia.radio}" frameborder="0" allowfullscreen></iframe>
-`;
-
-// Sidebar radio
-document.getElementById('sidebar-radio').innerHTML = `<iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=${data.multimedia.radio}" frameborder="0" allowfullscreen></iframe>`;
-
-// Títulos Historia
 const tablaTitulos = document.getElementById('tabla-titulos');
 const trNac = document.createElement('tr');
-trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${data.titulosNacionales.length})</td>`;
+trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
 tablaTitulos.appendChild(trNac);
-data.titulosNacionales.forEach(t => {
+dataTitulos.titulosNacionales.forEach(t => {
   const tr = document.createElement('tr');
   tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
   tablaTitulos.appendChild(tr);
 });
 const trInt = document.createElement('tr');
-trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${data.titulosInternacionales.length})</td>`;
+trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
 tablaTitulos.appendChild(trInt);
-data.titulosInternacionales.forEach(t => {
+dataTitulos.titulosInternacionales.forEach(t => {
   const tr = document.createElement('tr');
   tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
   tablaTitulos.appendChild(tr);
@@ -262,7 +248,3 @@ btnUp.addEventListener('click', function(e) {
 
 </body>
 </html>
-
-
-
-
