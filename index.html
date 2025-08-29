@@ -12,8 +12,9 @@
     .navbar-brand, .nav-link { color: #fff !important; }
     .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
     .banner { width: 100%; height: 400px; background-image: url('banner-atenas.jpg'); background-size: cover; background-position: center; margin-bottom: 30px; }
-    .card { height: 435px; margin-bottom: 20px; }
+    .card { height: 435px; margin-bottom: 20px; display: flex; flex-direction: column; }
     .card-img-top { height: 250px; object-fit: cover; }
+    .card-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
     .btn-verde { background-color: #008000; color: #fff; border: none; }
     .btn-verde:hover { background-color: #006400; }
     .sidebar { background-color: #e6f2e6; padding: 15px; margin-bottom: 20px; }
@@ -129,11 +130,20 @@ const data = {
       titulo: "Comenzó la temporada 2025/26", 
       descripcion: "Comentamos cómo vemos a Atenas para esta temporada.", 
       imagen: "pretemporada.jpg",
-      contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos." 
+      contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
+      audio: "comentario-temporada.mp3"
+    },
+    { 
+      titulo: "Refuerzos destacados", 
+      descripcion: "Analizamos los nuevos jugadores que se suman al equipo.", 
+      imagen: "refuerzos.jpg",
+      contenido: "El equipo incorporó jugadores clave que fortalecerán el plantel y aportarán experiencia en la Liga Nacional. Revisamos su trayectoria y posibles impactos en los próximos partidos.",
+      audio: "refuerzos.mp3"
     }
   ],
   partidos: [
     { equipo: "Atenas vs Instituto", fecha: "03/09/2025 20:30", link: "#" },
+    { equipo: "Atenas vs Quimsa", fecha: "10/09/2025 21:00", link: "#" }
   ],
   multimedia: { youtube: "BzY15_tfnVs", radio: "TU_CANAL_ID" },
   titulosNacionales: [
@@ -158,7 +168,7 @@ const data = {
  ]
 };
 
-// Noticias con modal
+// Noticias con modal y audio
 const noticiasGrilla = document.getElementById('noticias-grilla');
 data.noticias.forEach((n, index) => {
   const col = document.createElement('div');
@@ -183,7 +193,11 @@ data.noticias.forEach((n, index) => {
           </div>
           <div class="modal-body">
             <p>${n.contenido}</p>
-            <img src="${n.imagen}" class="img-fluid" alt="${n.titulo}">
+            <img src="${n.imagen}" class="img-fluid mb-3" alt="${n.titulo}">
+            <audio controls>
+              <source src="${n.audio}" type="audio/mpeg">
+              Tu navegador no soporta audio.
+            </audio>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-verde" data-bs-dismiss="modal">Cerrar</button>
@@ -193,6 +207,15 @@ data.noticias.forEach((n, index) => {
     </div>
   `;
   noticiasGrilla.appendChild(col);
+});
+
+// Pausar audio al cerrar el modal
+const modales = document.querySelectorAll('.modal');
+modales.forEach(modal => {
+  modal.addEventListener('hidden.bs.modal', function () {
+    const audios = modal.querySelectorAll('audio');
+    audios.forEach(a => a.pause());
+  });
 });
 
 // Multimedia
@@ -216,7 +239,6 @@ data.partidos.forEach(p => {
 
 // Títulos Historia
 const tablaTitulos = document.getElementById('tabla-titulos');
-// Nacionales
 const trNac = document.createElement('tr');
 trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${data.titulosNacionales.length})</td>`;
 tablaTitulos.appendChild(trNac);
@@ -225,7 +247,6 @@ data.titulosNacionales.forEach(t => {
   tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
   tablaTitulos.appendChild(tr);
 });
-// Internacionales
 const trInt = document.createElement('tr');
 trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${data.titulosInternacionales.length})</td>`;
 tablaTitulos.appendChild(trInt);
