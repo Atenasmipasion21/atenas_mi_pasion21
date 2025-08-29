@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés</title>
-
+  <meta name="description" content="El blog no oficial de Atenas: noticias, crónicas, multimedia y palmarés nacional e internacional.">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <style>
     body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
     .navbar { background-color: #004d2e; }
@@ -18,10 +17,11 @@
     .btn-verde { background-color: #008000; color: #fff; border: none; }
     .btn-verde:hover { background-color: #006400; }
     .sidebar { background-color: #e6f2e6; padding: 15px; margin-bottom: 20px; }
-    footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; }
+    footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; text-align: center; }
     .youtube-embed, .radio-embed { width: 100%; height: 250px; margin-bottom: 20px; }
     .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
-    .table-success { background-color: #008000 !important; color: #fff; }
+    .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+    #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
   </style>
 </head>
 <body>
@@ -79,12 +79,12 @@
 
         <h4 class="mt-4">Títulos obtenidos</h4>
         <div class="table-responsive">
-          <table class="table table-striped table-bordered">
-            <thead class="table-success">
+          <table class="table table-bordered table-hover">
+            <thead class="table-dark text-center">
               <tr>
-                <th>Año</th>
-                <th>Torneo</th>
-                <th>Resultado</th>
+                <th style="width: 20%;">Año</th>
+                <th style="width: 55%;">Torneo</th>
+                <th style="width: 25%;">Resultado</th>
               </tr>
             </thead>
             <tbody id="tabla-titulos"></tbody>
@@ -112,51 +112,47 @@
   </div>
 </div>
 
-<footer class="text-center">
-  <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achaval</p>
+<!-- Botón ir arriba -->
+<a href="#" id="btn-up" class="btn btn-verde">↑</a>
+
+<footer>
+  <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- DATOS AUTOGENERADOS -->
 <script>
 const data = {
-  "noticias": [
-    { "titulo": "Atenas se impone en la Liga Nacional", "descripcion": "Resumen del partido y resultados destacados del último enfrentamiento.", "imagen": "noticia1.jpg" },
-    { "titulo": "Nuevo fichaje confirmado", "descripcion": "Detalles del jugador que se suma al plantel para la temporada 2025.", "imagen": "noticia2.jpg" },
-    { "titulo": "Crónica del último partido", "descripcion": "Detalles y análisis del enfrentamiento reciente.", "imagen": "noticia3.jpg" },
-    { "titulo": "Entrevista exclusiva a jugador", "descripcion": "Conoce la visión del jugador sobre la temporada actual.", "imagen": "noticia4.jpg" }
+  noticias: [
+    { titulo: "Atenas se impone en la Liga Nacional", descripcion: "Resumen del partido y resultados destacados del último enfrentamiento.", imagen: "noticia1.jpg" },
+    { titulo: "Nuevo fichaje confirmado", descripcion: "Detalles del jugador que se suma al plantel para la temporada 2025.", imagen: "noticia2.jpg" },
+    { titulo: "Crónica del último partido", descripcion: "Detalles y análisis del enfrentamiento reciente.", imagen: "noticia3.jpg" },
+    { titulo: "Entrevista exclusiva a jugador", descripcion: "Conoce la visión del jugador sobre la temporada actual.", imagen: "noticia4.jpg" }
   ],
-  "partidos": [
-    { "equipo": "Atenas vs Gimnasia", "fecha": "28/08 21:30", "link": "#" },
-    { "equipo": "Atenas vs Instituto", "fecha": "03/09 20:00", "link": "#" }
+  partidos: [
+    { equipo: "Atenas vs", fecha: "", link: "#" },
   ],
-  "multimedia": { "youtube": "TU_VIDEO_ID", "radio": "TU_CANAL_ID" },
- "titulosNacionales": [
-    { "año": 1987, "torneo": "Liga Nacional", "resultado": "Campeón" },
-    { "año": 1988, "torneo": "Liga Nacional", "resultado": "Campeón" },
-    { "año": 1990, "torneo": "Liga Nacional", "resultado": "Campeón" },
-    { "año": "1991/92", "torneo": "Liga Nacional", "resultado": "Campeón" },
-    { "año": "1997/98", "torneo": "Liga Nacional", "resultado": "Campeón" },
-    { "año": "1998/99", "torneo": "Liga Nacional", "resultado": "Campeón" },
-    { "año": 1998, "torneo": "Copa de Campeones", "resultado": "Campeón"},
-    { "año": "2001/02", "torneo": "Liga Nacional", "resultado": "Campeón" },
-    { "año": 1999, "torneo": "Copa de Campeones", "resultado": "Campeón" },
-    { "año": "2002/03", "torneo": "Liga Nacional", "resultado": "Campeón" },
-    { "año": 2003, "torneo": "Torneo Top 4", "resultado": "Campeón" },
-    { "año": "2008/09", "torneo": "Liga Nacional", "resultado": "Campeón" },
-    { "año": 2008, "torneo": "Copa Argentina", "resultado": "Campeón" },
-    { "año": 2010, "torneo": "Torneo Super 8", "resultado": "Campeón" },
-    { "año": "2023/24", "torneo": "Liga Argentina", "resultado": "Campeón" }
+  multimedia: { youtube: "TU_VIDEO_ID", radio: "TU_CANAL_ID" },
+  titulosNacionales: [
+    { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1990/91", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1991/92", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1997/98", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1998/99", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2001/02", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2002/03", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2008/09", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
   ],
-  "titulosInternacionales": [
-    { "año": 1996, "torneo": "Campeonato Panamericano", "resultado": "Campeón" },
-    { "año": 1993, "torneo": "Campeonato Sudamericano de Clubes", "resultado": "Campeón" },
-    { "año": 1993, "torneo": "Campeonato Sudamericano de Clubes Campeones", "resultado": "Campeón" },
-    { "año": 1994, "torneo": "Campeonato Sudamericano de Clubes Campeones", "resultado": "Campeón" }
-  ]
-};
-
+  titulosInternacionales: [
+    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones ", resultado: "Campeón" },
+    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones ", resultado: "Campeón" },
+    { año: 1996, torneo: "Campeonato Panamericano ", resultado: "Campeón" },
+    { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
+    { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
+    { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
+ ]
 };
 
 // Noticias
@@ -195,19 +191,43 @@ data.partidos.forEach(p => {
   partidosList.appendChild(li);
 });
 
-// Títulos de Historia
+// Títulos Historia
 const tablaTitulos = document.getElementById('tabla-titulos');
-data.titulos.forEach(t => {
+
+// Bloque Nacionales
+const trNac = document.createElement('tr');
+trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${data.titulosNacionales.length})</td>`;
+tablaTitulos.appendChild(trNac);
+data.titulosNacionales.forEach(t => {
   const tr = document.createElement('tr');
-  tr.innerHTML = `<td>${t.año}</td><td>${t.torneo}</td><td>${t.resultado}</td>`;
+  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
   tablaTitulos.appendChild(tr);
+});
+
+// Bloque Internacionales
+const trInt = document.createElement('tr');
+trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${data.titulosInternacionales.length})</td>`;
+tablaTitulos.appendChild(trInt);
+data.titulosInternacionales.forEach(t => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
+  tablaTitulos.appendChild(tr);
+});
+
+// Botón Ir Arriba
+const btnUp = document.getElementById('btn-up');
+window.onscroll = function() {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    btnUp.style.display = "block";
+  } else {
+    btnUp.style.display = "none";
+  }
+};
+btnUp.addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 </script>
 
 </body>
 </html>
-
-
-
-
-
