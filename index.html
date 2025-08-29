@@ -70,7 +70,9 @@
       <!-- CALENDARIO -->
       <section id="calendario" class="mt-5">
         <h2 class="section-title">Próximos Partidos</h2>
-        <ul class="list-group list-group-flush" id="partidos-list"></ul>
+        <ul class="list-group list-group-flush" id="partidos-list">
+          <li class="list-group-item text-center">Próximos partidos aún no programados.</li>
+        </ul>
       </section>
 
       <!-- HISTORIA -->
@@ -140,10 +142,6 @@ const data = {
       contenido: "El equipo incorporó jugadores clave que fortalecerán el plantel y aportarán experiencia en la Liga Nacional. Revisamos su trayectoria y posibles impactos en los próximos partidos.",
       audio: "refuerzos.mp3"
     }
-  ],
-  partidos: [
-    { equipo: "Atenas vs Instituto", fecha: "03/09/2025 20:30", link: "#" },
-    { equipo: "Atenas vs Quimsa", fecha: "10/09/2025 21:00", link: "#" }
   ],
   multimedia: { youtube: "BzY15_tfnVs", radio: "TU_CANAL_ID" },
   titulosNacionales: [
@@ -227,15 +225,6 @@ multimedia.innerHTML = `
 
 // Sidebar radio
 document.getElementById('sidebar-radio').innerHTML = `<iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=${data.multimedia.radio}" frameborder="0" allowfullscreen></iframe>`;
-
-// Partidos
-const partidosList = document.getElementById('partidos-list');
-data.partidos.forEach(p => {
-  const li = document.createElement('li');
-  li.className = 'list-group-item d-flex justify-content-between align-items-center';
-  li.innerHTML = `${p.equipo} – ${p.fecha} <a href="${p.link}" class="btn btn-verde btn-sm">Ver transmisión</a>`;
-  partidosList.appendChild(li);
-});
 
 // Títulos Historia
 const tablaTitulos = document.getElementById('tabla-titulos');
