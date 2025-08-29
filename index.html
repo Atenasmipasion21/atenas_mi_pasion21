@@ -118,15 +118,31 @@
 <!-- Botón ir arriba -->
 <a href="#" id="btn-up" class="btn btn-verde">↑</a>
 
-  <!-- CONTACTO -->
+<!-- CONTACTO -->
 <section id="contacto" class="mt-5">
   <h2 class="section-title">Contacto</h2>
   <p>Para consultas, sugerencias o transmisiones en vivo, podés comunicarte con nosotros vía:</p>
-  <ul>
-    <li>Email: <a href="mailto:atenasmispasion21@gmail.com">atenasmispasion21@gmail.com</a></li>
-    <li>Teléfono / WhatsApp: <a href="tel:+5491154756459">+54 9 11 5475-6459</a></li>
-  </ul>
+  <div class="d-flex flex-column gap-2">
+    <!-- Email -->
+    <a href="mailto:atenasmispasion21@gmail.com" class="btn btn-verde d-flex align-items-center" style="width: fit-content;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope me-2" viewBox="0 0 16 16">
+        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.217l-8 4.8-8-4.8V4z"/>
+        <path d="M0 4.697v7.104l5.803-3.48L0 4.697zM6.761 8.83l-6.761 4.057A2 2 0 0 0 2 14h12a2 2 0 0 0 1.999-1.113l-6.761-4.057-1.238.743-1.238-.743zM16 4.697l-5.803 3.624L16 11.801V4.697z"/>
+      </svg>
+      Enviar Email
+    </a>
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/5491154756459" target="_blank" class="btn btn-verde d-flex align-items-center" style="width: fit-content;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-whatsapp me-2" viewBox="0 0 16 16">
+        <path d="M13.601 2.326A7.951 7.951 0 0 0 8 0C3.582 0 0 3.582 0 8a7.952 7.952 0 0 0 1.146 4.018L0 16l4.01-1.145A7.949 7.949 0 0 0 8 16c4.418 0 8-3.582 8-8 0-2.14-.832-4.147-2.399-5.674zM8 14.933c-3.831 0-6.933-3.102-6.933-6.933S4.169 1.067 8 1.067s6.933 3.102 6.933 6.933S11.831 14.933 8 14.933z"/>
+        <path d="M11.605 10.692c-.147-.073-.872-.429-1.007-.478-.134-.05-.232-.074-.33.074s-.379.478-.466.576c-.086.099-.173.112-.32.037-.147-.073-.62-.228-1.18-.724-.436-.388-.73-.867-.816-.99-.086-.123-.009-.19.063-.264.065-.065.147-.173.22-.26.073-.087.097-.147.147-.245.05-.099.025-.186-.012-.26-.037-.073-.33-.795-.452-1.087-.118-.284-.237-.246-.33-.251-.086-.006-.186-.007-.285-.007s-.26.037-.397.173c-.137.137-.523.51-.523 1.243 0 .732.536 1.44.611 1.538.074.099 1.055 1.609 2.555 2.256.356.154.632.246.848.315.356.112.68.096.936.058.286-.043.872-.357.995-.701.123-.345.123-.642.086-.701-.037-.06-.134-.099-.28-.172z"/>
+      </svg>
+      WhatsApp
+    </a>
+  </div>
 </section>
+
 
 
 <footer>
@@ -259,5 +275,6 @@ btnUp.addEventListener('click', function(e) {
 
 </body>
 </html>
+
 
 
