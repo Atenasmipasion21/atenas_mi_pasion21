@@ -8,20 +8,62 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <style>
   body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
+
+  /* Navbar */
   .navbar { background-color: #004d2e; }
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
-  .banner { width: 100%; height: 400px; background-image: url('banner-atenas.jpg'); background-size: cover; background-position: center; margin-bottom: 30px; }
+
+  /* Banner */
+  .banner { 
+    width: 100%; 
+    height: 400px; 
+    background-image: url('banner-atenas.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    margin-bottom: 15px; 
+  }
+
+  /* Cards */
   .card { height: 435px; margin-bottom: 20px; display: flex; flex-direction: column; }
   .card-img-top { height: 250px; object-fit: cover; }
   .card-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
   .btn-verde { background-color: #008000; color: #fff; border: none; }
   .btn-verde:hover { background-color: #006400; }
-  .sidebar { background-color: #e6f2e6; padding: 15px; margin-bottom: 20px; }
-  footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; text-align: center; }
-  .youtube-embed, .radio-embed { width: 100%; height: 250px; margin-bottom: 20px; }
-  .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
+
+  /* Sidebar */
+  .sidebar {
+    background-color: #e6f2e6;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  .sidebar h4 {
+    color: #008000;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .sidebar a {
+    color: #004d2e;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .sidebar a:hover {
+    color: #006400;
+    text-decoration: underline;
+  }
+  .youtube-embed, .radio-embed { width: 100%; height: 250px; border-radius: 8px; margin-bottom: 15px; }
+
+  /* Section Titles */
+  .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 15px; }
+
+  /* Table Historia */
   .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+
+  /* Botón ir arriba */
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
 </style>
 </head>
@@ -95,20 +137,49 @@
         </div>
       </section>
 
+      <!-- CONTACTO -->
+      <section id="contacto" class="mt-5">
+        <h2 class="section-title text-center">Contacto</h2>
+        <p class="text-center mb-4">Para consultas, sugerencias o transmisiones en vivo, podés comunicarte con nosotros vía:</p>
+        
+        <div class="row justify-content-center g-4">
+          <!-- Email -->
+          <div class="col-md-5">
+            <div class="card border-0 shadow-sm text-center p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#008000" class="bi bi-envelope mb-3" viewBox="0 0 16 16">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.217l-8 4.8-8-4.8V4z"/>
+                <path d="M0 4.697v7.104l5.803-3.48L0 4.697zM6.761 8.83l-6.761 4.057A2 2 0 0 0 2 14h12a2 2 0 0 0 1.999-1.113l-6.761-4.057-1.238.743-1.238-.743zM16 4.697l-5.803 3.624L16 11.801V4.697z"/>
+              </svg>
+              <h5>Email</h5>
+              <p>Escribinos directamente a nuestro correo.</p>
+              <a href="mailto:atenasmispasion21@gmail.com" class="btn btn-verde">Enviar Email</a>
+            </div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="col-md-5">
+            <div class="card border-0 shadow-sm text-center p-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#008000" class="bi bi-whatsapp mb-3" viewBox="0 0 16 16">
+                <path d="M13.601 2.326A7.951 7.951 0 0 0 8 0C3.582 0 0 3.582 0 8a7.952 7.952 0 0 0 1.146 4.018L0 16l4.01-1.145A7.949 7.949 0 0 0 8 16c4.418 0 8-3.582 8-8 0-2.14-.832-4.147-2.399-5.674zM8 14.933c-3.831 0-6.933-3.102-6.933-6.933S4.169 1.067 8 1.067s6.933 3.102 6.933 6.933S11.831 14.933 8 14.933z"/>
+                <path d="M11.605 10.692c-.147-.073-.872-.429-1.007-.478-.134-.05-.232-.074-.33.074s-.379.478-.466.576c-.086.099-.173.112-.32.037-.147-.073-.62-.228-1.18-.724-.436-.388-.73-.867-.816-.99-.086-.123-.009-.19.063-.264.065-.065.147-.173.22-.26.073-.087.097-.147.147-.245.05-.099.025-.186-.012-.26-.037-.073-.33-.795-.452-1.087-.118-.284-.237-.246-.33-.251-.086-.006-.186-.007-.285-.007s-.26.037-.397.173c-.137.137-.523.51-.523 1.243 0 .732.536 1.44.611 1.538.074.099 1.055 1.609 2.555 2.256.356.154.632.246.848.315.356.112.68.096.936.058.286-.043.872-.357.995-.701.123-.345.123-.642.086-.701-.037-.06-.134-.099-.28-.172z"/>
+              </svg>
+              <h5>WhatsApp</h5>
+              <p>Chateá con nosotros directamente desde tu móvil o PC.</p>
+              <a href="https://wa.me/5491154756459" target="_blank" class="btn btn-verde">Abrir WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </div>
 
     <!-- SIDEBAR -->
     <div class="col-lg-4">
       <div class="sidebar">
-        <h4>Redes Sociales</h4>
-        <ul class="list-unstyled">
-          <li><a href="https://www.facebook.com/groups/1607966346118447" target="_blank">Facebook</a></li>
-          <li><a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank">Instagram</a></li>
-          <li><a href="https://www.youtube.com/@RadioAtenasmipasi%C3%B3n" target="_blank">YouTube / Radio</a></li>
-        </ul>
-
-        <h4 class="mt-4">Transmisión en vivo</h4>
-        <div id="sidebar-radio"></div>
+        <h4>Transmisión en vivo</h4>
+        <div id="sidebar-radio">
+          <iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
 
@@ -118,173 +189,81 @@
 <!-- Botón ir arriba -->
 <a href="#" id="btn-up" class="btn btn-verde">↑</a>
 
-<!-- CONTACTO -->
-<section id="contacto" class="mt-5">
-  <h2 class="section-title text-center">Contacto</h2>
-  <p class="text-center mb-4">Para consultas, sugerencias o transmisiones en vivo, podés comunicarte con nosotros vía:</p>
-  
-  <div class="row justify-content-center g-4">
-    <!-- Email -->
-    <div class="col-md-5">
-      <div class="card border-0 shadow-sm text-center p-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#008000" class="bi bi-envelope mb-3" viewBox="0 0 16 16">
-          <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v.217l-8 4.8-8-4.8V4z"/>
-          <path d="M0 4.697v7.104l5.803-3.48L0 4.697zM6.761 8.83l-6.761 4.057A2 2 0 0 0 2 14h12a2 2 0 0 0 1.999-1.113l-6.761-4.057-1.238.743-1.238-.743zM16 4.697l-5.803 3.624L16 11.801V4.697z"/>
-        </svg>
-        <h5>Email</h5>
-        <p>Escribinos directamente a nuestro correo.</p>
-        <a href="mailto:atenasmispasion21@gmail.com" class="btn btn-verde">Enviar Email</a>
-      </div>
-    </div>
-
-    <!-- WhatsApp -->
-    <div class="col-md-5">
-      <div class="card border-0 shadow-sm text-center p-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="#008000" class="bi bi-whatsapp mb-3" viewBox="0 0 16 16">
-          <path d="M13.601 2.326A7.951 7.951 0 0 0 8 0C3.582 0 0 3.582 0 8a7.952 7.952 0 0 0 1.146 4.018L0 16l4.01-1.145A7.949 7.949 0 0 0 8 16c4.418 0 8-3.582 8-8 0-2.14-.832-4.147-2.399-5.674zM8 14.933c-3.831 0-6.933-3.102-6.933-6.933S4.169 1.067 8 1.067s6.933 3.102 6.933 6.933S11.831 14.933 8 14.933z"/>
-          <path d="M11.605 10.692c-.147-.073-.872-.429-1.007-.478-.134-.05-.232-.074-.33.074s-.379.478-.466.576c-.086.099-.173.112-.32.037-.147-.073-.62-.228-1.18-.724-.436-.388-.73-.867-.816-.99-.086-.123-.009-.19.063-.264.065-.065.147-.173.22-.26.073-.087.097-.147.147-.245.05-.099.025-.186-.012-.26-.037-.073-.33-.795-.452-1.087-.118-.284-.237-.246-.33-.251-.086-.006-.186-.007-.285-.007s-.26.037-.397.173c-.137.137-.523.51-.523 1.243 0 .732.536 1.44.611 1.538.074.099 1.055 1.609 2.555 2.256.356.154.632.246.848.315.356.112.68.096.936.058.286-.043.872-.357.995-.701.123-.345.123-.642.086-.701-.037-.06-.134-.099-.28-.172z"/>
-        </svg>
-        <h5>WhatsApp</h5>
-        <p>Chateá con nosotros directamente desde tu móvil o PC.</p>
-        <a href="https://wa.me/5491154756459" target="_blank" class="btn btn-verde">Abrir WhatsApp</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
 <footer>
   <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// === Noticia única ===
-const noticia = {
-  titulo: "Comenzó la temporada 2025/26",
-  descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
-  contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
-  imagen: "pretemporada.jpg",
-  audio: "jose.mp3"
-};
+  // Noticia única
+  const noticia = {
+    titulo: "Comenzó la temporada 2025/26",
+    descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
+    contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
+    imagen: "pretemporada.jpg",
+    audio: "jose.mp3"
+  };
 
-// Grilla de noticias con modal y audio
-const noticiasGrilla = document.getElementById('noticias-grilla');
-const col = document.createElement('div');
-col.className = 'col';
-col.innerHTML = `
-  <div class="card">
-    <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}">
-    <div class="card-body">
-      <h5 class="card-title">${noticia.titulo}</h5>
-      <p class="card-text">${noticia.descripcion}</p>
-      <a href="#" class="btn btn-verde" data-bs-toggle="modal" data-bs-target="#noticiaModal">Leer más</a>
+  // Mostrar noticia en grilla con modal y audio
+  const noticiasGrilla = document.getElementById('noticias-grilla');
+  const col = document.createElement('div');
+  col.className = 'col';
+  col.innerHTML = `
+    <div class="card">
+      <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}">
+      <div class="card-body">
+        <h5 class="card-title">${noticia.titulo}</h5>
+        <p class="card-text">${noticia.descripcion}</p>
+        <button class="btn btn-verde" data-bs-toggle="modal" data-bs-target="#modalNoticia">Leer más</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Modal -->
-  <div class="modal fade" id="noticiaModal" tabindex="-1" aria-labelledby="noticiaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="noticiaModalLabel">${noticia.titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-        </div>
-        <div class="modal-body">
-          <p>${noticia.contenido}</p>
-          <img src="${noticia.imagen}" class="img-fluid mb-3" alt="${noticia.titulo}">
-          <audio controls>
-            <source src="${noticia.audio}" type="audio/mpeg">
-            Tu navegador no soporta audio.
-          </audio>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-verde" data-bs-dismiss="modal">Cerrar</button>
+    <div class="modal fade" id="modalNoticia" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">${noticia.titulo}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>${noticia.contenido}</p>
+            <audio controls>
+              <source src="${noticia.audio}" type="audio/mpeg">
+              Tu navegador no soporta audio.
+            </audio>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-`;
-noticiasGrilla.appendChild(col);
+  `;
+  noticiasGrilla.appendChild(col);
 
-// Pausar audio al cerrar modal
-const modal = document.getElementById('noticiaModal');
-modal.addEventListener('hidden.bs.modal', function () {
-  const audios = modal.querySelectorAll('audio');
-  audios.forEach(a => a.pause());
-});
+  // Botón ir arriba
+  const btnUp = document.getElementById('btn-up');
+  window.onscroll = function() {
+    if (document.documentElement.scrollTop > 200) { btnUp.style.display = 'block'; } 
+    else { btnUp.style.display = 'none'; }
+  };
+  btnUp.addEventListener('click', e => { e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
 
-// Multimedia
-const multimedia = document.getElementById('multimedia-content');
-multimedia.innerHTML = `
-  <iframe class="youtube-embed" src="https://www.youtube.com/embed/BzY15_tfnVs" frameborder="0" allowfullscreen></iframe>
-  <iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
-`;
-
-// Sidebar radio
-document.getElementById('sidebar-radio').innerHTML = `<iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>`;
-
-// Títulos Historia
-const dataTitulos = {
-  titulosNacionales: [
-    { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1990/91", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1991/92", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1997/98", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1998/99", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2001/02", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2002/03", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2008/09", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
-  ],
-  titulosInternacionales: [
-    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
-    { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
-  ]
-};
-
-const tablaTitulos = document.getElementById('tabla-titulos');
-const trNac = document.createElement('tr');
-trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
-tablaTitulos.appendChild(trNac);
-dataTitulos.titulosNacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulos.appendChild(tr);
-});
-const trInt = document.createElement('tr');
-trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
-tablaTitulos.appendChild(trInt);
-dataTitulos.titulosInternacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulos.appendChild(tr);
-});
-
-// Botón Ir Arriba
-const btnUp = document.getElementById('btn-up');
-window.onscroll = function() {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    btnUp.style.display = "block";
-  } else {
-    btnUp.style.display = "none";
-  }
-};
-btnUp.addEventListener('click', function(e) {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+  // Tabla títulos históricos
+  const titulos = [
+    {anio:'1987', torneo:'Liga Nacional', resultado:'Campeón'},
+    {anio:'1988', torneo:'Liga Nacional', resultado:'Campeón'},
+    {anio:'1990', torneo:'Liga Nacional', resultado:'Campeón'},
+    {anio:'1991', torneo:'Liga Nacional', resultado:'Campeón'},
+    {anio:'1992', torneo:'Liga Nacional', resultado:'Campeón'},
+    {anio:'1998', torneo:'Liga Nacional', resultado:'Campeón'},
+    {anio:'1999', torneo:'Liga Nacional', resultado:'Campeón'},
+    {anio:'2002/03', torneo:'Liga Nacional', resultado:'Campeón'},
+    {anio:'2008', torneo:'Copa Argentina', resultado:'Campeón'}
+  ];
+  const tablaTitulos = document.getElementById('tabla-titulos');
+  titulos.forEach(t => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${t.anio}</td><td>${t.torneo}</td><td>${t.resultado}</td>`;
+    tablaTitulos.appendChild(tr);
+  });
 </script>
-
 </body>
 </html>
-
-
-
