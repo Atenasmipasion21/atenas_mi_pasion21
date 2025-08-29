@@ -75,7 +75,7 @@
       <!-- HISTORIA -->
       <section id="historia" class="mt-5">
         <h2 class="section-title">Historia del Club</h2>
-        <p>Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, <strong>con múltiples títulos nacionales e internacionales </strong>. Fundado el <strong>17 de abril de 1938</strong></strong>, su presidente actual es <strong>Germán Baralle</strong></p>
+        <p>Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, <strong>con múltiples títulos nacionales e internacionales </strong>. Fundado el <strong>17 de abril de 1938</strong>, su presidente actual es <strong>Germán Baralle</strong></p>
 
         <h4 class="mt-4">Títulos obtenidos</h4>
         <div class="table-responsive">
@@ -122,12 +122,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+// Datos dinámicos
 const data = {
   noticias: [
-    { titulo: "Comenzo la temporada 2025/26", descripcion: "Comentamos como vemos a Atenas para está temporada.", imagen: "pretemporada.jpg" }
+    { 
+      titulo: "Comenzó la temporada 2025/26", 
+      descripcion: "Comentamos cómo vemos a Atenas para esta temporada.", 
+      imagen: "pretemporada.jpg",
+      contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos." 
+    }
   ],
   partidos: [
-    { equipo: "Atenas vs", fecha: "", link: "#" },
+    { equipo: "Atenas vs Instituto", fecha: "03/09/2025 20:30", link: "#" },
   ],
   multimedia: { youtube: "BzY15_tfnVs", radio: "TU_CANAL_ID" },
   titulosNacionales: [
@@ -143,18 +149,18 @@ const data = {
     { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
   ],
   titulosInternacionales: [
-    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones ", resultado: "Campeón" },
-    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones ", resultado: "Campeón" },
-    { año: 1996, torneo: "Campeonato Panamericano ", resultado: "Campeón" },
+    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
+    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
+    { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
     { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
     { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
     { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
  ]
 };
 
-// Noticias
+// Noticias con modal
 const noticiasGrilla = document.getElementById('noticias-grilla');
-data.noticias.forEach(n => {
+data.noticias.forEach((n, index) => {
   const col = document.createElement('div');
   col.className = 'col';
   col.innerHTML = `
@@ -163,9 +169,29 @@ data.noticias.forEach(n => {
       <div class="card-body">
         <h5 class="card-title">${n.titulo}</h5>
         <p class="card-text">${n.descripcion}</p>
-        <a href="jose.mp3" class="btn btn-verde">Leer más</a>
+        <a href="#" class="btn btn-verde" data-bs-toggle="modal" data-bs-target="#noticiaModal${index}">Leer más</a>
       </div>
-    </div>`;
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="noticiaModal${index}" tabindex="-1" aria-labelledby="noticiaModalLabel${index}" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="noticiaModalLabel${index}">${n.titulo}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+            <p>${n.contenido}</p>
+            <img src="${n.imagen}" class="img-fluid" alt="${n.titulo}">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-verde" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
   noticiasGrilla.appendChild(col);
 });
 
@@ -190,8 +216,7 @@ data.partidos.forEach(p => {
 
 // Títulos Historia
 const tablaTitulos = document.getElementById('tabla-titulos');
-
-// Bloque Nacionales
+// Nacionales
 const trNac = document.createElement('tr');
 trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${data.titulosNacionales.length})</td>`;
 tablaTitulos.appendChild(trNac);
@@ -200,8 +225,7 @@ data.titulosNacionales.forEach(t => {
   tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
   tablaTitulos.appendChild(tr);
 });
-
-// Bloque Internacionales
+// Internacionales
 const trInt = document.createElement('tr');
 trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${data.titulosInternacionales.length})</td>`;
 tablaTitulos.appendChild(trInt);
@@ -228,17 +252,3 @@ btnUp.addEventListener('click', function(e) {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
