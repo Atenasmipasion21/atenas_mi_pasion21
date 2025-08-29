@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Atenas mi pasión – Noticias</title>
+    <link>https://tublog.com/</link>
+    <description>Últimas noticias de Atenas: crónicas, multimedia y novedades del club</description>
+    <language>es-AR</language>
+    <lastBuildDate>Fri, 29 Aug 2025 16:00:00 GMT</lastBuildDate>
+
+    <!-- NOTICIA 1 -->
+    <item>
+      <title>Comenzó la temporada 2025/26</title>
+      <link>https://tublog.com/noticias/pretemporada</link>
+      <description>Comentamos cómo vemos a Atenas para esta temporada.</description>
+      <pubDate>Fri, 29 Aug 2025 16:00:00 GMT</pubDate>
+      <enclosure url="https://tublog.com/images/pretemporada.jpg" type="image/jpeg"/>
+      <guid>https://tublog.com/noticias/pretemporada</guid>
+    </item>
+
+    <!-- EJEMPLO: agregar nuevas noticias -->
+    <!--
+    <item>
+      <title>Título de la nueva noticia</title>
+      <link>URL de la noticia</link>
+      <description>Resumen o descripción breve de la noticia</description>
+      <pubDate>Fecha en formato RFC 2822</pubDate>
+      <enclosure url="URL de la imagen destacada" type="image/jpeg"/>
+      <guid>URL única de la noticia</guid>
+    </item>
+    -->
+
+  </channel>
+</rss>
