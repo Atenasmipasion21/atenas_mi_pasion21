@@ -28,6 +28,13 @@
   .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
   .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
+
+  /* ===== SLIDER DE FOTOS AJUSTADO ===== */
+  #sliderFotos .carousel-inner { height: 350px; }
+  #sliderFotos .carousel-item img { height: 100%; object-fit: cover; }
+  @media (max-width: 768px) {
+    #sliderFotos .carousel-inner { height: 200px; }
+  }
 </style>
 </head>
 <body>
@@ -150,16 +157,15 @@
 <script>
 // === SLIDER DE FOTOS DINÁMICO ===
 const fotosSlider = [
-  { src: "santiferryra.jpg", titulo: "Santiago Ferreyra", descripcion: "Descripción breve de la foto 1" },
-  { src: "jose.jpg", titulo: "Jose Montero", descripcion: "Descripción breve de la foto 2" },
-  { src: "nico.jpg", titulo: "Nico Zurchsmitten", descripcion: "Descripción breve de la foto 3" }
+  { src: "foto1.jpg", titulo: "Foto 1", descripcion: "Descripción breve de la foto 1" },
+  { src: "foto2.jpg", titulo: "Foto 2", descripcion: "Descripción breve de la foto 2" },
+  { src: "foto3.jpg", titulo: "Foto 3", descripcion: "Descripción breve de la foto 3" }
 ];
 
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
 
 fotosSlider.forEach((foto, index) => {
-  // Crear indicadores
   const button = document.createElement('button');
   button.type = "button";
   button.setAttribute('data-bs-target', "#sliderFotos");
@@ -171,7 +177,6 @@ fotosSlider.forEach((foto, index) => {
   }
   sliderIndicators.appendChild(button);
 
-  // Crear slides
   const div = document.createElement('div');
   div.className = index === 0 ? "carousel-item active" : "carousel-item";
   div.innerHTML = `
@@ -231,15 +236,11 @@ noticias.forEach((noticia, index) => {
   noticiasGrilla.appendChild(col);
 });
 
-// Pausar audio al cerrar cualquier modal
 const modales = document.querySelectorAll('.modal');
 modales.forEach(modal => {
   modal.addEventListener('hidden.bs.modal', () => {
     const audios = modal.querySelectorAll('audio');
-    audios.forEach(audio => {
-      audio.pause();
-      audio.currentTime = 0;
-    });
+    audios.forEach(audio => { audio.pause(); audio.currentTime = 0; });
   });
 });
 
@@ -248,24 +249,18 @@ const multimediaItems = [
   { tipo: "video", src: "https://www.youtube.com/embed/BzY15_tfnVs" },
   { tipo: "radio", src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
 ];
-
 const multimediaContent = document.getElementById('multimedia-content');
 multimediaItems.forEach(item => {
   const div = document.createElement('div');
   div.className = 'col-12';
-  if(item.tipo === "video") {
-    div.innerHTML = `<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  } else if(item.tipo === "radio") {
-    div.innerHTML = `<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  }
+  if(item.tipo === "video") div.innerHTML = `<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+  else if(item.tipo === "radio") div.innerHTML = `<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
   multimediaContent.appendChild(div);
 });
 
 // === SIDEBAR RADIO ===
 const sidebarRadio = document.getElementById('sidebar-radio');
-const radioItems = [
-  { src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
-];
+const radioItems = [ { src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" } ];
 radioItems.forEach(radio => {
   const iframe = document.createElement('iframe');
   iframe.className = 'radio-embed w-100';
@@ -320,14 +315,11 @@ dataTitulos.titulosInternacionales.forEach(t => {
 // === BOTÓN IR ARRIBA ===
 const btnUp = document.getElementById('btn-up');
 window.onscroll = function() {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) { btnUp.style.display = "block"; } 
-  else { btnUp.style.display = "none"; }
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) btnUp.style.display = "block";
+  else btnUp.style.display = "none";
 };
 btnUp.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 </script>
 
 </body>
 </html>
-
-
-
