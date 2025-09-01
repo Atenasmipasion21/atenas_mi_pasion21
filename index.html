@@ -29,8 +29,7 @@
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
 
   /* ===== SLIDER DE FOTOS AJUSTADO ===== */
-  #sliderFotos .carousel-inner { height: 500px; }
-  #sliderFotos .carousel-item img { height: 100%; object-fit: cover; }
+  #sliderFotos .carousel-item img { width: 100%; height: auto; object-fit: contain; }
   #sliderFotos .carousel-caption { 
     background-color: rgba(0,0,0,0.6); 
     padding: 10px 15px; 
@@ -43,7 +42,6 @@
   #sliderFotos .carousel-caption h5 { font-size: 1.4rem; margin-bottom: 3px; color: #fff; }
   #sliderFotos .carousel-caption p { font-size: 1rem; color: #fff; margin-bottom: 3px; }
   #sliderFotos .carousel-caption small { display: block; font-size: 0.85rem; color: #ddd; }
-  @media (max-width: 768px) { #sliderFotos .carousel-inner { height: 300px; } }
 </style>
 </head>
 <body>
@@ -86,76 +84,20 @@
 
 <div class="container">
   <div class="row">
-
-    <!-- MAIN CONTENT -->
-    <div class="col-lg-8">
-      <section id="noticias">
-        <h2 class="section-title">Últimas Noticias</h2>
-        <div class="row" id="noticias-grilla"></div>
-      </section>
-
-      <section id="multimedia" class="mt-5">
-        <h2 class="section-title">Multimedia</h2>
-        <div id="multimedia-content" class="row g-3"></div>
-      </section>
-
-      <section id="calendario" class="mt-5">
-        <h2 class="section-title">Próximos Partidos</h2>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item text-center">Próximos partidos aún no programados.</li>
-        </ul>
-      </section>
-
-      <section id="historia" class="mt-5">
-        <h2 class="section-title">Historia del Club</h2>
-        <p>Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, <strong>con múltiples títulos nacionales e internacionales</strong>. Fundado el <strong>17 de abril de 1938</strong>, su presidente actual es <strong>Germán Baralle</strong></p>
-
-        <h4 class="mt-4">Títulos obtenidos</h4>
-        <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead class="table-dark text-center">
-              <tr>
-                <th style="width: 20%;">Año</th>
-                <th style="width: 55%;">Torneo</th>
-                <th style="width: 25%;">Resultado</th>
-              </tr>
-            </thead>
-            <tbody id="tabla-titulos"></tbody>
-          </table>
-        </div>
-      </section>
-
-      <section id="contacto" class="mt-5">
-        <h2 class="section-title">Contacto</h2>
-        <p><i class="bi bi-envelope-fill"></i> Correo: <a href="mailto:atenasmispasion21@gmail.com" class="btn btn-verde btn-sm">Enviar email</a></p>
-        <p><i class="bi bi-whatsapp"></i> WhatsApp: <a href="https://wa.me/5491154756459" target="_blank" class="btn btn-verde btn-sm">Abrir WhatsApp</a></p>
-      </section>
-    </div>
-
-    <!-- SIDEBAR -->
+    <div class="col-lg-8" id="main-content"></div>
     <div class="col-lg-4">
       <div class="sidebar">
         <h4>Redes Sociales</h4>
-        <a href="https://www.facebook.com/groups/1607966346118447" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
-        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
-
-        <h4 class="mt-4">Transmisión en vivo</h4>
-        <div id="sidebar-radio"></div>
+        <a href="#"><i class="bi bi-facebook"></i> Facebook</a>
+        <a href="#"><i class="bi bi-instagram"></i> Instagram</a>
       </div>
     </div>
-
   </div>
 </div>
 
-<a href="#" id="btn-up" class="btn btn-verde">↑</a>
-
-<footer>
-  <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
-</footer>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// === SLIDER DE FOTOS DINÁMICO ===
+// Slider dinámico con altura auto
 const fotosSlider = [
   { src: "buendia.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" },
   { src: "jose.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" },
@@ -172,10 +114,7 @@ fotosSlider.forEach((foto, index) => {
   button.setAttribute('data-bs-target', "#sliderFotos");
   button.setAttribute('data-bs-slide-to', index);
   button.setAttribute('aria-label', `Slide ${index + 1}`);
-  if(index === 0) {
-    button.className = "active";
-    button.setAttribute('aria-current', "true");
-  }
+  if(index === 0) { button.className = "active"; button.setAttribute('aria-current', "true"); }
   sliderIndicators.appendChild(button);
 
   const div = document.createElement('div');
@@ -191,6 +130,5 @@ fotosSlider.forEach((foto, index) => {
   sliderInner.appendChild(div);
 });
 </script>
-
 </body>
 </html>
