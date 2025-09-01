@@ -13,7 +13,7 @@
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
   .banner { width: 100%; height: 400px; background-image: url('banner-atenas.jpg'); background-size: cover; background-position: center; margin-bottom: 30px; }
-  .card { height: 435px; margin-bottom: 20px; display: flex; flex-direction: column; }
+  .card { display: flex; flex-direction: column; height: 100%; }
   .card-img-top { height: 250px; object-fit: cover; }
   .card-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
   .btn-verde { background-color: #008000; color: #fff; border: none; }
@@ -69,7 +69,7 @@
       <!-- MULTIMEDIA -->
       <section id="multimedia" class="mt-5">
         <h2 class="section-title">Multimedia</h2>
-        <div id="multimedia-content"></div>
+        <div id="multimedia-content" class="row g-3"></div>
       </section>
 
       <!-- CALENDARIO -->
@@ -134,60 +134,98 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// Noticias ejemplo
-const noticia = {
-  titulo: "Comenzó la temporada 2025/26",
-  descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
-  contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
-  imagen: "pretemporada.jpg",
-  audio: "jose.mp3"
-};
+// === NOTICIAS ===
+const noticias = [
+  {
+    titulo: "Comenzó la temporada 2025/26",
+    descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
+    contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
+    imagen: "pretemporada.jpg",
+    audio: "jose.mp3"
+  }
+];
 
-// Mostrar noticia en grilla con modal y audio
 const noticiasGrilla = document.getElementById('noticias-grilla');
-const col = document.createElement('div');
-col.className = 'col';
-col.innerHTML = `
-  <div class="card">
-    <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}">
-    <div class="card-body">
-      <h5 class="card-title">${noticia.titulo}</h5>
-      <p class="card-text">${noticia.descripcion}</p>
-      <button class="btn btn-verde" data-bs-toggle="modal" data-bs-target="#modalNoticia">Leer más</button>
+noticias.forEach((noticia, index) => {
+  const modalId = `modalNoticia${index}`;
+  const col = document.createElement('div');
+  col.className = 'col-12 col-md-6 col-lg-4 mb-4';
+  col.innerHTML = `
+    <div class="card h-100 d-flex flex-column">
+      <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
+      <div class="card-body d-flex flex-column justify-content-between">
+        <h5 class="card-title">${noticia.titulo}</h5>
+        <p class="card-text">${noticia.descripcion}</p>
+        <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
+      </div>
     </div>
-  </div>
 
-  <div class="modal fade" id="modalNoticia" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">${noticia.titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <p>${noticia.contenido}</p>
-          <audio controls>
-            <source src="${noticia.audio}" type="audio/mpeg">
-            Tu navegador no soporta audio.
-          </audio>
+    <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">${noticia.titulo}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>${noticia.contenido}</p>
+            <audio controls>
+              <source src="${noticia.audio}" type="audio/mpeg">
+              Tu navegador no soporta audio.
+            </audio>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-`;
-noticiasGrilla.appendChild(col);
+  `;
+  noticiasGrilla.appendChild(col);
+});
 
-// Multimedia
-const multimedia = document.getElementById('multimedia-content');
-multimedia.innerHTML = `
-  <iframe class="youtube-embed" src="https://www.youtube.com/embed/BzY15_tfnVs" frameborder="0" allowfullscreen></iframe>
-  <iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
-`;
+// Pausar audio al cerrar cualquier modal
+const modales = document.querySelectorAll('.modal');
+modales.forEach(modal => {
+  modal.addEventListener('hidden.bs.modal', () => {
+    const audios = modal.querySelectorAll('audio');
+    audios.forEach(audio => {
+      audio.pause();
+      audio.currentTime = 0;
+    });
+  });
+});
 
-// Sidebar radio
-document.getElementById('sidebar-radio').innerHTML = `<iframe class="radio-embed" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>`;
+// === MULTIMEDIA ===
+const multimediaItems = [
+  { tipo: "video", src: "https://www.youtube.com/embed/BzY15_tfnVs" },
+  { tipo: "radio", src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
+];
 
-// Tabla títulos Historia
+const multimediaContent = document.getElementById('multimedia-content');
+multimediaItems.forEach(item => {
+  const div = document.createElement('div');
+  div.className = 'col-12';
+  if(item.tipo === "video") {
+    div.innerHTML = `<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+  } else if(item.tipo === "radio") {
+    div.innerHTML = `<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+  }
+  multimediaContent.appendChild(div);
+});
+
+// === SIDEBAR RADIO ===
+const sidebarRadio = document.getElementById('sidebar-radio');
+const radioItems = [
+  { src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
+];
+radioItems.forEach(radio => {
+  const iframe = document.createElement('iframe');
+  iframe.className = 'radio-embed w-100';
+  iframe.src = radio.src;
+  iframe.frameBorder = 0;
+  iframe.allowFullscreen = true;
+  sidebarRadio.appendChild(iframe);
+});
+
+// === HISTORIA / TÍTULOS ===
 const dataTitulos = {
   titulosNacionales: [
     { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
@@ -229,7 +267,7 @@ dataTitulos.titulosInternacionales.forEach(t => {
   tablaTitulos.appendChild(tr);
 });
 
-// Botón Ir Arriba
+// === BOTÓN IR ARRIBA ===
 const btnUp = document.getElementById('btn-up');
 window.onscroll = function() {
   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) { btnUp.style.display = "block"; } 
