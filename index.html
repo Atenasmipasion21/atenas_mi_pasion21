@@ -54,36 +54,10 @@
 <!-- BANNER -->
 <div class="banner"></div>
 
-<!-- SLIDER DE FOTOS -->
+<!-- SLIDER DE FOTOS DINÁMICO -->
 <div id="sliderFotos" class="carousel slide mb-5" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#sliderFotos" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#sliderFotos" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#sliderFotos" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="foto1.jpg" class="d-block w-100" alt="Foto destacada 1">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Foto 1</h5>
-        <p>Descripción breve de la foto 1.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="foto2.jpg" class="d-block w-100" alt="Foto destacada 2">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Foto 2</h5>
-        <p>Descripción breve de la foto 2.</p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="foto3.jpg" class="d-block w-100" alt="Foto destacada 3">
-      <div class="carousel-caption d-none d-md-block">
-        <h5>Foto 3</h5>
-        <p>Descripción breve de la foto 3.</p>
-      </div>
-    </div>
-  </div>
+  <div class="carousel-indicators" id="slider-indicators"></div>
+  <div class="carousel-inner" id="slider-inner"></div>
   <button class="carousel-control-prev" type="button" data-bs-target="#sliderFotos" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Anterior</span>
@@ -174,6 +148,42 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+// === SLIDER DE FOTOS DINÁMICO ===
+const fotosSlider = [
+  { src: "foto1.jpg", titulo: "Foto 1", descripcion: "Descripción breve de la foto 1" },
+  { src: "foto2.jpg", titulo: "Foto 2", descripcion: "Descripción breve de la foto 2" },
+  { src: "foto3.jpg", titulo: "Foto 3", descripcion: "Descripción breve de la foto 3" }
+];
+
+const sliderIndicators = document.getElementById('slider-indicators');
+const sliderInner = document.getElementById('slider-inner');
+
+fotosSlider.forEach((foto, index) => {
+  // Crear indicadores
+  const button = document.createElement('button');
+  button.type = "button";
+  button.setAttribute('data-bs-target', "#sliderFotos");
+  button.setAttribute('data-bs-slide-to', index);
+  button.setAttribute('aria-label', `Slide ${index + 1}`);
+  if(index === 0) {
+    button.className = "active";
+    button.setAttribute('aria-current', "true");
+  }
+  sliderIndicators.appendChild(button);
+
+  // Crear slides
+  const div = document.createElement('div');
+  div.className = index === 0 ? "carousel-item active" : "carousel-item";
+  div.innerHTML = `
+    <img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
+    <div class="carousel-caption d-none d-md-block">
+      <h5>${foto.titulo}</h5>
+      <p>${foto.descripcion}</p>
+    </div>
+  `;
+  sliderInner.appendChild(div);
+});
+
 // === NOTICIAS ===
 const noticias = [
   {
