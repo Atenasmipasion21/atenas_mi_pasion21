@@ -31,10 +31,19 @@
 
   /* ===== SLIDER DE FOTOS AJUSTADO ===== */
   #sliderFotos .carousel-inner { height: 400px; }
-  #sliderFotos .carousel-item img { height: 100%; object-fit: contain; }
-  #sliderFotos .carousel-caption { background-color: rgba(0,0,0,0.5); padding: 10px 15px; border-radius: 5px; }
-  #sliderFotos .carousel-caption h5 { font-size: 1.2rem; margin-bottom: 5px; }
-  #sliderFotos .carousel-caption p { font-size: 0.9rem; }
+  #sliderFotos .carousel-item img { height: 100%; object-fit: cover; }
+  #sliderFotos .carousel-caption { 
+    background-color: rgba(0,0,0,0.5); 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    bottom: 15px; 
+    left: 15px; 
+    right: 15px; 
+    text-align: left;
+  }
+  #sliderFotos .carousel-caption h5 { font-size: 1.2rem; margin-bottom: 5px; color: #fff; }
+  #sliderFotos .carousel-caption p { font-size: 0.9rem; color: #fff; margin-bottom: 3px; }
+  #sliderFotos .carousel-caption small { display: block; font-size: 0.8rem; color: #ddd; }
   @media (max-width: 768px) { #sliderFotos .carousel-inner { height: 250px; } }
 </style>
 </head>
@@ -156,13 +165,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// ===== SLIDER DE FOTOS DINÁMICO =====
+// === SLIDER DE FOTOS DINÁMICO ===
 const fotosSlider = [
-  { src: "buendia.jpg", titulo: "Fotos Prensa Atenas | Manuel Buendía", descripcion: "Descripción breve de la foto 1" },
-  { src: "jose.jpg", titulo: "Fotos Prensa Atenas | Jose Montero", descripcion: "Descripción breve de la foto 2" },
-  { src: "nico.jpg", titulo: "Fotos Prensa Atenas | Nico", descripcion: "Descripción breve de la foto 3" },
-  { src: "santiferryra.jpg", titulo: "Fotos Prensa Atenas | Santi Ferryra", descripcion: "Descripción breve de la foto 4" },
-  { src: "lingua.jpg", titulo: "Fotos Prensa Atenas | Ignacio Lingua", descripcion: "Descripción breve de la foto 5" }
+  { src: "buendia.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "jose.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "nico.jpg", titulo: "Nicolás Pérez", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "santiferryra.jpg", titulo: "Santiago Ferreira", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" }
 ];
 
 const sliderIndicators = document.getElementById('slider-indicators');
@@ -174,38 +182,39 @@ fotosSlider.forEach((foto, index) => {
   button.setAttribute('data-bs-target', "#sliderFotos");
   button.setAttribute('data-bs-slide-to', index);
   button.setAttribute('aria-label', `Slide ${index + 1}`);
-  if(index === 0){ button.className="active"; button.setAttribute('aria-current',"true"); }
+  if(index === 0) { button.className = "active"; button.setAttribute('aria-current', "true"); }
   sliderIndicators.appendChild(button);
 
   const div = document.createElement('div');
   div.className = index === 0 ? "carousel-item active" : "carousel-item";
   div.innerHTML = `
     <img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-    <div class="carousel-caption d-none d-md-block">
+    <div class="carousel-caption">
       <h5>${foto.titulo}</h5>
       <p>${foto.descripcion}</p>
+      <small>${foto.fuente}</small>
     </div>
   `;
   sliderInner.appendChild(div);
 });
 
-// ===== NOTICIAS =====
+// === NOTICIAS ===
 const noticias = [
   {
-    titulo: "Entrenamiento de hoy",
-    descripcion: "Comentamos el entrenamiento de Atenas en la jornada de hoy.",
-    contenido: "La jornada de entrenamiento se centró en mejorar la defensa y la cohesión del equipo. Se destacan ejercicios tácticos y de preparación física.",
+    titulo: "Comenzó la temporada 2025/26",
+    descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
+    contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
     imagen: "pretemporada.jpg",
     audio: "jose.mp3"
   }
 ];
 
 const noticiasGrilla = document.getElementById('noticias-grilla');
-noticias.forEach((noticia,index)=>{
-  const modalId=`modalNoticia${index}`;
-  const col=document.createElement('div');
-  col.className='col-12 col-md-6 col-lg-4 mb-4';
-  col.innerHTML=`
+noticias.forEach((noticia, index) => {
+  const modalId = `modalNoticia${index}`;
+  const col = document.createElement('div');
+  col.className = 'col-12 col-md-6 col-lg-4 mb-4';
+  col.innerHTML = `
     <div class="card h-100 d-flex flex-column">
       <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
       <div class="card-body d-flex flex-column justify-content-between">
@@ -214,6 +223,7 @@ noticias.forEach((noticia,index)=>{
         <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
       </div>
     </div>
+
     <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -235,82 +245,89 @@ noticias.forEach((noticia,index)=>{
   noticiasGrilla.appendChild(col);
 });
 
-document.querySelectorAll('.modal').forEach(modal=>{
-  modal.addEventListener('hidden.bs.modal',()=>{ modal.querySelectorAll('audio').forEach(a=>{a.pause();a.currentTime=0;}); });
+const modales = document.querySelectorAll('.modal');
+modales.forEach(modal => {
+  modal.addEventListener('hidden.bs.modal', () => {
+    const audios = modal.querySelectorAll('audio');
+    audios.forEach(audio => { audio.pause(); audio.currentTime = 0; });
+  });
 });
 
-// ===== MULTIMEDIA =====
-const multimediaItems=[
-  {tipo:"video",src:"https://www.youtube.com/embed/BzY15_tfnVs"},
-  {tipo:"radio",src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID"}
+// === MULTIMEDIA ===
+const multimediaItems = [
+  { tipo: "video", src: "https://www.youtube.com/embed/BzY15_tfnVs" },
+  { tipo: "radio", src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
 ];
-const multimediaContent=document.getElementById('multimedia-content');
-multimediaItems.forEach(item=>{
-  const div=document.createElement('div');
-  div.className='col-12';
-  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+const multimediaContent = document.getElementById('multimedia-content');
+multimediaItems.forEach(item => {
+  const div = document.createElement('div');
+  div.className = 'col-12';
+  if(item.tipo === "video") div.innerHTML = `<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+  else if(item.tipo === "radio") div.innerHTML = `<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
   multimediaContent.appendChild(div);
 });
 
-// ===== SIDEBAR RADIO =====
-const sidebarRadio=document.getElementById('sidebar-radio');
-const radioItems=[{src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID"}];
-radioItems.forEach(radio=>{
-  const iframe=document.createElement('iframe');
-  iframe.className='radio-embed w-100';
-  iframe.src=radio.src;
-  iframe.frameBorder=0;
-  iframe.allowFullscreen=true;
+// === SIDEBAR RADIO ===
+const sidebarRadio = document.getElementById('sidebar-radio');
+const radioItems = [ { src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" } ];
+radioItems.forEach(radio => {
+  const iframe = document.createElement('iframe');
+  iframe.className = 'radio-embed w-100';
+  iframe.src = radio.src;
+  iframe.frameBorder = 0;
+  iframe.allowFullscreen = true;
   sidebarRadio.appendChild(iframe);
 });
 
-// ===== HISTORIA / TÍTULOS =====
-const dataTitulos={
-  titulosNacionales:[
-    {año:1987,torneo:"Liga Nacional",resultado:"Campeón"},
-    {año:1988,torneo:"Liga Nacional",resultado:"Campeón"},
-    {año:"1990/91",torneo:"Liga Nacional",resultado:"Campeón"},
-    {año:"1991/92",torneo:"Liga Nacional",resultado:"Campeón"},
-    {año:"1997/98",torneo:"Liga Nacional",resultado:"Campeón"},
-    {año:"1998/99",torneo:"Liga Nacional",resultado:"Campeón"},
-    {año:"2001/02",torneo:"Liga Nacional",resultado:"Campeón"},
-    {año:"2002/03",torneo:"Liga Nacional",resultado:"Campeón"},
-    {año:"2008/09",torneo:"Liga Nacional",resultado:"Campeón"},
-    {año:"2023/24",torneo:"Liga Argentina",resultado:"Campeón"}
+// === HISTORIA / TÍTULOS ===
+const dataTitulos = {
+  titulosNacionales: [
+    { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1990/91", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1991/92", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1997/98", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1998/99", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2001/02", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2002/03", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2008/09", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
   ],
-  titulosInternacionales:[
-    {año:1993,torneo:"Campeonato Sudamericano de Clubes Campeones",resultado:"Campeón"},
-    {año:1994,torneo:"Campeonato Sudamericano de Clubes Campeones",resultado:"Campeón"},
-    {año:1996,torneo:"Campeonato Panamericano",resultado:"Campeón"},
-    {año:1997,torneo:"Liga Sudamericana de Clubes",resultado:"Campeón"},
-    {año:1998,torneo:"Liga Sudamericana de Clubes",resultado:"Campeón"},
-    {año:2004,torneo:"Liga Sudamericana de Clubes",resultado:"Campeón"}
+  titulosInternacionales: [
+    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
+    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
+    { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
+    { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
+    { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
+    { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
   ]
 };
 
-const tablaTitulos=document.getElementById('tabla-titulos');
-const trNac=document.createElement('tr');
-trNac.innerHTML=`<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
+const tablaTitulos = document.getElementById('tabla-titulos');
+const trNac = document.createElement('tr');
+trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
 tablaTitulos.appendChild(trNac);
-dataTitulos.titulosNacionales.forEach(t=>{
-  const tr=document.createElement('tr');
-  tr.innerHTML=`<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
+dataTitulos.titulosNacionales.forEach(t => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
   tablaTitulos.appendChild(tr);
 });
-const trInt=document.createElement('tr');
-trInt.innerHTML=`<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
+const trInt = document.createElement('tr');
+trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
 tablaTitulos.appendChild(trInt);
-dataTitulos.titulosInternacionales.forEach(t=>{
-  const tr=document.createElement('tr');
-  tr.innerHTML=`<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
+dataTitulos.titulosInternacionales.forEach(t => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
   tablaTitulos.appendChild(tr);
 });
 
-// ===== BOTÓN IR ARRIBA =====
-const btnUp=document.getElementById('btn-up');
-window.onscroll=function(){if(document.body.scrollTop>200||document.documentElement.scrollTop>200)btnUp.style.display="block";else btnUp.style.display="none";};
-btnUp.addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+// === BOTÓN IR ARRIBA ===
+const btnUp = document.getElementById('btn-up');
+window.onscroll = function() {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) btnUp.style.display = "block";
+  else btnUp.style.display = "none";
+};
+btnUp.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 </script>
 
 </body>
