@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Atenas mi pasión – Noticias y Crónicas del Básquet Cordobés</title>
-<meta name="description" content="El blog no oficial de Atenas: noticias, crónicas, multimedia y palmarés nacional e internacional.">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <style>
@@ -30,21 +29,21 @@
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
 
   /* ===== SLIDER DE FOTOS AJUSTADO ===== */
-  #sliderFotos .carousel-inner { height: 400px; }
+  #sliderFotos .carousel-inner { height: 500px; }
   #sliderFotos .carousel-item img { height: 100%; object-fit: cover; }
   #sliderFotos .carousel-caption { 
-    background-color: rgba(0,0,0,0.5); 
+    background-color: rgba(0,0,0,0.6); 
     padding: 10px 15px; 
     border-radius: 5px; 
-    bottom: 15px; 
-    left: 15px; 
-    right: 15px; 
+    bottom: 20px; 
+    left: 20px; 
+    right: 20px; 
     text-align: left;
   }
-  #sliderFotos .carousel-caption h5 { font-size: 1.2rem; margin-bottom: 5px; color: #fff; }
-  #sliderFotos .carousel-caption p { font-size: 0.9rem; color: #fff; margin-bottom: 3px; }
-  #sliderFotos .carousel-caption small { display: block; font-size: 0.8rem; color: #ddd; }
-  @media (max-width: 768px) { #sliderFotos .carousel-inner { height: 250px; } }
+  #sliderFotos .carousel-caption h5 { font-size: 1.4rem; margin-bottom: 3px; color: #fff; }
+  #sliderFotos .carousel-caption p { font-size: 1rem; color: #fff; margin-bottom: 3px; }
+  #sliderFotos .carousel-caption small { display: block; font-size: 0.85rem; color: #ddd; }
+  @media (max-width: 768px) { #sliderFotos .carousel-inner { height: 300px; } }
 </style>
 </head>
 <body>
@@ -71,7 +70,7 @@
 <!-- BANNER -->
 <div class="banner"></div>
 
-<!-- SLIDER DE FOTOS DINÁMICO -->
+<!-- SLIDER DE FOTOS -->
 <div id="sliderFotos" class="carousel slide mb-5" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="hover">
   <div class="carousel-indicators" id="slider-indicators"></div>
   <div class="carousel-inner" id="slider-inner"></div>
@@ -90,20 +89,16 @@
 
     <!-- MAIN CONTENT -->
     <div class="col-lg-8">
-
-      <!-- NOTICIAS -->
       <section id="noticias">
         <h2 class="section-title">Últimas Noticias</h2>
         <div class="row" id="noticias-grilla"></div>
       </section>
 
-      <!-- MULTIMEDIA -->
       <section id="multimedia" class="mt-5">
         <h2 class="section-title">Multimedia</h2>
         <div id="multimedia-content" class="row g-3"></div>
       </section>
 
-      <!-- CALENDARIO -->
       <section id="calendario" class="mt-5">
         <h2 class="section-title">Próximos Partidos</h2>
         <ul class="list-group list-group-flush">
@@ -111,7 +106,6 @@
         </ul>
       </section>
 
-      <!-- HISTORIA -->
       <section id="historia" class="mt-5">
         <h2 class="section-title">Historia del Club</h2>
         <p>Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, <strong>con múltiples títulos nacionales e internacionales</strong>. Fundado el <strong>17 de abril de 1938</strong>, su presidente actual es <strong>Germán Baralle</strong></p>
@@ -131,13 +125,11 @@
         </div>
       </section>
 
-      <!-- CONTACTO -->
       <section id="contacto" class="mt-5">
         <h2 class="section-title">Contacto</h2>
         <p><i class="bi bi-envelope-fill"></i> Correo: <a href="mailto:atenasmispasion21@gmail.com" class="btn btn-verde btn-sm">Enviar email</a></p>
         <p><i class="bi bi-whatsapp"></i> WhatsApp: <a href="https://wa.me/5491154756459" target="_blank" class="btn btn-verde btn-sm">Abrir WhatsApp</a></p>
       </section>
-
     </div>
 
     <!-- SIDEBAR -->
@@ -155,10 +147,8 @@
   </div>
 </div>
 
-<!-- Botón ir arriba -->
 <a href="#" id="btn-up" class="btn btn-verde">↑</a>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
 </footer>
@@ -169,8 +159,8 @@
 const fotosSlider = [
   { src: "buendia.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" },
   { src: "jose.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "nico.jpg", titulo: "Nicolás Pérez", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "santiferryra.jpg", titulo: "Santiago Ferreira", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" }
+  { src: "nico.jpg", titulo: "Nico", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "santiferryra.jpg", titulo: "Santi Ferryra", descripcion: "Entrenamiento de hoy", fuente: "Fotos Prensa Atenas | Ignacio Lingua" }
 ];
 
 const sliderIndicators = document.getElementById('slider-indicators');
@@ -182,14 +172,17 @@ fotosSlider.forEach((foto, index) => {
   button.setAttribute('data-bs-target', "#sliderFotos");
   button.setAttribute('data-bs-slide-to', index);
   button.setAttribute('aria-label', `Slide ${index + 1}`);
-  if(index === 0) { button.className = "active"; button.setAttribute('aria-current', "true"); }
+  if(index === 0) {
+    button.className = "active";
+    button.setAttribute('aria-current', "true");
+  }
   sliderIndicators.appendChild(button);
 
   const div = document.createElement('div');
   div.className = index === 0 ? "carousel-item active" : "carousel-item";
   div.innerHTML = `
     <img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-    <div class="carousel-caption">
+    <div class="carousel-caption d-none d-md-block">
       <h5>${foto.titulo}</h5>
       <p>${foto.descripcion}</p>
       <small>${foto.fuente}</small>
@@ -197,137 +190,6 @@ fotosSlider.forEach((foto, index) => {
   `;
   sliderInner.appendChild(div);
 });
-
-// === NOTICIAS ===
-const noticias = [
-  {
-    titulo: "Comenzó la temporada 2025/26",
-    descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
-    contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
-    imagen: "pretemporada.jpg",
-    audio: "jose.mp3"
-  }
-];
-
-const noticiasGrilla = document.getElementById('noticias-grilla');
-noticias.forEach((noticia, index) => {
-  const modalId = `modalNoticia${index}`;
-  const col = document.createElement('div');
-  col.className = 'col-12 col-md-6 col-lg-4 mb-4';
-  col.innerHTML = `
-    <div class="card h-100 d-flex flex-column">
-      <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
-      <div class="card-body d-flex flex-column justify-content-between">
-        <h5 class="card-title">${noticia.titulo}</h5>
-        <p class="card-text">${noticia.descripcion}</p>
-        <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
-      </div>
-    </div>
-
-    <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">${noticia.titulo}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <p>${noticia.contenido}</p>
-            <audio controls>
-              <source src="${noticia.audio}" type="audio/mpeg">
-              Tu navegador no soporta audio.
-            </audio>
-          </div>
-        </div>
-      </div>
-    </div>
-  `;
-  noticiasGrilla.appendChild(col);
-});
-
-const modales = document.querySelectorAll('.modal');
-modales.forEach(modal => {
-  modal.addEventListener('hidden.bs.modal', () => {
-    const audios = modal.querySelectorAll('audio');
-    audios.forEach(audio => { audio.pause(); audio.currentTime = 0; });
-  });
-});
-
-// === MULTIMEDIA ===
-const multimediaItems = [
-  { tipo: "video", src: "https://www.youtube.com/embed/BzY15_tfnVs" },
-  { tipo: "radio", src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
-];
-const multimediaContent = document.getElementById('multimedia-content');
-multimediaItems.forEach(item => {
-  const div = document.createElement('div');
-  div.className = 'col-12';
-  if(item.tipo === "video") div.innerHTML = `<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  else if(item.tipo === "radio") div.innerHTML = `<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  multimediaContent.appendChild(div);
-});
-
-// === SIDEBAR RADIO ===
-const sidebarRadio = document.getElementById('sidebar-radio');
-const radioItems = [ { src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" } ];
-radioItems.forEach(radio => {
-  const iframe = document.createElement('iframe');
-  iframe.className = 'radio-embed w-100';
-  iframe.src = radio.src;
-  iframe.frameBorder = 0;
-  iframe.allowFullscreen = true;
-  sidebarRadio.appendChild(iframe);
-});
-
-// === HISTORIA / TÍTULOS ===
-const dataTitulos = {
-  titulosNacionales: [
-    { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1990/91", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1991/92", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1997/98", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1998/99", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2001/02", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2002/03", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2008/09", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
-  ],
-  titulosInternacionales: [
-    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
-    { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
-  ]
-};
-
-const tablaTitulos = document.getElementById('tabla-titulos');
-const trNac = document.createElement('tr');
-trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
-tablaTitulos.appendChild(trNac);
-dataTitulos.titulosNacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulos.appendChild(tr);
-});
-const trInt = document.createElement('tr');
-trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
-tablaTitulos.appendChild(trInt);
-dataTitulos.titulosInternacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulos.appendChild(tr);
-});
-
-// === BOTÓN IR ARRIBA ===
-const btnUp = document.getElementById('btn-up');
-window.onscroll = function() {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) btnUp.style.display = "block";
-  else btnUp.style.display = "none";
-};
-btnUp.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 </script>
 
 </body>
