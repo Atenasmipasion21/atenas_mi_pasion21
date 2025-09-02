@@ -39,6 +39,42 @@
   @media (max-width: 768px) {
     #sliderFotos .carousel-inner { height: 250px; }
   }
+
+  /* Estilos para textos del slider */
+#sliderFotos .carousel-caption {
+  background-color: rgba(0, 77, 46, 0.6); /* fondo semitransparente verde oscuro */
+  padding: 15px 20px;
+  border-radius: 10px;
+  text-align: left;
+  bottom: 20px; /* posición desde abajo */
+}
+
+#sliderFotos .carousel-caption h5 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  margin-bottom: 8px;
+}
+
+#sliderFotos .carousel-caption p {
+  font-size: 1rem;
+  color: #e0f2e0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #sliderFotos .carousel-caption {
+    font-size: 0.9rem;
+    padding: 10px 12px;
+    bottom: 10px;
+  }
+  #sliderFotos .carousel-caption h5 {
+    font-size: 1.2rem;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -345,6 +381,7 @@ btnUp.addEventListener('click', function(e) { e.preventDefault(); window.scrollT
 
 </body>
 </html>
+
 
 
 
