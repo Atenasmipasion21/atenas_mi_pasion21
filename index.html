@@ -28,53 +28,74 @@
   footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; text-align: center; box-shadow: 0 -2px 5px rgba(0,0,0,0.2); }
   .youtube-embed, .radio-embed { width: 100%; height: 250px; margin-bottom: 20px; }
   .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
-  .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
+  .table-section { background-color: #008000 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; font-weight: 700; }
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
 
   /* ===== SLIDER DE FOTOS UNIFORME ===== */
   #sliderFotos .carousel-inner { height: auto; }
   #sliderFotos .carousel-item { height: 100%; }
-  #sliderFotos .carousel-item img { height: auto; width: 1200px; object-fit: cover; }
+  #sliderFotos .carousel-item img { width: 100%; height: auto; object-fit: cover; }
 
   @media (max-width: 768px) {
     #sliderFotos .carousel-inner { height: 250px; }
   }
 
   /* Estilos para textos del slider */
-#sliderFotos .carousel-caption {
-  background-color: rgba(0, 77, 46, 0.6); /* fondo semitransparente verde oscuro */
-  padding: 15px 20px;
-  border-radius: 10px;
-  text-align: left;
-  bottom: 20px; /* posición desde abajo */
-}
-
-#sliderFotos .carousel-caption h5 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #ffffff;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-  margin-bottom: 8px;
-}
-
-#sliderFotos .carousel-caption p {
-  font-size: 1rem;
-  color: #e0f2e0;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-  margin: 0;
-}
-
-@media (max-width: 768px) {
   #sliderFotos .carousel-caption {
-    font-size: 0.9rem;
-    padding: 10px 12px;
-    bottom: 10px;
+    background-color: rgba(0, 77, 46, 0.6);
+    padding: 15px 20px;
+    border-radius: 10px;
+    text-align: left;
+    bottom: 20px;
   }
-  #sliderFotos .carousel-caption h5 {
-    font-size: 1.2rem;
-  }
-}
 
+  #sliderFotos .carousel-caption h5 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    margin-bottom: 8px;
+  }
+
+  #sliderFotos .carousel-caption p {
+    font-size: 1rem;
+    color: #e0f2e0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    #sliderFotos .carousel-caption {
+      font-size: 0.9rem;
+      padding: 10px 12px;
+      bottom: 10px;
+    }
+    #sliderFotos .carousel-caption h5 {
+      font-size: 1.2rem;
+    }
+  }
+
+  /* Estilo tabla títulos */
+  #tabla-titulos {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+  }
+  #tabla-titulos thead th {
+    background-color: #004d2e;
+    color: #fff;
+    text-align: center;
+    border: none;
+    padding: 10px 5px;
+  }
+  #tabla-titulos tbody td {
+    padding: 8px 5px;
+    border-bottom: 1px solid #c0e0c0;
+  }
+  #tabla-titulos tbody tr:nth-child(even) { background-color: #e6f2e6; }
+  #tabla-titulos tbody tr:hover { background-color: #d0e6d0; }
 </style>
 </head>
 <body>
@@ -148,15 +169,15 @@
 
         <h4 class="mt-4">Títulos obtenidos</h4>
         <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead class="table-dark text-center">
+          <table class="table table-bordered table-hover" id="tabla-titulos">
+            <thead>
               <tr>
                 <th style="width: 20%;">Año</th>
                 <th style="width: 55%;">Torneo</th>
                 <th style="width: 25%;">Resultado</th>
               </tr>
             </thead>
-            <tbody id="tabla-titulos"></tbody>
+            <tbody id="tabla-titulos-body"></tbody>
           </table>
         </div>
       </section>
@@ -180,22 +201,6 @@
         <h4 class="mt-4">Transmisión en vivo</h4>
         <div id="sidebar-radio"></div>
 
-        <!-- BLOQUE DESTACADO DE TÍTULOS -->
-        <h4 class="mt-4">🏆 Títulos del Club</h4>
-        <ul class="list-group list-group-flush mb-2">
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Liga Nacional
-            <span class="badge bg-success rounded-pill">10</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Liga Sudamericana
-            <span class="badge bg-success rounded-pill">3</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Sudamericano de Clubes
-            <span class="badge bg-success rounded-pill">2</span>
-          </li>
-        </ul>
       </div>
     </div>
 
@@ -219,20 +224,15 @@ const fotosSlider = [
   { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua"},
   { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
 ];
-
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
-
 fotosSlider.forEach((foto, index) => {
   const button = document.createElement('button');
   button.type = "button";
   button.setAttribute('data-bs-target', "#sliderFotos");
   button.setAttribute('data-bs-slide-to', index);
   button.setAttribute('aria-label', `Slide ${index + 1}`);
-  if(index === 0) {
-    button.className = "active";
-    button.setAttribute('aria-current', "true");
-  }
+  if(index === 0) { button.className = "active"; button.setAttribute('aria-current', "true"); }
   sliderIndicators.appendChild(button);
 
   const div = document.createElement('div');
@@ -257,7 +257,6 @@ const noticias = [
     audio: "jose.mp3"
   }
 ];
-
 const noticiasGrilla = document.getElementById('noticias-grilla');
 noticias.forEach((noticia, index) => {
   const modalId = `modalNoticia${index}`;
@@ -293,9 +292,7 @@ noticias.forEach((noticia, index) => {
   `;
   noticiasGrilla.appendChild(col);
 });
-
-const modales = document.querySelectorAll('.modal');
-modales.forEach(modal => {
+document.querySelectorAll('.modal').forEach(modal => {
   modal.addEventListener('hidden.bs.modal', () => {
     const audios = modal.querySelectorAll('audio');
     audios.forEach(audio => { audio.pause(); audio.currentTime = 0; });
@@ -333,59 +330,36 @@ const dataTitulos = {
   titulosNacionales: [
     { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
     { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1990/91", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1991/92", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1997/98", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1998/99", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2001/02", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2002/03", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2008/09", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
+    { año: 1990, torneo: "Liga Nacional", resultado: "Campeón" }
   ],
   titulosInternacionales: [
-    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
-    { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
+    { año: 1993, torneo: "Liga Sudamericana", resultado: "Campeón" }
   ]
 };
-
-const tablaTitulos = document.getElementById('tabla-titulos');
+const tablaTitulosBody = document.getElementById('tabla-titulos-body');
 const trNac = document.createElement('tr');
-trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
-tablaTitulos.appendChild(trNac);
+trNac.innerHTML = `<td colspan="3" class="table-section">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
+tablaTitulosBody.appendChild(trNac);
 dataTitulos.titulosNacionales.forEach(t => {
   const tr = document.createElement('tr');
   tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulos.appendChild(tr);
+  tablaTitulosBody.appendChild(tr);
 });
 const trInt = document.createElement('tr');
-trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
-tablaTitulos.appendChild(trInt);
+trInt.innerHTML = `<td colspan="3" class="table-section">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
+tablaTitulosBody.appendChild(trInt);
 dataTitulos.titulosInternacionales.forEach(t => {
   const tr = document.createElement('tr');
   tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulos.appendChild(tr);
+  tablaTitulosBody.appendChild(tr);
 });
 
 // === BOTÓN IR ARRIBA ===
 const btnUp = document.getElementById('btn-up');
-window.onscroll = function() {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) btnUp.style.display = "block";
-  else btnUp.style.display = "none";
-};
-btnUp.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+window.addEventListener('scroll', () => {
+  btnUp.style.display = window.scrollY > 200 ? 'block' : 'none';
+});
+btnUp.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 </script>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
