@@ -29,11 +29,12 @@
   .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
 
-  /* ===== SLIDER DE FOTOS AJUSTADO ===== */
-  #sliderFotos .carousel-inner { height: auto; }
-  #sliderFotos .carousel-item img { height: auto; object-fit: cover; }
-  @media (max-width: 768px) {
-    #sliderFotos .carousel-inner { height: auto; }
+  /* ===== SLIDER DE FOTOS UNIFORME ===== */
+  #sliderFotos .carousel-inner { height: 400px; }
+  #sliderFotos .carousel-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 </style>
 </head>
@@ -160,7 +161,7 @@ const fotosSlider = [
   { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Descripción breve de la foto 1" },
   { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Descripción breve de la foto 2" },
   { src: "nico1.jpg", titulo: "Foto 3", descripcion: "Descripción breve de la foto 3" },
-  { src: "santiferryra1.jpg", titulo: "Foto 3", descripcion: "Descripción breve de la foto 3" }
+  { src: "santiferryra1.jpg", titulo: "Foto 4", descripcion: "Descripción breve de la foto 4" }
 ];
 
 const sliderIndicators = document.getElementById('slider-indicators');
@@ -225,7 +226,7 @@ noticias.forEach((noticia, index) => {
           </div>
           <div class="modal-body">
             <p>${noticia.contenido}</p>
-            <audio controls>
+            <audio controls preload="none">
               <source src="${noticia.audio}" type="audio/mpeg">
               Tu navegador no soporta audio.
             </audio>
@@ -324,6 +325,3 @@ btnUp.addEventListener('click', function(e) { e.preventDefault(); window.scrollT
 
 </body>
 </html>
-
-
-
