@@ -259,29 +259,51 @@ const sidebarRadio=document.getElementById('sidebar-radio');
 });
 
 // ===== HISTORIA / TÍTULOS =====
-const dataTitulos=[
-  {año:1987, torneo:"Liga Nacional", resultado:"Campeón"},
-  {año:1988, torneo:"Liga Nacional", resultado:"Campeón"},
-  {año:"1990/91", torneo:"Liga Nacional", resultado:"Campeón"},
-  {año:"1991/92", torneo:"Liga Nacional", resultado:"Campeón"},
-  {año:"1997/98", torneo:"Liga Nacional", resultado:"Campeón"},
-  {año:"1998/99", torneo:"Liga Nacional", resultado:"Campeón"},
-  {año:"2001/02", torneo:"Liga Nacional", resultado:"Campeón"},
-  {año:"2002/03", torneo:"Liga Nacional", resultado:"Campeón"},
-  {año:"2008/09", torneo:"Liga Nacional", resultado:"Campeón"},
-  {año:"2023/24", torneo:"Liga Argentina", resultado:"Campeón"},
-  {año:1993, torneo:"Campeonato Sudamericano de Clubes Campeones", resultado:"Campeón"},
-  {año:1994, torneo:"Campeonato Sudamericano de Clubes Campeones", resultado:"Campeón"},
-  {año:1996, torneo:"Campeonato Panamericano", resultado:"Campeón"},
-  {año:1997, torneo:"Liga Sudamericana de Clubes", resultado:"Campeón"},
-  {año:1998, torneo:"Liga Sudamericana de Clubes", resultado:"Campeón"}
-];
-const tablaTitulosBody=document.getElementById('tabla-titulos-body');
-dataTitulos.forEach(titulo=>{
-  const tr=document.createElement('tr');
-  tr.innerHTML=`<td class="text-center">${titulo.año}</td><td>${titulo.torneo}</td><td class="text-center">${titulo.resultado}</td>`;
+const dataTitulos = {
+  nacionales: [
+    { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1990/91", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1991/92", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1997/98", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1998/99", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2001/02", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2002/03", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2008/09", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
+  ],
+  internacionales: [
+    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
+    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
+    { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
+    { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
+    { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
+    { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
+  ]
+};
+
+const tablaTitulosBody = document.getElementById('tabla-titulos-body');
+
+// Títulos Nacionales
+let trNac = document.createElement('tr');
+trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${dataTitulos.nacionales.length})</td>`;
+tablaTitulosBody.appendChild(trNac);
+dataTitulos.nacionales.forEach(t => {
+  let tr = document.createElement('tr');
+  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
   tablaTitulosBody.appendChild(tr);
 });
+
+// Títulos Internacionales
+let trInt = document.createElement('tr');
+trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🌎 Títulos Internacionales (${dataTitulos.internacionales.length})</td>`;
+tablaTitulosBody.appendChild(trInt);
+dataTitulos.internacionales.forEach(t => {
+  let tr = document.createElement('tr');
+  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
+  tablaTitulosBody.appendChild(tr);
+});
+
 
 // ===== BOTÓN IR ARRIBA =====
 const btnUp=document.getElementById('btn-up');
@@ -290,3 +312,4 @@ btnUp.onclick=function(){window.scrollTo({top:0,behavior:'smooth'});}
 </script>
 </body>
 </html>
+
