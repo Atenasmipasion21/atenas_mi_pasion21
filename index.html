@@ -28,19 +28,13 @@
   footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; text-align: center; box-shadow: 0 -2px 5px rgba(0,0,0,0.2); }
   .youtube-embed, .radio-embed { width: 100%; height: 250px; margin-bottom: 20px; }
   .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
-  .table-section { background-color: #008000 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; font-weight: 700; }
+  .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
 
-  /* ===== SLIDER DE FOTOS UNIFORME ===== */
+  /* ===== SLIDER DE FOTOS ===== */
   #sliderFotos .carousel-inner { height: auto; }
-  #sliderFotos .carousel-item { height: 100%; }
-  #sliderFotos .carousel-item img { width: 100%; height: auto; object-fit: cover; }
+  #sliderFotos .carousel-item img { height: auto; width: 1200px; object-fit: cover; }
 
-  @media (max-width: 768px) {
-    #sliderFotos .carousel-inner { height: 250px; }
-  }
-
-  /* Estilos para textos del slider */
   #sliderFotos .carousel-caption {
     background-color: rgba(0, 77, 46, 0.6);
     padding: 15px 20px;
@@ -48,54 +42,19 @@
     text-align: left;
     bottom: 20px;
   }
-
   #sliderFotos .carousel-caption h5 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    margin-bottom: 8px;
+    font-size: 1.8rem; font-weight: 700; color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7); margin-bottom: 8px;
   }
-
   #sliderFotos .carousel-caption p {
-    font-size: 1rem;
-    color: #e0f2e0;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    margin: 0;
+    font-size: 1rem; color: #e0f2e0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6); margin: 0;
   }
-
   @media (max-width: 768px) {
-    #sliderFotos .carousel-caption {
-      font-size: 0.9rem;
-      padding: 10px 12px;
-      bottom: 10px;
-    }
-    #sliderFotos .carousel-caption h5 {
-      font-size: 1.2rem;
-    }
+    #sliderFotos .carousel-inner { height: 250px; }
+    #sliderFotos .carousel-caption { font-size: 0.9rem; padding: 10px 12px; bottom: 10px; }
+    #sliderFotos .carousel-caption h5 { font-size: 1.2rem; }
   }
-
-  /* Estilo tabla títulos */
-  #tabla-titulos {
-    border-collapse: separate;
-    border-spacing: 0;
-    width: 100%;
-    margin-bottom: 30px;
-    font-size: 0.95rem;
-  }
-  #tabla-titulos thead th {
-    background-color: #004d2e;
-    color: #fff;
-    text-align: center;
-    border: none;
-    padding: 10px 5px;
-  }
-  #tabla-titulos tbody td {
-    padding: 8px 5px;
-    border-bottom: 1px solid #c0e0c0;
-  }
-  #tabla-titulos tbody tr:nth-child(even) { background-color: #e6f2e6; }
-  #tabla-titulos tbody tr:hover { background-color: #d0e6d0; }
 </style>
 </head>
 <body>
@@ -122,7 +81,7 @@
 <!-- BANNER -->
 <div class="banner"></div>
 
-<!-- SLIDER DE FOTOS DINÁMICO -->
+<!-- SLIDER DE FOTOS -->
 <div id="sliderFotos" class="carousel slide mb-5" data-bs-ride="carousel">
   <div class="carousel-indicators" id="slider-indicators"></div>
   <div class="carousel-inner" id="slider-inner"></div>
@@ -169,8 +128,8 @@
 
         <h4 class="mt-4">Títulos obtenidos</h4>
         <div class="table-responsive">
-          <table class="table table-bordered table-hover" id="tabla-titulos">
-            <thead>
+          <table class="table table-bordered table-hover">
+            <thead class="table-dark text-center">
               <tr>
                 <th style="width: 20%;">Año</th>
                 <th style="width: 55%;">Torneo</th>
@@ -200,7 +159,6 @@
 
         <h4 class="mt-4">Transmisión en vivo</h4>
         <div id="sidebar-radio"></div>
-
       </div>
     </div>
 
@@ -217,12 +175,12 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// === SLIDER DE FOTOS DINÁMICO ===
+// === SLIDER DE FOTOS ===
 const fotosSlider = [
-  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua"},
-  { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
+  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua"},
+  { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
 ];
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
@@ -234,35 +192,27 @@ fotosSlider.forEach((foto, index) => {
   button.setAttribute('aria-label', `Slide ${index + 1}`);
   if(index === 0) { button.className = "active"; button.setAttribute('aria-current', "true"); }
   sliderIndicators.appendChild(button);
-
   const div = document.createElement('div');
   div.className = index === 0 ? "carousel-item active" : "carousel-item";
-  div.innerHTML = `
-    <img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
+  div.innerHTML = `<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
     <div class="carousel-caption d-none d-md-block">
       <h5>${foto.titulo}</h5>
       <p>${foto.descripcion}</p>
-    </div>
-  `;
+    </div>`;
   sliderInner.appendChild(div);
 });
 
 // === NOTICIAS ===
 const noticias = [
-  {
-    titulo: "Comenzó la temporada 2025/26",
-    descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
+  { titulo: "Comenzó la temporada 2025/26", descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
     contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
-    imagen: "pretemporada.jpg",
-    audio: "jose.mp3"
-  }
+    imagen: "pretemporada.jpg", audio: "jose.mp3" }
 ];
 const noticiasGrilla = document.getElementById('noticias-grilla');
-noticias.forEach((noticia, index) => {
-  const modalId = `modalNoticia${index}`;
-  const col = document.createElement('div');
-  col.className = 'col-12 col-md-6 col-lg-4 mb-4';
-  col.innerHTML = `
+noticias.forEach((noticia,index)=>{
+  const modalId=`modalNoticia${index}`;
+  const col=document.createElement('div'); col.className='col-12 col-md-6 col-lg-4 mb-4';
+  col.innerHTML=`
     <div class="card h-100 d-flex flex-column">
       <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
       <div class="card-body d-flex flex-column justify-content-between">
@@ -271,7 +221,6 @@ noticias.forEach((noticia, index) => {
         <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
       </div>
     </div>
-
     <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -281,21 +230,16 @@ noticias.forEach((noticia, index) => {
           </div>
           <div class="modal-body">
             <p>${noticia.contenido}</p>
-            <audio controls preload="none">
-              <source src="${noticia.audio}" type="audio/mpeg">
-              Tu navegador no soporta audio.
-            </audio>
+            <audio controls preload="none"><source src="${noticia.audio}" type="audio/mpeg">Tu navegador no soporta audio.</audio>
           </div>
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
   noticiasGrilla.appendChild(col);
 });
-document.querySelectorAll('.modal').forEach(modal => {
-  modal.addEventListener('hidden.bs.modal', () => {
-    const audios = modal.querySelectorAll('audio');
-    audios.forEach(audio => { audio.pause(); audio.currentTime = 0; });
+document.querySelectorAll('.modal').forEach(modal=>{
+  modal.addEventListener('hidden.bs.modal',()=>{
+    modal.querySelectorAll('audio').forEach(audio=>{ audio.pause(); audio.currentTime=0; });
   });
 });
 
@@ -305,23 +249,18 @@ const multimediaItems = [
   { tipo: "radio", src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
 ];
 const multimediaContent = document.getElementById('multimedia-content');
-multimediaItems.forEach(item => {
-  const div = document.createElement('div');
-  div.className = 'col-12';
-  if(item.tipo === "video") div.innerHTML = `<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  else if(item.tipo === "radio") div.innerHTML = `<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+multimediaItems.forEach(item=>{
+  const div=document.createElement('div'); div.className='col-12';
+  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
   multimediaContent.appendChild(div);
 });
 
 // === SIDEBAR RADIO ===
 const sidebarRadio = document.getElementById('sidebar-radio');
-const radioItems = [ { src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" } ];
-radioItems.forEach(radio => {
-  const iframe = document.createElement('iframe');
-  iframe.className = 'radio-embed w-100';
-  iframe.src = radio.src;
-  iframe.frameBorder = 0;
-  iframe.allowFullscreen = true;
+[{ src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }].forEach(radio=>{
+  const iframe=document.createElement('iframe'); iframe.className='radio-embed w-100';
+  iframe.src=radio.src; iframe.frameBorder=0; iframe.allowFullscreen=true;
   sidebarRadio.appendChild(iframe);
 });
 
@@ -345,58 +284,4 @@ const dataTitulos = {
     { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
     { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
     { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
-  ]
-};
-
-const tablaTitulosBody = document.getElementById('tabla-titulos-body');
-
-// Títulos Nacionales
-const trNac = document.createElement('tr');
-trNac.innerHTML = `<td colspan="3" class="table-section">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
-tablaTitulosBody.appendChild(trNac);
-
-dataTitulos.titulosNacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulosBody.appendChild(tr);
-});
-
-// Títulos Internacionales
-const trInt = document.createElement('tr');
-trInt.innerHTML = `<td colspan="3" class="table-section">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
-tablaTitulosBody.appendChild(trInt);
-
-dataTitulos.titulosInternacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulosBody.appendChild
-
-const tablaTitulosBody = document.getElementById('tabla-titulos-body');
-const trNac = document.createElement('tr');
-trNac.innerHTML = `<td colspan="3" class="table-section">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
-tablaTitulosBody.appendChild(trNac);
-dataTitulos.titulosNacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulosBody.appendChild(tr);
-});
-const trInt = document.createElement('tr');
-trInt.innerHTML = `<td colspan="3" class="table-section">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
-tablaTitulosBody.appendChild(trInt);
-dataTitulos.titulosInternacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulosBody.appendChild(tr);
-});
-
-// === BOTÓN IR ARRIBA ===
-const btnUp = document.getElementById('btn-up');
-window.addEventListener('scroll', () => {
-  btnUp.style.display = window.scrollY > 200 ? 'block' : 'none';
-});
-btnUp.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-</script>
-</body>
-</html>
-
+    { año
