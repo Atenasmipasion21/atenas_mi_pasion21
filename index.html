@@ -32,9 +32,9 @@
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
 
   /* ===== SLIDER DE FOTOS UNIFORME ===== */
-  #sliderFotos .carousel-inner { height: 768px; }
+  #sliderFotos .carousel-inner { height: auto; }
   #sliderFotos .carousel-item { height: 100%; }
-  #sliderFotos .carousel-item img { height: 675px; width: 1200px; object-fit: cover; }
+  #sliderFotos .carousel-item img { height: auto; width: 1200px; object-fit: cover; }
 
   @media (max-width: 768px) {
     #sliderFotos .carousel-inner { height: 250px; }
@@ -345,6 +345,7 @@ btnUp.addEventListener('click', function(e) { e.preventDefault(); window.scrollT
 
 </body>
 </html>
+
 
 
 
