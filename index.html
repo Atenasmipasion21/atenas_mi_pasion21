@@ -18,11 +18,6 @@
   .card-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
   .btn-verde { background-color: #008000; color: #fff; border: none; }
   .btn-verde:hover { background-color: #006400; }
-  .sidebar { background-color: #e6f2e6; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
-  .sidebar h4 { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 15px; }
-  .sidebar a { text-decoration: none; color: #004d2e; display: flex; align-items: center; margin-bottom: 10px; font-weight: 500; }
-  .sidebar a:hover { color: #006400; }
-  .sidebar a i { margin-right: 8px; font-size: 1.2rem; }
   footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; text-align: center; box-shadow: 0 -2px 5px rgba(0,0,0,0.2); }
   .youtube-embed, .radio-embed { width: 100%; height: 250px; margin-bottom: 20px; }
   .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
@@ -31,9 +26,95 @@
 
   /* ===== SLIDER DE FOTOS AJUSTADO ===== */
   #sliderFotos .carousel-inner { height: auto; }
-  #sliderFotos .carousel-item img { height: auto; object-fit: cover; }
-  @media (max-width: 768px) {
-    #sliderFotos .carousel-inner { height: auto; }
+  #sliderFotos .carousel-item img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  #sliderFotos .carousel-caption {
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  /* === SIDEBAR MEJORADO === */
+  .sidebar {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  .sidebar h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #004d2e;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border-left: 5px solid #008000;
+    padding-left: 10px;
+  }
+  .sidebar .social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  .sidebar .social-links a {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #e6f2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #004d2e;
+    transition: all 0.3s ease;
+  }
+  .sidebar .social-links a:hover {
+    background: #008000;
+    color: #fff;
+    transform: scale(1.1);
+  }
+  .sidebar .transmision {
+    background: #f9fff9;
+    border: 2px solid #008000;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  .sidebar .transmision h5 {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #004d2e;
+  }
+
+  /* === GALERÍA FOTOS === */
+  .sidebar .foto-item {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background: #fff;
+  }
+  .sidebar .foto-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    display: block;
+  }
+  .sidebar .foto-info {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+  .sidebar .foto-info h6 {
+    margin: 0;
+    font-weight: 600;
+    color: #004d2e;
+    font-size: 0.95rem;
+  }
+  .sidebar .foto-info small {
+    display: block;
+    color: #555;
+    font-size: 0.8rem;
   }
 </style>
 </head>
@@ -80,7 +161,6 @@
 
     <!-- MAIN CONTENT -->
     <div class="col-lg-8">
-
       <!-- NOTICIAS -->
       <section id="noticias">
         <h2 class="section-title">Últimas Noticias</h2>
@@ -127,21 +207,41 @@
         <p><i class="bi bi-envelope-fill"></i> Correo: <a href="mailto:atenasmispasion21@gmail.com" class="btn btn-verde btn-sm">Enviar email</a></p>
         <p><i class="bi bi-whatsapp"></i> WhatsApp: <a href="https://wa.me/5491154756459" target="_blank" class="btn btn-verde btn-sm">Abrir WhatsApp</a></p>
       </section>
-
     </div>
 
     <!-- SIDEBAR -->
     <div class="col-lg-4">
       <div class="sidebar">
-        <h4>Redes Sociales</h4>
-        <a href="https://www.facebook.com/groups/1607966346118447" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
-        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+        <h4><i class="bi bi-people-fill me-2"></i>Redes Sociales</h4>
+        <div class="social-links">
+          <a href="https://www.facebook.com/groups/1607966346118447" target="_blank"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i></a>
+        </div>
 
-        <h4 class="mt-4">Transmisión en vivo</h4>
-        <div id="sidebar-radio"></div>
+        <h4><i class="bi bi-images me-2"></i>Fotos Recientes</h4>
+        <div class="foto-item">
+          <img src="buendia1.jpg" alt="Manuel Buendía" loading="lazy">
+          <div class="foto-info"><h6>Manuel Buendía</h6><small>Fotos Prensa Atenas | Ignacio Lingua</small></div>
+        </div>
+        <div class="foto-item">
+          <img src="jose1.jpg" alt="José Montero" loading="lazy">
+          <div class="foto-info"><h6>José Montero</h6><small>Fotos Prensa Atenas | Ignacio Lingua</small></div>
+        </div>
+        <div class="foto-item">
+          <img src="nico1.jpg" alt="Nicolás" loading="lazy">
+          <div class="foto-info"><h6>Nicolás</h6><small>Fotos Prensa Atenas | Ignacio Lingua</small></div>
+        </div>
+        <div class="foto-item">
+          <img src="santiferryra1.jpg" alt="Santiago Ferrayra" loading="lazy">
+          <div class="foto-info"><h6>Santiago Ferrayra</h6><small>Fotos Prensa Atenas | Ignacio Lingua</small></div>
+        </div>
+
+        <div class="transmision mt-4">
+          <h5><i class="bi bi-broadcast-pin me-2"></i>Transmisión en vivo</h5>
+          <div id="sidebar-radio"></div>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -157,15 +257,13 @@
 <script>
 // === SLIDER DE FOTOS DINÁMICO ===
 const fotosSlider = [
-  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Descripción breve de la foto 1" },
-  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Descripción breve de la foto 2" },
-  { src: "nico1.jpg", titulo: "Foto 3", descripcion: "Descripción breve de la foto 3" },
-  { src: "santiferryra1.jpg", titulo: "Foto 3", descripcion: "Descripción breve de la foto 3" }
+  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "jose1.jpg", titulo: "José Montero", descripcion: "Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "nico1.jpg", titulo: "Nicolás", descripcion: "Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "santiferryra1.jpg", titulo: "Santiago Ferrayra", descripcion: "Fotos Prensa Atenas | Ignacio Lingua" }
 ];
-
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
-
 fotosSlider.forEach((foto, index) => {
   const button = document.createElement('button');
   button.type = "button";
@@ -177,12 +275,11 @@ fotosSlider.forEach((foto, index) => {
     button.setAttribute('aria-current', "true");
   }
   sliderIndicators.appendChild(button);
-
   const div = document.createElement('div');
   div.className = index === 0 ? "carousel-item active" : "carousel-item";
   div.innerHTML = `
-    <img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-    <div class="carousel-caption d-none d-md-block">
+    <img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}" loading="lazy">
+    <div class="carousel-caption">
       <h5>${foto.titulo}</h5>
       <p>${foto.descripcion}</p>
     </div>
@@ -200,7 +297,6 @@ const noticias = [
     audio: "jose.mp3"
   }
 ];
-
 const noticiasGrilla = document.getElementById('noticias-grilla');
 noticias.forEach((noticia, index) => {
   const modalId = `modalNoticia${index}`;
@@ -215,7 +311,6 @@ noticias.forEach((noticia, index) => {
         <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
       </div>
     </div>
-
     <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
@@ -236,12 +331,9 @@ noticias.forEach((noticia, index) => {
   `;
   noticiasGrilla.appendChild(col);
 });
-
-const modales = document.querySelectorAll('.modal');
-modales.forEach(modal => {
+document.querySelectorAll('.modal').forEach(modal => {
   modal.addEventListener('hidden.bs.modal', () => {
-    const audios = modal.querySelectorAll('audio');
-    audios.forEach(audio => { audio.pause(); audio.currentTime = 0; });
+    modal.querySelectorAll('audio').forEach(audio => { audio.pause(); audio.currentTime = 0; });
   });
 });
 
@@ -255,76 +347,4 @@ multimediaItems.forEach(item => {
   const div = document.createElement('div');
   div.className = 'col-12';
   if(item.tipo === "video") div.innerHTML = `<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  else if(item.tipo === "radio") div.innerHTML = `<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  multimediaContent.appendChild(div);
-});
-
-// === SIDEBAR RADIO ===
-const sidebarRadio = document.getElementById('sidebar-radio');
-const radioItems = [ { src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" } ];
-radioItems.forEach(radio => {
-  const iframe = document.createElement('iframe');
-  iframe.className = 'radio-embed w-100';
-  iframe.src = radio.src;
-  iframe.frameBorder = 0;
-  iframe.allowFullscreen = true;
-  sidebarRadio.appendChild(iframe);
-});
-
-// === HISTORIA / TÍTULOS ===
-const dataTitulos = {
-  titulosNacionales: [
-    { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1990/91", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1991/92", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1997/98", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1998/99", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2001/02", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2002/03", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2008/09", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
-  ],
-  titulosInternacionales: [
-    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
-    { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
-  ]
-};
-
-const tablaTitulos = document.getElementById('tabla-titulos');
-const trNac = document.createElement('tr');
-trNac.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
-tablaTitulos.appendChild(trNac);
-dataTitulos.titulosNacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulos.appendChild(tr);
-});
-const trInt = document.createElement('tr');
-trInt.innerHTML = `<td colspan="3" class="table-section fw-bold">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
-tablaTitulos.appendChild(trInt);
-dataTitulos.titulosInternacionales.forEach(t => {
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
-  tablaTitulos.appendChild(tr);
-});
-
-// === BOTÓN IR ARRIBA ===
-const btnUp = document.getElementById('btn-up');
-window.onscroll = function() {
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) btnUp.style.display = "block";
-  else btnUp.style.display = "none";
-};
-btnUp.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-</script>
-
-</body>
-</html>
-
-
-
-
+  else if(item.tipo === "radio") div.innerHTML = `<iframe class="radio
