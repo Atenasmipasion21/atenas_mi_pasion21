@@ -34,7 +34,6 @@
   /* ===== SLIDER DE FOTOS ===== */
   #sliderFotos .carousel-inner { height: auto; }
   #sliderFotos .carousel-item img { height: auto; width: 1200px; object-fit: cover; }
-
   #sliderFotos .carousel-caption {
     background-color: rgba(0, 77, 46, 0.6);
     padding: 15px 20px;
@@ -124,7 +123,7 @@
       <!-- HISTORIA -->
       <section id="historia" class="mt-5">
         <h2 class="section-title">Historia del Club</h2>
-        <p>Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, <strong>con múltiples títulos nacionales e internacionales</strong>. Fundado el <strong>17 de abril de 1938</strong>, su presidente actual es <strong>Germán Baralle</strong></p>
+        <p>Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, con múltiples títulos nacionales e internacionales. Fundado el <strong>17 de abril de 1938</strong>, su presidente actual es <strong>Germán Baralle</strong>.</p>
 
         <h4 class="mt-4">Títulos obtenidos</h4>
         <div class="table-responsive">
@@ -175,7 +174,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// === SLIDER DE FOTOS ===
+// ===== SLIDER DE FOTOS DINÁMICO =====
 const fotosSlider = [
   { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
   { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
@@ -184,31 +183,26 @@ const fotosSlider = [
 ];
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
-fotosSlider.forEach((foto, index) => {
-  const button = document.createElement('button');
-  button.type = "button";
-  button.setAttribute('data-bs-target', "#sliderFotos");
-  button.setAttribute('data-bs-slide-to', index);
-  button.setAttribute('aria-label', `Slide ${index + 1}`);
-  if(index === 0) { button.className = "active"; button.setAttribute('aria-current', "true"); }
-  sliderIndicators.appendChild(button);
-  const div = document.createElement('div');
-  div.className = index === 0 ? "carousel-item active" : "carousel-item";
-  div.innerHTML = `<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-    <div class="carousel-caption d-none d-md-block">
-      <h5>${foto.titulo}</h5>
-      <p>${foto.descripcion}</p>
-    </div>`;
+fotosSlider.forEach((foto,index)=>{
+  const btn=document.createElement('button');
+  btn.type="button"; btn.setAttribute('data-bs-target',"#sliderFotos");
+  btn.setAttribute('data-bs-slide-to',index); btn.setAttribute('aria-label',`Slide ${index+1}`);
+  if(index===0){btn.className="active"; btn.setAttribute('aria-current',"true");}
+  sliderIndicators.appendChild(btn);
+  const div=document.createElement('div');
+  div.className=index===0?"carousel-item active":"carousel-item";
+  div.innerHTML=`<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
+  <div class="carousel-caption d-none d-md-block"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></div>`;
   sliderInner.appendChild(div);
 });
 
-// === NOTICIAS ===
-const noticias = [
-  { titulo: "Comenzó la temporada 2025/26", descripcion: "Comentamos cómo vemos a Atenas para esta temporada.",
-    contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
-    imagen: "pretemporada.jpg", audio: "jose.mp3" }
+// ===== NOTICIAS =====
+const noticias=[
+  { titulo:"Comenzó la temporada 2025/26", descripcion:"Comentamos cómo vemos a Atenas para esta temporada.",
+    contenido:"La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.",
+    imagen:"pretemporada.jpg", audio:"jose.mp3" }
 ];
-const noticiasGrilla = document.getElementById('noticias-grilla');
+const noticiasGrilla=document.getElementById('noticias-grilla');
 noticias.forEach((noticia,index)=>{
   const modalId=`modalNoticia${index}`;
   const col=document.createElement('div'); col.className='col-12 col-md-6 col-lg-4 mb-4';
@@ -243,12 +237,12 @@ document.querySelectorAll('.modal').forEach(modal=>{
   });
 });
 
-// === MULTIMEDIA ===
-const multimediaItems = [
-  { tipo: "video", src: "https://www.youtube.com/embed/BzY15_tfnVs" },
-  { tipo: "radio", src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
+// ===== MULTIMEDIA =====
+const multimediaItems=[
+  { tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" },
+  { tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
 ];
-const multimediaContent = document.getElementById('multimedia-content');
+const multimediaContent=document.getElementById('multimedia-content');
 multimediaItems.forEach(item=>{
   const div=document.createElement('div'); div.className='col-12';
   if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
@@ -256,32 +250,43 @@ multimediaItems.forEach(item=>{
   multimediaContent.appendChild(div);
 });
 
-// === SIDEBAR RADIO ===
-const sidebarRadio = document.getElementById('sidebar-radio');
-[{ src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }].forEach(radio=>{
+// ===== SIDEBAR RADIO =====
+const sidebarRadio=document.getElementById('sidebar-radio');
+[{ src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }].forEach(radio=>{
   const iframe=document.createElement('iframe'); iframe.className='radio-embed w-100';
   iframe.src=radio.src; iframe.frameBorder=0; iframe.allowFullscreen=true;
   sidebarRadio.appendChild(iframe);
 });
 
-// === HISTORIA / TÍTULOS COMPLETA ===
-const dataTitulos = {
-  titulosNacionales: [
-    { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1990/91", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1991/92", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1997/98", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "1998/99", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2001/02", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2002/03", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2008/09", torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
-  ],
-  titulosInternacionales: [
-    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
-    { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
-    { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
-    { año
+// ===== HISTORIA / TÍTULOS =====
+const dataTitulos=[
+  {año:1987, torneo:"Liga Nacional", resultado:"Campeón"},
+  {año:1988, torneo:"Liga Nacional", resultado:"Campeón"},
+  {año:"1990/91", torneo:"Liga Nacional", resultado:"Campeón"},
+  {año:"1991/92", torneo:"Liga Nacional", resultado:"Campeón"},
+  {año:"1997/98", torneo:"Liga Nacional", resultado:"Campeón"},
+  {año:"1998/99", torneo:"Liga Nacional", resultado:"Campeón"},
+  {año:"2001/02", torneo:"Liga Nacional", resultado:"Campeón"},
+  {año:"2002/03", torneo:"Liga Nacional", resultado:"Campeón"},
+  {año:"2008/09", torneo:"Liga Nacional", resultado:"Campeón"},
+  {año:"2023/24", torneo:"Liga Argentina", resultado:"Campeón"},
+  {año:1993, torneo:"Campeonato Sudamericano de Clubes Campeones", resultado:"Campeón"},
+  {año:1994, torneo:"Campeonato Sudamericano de Clubes Campeones", resultado:"Campeón"},
+  {año:1996, torneo:"Campeonato Panamericano", resultado:"Campeón"},
+  {año:1997, torneo:"Liga Sudamericana de Clubes", resultado:"Campeón"},
+  {año:1998, torneo:"Liga Sudamericana de Clubes", resultado:"Campeón"}
+];
+const tablaTitulosBody=document.getElementById('tabla-titulos-body');
+dataTitulos.forEach(titulo=>{
+  const tr=document.createElement('tr');
+  tr.innerHTML=`<td class="text-center">${titulo.año}</td><td>${titulo.torneo}</td><td class="text-center">${titulo.resultado}</td>`;
+  tablaTitulosBody.appendChild(tr);
+});
+
+// ===== BOTÓN IR ARRIBA =====
+const btnUp=document.getElementById('btn-up');
+window.onscroll=function(){btnUp.style.display=(document.documentElement.scrollTop>300)?"block":"none";}
+btnUp.onclick=function(){window.scrollTo({top:0,behavior:'smooth'});}
+</script>
+</body>
+</html>
