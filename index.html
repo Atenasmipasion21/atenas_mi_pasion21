@@ -28,11 +28,13 @@
   .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
   .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
-  /* Slider fotos */
+
+  /* ===== SLIDER DE FOTOS ===== */
   #sliderFotos .carousel-inner { height: auto; }
+  #sliderFotos .carousel-item { height: 100%; }
   #sliderFotos .carousel-item img { height: auto; width: 1200px; object-fit: cover; }
   #sliderFotos .carousel-caption { background-color: rgba(0, 77, 46, 0.6); padding: 15px 20px; border-radius: 10px; text-align: left; bottom: 20px; }
-  #sliderFotos .carousel-caption h5 { font-size: 1.8rem; font-weight: 700; color: #ffffff; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); margin-bottom: 8px; }
+  #sliderFotos .carousel-caption h5 { font-size: 1.8rem; font-weight: 700; color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.7); margin-bottom: 8px; }
   #sliderFotos .carousel-caption p { font-size: 1rem; color: #e0f2e0; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); margin: 0; }
   @media (max-width: 768px) {
     #sliderFotos .carousel-inner { height: 250px; }
@@ -121,26 +123,24 @@
               </tr>
             </thead>
             <tbody>
-              <!-- Títulos Nacionales -->
               <tr class="fw-bold table-section"><td colspan="3">🏆 Títulos Nacionales (10)</td></tr>
-              <tr><td>1987</td><td>Liga Nacional</td><td class="text-center">Campeón</td></tr>
-              <tr><td>1988</td><td>Liga Nacional</td><td class="text-center">Campeón</td></tr>
-              <tr><td>1990/91</td><td>Liga Nacional</td><td class="text-center">Campeón</td></tr>
-              <tr><td>1991/92</td><td>Liga Nacional</td><td class="text-center">Campeón</td></tr>
-              <tr><td>1997/98</td><td>Liga Nacional</td><td class="text-center">Campeón</td></tr>
-              <tr><td>1998/99</td><td>Liga Nacional</td><td class="text-center">Campeón</td></tr>
-              <tr><td>2001/02</td><td>Liga Nacional</td><td class="text-center">Campeón</td></tr>
-              <tr><td>2002/03</td><td>Liga Nacional</td><td class="text-center">Campeón</td></tr>
-              <tr><td>2008/09</td><td>Liga Nacional</td><td class="text-center">Campeón</td></tr>
-              <tr><td>2023/24</td><td>Liga Argentina</td><td class="text-center">Campeón</td></tr>
-              <!-- Títulos Internacionales -->
+              <tr><td>1987</td><td>Liga Nacional</td><td>Campeón</td></tr>
+              <tr><td>1988</td><td>Liga Nacional</td><td>Campeón</td></tr>
+              <tr><td>1990/91</td><td>Liga Nacional</td><td>Campeón</td></tr>
+              <tr><td>1991/92</td><td>Liga Nacional</td><td>Campeón</td></tr>
+              <tr><td>1997/98</td><td>Liga Nacional</td><td>Campeón</td></tr>
+              <tr><td>1998/99</td><td>Liga Nacional</td><td>Campeón</td></tr>
+              <tr><td>2001/02</td><td>Liga Nacional</td><td>Campeón</td></tr>
+              <tr><td>2002/03</td><td>Liga Nacional</td><td>Campeón</td></tr>
+              <tr><td>2008/09</td><td>Liga Nacional</td><td>Campeón</td></tr>
+              <tr><td>2023/24</td><td>Liga Argentina</td><td>Campeón</td></tr>
               <tr class="fw-bold table-section"><td colspan="3">🏆 Títulos Internacionales (6)</td></tr>
-              <tr><td>1993</td><td>Campeonato Sudamericano de Clubes Campeones</td><td class="text-center">Campeón</td></tr>
-              <tr><td>1994</td><td>Campeonato Sudamericano de Clubes Campeones</td><td class="text-center">Campeón</td></tr>
-              <tr><td>1996</td><td>Campeonato Panamericano</td><td class="text-center">Campeón</td></tr>
-              <tr><td>1997</td><td>Liga Sudamericana de Clubes</td><td class="text-center">Campeón</td></tr>
-              <tr><td>1998</td><td>Liga Sudamericana de Clubes</td><td class="text-center">Campeón</td></tr>
-              <tr><td>2004</td><td>Liga Sudamericana de Clubes</td><td class="text-center">Campeón</td></tr>
+              <tr><td>1993</td><td>Sudamericano de Clubes</td><td>Campeón</td></tr>
+              <tr><td>1994</td><td>Sudamericano de Clubes</td><td>Campeón</td></tr>
+              <tr><td>1996</td><td>Campeonato Panamericano</td><td>Campeón</td></tr>
+              <tr><td>1997</td><td>Liga Sudamericana</td><td>Campeón</td></tr>
+              <tr><td>1998</td><td>Liga Sudamericana</td><td>Campeón</td></tr>
+              <tr><td>2004</td><td>Liga Sudamericana</td><td>Campeón</td></tr>
             </tbody>
           </table>
         </div>
@@ -166,36 +166,31 @@
         <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
-        <div class="table-responsive" style="max-height: 300px; overflow-y: auto;">
-          <table class="table table-sm table-bordered mb-0 text-center">
-            <thead class="table-success">
-              <tr>
-                <th>Año</th>
-                <th>Torneo</th>
-                <th>Resultado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="fw-bold table-section"><td colspan="3">🏆 Títulos Nacionales (10)</td></tr>
-              <tr><td>1987</td><td>Liga Nacional</td><td>Campeón</td></tr>
-              <tr><td>1988</td><td>Liga Nacional</td><td>Campeón</td></tr>
-              <tr><td>1990/91</td><td>Liga Nacional</td><td>Campeón</td></tr>
-              <tr><td>1991/92</td><td>Liga Nacional</td><td>Campeón</td></tr>
-              <tr><td>1997/98</td><td>Liga Nacional</td><td>Campeón</td></tr>
-              <tr><td>1998/99</td><td>Liga Nacional</td><td>Campeón</td></tr>
-              <tr><td>2001/02</td><td>Liga Nacional</td><td>Campeón</td></tr>
-              <tr><td>2002/03</td><td>Liga Nacional</td><td>Campeón</td></tr>
-              <tr><td>2008/09</td><td>Liga Nacional</td><td>Campeón</td></tr>
-              <tr><td>2023/24</td><td>Liga Argentina</td><td>Campeón</td></tr>
-              <tr class="fw-bold table-section"><td colspan="3">🏆 Títulos Internacionales (6)</td></tr>
-              <tr><td>1993</td><td>Campeonato Sudamericano de Clubes Campeones</td><td>Campeón</td></tr>
-              <tr><td>1994</td><td>Campeonato Sudamericano de Clubes Campeones</td><td>Campeón</td></tr>
-              <tr><td>1996</td><td>Campeonato Panamericano</td><td>Campeón</td></tr>
-              <tr><td>1997</td><td>Liga Sudamericana de Clubes</td><td>Campeón</td></tr>
-              <tr><td>1998</td><td>Liga Sudamericana de Clubes</td><td>Campeón</td></tr>
-              <tr><td>2004</td><td>Liga Sudamericana de Clubes</td><td>Campeón</td></tr>
-            </tbody>
-          </table>
+
+        <!-- Títulos Nacionales -->
+        <h5 class="mt-2">🏆 Nacionales (10)</h5>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="badge bg-success">1987 Liga Nacional</span>
+          <span class="badge bg-success">1988 Liga Nacional</span>
+          <span class="badge bg-success">1990/91 Liga Nacional</span>
+          <span class="badge bg-success">1991/92 Liga Nacional</span>
+          <span class="badge bg-success">1997/98 Liga Nacional</span>
+          <span class="badge bg-success">1998/99 Liga Nacional</span>
+          <span class="badge bg-success">2001/02 Liga Nacional</span>
+          <span class="badge bg-success">2002/03 Liga Nacional</span>
+          <span class="badge bg-success">2008/09 Liga Nacional</span>
+          <span class="badge bg-success">2023/24 Liga Argentina</span>
+        </div>
+
+        <!-- Títulos Internacionales -->
+        <h5 class="mt-2">🌎 Internacionales (6)</h5>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-primary">1993 Sudamericano de Clubes</span>
+          <span class="badge bg-primary">1994 Sudamericano de Clubes</span>
+          <span class="badge bg-primary">1996 Campeonato Panamericano</span>
+          <span class="badge bg-primary">1997 Liga Sudamericana</span>
+          <span class="badge bg-primary">1998 Liga Sudamericana</span>
+          <span class="badge bg-primary">2004 Liga Sudamericana</span>
         </div>
 
       </div>
@@ -216,103 +211,83 @@
 <script>
 // === SLIDER DE FOTOS DINÁMICO ===
 const fotosSlider = [
-  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
+  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua"},
+  { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
 ];
 
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
-
 fotosSlider.forEach((foto, index) => {
   const button = document.createElement('button');
   button.type = "button";
   button.setAttribute('data-bs-target', "#sliderFotos");
   button.setAttribute('data-bs-slide-to', index);
   button.setAttribute('aria-label', `Slide ${index + 1}`);
-  if(index === 0) { button.className = "active"; button.setAttribute('aria-current', "true"); }
+  if(index === 0){ button.className = "active"; button.setAttribute('aria-current', "true"); }
   sliderIndicators.appendChild(button);
 
   const div = document.createElement('div');
   div.className = index === 0 ? "carousel-item active" : "carousel-item";
-  div.innerHTML = `
-    <img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-    <div class="carousel-caption d-none d-md-block">
-      <h5>${foto.titulo}</h5>
-      <p>${foto.descripcion}</p>
-    </div>
-  `;
+  div.innerHTML = `<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}"><div class="carousel-caption d-none d-md-block"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></div>`;
   sliderInner.appendChild(div);
 });
 
 // === NOTICIAS ===
-const noticias = [
-  { titulo: "Comenzó la temporada 2025/26", descripcion: "Comentamos cómo vemos a Atenas para esta temporada.", contenido: "La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.", imagen: "pretemporada.jpg", audio: "jose.mp3" }
-];
-
+const noticias = [{ titulo:"Comenzó la temporada 2025/26", descripcion:"Comentamos cómo vemos a Atenas para esta temporada.", contenido:"La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.", imagen:"pretemporada.jpg", audio:"jose.mp3"}];
 const noticiasGrilla = document.getElementById('noticias-grilla');
-noticias.forEach((noticia, index) => {
+noticias.forEach((noticia, index)=>{
   const modalId = `modalNoticia${index}`;
   const col = document.createElement('div');
   col.className = 'col-12 col-md-6 col-lg-4 mb-4';
-  col.innerHTML = `
-    <div class="card h-100 d-flex flex-column">
-      <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
-      <div class="card-body d-flex flex-column justify-content-between">
-        <h5 class="card-title">${noticia.titulo}</h5>
-        <p class="card-text">${noticia.descripcion}</p>
-        <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
-      </div>
+  col.innerHTML = `<div class="card h-100 d-flex flex-column">
+    <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <h5 class="card-title">${noticia.titulo}</h5>
+      <p class="card-text">${noticia.descripcion}</p>
+      <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
     </div>
-
-    <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">${noticia.titulo}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <p>${noticia.contenido}</p>
-            <audio controls preload="none">
-              <source src="${noticia.audio}" type="audio/mpeg">
-              Tu navegador no soporta audio.
-            </audio>
-          </div>
+  </div>
+  <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">${noticia.titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>${noticia.contenido}</p>
+          <audio controls preload="none">
+            <source src="${noticia.audio}" type="audio/mpeg">
+            Tu navegador no soporta audio.
+          </audio>
         </div>
       </div>
     </div>
-  `;
+  </div>`;
   noticiasGrilla.appendChild(col);
 });
-
-document.querySelectorAll('.modal').forEach(modal => {
-  modal.addEventListener('hidden.bs.modal', () => {
-    modal.querySelectorAll('audio').forEach(audio => { audio.pause(); audio.currentTime = 0; });
+document.querySelectorAll('.modal').forEach(modal=>{
+  modal.addEventListener('hidden.bs.modal', ()=>{
+    modal.querySelectorAll('audio').forEach(audio=>{ audio.pause(); audio.currentTime=0; });
   });
 });
 
 // === MULTIMEDIA ===
-const multimediaItems = [
-  { tipo: "video", src: "https://www.youtube.com/embed/BzY15_tfnVs" },
-  { tipo: "radio", src: "https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
-];
+const multimediaItems = [{ tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" }, { tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }];
 const multimediaContent = document.getElementById('multimedia-content');
-multimediaItems.forEach(item => {
-  const div = document.createElement('div'); div.className = 'col-12';
-  if(item.tipo === "video") div.innerHTML = `<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  else if(item.tipo === "radio") div.innerHTML = `<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+multimediaItems.forEach(item=>{
+  const div = document.createElement('div'); div.className='col-12';
+  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
   multimediaContent.appendChild(div);
 });
 
 // === BOTÓN IR ARRIBA ===
 const btnUp = document.getElementById('btn-up');
-window.onscroll = function() {
-  btnUp.style.display = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) ? "block" : "none";
-};
-btnUp.addEventListener('click', function(e) { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+window.onscroll = ()=>{ btnUp.style.display=(document.body.scrollTop>200 || document.documentElement.scrollTop>200) ? "block" : "none"; };
+btnUp.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth'}); });
 </script>
-
 </body>
 </html>
