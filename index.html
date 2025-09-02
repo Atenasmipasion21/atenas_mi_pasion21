@@ -325,17 +325,53 @@ radioItems.forEach(radio => {
   sidebarRadio.appendChild(iframe);
 });
 
-// === HISTORIA / TÍTULOS ===
+// === HISTORIA / TÍTULOS COMPLETA ===
 const dataTitulos = {
   titulosNacionales: [
     { año: 1987, torneo: "Liga Nacional", resultado: "Campeón" },
     { año: 1988, torneo: "Liga Nacional", resultado: "Campeón" },
-    { año: 1990, torneo: "Liga Nacional", resultado: "Campeón" }
+    { año: "1990/91", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1991/92", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1997/98", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "1998/99", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2001/02", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2002/03", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2008/09", torneo: "Liga Nacional", resultado: "Campeón" },
+    { año: "2023/24", torneo: "Liga Argentina", resultado: "Campeón" }
   ],
   titulosInternacionales: [
-    { año: 1993, torneo: "Liga Sudamericana", resultado: "Campeón" }
+    { año: 1993, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
+    { año: 1994, torneo: "Campeonato Sudamericano de Clubes Campeones", resultado: "Campeón" },
+    { año: 1996, torneo: "Campeonato Panamericano", resultado: "Campeón" },
+    { año: 1997, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
+    { año: 1998, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" },
+    { año: 2004, torneo: "Liga Sudamericana de Clubes", resultado: "Campeón" }
   ]
 };
+
+const tablaTitulosBody = document.getElementById('tabla-titulos-body');
+
+// Títulos Nacionales
+const trNac = document.createElement('tr');
+trNac.innerHTML = `<td colspan="3" class="table-section">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
+tablaTitulosBody.appendChild(trNac);
+
+dataTitulos.titulosNacionales.forEach(t => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
+  tablaTitulosBody.appendChild(tr);
+});
+
+// Títulos Internacionales
+const trInt = document.createElement('tr');
+trInt.innerHTML = `<td colspan="3" class="table-section">🏆 Títulos Internacionales (${dataTitulos.titulosInternacionales.length})</td>`;
+tablaTitulosBody.appendChild(trInt);
+
+dataTitulos.titulosInternacionales.forEach(t => {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td class="text-center">${t.año}</td><td>${t.torneo}</td><td class="text-center">${t.resultado}</td>`;
+  tablaTitulosBody.appendChild
+
 const tablaTitulosBody = document.getElementById('tabla-titulos-body');
 const trNac = document.createElement('tr');
 trNac.innerHTML = `<td colspan="3" class="table-section">🏆 Títulos Nacionales (${dataTitulos.titulosNacionales.length})</td>`;
@@ -363,3 +399,4 @@ btnUp.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top
 </script>
 </body>
 </html>
+
