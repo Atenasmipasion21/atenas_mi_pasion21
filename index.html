@@ -25,30 +25,46 @@
   }
   #sliderFotos .carousel-inner { height:auto; }
   #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
+#sliderFotos .carousel-caption {
+  position: absolute;
+  bottom: 15px; /* siempre en la parte inferior */
+  left: 10px;
+  right: 10px;
+  background-color: rgba(0, 77, 46, 0.5); /* semitransparente */
+  padding: 8px 12px;
+  border-radius: 8px;
+  text-align: left;
+}
 
+#sliderFotos .carousel-caption h5 {
+  font-size: clamp(1rem, 2.5vw, 1.5rem); /* responsive */
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  margin-bottom: 4px;
+}
+
+#sliderFotos .carousel-caption p {
+  font-size: clamp(0.8rem, 1.5vw, 1rem); /* responsive */
+  color: #e0f2e0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  margin: 0;
+}
+
+/* Ajustes específicos para celulares */
+@media (max-width: 768px) {
   #sliderFotos .carousel-caption {
-    position: absolute;
-    top: 10px;
-    left: 0;
-    right: 0;
-    padding: 8px 12px;
-    background-color: rgba(0, 77, 46, 0.5);
-    border-radius: 8px;
-    text-align: left;
+    bottom: 8px;
+    padding: 6px 8px;
   }
   #sliderFotos .carousel-caption h5 {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    font-weight: 700;
-    color: #fff;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    margin-bottom: 4px;
+    font-size: 1rem;
   }
   #sliderFotos .carousel-caption p {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-    color: #e0f2e0;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    margin: 0;
+    font-size: 0.85rem;
   }
+}
+
 
   @media (min-width: 1200px) { #sliderFotos { padding-top: 20px; } }
   @media (max-width: 1199px) { #sliderFotos { padding-top: 15px; } }
@@ -291,3 +307,4 @@ btnUp.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top:0
 </script>
 </body>
 </html>
+
