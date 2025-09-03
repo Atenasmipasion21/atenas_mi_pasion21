@@ -18,57 +18,44 @@
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
 
-  /* Slider / Banner */
-  .banner { display:none; } /* Ocultamos la antigua banner */
+  /* Slider */
+  .banner { display:none; }
   #sliderFotos {
-    padding-top: 15px; /* espacio suave debajo del navbar */
+    padding-top: 15px; 
   }
   #sliderFotos .carousel-inner { height:auto; }
   #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
-#sliderFotos .carousel-caption {
-  position: absolute;
-  bottom: 15px; /* siempre en la parte inferior */
-  left: 10px;
-  right: 10px;
-  background-color: rgba(0, 77, 46, 0.5); /* semitransparente */
-  padding: 8px 12px;
-  border-radius: 8px;
-  text-align: left;
-}
-
-#sliderFotos .carousel-caption h5 {
-  font-size: clamp(1rem, 2.5vw, 1.5rem); /* responsive */
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-  margin-bottom: 4px;
-}
-
-#sliderFotos .carousel-caption p {
-  font-size: clamp(0.8rem, 1.5vw, 1rem); /* responsive */
-  color: #e0f2e0;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-  margin: 0;
-}
-
-/* Ajustes específicos para celulares */
-@media (max-width: 768px) {
   #sliderFotos .carousel-caption {
-    bottom: 8px;
-    padding: 6px 8px;
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    right: 10px;
+    background-color: rgba(0, 77, 46, 0.5);
+    padding: 8px 12px;
+    border-radius: 8px;
+    text-align: left;
   }
   #sliderFotos .carousel-caption h5 {
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    margin-bottom: 4px;
   }
   #sliderFotos .carousel-caption p {
-    font-size: 0.85rem;
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    color: #e0f2e0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    margin: 0;
   }
-}
-
-
-  @media (min-width: 1200px) { #sliderFotos { padding-top: 20px; } }
-  @media (max-width: 1199px) { #sliderFotos { padding-top: 15px; } }
-  @media (max-width: 768px) { #sliderFotos { padding-top: 10px; } }
+  @media (max-width: 768px) {
+    #sliderFotos .carousel-caption {
+      bottom: 8px;
+      padding: 6px 8px;
+    }
+    #sliderFotos .carousel-caption h5 { font-size: 1rem; }
+    #sliderFotos .carousel-caption p { font-size: 0.85rem; }
+  }
 
   .card { display:flex; flex-direction:column; height:100%; }
   .card-img-top { height:250px; object-fit:cover; }
@@ -87,7 +74,6 @@
   .youtube-embed, .radio-embed { width:100%; height:250px; margin-bottom:20px; }
   .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
 
-  .table-section { background-color:#198754 !important; color:#fff !important; font-size:1.1rem; text-transform:uppercase; letter-spacing:1px; text-align:center; }
   #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
 </style>
 </head>
@@ -181,7 +167,6 @@
         <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
-        <!-- Títulos Nacionales -->
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
         <div class="d-flex flex-wrap gap-2 mb-3">
           <span class="badge bg-success">1987 Liga Nacional</span>
@@ -195,8 +180,7 @@
           <span class="badge bg-success">2008/09 Liga Nacional</span>
           <span class="badge bg-success">2023/24 Liga Argentina</span>
         </div>
-        <!-- Títulos Internacionales -->
-        <h5 class="mt-2">🌎 Internacionales (6)</h5>
+        <h5 class="mt-2">🏆 Internacionales (6)</h5>
         <div class="d-flex flex-wrap gap-2">
           <span class="badge bg-primary">1993 Sudamericano de Clubes</span>
           <span class="badge bg-primary">1994 Sudamericano de Clubes</span>
@@ -243,7 +227,7 @@ fotosSlider.forEach((foto, index) => {
   const div = document.createElement('div');
   div.className = index === 0 ? "carousel-item active" : "carousel-item";
   div.innerHTML = `<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-                   <div class="carousel-caption d-none d-md-block">
+                   <div class="carousel-caption">
                      <h5>${foto.titulo}</h5>
                      <p>${foto.descripcion}</p>
                    </div>`;
@@ -307,4 +291,3 @@ btnUp.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top:0
 </script>
 </body>
 </html>
-
