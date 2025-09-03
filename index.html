@@ -37,7 +37,7 @@
   #sliderFotos .carousel-item img { width: 100%; height: auto; max-height: 500px; object-fit: cover; }
   #sliderFotos .carousel-caption {
     position: absolute;
-    bottom: 20px;
+    bottom: clamp(40px, 5%, 80px); /* mínimo 40px, máximo 80px, relativo al alto de la pantalla */
     left: 20px;
     z-index: 10;
     background-color: rgba(0,77,46,0.6);
@@ -46,7 +46,7 @@
     text-align: left;
   }
  #sliderFotos .carousel-caption h5 {
-  font-size: clamp(1.2rem, 3vw, 2rem); /* mínimo 1.2rem, máximo 2rem, escala con ancho de pantalla */
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* mínimo 1.2rem, máximo 2rem, escala con ancho de pantalla */
   font-weight: 700;
   color: #fff;
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
@@ -292,6 +292,7 @@ btnUp.addEventListener('click',e=>{ e.preventDefault(); window.scrollTo({top:0,b
 </script>
 </body>
 </html>
+
 
 
 
