@@ -13,8 +13,7 @@
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
   .banner { width: 100%; height: 400px; background-image: url('banner-atenas.jpg'); background-size: cover; background-position: center; margin-bottom: 30px; }
-  .card { display: flex; flex-direction: column; height: 100%; transition: transform 0.3s; }
-  .card:hover { transform: translateY(-5px); }
+  .card { display: flex; flex-direction: column; height: 100%; }
   .card-img-top { height: 250px; object-fit: cover; }
   .card-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
   .btn-verde { background-color: #008000; color: #fff; border: none; }
@@ -27,19 +26,20 @@
   footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; text-align: center; box-shadow: 0 -2px 5px rgba(0,0,0,0.2); }
   .youtube-embed, .radio-embed { width: 100%; max-height: 250px; margin-bottom: 20px; }
   .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
-  .table-section { background-color: #198754 !important; color: #fff !important; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; text-align: center; }
   #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
 
-  /* ===== SLIDER DE FOTOS RESPONSIVE ===== */
-  #sliderFotos { max-width: 100%; margin-bottom: 30px; }
-  #sliderFotos .carousel-inner { width: 100%; height: 400px; }
-  #sliderFotos .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+  /* SLIDER RESPONSIVE CON TITULOS VISIBLES */
+  #sliderFotos .carousel-inner { width: 100%; height: auto; }
+  #sliderFotos .carousel-item img { width: 100%; height: auto; max-height: 500px; object-fit: cover; }
   #sliderFotos .carousel-caption {
-    background-color: rgba(0, 77, 46, 0.6);
-    padding: 15px 20px;
-    border-radius: 10px;
-    text-align: left;
+    position: absolute;
     bottom: 20px;
+    left: 20px;
+    z-index: 10;
+    background-color: rgba(0,77,46,0.6);
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: left;
   }
   #sliderFotos .carousel-caption h5 {
     font-size: 1.8rem;
@@ -55,13 +55,12 @@
     margin: 0;
   }
   @media (max-width: 992px) {
-    #sliderFotos .carousel-inner { height: 300px; }
     #sliderFotos .carousel-caption h5 { font-size: 1.4rem; }
     #sliderFotos .carousel-caption p { font-size: 0.9rem; }
   }
   @media (max-width: 576px) {
     #sliderFotos .carousel-inner { height: 200px; }
-    #sliderFotos .carousel-caption { padding: 10px; bottom: 10px; }
+    #sliderFotos .carousel-caption { padding: 8px 10px; bottom: 10px; }
     #sliderFotos .carousel-caption h5 { font-size: 1.1rem; }
     #sliderFotos .carousel-caption p { font-size: 0.8rem; }
   }
@@ -107,7 +106,6 @@
 
 <div class="container">
   <div class="row">
-
     <!-- MAIN CONTENT -->
     <div class="col-lg-8">
 
@@ -160,8 +158,6 @@
         <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
-
-        <!-- Títulos Nacionales -->
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
         <div class="d-flex flex-wrap gap-2 mb-3">
           <span class="badge bg-success">1987 Liga Nacional</span>
@@ -175,8 +171,6 @@
           <span class="badge bg-success">2008/09 Liga Nacional</span>
           <span class="badge bg-success">2023/24 Liga Argentina</span>
         </div>
-
-        <!-- Títulos Internacionales -->
         <h5 class="mt-2">🌎 Internacionales (6)</h5>
         <div class="d-flex flex-wrap gap-2">
           <span class="badge bg-primary">1993 Sudamericano de Clubes</span>
@@ -186,108 +180,51 @@
           <span class="badge bg-primary">1998 Liga Sudamericana</span>
           <span class="badge bg-primary">2004 Liga Sudamericana</span>
         </div>
-
       </div>
     </div>
 
   </div>
 </div>
 
-<!-- Botón ir arriba -->
 <a href="#" id="btn-up" class="btn btn-verde">↑</a>
 
-<!-- FOOTER -->
 <footer>
   <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// === SLIDER DE FOTOS DINÁMICO ===
 const fotosSlider = [
   { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
   { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
   { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
   { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
 ];
-
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
-
-fotosSlider.forEach((foto, index) => {
+fotosSlider.forEach((foto,index)=>{
   const button = document.createElement('button');
-  button.type = "button";
-  button.setAttribute('data-bs-target', "#sliderFotos");
-  button.setAttribute('data-bs-slide-to', index);
-  button.setAttribute('aria-label', `Slide ${index + 1}`);
-  if(index === 0){ button.className = "active"; button.setAttribute('aria-current', "true"); }
+  button.type="button";
+  button.setAttribute('data-bs-target','#sliderFotos');
+  button.setAttribute('data-bs-slide-to',index);
+  button.setAttribute('aria-label',`Slide ${index+1}`);
+  if(index===0){button.className="active"; button.setAttribute('aria-current','true');}
   sliderIndicators.appendChild(button);
 
   const div = document.createElement('div');
-  div.className = index === 0 ? "carousel-item active" : "carousel-item";
-  div.innerHTML = `
-    <img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}" loading="lazy">
-    <div class="carousel-caption d-none d-md-block">
-      <h5>${foto.titulo}</h5>
-      <p>${foto.descripcion}</p>
-    </div>`;
+  div.className = index===0 ? "carousel-item active" : "carousel-item";
+  div.innerHTML = `<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
+  <div class="carousel-caption d-block">
+    <h5>${foto.titulo}</h5>
+    <p>${foto.descripcion}</p>
+  </div>`;
   sliderInner.appendChild(div);
 });
 
-// === NOTICIAS ===
-const noticias = [{ titulo:"Comenzó la temporada 2025/26", descripcion:"Comentamos cómo vemos a Atenas para esta temporada.", contenido:"La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.", imagen:"pretemporada.jpg", audio:"jose.mp3"}];
-const noticiasGrilla = document.getElementById('noticias-grilla');
-noticias.forEach((noticia, index)=>{
-  const modalId = `modalNoticia${index}`;
-  const col = document.createElement('div');
-  col.className = 'col-12 col-md-6 col-lg-4 mb-4';
-  col.innerHTML = `<div class="card h-100 d-flex flex-column">
-    <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
-    <div class="card-body d-flex flex-column justify-content-between">
-      <h5 class="card-title">${noticia.titulo}</h5>
-      <p class="card-text">${noticia.descripcion}</p>
-      <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
-    </div>
-  </div>
-  <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">${noticia.titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <p>${noticia.contenido}</p>
-          <audio controls preload="none" controlsList="nodownload">
-            <source src="${noticia.audio}" type="audio/mpeg">
-            Tu navegador no soporta audio.
-          </audio>
-        </div>
-      </div>
-    </div>
-  </div>`;
-  noticiasGrilla.appendChild(col);
-});
-document.querySelectorAll('.modal').forEach(modal=>{
-  modal.addEventListener('hidden.bs.modal', ()=>{
-    modal.querySelectorAll('audio').forEach(audio=>{ audio.pause(); audio.currentTime=0; });
-  });
-});
-
-// === MULTIMEDIA ===
-const multimediaItems = [{ tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" }, { tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }];
-const multimediaContent = document.getElementById('multimedia-content');
-multimediaItems.forEach(item=>{
-  const div = document.createElement('div'); div.className='col-12';
-  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  multimediaContent.appendChild(div);
-});
-
-// === BOTÓN IR ARRIBA ===
+// Botón ir arriba
 const btnUp = document.getElementById('btn-up');
-window.onscroll = ()=>{ btnUp.style.display=(document.body.scrollTop>200 || document.documentElement.scrollTop>200) ? "block" : "none"; };
-btnUp.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth'}); });
+window.onscroll = ()=>{ btnUp.style.display=(document.body.scrollTop>200||document.documentElement.scrollTop>200)?"block":"none"; };
+btnUp.addEventListener('click',e=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
 </script>
 </body>
 </html>
