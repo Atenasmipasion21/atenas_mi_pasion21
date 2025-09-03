@@ -69,6 +69,24 @@
     #sliderFotos .carousel-caption h5 { font-size: 1.1rem; }
     #sliderFotos .carousel-caption p { font-size: 0.8rem; }
   }
+  @media (max-width: 768px) {
+  #sliderFotos .carousel-inner { height: auto; } /* altura automática */
+  #sliderFotos .carousel-item img { height: auto; width: 100%; object-fit: cover; }
+  
+  #sliderFotos .carousel-caption {
+    bottom: 5%; /* sube el caption un poco en pantallas pequeñas */
+    padding: 8px 10px;
+  }
+
+  #sliderFotos .carousel-caption h5 {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+  }
+
+  #sliderFotos .carousel-caption p {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+  }
+}
+
 </style>
 </head>
 <body>
@@ -292,6 +310,7 @@ btnUp.addEventListener('click',e=>{ e.preventDefault(); window.scrollTo({top:0,b
 </script>
 </body>
 </html>
+
 
 
 
