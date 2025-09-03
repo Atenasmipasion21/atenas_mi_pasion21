@@ -7,70 +7,45 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <style>
-  body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin:0; padding:0; }
+body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin:0; padding:0; }
+.navbar { background-color: #004d2e; }
+.navbar-brand, .nav-link { color: #fff !important; }
+.navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
+.card { display:flex; flex-direction:column; height:100%; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1); margin-bottom:20px; }
+.card-img-top { height:250px; object-fit:cover; border-top-left-radius:12px; border-top-right-radius:12px; }
+.card-body { flex-grow:1; display:flex; flex-direction:column; justify-content:space-between; }
+.badge { font-size: 1rem; }
+.btn-verde { background-color: #008000; color:#fff; border:none; }
+.btn-verde:hover { background-color:#006400; }
+.sidebar { background-color:#e6f2e6; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px; }
+.sidebar h4 { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:15px; font-weight:600; }
+.sidebar a { text-decoration:none; color:#004d2e; display:flex; align-items:center; margin-bottom:10px; font-weight:500; }
+.sidebar a:hover { color:#006400; }
+.sidebar a i { margin-right:8px; font-size:1.2rem; }
+footer { background-color:#004d2e; color:#fff; padding:20px 0; margin-top:30px; text-align:center; box-shadow:0 -2px 5px rgba(0,0,0,0.2); }
 
-  /* Navbar */
-  .navbar { background-color: #004d2e; }
-  .navbar-brand, .nav-link { color: #fff !important; }
-  .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
-
-  /* Cards plantel */
-  .card { display:flex; flex-direction:column; height:100%; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1); margin-bottom:20px; }
-  .card-img-top { height:250px; object-fit:cover; border-top-left-radius:12px; border-top-right-radius:12px; }
-  .card-body { flex-grow:1; display:flex; flex-direction:column; justify-content:space-between; }
-  .badge { font-size: 1rem; }
-  .btn-verde { background-color: #008000; color:#fff; border:none; }
-  .btn-verde:hover { background-color:#006400; }
-
-  /* Sidebar */
-  .sidebar { background-color:#e6f2e6; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px; }
-  .sidebar h4 { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:15px; font-weight:600; }
-  .sidebar a { text-decoration:none; color:#004d2e; display:flex; align-items:center; margin-bottom:10px; font-weight:500; }
-  .sidebar a:hover { color:#006400; }
-  .sidebar a i { margin-right:8px; font-size:1.2rem; }
-
-  footer { background-color:#004d2e; color:#fff; padding:20px 0; margin-top:30px; text-align:center; box-shadow:0 -2px 5px rgba(0,0,0,0.2); }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .col-sm-6 { flex:0 0 50%; max-width:50%; }
-    .sidebar { margin-top:20px; }
-  }
-  @media (max-width: 430px) {
-    .card-img-top { height:200px; }
-    .card-body h4 { font-size:1rem; }
-    .card-body h6 { font-size:0.75rem; }
-    .btn-verde { font-size:0.8rem; padding:4px 8px; }
-    .badge { font-size:0.75rem; padding:0.3em 0.5em; }
-  }
-  @media (max-width: 390px) {
-    .card-img-top { height:180px; }
-    .card-body h4 { font-size:0.95rem; }
-    .card-body h6 { font-size:0.7rem; }
-    .btn-verde { font-size:0.75rem; padding:3px 6px; }
-    .badge { font-size:0.7rem; padding:0.2em 0.4em; }
-  }
-
+/* Responsive */
+@media (max-width: 768px) { .col-sm-6 { flex:0 0 50%; max-width:50%; } .sidebar { margin-top:20px; } }
+@media (max-width: 430px) { .card-img-top { height:200px; } .card-body h4 { font-size:1rem; } .card-body h6 { font-size:0.75rem; } .btn-verde { font-size:0.8rem; padding:4px 8px; } .badge { font-size:0.75rem; padding:0.3em 0.5em; } }
+@media (max-width: 390px) { .card-img-top { height:180px; } .card-body h4 { font-size:0.95rem; } .card-body h6 { font-size:0.7rem; } .btn-verde { font-size:0.75rem; padding:3px 6px; } .badge { font-size:0.7rem; padding:0.2em 0.4em; } }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
     <a class="navbar-brand" href="index.html">Atenas mi pasión</a>
   </div>
 </nav>
 
-<!-- CONTENIDO PRINCIPAL -->
 <div class="container my-5">
   <h1 class="text-center mb-4">Plantel Liga Nacional 2025/26</h1>
   <div class="row">
-    <!-- MAIN CONTENT: Jugadores -->
+    <!-- MAIN CONTENT -->
     <div class="col-lg-8">
       <div class="row g-4">
 
-        <!-- Ejemplo Jugador -->
+        <!-- Jugadores -->
         <div class="col-sm-6 col-md-4">
           <div class="card text-center">
             <img src="atenas-2025-1-1.jpg" alt="Nakye Sanders - Atenas 2025" class="card-img-top">
@@ -107,7 +82,86 @@
           </div>
         </div>
 
-        <!-- Agregar el resto de los jugadores siguiendo el mismo patrón -->
+        <div class="col-sm-6 col-md-4">
+          <div class="card text-center">
+            <img src="atenas-2025-10-1.jpg" alt="José Montero - Atenas 2025" class="card-img-top">
+            <div class="card-body">
+              <h5><span class="badge bg-success">10</span></h5>
+              <h4 class="card-title"><strong>José Montero</strong></h4>
+              <h6>02/01/95</h6>
+              <p class="card-text">Alero<br>Altura: 1.96 m</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="card text-center">
+            <img src="atenas-2025-13-1.jpg" alt="Lucas Arnn - Atenas 2025" class="card-img-top">
+            <div class="card-body">
+              <h5><span class="badge bg-success">13</span></h5>
+              <h4 class="card-title"><strong>Lucas Arnn</strong> <strong>Cápitan</strong></h4>
+              <h6>24/04/89</h6>
+              <p class="card-text">Ala-pivot<br>Altura: 2.00 m</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="card text-center">
+            <img src="atenas-2025-15-1.jpg" alt="Ramiro Ledesma - Atenas 2025" class="card-img-top">
+            <div class="card-body">
+              <h5><span class="badge bg-success">15</span></h5>
+              <h4 class="card-title"><strong>Ramiro Ledesma</strong></h4>
+              <h6>30/09/00</h6>
+              <p class="card-text">Ala-pivot<br>Altura: 2.00 m</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="card text-center">
+            <img src="maidana-1.jpg" alt="Jerónimo Maidana - Atenas 2025" class="card-img-top">
+            <div class="card-body">
+              <h5><span class="badge bg-success">22</span></h5>
+              <h4 class="card-title"><strong>Jerónimo Maidana</strong></h4>
+              <h6>20/10/04</h6>
+              <p class="card-text">Ala-pivot<br>Altura: 2.01 m</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="card text-center">
+            <img src="tomatis-1.jpg" alt="Thiago Tomattis - Atenas 2025" class="card-img-top">
+            <div class="card-body">
+              <h5><span class="badge bg-success">55</span></h5>
+              <h4 class="card-title"><strong>Thiago Tomattis</strong></h4>
+              <h6>15/03/02</h6>
+              <p class="card-text">Pivot<br>Altura: 2.02 m</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DT y Asistente -->
+        <div class="col-sm-6 col-md-4">
+          <div class="card text-center">
+            <img src="baralle-1.jpg" alt="Germán Baralle - DT Atenas 2025" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title"><strong>Germán Baralle</strong></h4>
+              <h6>DT</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-md-4">
+          <div class="card text-center">
+            <img src="milan-1.jpg" alt="Juan Milan - Asistente Atenas 2025" class="card-img-top">
+            <div class="card-body">
+              <h4 class="card-title"><strong>Juan Milan</strong></h4>
+              <h6>Asistente</h6>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
@@ -149,11 +203,9 @@
     </div>
 
   </div>
-
   <a href="index.html" class="btn btn-verde mt-3">← Volver al inicio</a>
 </div>
 
-<!-- Footer -->
 <footer>
   <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
 </footer>
