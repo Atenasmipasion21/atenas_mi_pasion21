@@ -23,8 +23,8 @@
   .sidebar a:hover { color:#006400; }
   .sidebar a i { margin-right:8px; font-size:1.2rem; }
   footer { background-color:#003d2a; color:white; text-align:center; padding:1rem; margin-top:20px; }
-  @media (max-width:768px){ .card-img-top{ height:180px; } }
-  @media (max-width:430px){ .card-img-top{ height:150px; } }
+  @media (max-width:768px){ .card-img-top{ height:180px; } h1{ font-size:2rem; } }
+  @media (max-width:430px){ .card-img-top{ height:150px; } h1{ font-size:1.5rem; } .card-title{ font-size:1rem; } .card-text{ font-size:0.85rem; } }
 </style>
 </head>
 <body>
@@ -52,13 +52,13 @@
   <div class="row">
     <!-- Plantel -->
     <div class="col-lg-8">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="plantel">
 
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="plantel">
         <!-- Jugador 1 -->
         <div class="col">
-          <div class="card text-center">
-            <img src="atenas-2025-1-1.jpg" alt="Nakye Sanders - Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="atenas-2025-1-1.jpg" alt="Nakye Sanders, Pivot, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">1</span></h5>
               <h4 class="card-title"><strong>Nakye Sanders</strong></h4>
               <h6>11/11/97</h6>
@@ -69,9 +69,9 @@
 
         <!-- Jugador 4 -->
         <div class="col">
-          <div class="card text-center">
-            <img src="atenas-2025-4-1.jpg" alt="Manuel Buendía - Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="atenas-2025-4-1.jpg" alt="Manuel Buendía, Base, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">4</span></h5>
               <h4 class="card-title"><strong>Manuel Buendía</strong></h4>
               <h6>13/03/95</h6>
@@ -82,9 +82,9 @@
 
         <!-- Jugador 8 -->
         <div class="col">
-          <div class="card text-center">
-            <img src="atenas-2025-8-1.jpg" alt="Nico Zurchsmitten - Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="atenas-2025-8-1.jpg" alt="Nico Zurchsmitten, Base, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">8</span></h5>
               <h4 class="card-title"><strong>Nico Zurchsmitten</strong></h4>
               <h6>02/08/95</h6>
@@ -95,9 +95,9 @@
 
         <!-- Jugador 10 -->
         <div class="col">
-          <div class="card text-center">
-            <img src="atenas-2025-10-1.jpg" alt="José Montero - Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="atenas-2025-10-1.jpg" alt="José Montero, Alero, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">10</span></h5>
               <h4 class="card-title"><strong>José Montero</strong></h4>
               <h6>02/01/95</h6>
@@ -108,11 +108,11 @@
 
         <!-- Jugador 13 -->
         <div class="col">
-          <div class="card text-center">
-            <img src="atenas-2025-13-1.jpg" alt="Lucas Arnn - Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="atenas-2025-13-1.jpg" alt="Lucas Arnn, Ala-pivot, Cápitan, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">13</span></h5>
-              <h4 class="card-title"><strong>Lucas Arnn</strong> <strong>Cápitan</strong></h4>
+              <h4 class="card-title"><strong>Lucas Arnn</strong> <span class="badge bg-warning">Cápitan</span></h4>
               <h6>24/04/89</h6>
               <p class="card-text">Ala-pivot<br>Altura: 2.00 m</p>
             </div>
@@ -121,9 +121,9 @@
 
         <!-- Jugador 15 -->
         <div class="col">
-          <div class="card text-center">
-            <img src="atenas-2025-15-1.jpg" alt="Ramiro Ledesma - Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="atenas-2025-15-1.jpg" alt="Ramiro Ledesma, Ala-pivot, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">15</span></h5>
               <h4 class="card-title"><strong>Ramiro Ledesma</strong></h4>
               <h6>30/09/00</h6>
@@ -134,9 +134,9 @@
 
         <!-- Jugador 22 -->
         <div class="col">
-          <div class="card text-center">
-            <img src="maidana-1.jpg" alt="Jerónimo Maidana - Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="maidana-1.jpg" alt="Jerónimo Maidana, Ala-pivot, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">22</span></h5>
               <h4 class="card-title"><strong>Jerónimo Maidana</strong></h4>
               <h6>20/10/04</h6>
@@ -147,9 +147,9 @@
 
         <!-- Jugador 55 -->
         <div class="col">
-          <div class="card text-center">
-            <img src="tomatis-1.jpg" alt="Thiago Tomattis - Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="tomatis-1.jpg" alt="Thiago Tomattis, Escolta, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">55</span></h5>
               <h4 class="card-title"><strong>Thiago Tomattis</strong></h4>
               <h6>25/10/06</h6>
@@ -160,9 +160,9 @@
 
         <!-- Jugador 77 -->
         <div class="col">
-          <div class="card text-center">
-            <img src="atenas-2025-77-1.jpg" alt="Juan Cruz Oberto - Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="atenas-2025-77-1.jpg" alt="Juan Cruz Oberto, Pivot, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">77</span></h5>
               <h4 class="card-title"><strong>Juan Cruz Oberto</strong></h4>
               <h6>25/01/97</h6>
@@ -170,46 +170,51 @@
             </div>
           </div>
         </div>
-        <!-- Jugador 10 - placeholder --> 
-        <div class="col-sm-6 col-md-4 col-lg-3"> 
-          <div class="card text-center"> 
-            <img src="mise-1.jpg" alt="Germán Misetich - Atenas 2025"> 
-            <div class="card-body"> 
-            <h5><span class="badge bg-success">00</span></h5> 
-            <h4 class="card-title"><strong>Germán Misetich</strong></h4> 
-            <h6>03/03/05</h6> 
-            <p class="card-text">Alero<br>Altura: -</p> 
-            </div> 
-          </div> 
+
+        <!-- Jugador 10 - placeholder -->
+        <div class="col">
+          <div class="card text-center h-100">
+            <img src="mise-1.jpg" alt="Germán Misetich, Alero, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5><span class="badge bg-success">10</span></h5>
+              <h4 class="card-title"><strong>Germán Misetich</strong></h4>
+              <h6>03/03/05</h6>
+              <p class="card-text">Alero<br>Altura: N/D</p>
+            </div>
+          </div>
         </div>
 
-        <!-- Jugador 11 --> 
-        <div class="col-sm-6 col-md-4 col-lg-3"> 
-          <div class="card text-center"> 
-            <img src="atenas-2025-00-1.jpg" alt="Santiago Ferreyra - Atenas 2025"> 
-            <div class="card-body"> <h5><span class="badge bg-success">00</span></h5> 
-            <h4 class="card-title"><strong>Santiago Ferreyra</strong></h4> 
-            <h6>11/03/97</h6> 
-            <p class="card-text">Escolta<br>Altura: 1.90 m</p> 
-            </div> 
-          </div> 
-        </div> 
-        <!-- Jugador 12 --> 
-        <div class="col-sm-6 col-md-4 col-lg-3"> 
-          <div class="card text-center"> 
-            <img src="atenas-2025-00-1-1.jpg" alt="Marc Loving - Atenas 2025"> 
-            <div class="card-body"> <h5><span class="badge bg-success">00</span></h5> 
-              <h4 class="card-title"><strong>Marc Loving</strong></h4> 
-              <h6>16/09/94</h6> <p class="card-text">Alero<br>Altura: 2.03 m</p> 
-            </div> 
-          </div> 
+        <!-- Jugador 11 -->
+        <div class="col">
+          <div class="card text-center h-100">
+            <img src="atenas-2025-00-1.jpg" alt="Santiago Ferreyra, Escolta, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5><span class="badge bg-success">11</span></h5>
+              <h4 class="card-title"><strong>Santiago Ferreyra</strong></h4>
+              <h6>11/03/97</h6>
+              <p class="card-text">Escolta<br>Altura: 1.90 m</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jugador 12 -->
+        <div class="col">
+          <div class="card text-center h-100">
+            <img src="atenas-2025-00-1-1.jpg" alt="Marc Loving, Alero, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5><span class="badge bg-success">12</span></h5>
+              <h4 class="card-title"><strong>Marc Loving</strong></h4>
+              <h6>16/09/94</h6>
+              <p class="card-text">Alero<br>Altura: 2.03 m</p>
+            </div>
+          </div>
         </div>
 
         <!-- DT -->
         <div class="col">
-          <div class="card text-center">
-            <img src="peirone-1.jpg" alt="Gustavo Peirone - DT Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="peirone-1.jpg" alt="Gustavo Peirone, DT, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">DT</span></h5>
               <h4 class="card-title"><strong>Gustavo Peirone</strong></h4>
               <h6>24/01/70</h6>
@@ -220,9 +225,9 @@
 
         <!-- AS -->
         <div class="col">
-          <div class="card text-center">
-            <img src="rossotto-1.jpg" alt="Gustavo Rossotto - Asistente Atenas 2025" class="card-img-top">
-            <div class="card-body">
+          <div class="card text-center h-100">
+            <img src="rossotto-1.jpg" alt="Gustavo Rossotto, Asistente, Atenas 2025" class="card-img-top">
+            <div class="card-body d-flex flex-column justify-content-between">
               <h5><span class="badge bg-success">AS</span></h5>
               <h4 class="card-title"><strong>Gustavo Rossotto</strong></h4>
               <p class="card-text">3 temporada</p>
@@ -279,6 +284,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
