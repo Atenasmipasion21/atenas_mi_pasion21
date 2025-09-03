@@ -8,85 +8,73 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <style>
-  body { font-family: Arial, sans-serif; background-color: #f9f9f9; }
+  body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f9f9f9; 
+    margin:0; 
+    padding:0; 
+  }
   .navbar { background-color: #004d2e; }
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
-  .banner { width: 100%; height: 400px; background-image: url('banner-atenas.jpg'); background-size: cover; background-position: center; margin-bottom: 30px; }
-  .card { display: flex; flex-direction: column; height: 100%; }
-  .card-img-top { height: 250px; object-fit: cover; }
-  .card-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-  .btn-verde { background-color: #008000; color: #fff; border: none; }
-  .btn-verde:hover { background-color: #006400; }
-  .sidebar { background-color: #e6f2e6; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); margin-bottom: 20px; }
-  .sidebar h4 { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 15px; font-weight: 600; }
-  .sidebar a { text-decoration: none; color: #004d2e; display: flex; align-items: center; margin-bottom: 10px; font-weight: 500; }
-  .sidebar a:hover { color: #006400; }
-  .sidebar a i { margin-right: 8px; font-size: 1.2rem; }
-  section {
-  scroll-margin-top: 90px; /* Ajustar según la altura de tu navbar */
-}
 
-  footer { background-color: #004d2e; color: #fff; padding: 20px 0; margin-top: 30px; text-align: center; box-shadow: 0 -2px 5px rgba(0,0,0,0.2); }
-  .youtube-embed, .radio-embed { width: 100%; max-height: 250px; margin-bottom: 20px; }
-  .section-title { border-bottom: 2px solid #008000; padding-bottom: 5px; margin-bottom: 20px; }
-  #btn-up { position: fixed; bottom: 20px; right: 20px; display: none; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 45px; font-size: 24px; z-index: 1030; }
+  /* Banner / Slider */
+  .banner { display:none; } /* ya usamos slider en su lugar */
+  #sliderFotos .carousel-inner { height:auto; }
+  #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
 
-  /* SLIDER RESPONSIVE CON TITULOS VISIBLES */
-  #sliderFotos .carousel-inner { width: 100%; height: auto; }
-  #sliderFotos .carousel-item img { width: 100%; height: auto; max-height: 500px; object-fit: cover; }
   #sliderFotos .carousel-caption {
     position: absolute;
-    bottom: clamp(40px, 5%, 80px); /* mínimo 40px, máximo 80px, relativo al alto de la pantalla */
-    left: 20px;
-    z-index: 10;
-    background-color: rgba(0,77,46,0.6);
-    padding: 10px 15px;
+    top: 10px;
+    left: 0;
+    right: 0;
+    padding: 8px 12px;
+    background-color: rgba(0, 77, 46, 0.5);
     border-radius: 8px;
     text-align: left;
   }
- #sliderFotos .carousel-caption h5 {
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem); /* mínimo 1.2rem, máximo 2rem, escala con ancho de pantalla */
-  font-weight: 700;
-  color: #fff;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-  margin-bottom: 8px;
-}
-#sliderFotos .carousel-caption p {
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  color: #e0f2e0;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-  margin: 0;
-}
-
-  @media (max-width: 992px) {
-    #sliderFotos .carousel-caption h5 { font-size: 1.4rem; }
-    #sliderFotos .carousel-caption p { font-size: 0.9rem; }
-  }
-  @media (max-width: 576px) {
-    #sliderFotos .carousel-inner { height: 200px; }
-    #sliderFotos .carousel-caption { padding: 8px 10px; bottom: 10px; }
-    #sliderFotos .carousel-caption h5 { font-size: 1.1rem; }
-    #sliderFotos .carousel-caption p { font-size: 0.8rem; }
-  }
-  @media (max-width: 768px) {
-  #sliderFotos .carousel-inner { height: auto; } /* altura automática */
-  #sliderFotos .carousel-item img { height: auto; width: 100%; object-fit: cover; }
-  
-  #sliderFotos .carousel-caption {
-    bottom: 5%; /* sube el caption un poco en pantallas pequeñas */
-    padding: 8px 10px;
-  }
-
   #sliderFotos .carousel-caption h5 {
-    font-size: clamp(1rem, 4vw, 1.3rem);
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+    margin-bottom: 4px;
   }
-
   #sliderFotos .carousel-caption p {
-    font-size: clamp(0.8rem, 3vw, 1rem);
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    color: #e0f2e0;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    margin: 0;
   }
-}
 
+  @media (max-width: 768px) {
+    #sliderFotos .carousel-caption {
+      top:5px;
+      padding:6px 8px;
+    }
+    #sliderFotos .carousel-caption h5 { font-size: clamp(1rem,4vw,1.3rem); }
+    #sliderFotos .carousel-caption p { font-size: clamp(0.8rem,3vw,0.9rem); }
+  }
+
+  .card { display:flex; flex-direction:column; height:100%; }
+  .card-img-top { height:250px; object-fit:cover; }
+  .card-body { flex-grow:1; display:flex; flex-direction:column; justify-content:space-between; }
+  .btn-verde { background-color: #008000; color:#fff; border:none; }
+  .btn-verde:hover { background-color:#006400; }
+
+  .sidebar { background-color:#e6f2e6; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px; }
+  .sidebar h4 { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:15px; font-weight:600; }
+  .sidebar a { text-decoration:none; color:#004d2e; display:flex; align-items:center; margin-bottom:10px; font-weight:500; }
+  .sidebar a:hover { color:#006400; }
+  .sidebar a i { margin-right:8px; font-size:1.2rem; }
+
+  footer { background-color:#004d2e; color:#fff; padding:20px 0; margin-top:30px; text-align:center; box-shadow:0 -2px 5px rgba(0,0,0,0.2); }
+
+  .youtube-embed, .radio-embed { width:100%; height:250px; margin-bottom:20px; }
+  .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
+
+  .table-section { background-color:#198754 !important; color:#fff !important; font-size:1.1rem; text-transform:uppercase; letter-spacing:1px; text-align:center; }
+  #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
 </style>
 </head>
 <body>
@@ -109,9 +97,6 @@
     </div>
   </div>
 </nav>
-
-<!-- BANNER -->
-<div class="banner"></div>
 
 <!-- SLIDER DE FOTOS -->
 <div id="sliderFotos" class="carousel slide mb-5" data-bs-ride="carousel">
@@ -182,6 +167,8 @@
         <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
+
+        <!-- Títulos Nacionales -->
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
         <div class="d-flex flex-wrap gap-2 mb-3">
           <span class="badge bg-success">1987 Liga Nacional</span>
@@ -195,6 +182,8 @@
           <span class="badge bg-success">2008/09 Liga Nacional</span>
           <span class="badge bg-success">2023/24 Liga Argentina</span>
         </div>
+
+        <!-- Títulos Internacionales -->
         <h5 class="mt-2">🌎 Internacionales (6)</h5>
         <div class="d-flex flex-wrap gap-2">
           <span class="badge bg-primary">1993 Sudamericano de Clubes</span>
@@ -204,65 +193,59 @@
           <span class="badge bg-primary">1998 Liga Sudamericana</span>
           <span class="badge bg-primary">2004 Liga Sudamericana</span>
         </div>
+
       </div>
     </div>
 
   </div>
 </div>
 
+<!-- Botón ir arriba -->
 <a href="#" id="btn-up" class="btn btn-verde">↑</a>
 
+<!-- FOOTER -->
 <footer>
   <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  document.querySelectorAll('.navbar a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    const offset = document.querySelector('.navbar').offsetHeight; // altura navbar
-    const bodyRect = document.body.getBoundingClientRect().top;
-    const targetRect = target.getBoundingClientRect().top;
-    const scrollTo = targetRect - bodyRect - offset;
-    window.scrollTo({ top: scrollTo, behavior: 'smooth' });
-  });
-});
-
-// SLIDER FOTOS
+// === SLIDER DE FOTOS DINÁMICO ===
 const fotosSlider = [
-  { src:"buendia1.jpg", titulo:"Manuel Buendía", descripcion:"Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src:"jose1.jpg", titulo:"Jose Montero", descripcion:"Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src:"nico1.jpg", titulo:"Nico Zurchsmitten", descripcion:"Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src:"santiferryra1.jpg", titulo:"Santiago Ferreyra", descripcion:"Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
+  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua"},
+  { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
 ];
-const sliderIndicators=document.getElementById('slider-indicators');
-const sliderInner=document.getElementById('slider-inner');
-fotosSlider.forEach((foto,index)=>{
-  const button=document.createElement('button');
-  button.type="button";
-  button.setAttribute('data-bs-target','#sliderFotos');
-  button.setAttribute('data-bs-slide-to',index);
-  button.setAttribute('aria-label',`Slide ${index+1}`);
-  if(index===0){ button.className="active"; button.setAttribute('aria-current','true'); }
+const sliderIndicators = document.getElementById('slider-indicators');
+const sliderInner = document.getElementById('slider-inner');
+fotosSlider.forEach((foto, index) => {
+  const button = document.createElement('button');
+  button.type = "button";
+  button.setAttribute('data-bs-target', "#sliderFotos");
+  button.setAttribute('data-bs-slide-to', index);
+  button.setAttribute('aria-label', `Slide ${index + 1}`);
+  if(index === 0){ button.className = "active"; button.setAttribute('aria-current', "true"); }
   sliderIndicators.appendChild(button);
 
-  const div=document.createElement('div');
-  div.className=index===0 ? "carousel-item active":"carousel-item";
-  div.innerHTML=`<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-  <div class="carousel-caption d-block"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></div>`;
+  const div = document.createElement('div');
+  div.className = index === 0 ? "carousel-item active" : "carousel-item";
+  div.innerHTML = `<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
+                   <div class="carousel-caption d-none d-md-block">
+                     <h5>${foto.titulo}</h5>
+                     <p>${foto.descripcion}</p>
+                   </div>`;
   sliderInner.appendChild(div);
 });
 
-// NOTICIAS
-const noticias=[{ titulo:"Comenzó la temporada 2025/26", descripcion:"Comentamos cómo vemos a Atenas para esta temporada.", contenido:"La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.", imagen:"pretemporada.jpg", audio:"jose.mp3"}];
-const noticiasGrilla=document.getElementById('noticias-grilla');
-noticias.forEach((noticia,index)=>{
-  const modalId=`modalNoticia${index}`;
-  const col=document.createElement('div');
-  col.className='col-12 col-md-6 col-lg-4 mb-4';
-  col.innerHTML=`<div class="card h-100 d-flex flex-column">
+// === NOTICIAS ===
+const noticias = [{ titulo:"Comenzó la temporada 2025/26", descripcion:"Comentamos cómo vemos a Atenas para esta temporada.", contenido:"La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.", imagen:"pretemporada.jpg", audio:"jose.mp3"}];
+const noticiasGrilla = document.getElementById('noticias-grilla');
+noticias.forEach((noticia, index)=>{
+  const modalId = `modalNoticia${index}`;
+  const col = document.createElement('div');
+  col.className = 'col-12 col-md-6 col-lg-4 mb-4';
+  col.innerHTML = `<div class="card h-100 d-flex flex-column">
     <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
     <div class="card-body d-flex flex-column justify-content-between">
       <h5 class="card-title">${noticia.titulo}</h5>
@@ -275,43 +258,40 @@ noticias.forEach((noticia,index)=>{
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">${noticia.titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
           <p>${noticia.contenido}</p>
-          <audio controls preload="none"><source src="${noticia.audio}" type="audio/mpeg">Tu navegador no soporta audio.</audio>
+          <audio controls preload="none">
+            <source src="${noticia.audio}" type="audio/mpeg">
+            Tu navegador no soporta audio.
+          </audio>
         </div>
       </div>
     </div>
   </div>`;
   noticiasGrilla.appendChild(col);
 });
-// Pausar audios al cerrar modales
 document.querySelectorAll('.modal').forEach(modal=>{
-  modal.addEventListener('hidden.bs.modal',()=>{
+  modal.addEventListener('hidden.bs.modal', ()=>{
     modal.querySelectorAll('audio').forEach(audio=>{ audio.pause(); audio.currentTime=0; });
   });
 });
 
-// MULTIMEDIA
-const multimediaItems=[{ tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" },{ tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }];
-const multimediaContent=document.getElementById('multimedia-content');
+// === MULTIMEDIA ===
+const multimediaItems = [{ tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" }, { tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }];
+const multimediaContent = document.getElementById('multimedia-content');
 multimediaItems.forEach(item=>{
-  const div=document.createElement('div'); div.className='col-12';
+  const div = document.createElement('div'); div.className='col-12';
   if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
   else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
   multimediaContent.appendChild(div);
 });
 
-// BOTON IR ARRIBA
-const btnUp=document.getElementById('btn-up');
-window.onscroll=()=>{ btnUp.style.display=(document.body.scrollTop>200||document.documentElement.scrollTop>200)?"block":"none"; };
-btnUp.addEventListener('click',e=>{ e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); });
+// === BOTÓN IR ARRIBA ===
+const btnUp = document.getElementById('btn-up');
+window.onscroll = ()=>{ btnUp.style.display=(document.body.scrollTop>200 || document.documentElement.scrollTop>200) ? "block" : "none"; };
+btnUp.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth'}); });
 </script>
 </body>
 </html>
-
-
-
-
-
