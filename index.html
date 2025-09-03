@@ -8,62 +8,80 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <style>
-  body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin:0; padding:0; }
+  body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f9f9f9; 
+    margin:0; 
+    padding:0; 
+  }
   .navbar { background-color: #004d2e; }
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
 
-  /* SLIDER */
-  #sliderFotos .carousel-inner { min-height: 300px; }
+  /* Slider */
+  #sliderFotos {
+    padding-top: 15px; 
+  }
+  #sliderFotos .carousel-inner { height:auto; }
   #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
-
   #sliderFotos .carousel-caption {
     position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    bottom: 5%;
+    left: 5%;
     width: 90%;
-    max-width: 600px;
-    background-color: rgba(0, 77, 46, 0.6);
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-align: center;
+    max-width: 500px;
+    background-color: rgba(0, 77, 46, 0.55);
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-align: left;
   }
   #sliderFotos .carousel-caption h5 {
-    font-size: clamp(1rem, 4vw, 1.5rem);
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
     font-weight: 700;
     color: #fff;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
-    margin-bottom: 6px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    margin-bottom: 2px;
   }
   #sliderFotos .carousel-caption p {
-    font-size: clamp(0.85rem, 3vw, 1.1rem);
+    font-size: clamp(0.8rem, 2vw, 1rem);
     color: #e0f2e0;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
     margin: 0;
   }
 
-  /* CARDS */
+  /* 📱 Ajuste para móviles Samsung Galaxy S y iPhone */
+  @media (max-width: 430px) {
+    #sliderFotos .carousel-caption {
+      bottom: 3%;
+      left: 4%;
+      width: 92%;
+      padding: 5px 8px;
+      border-radius: 4px;
+    }
+    #sliderFotos .carousel-caption h5 {
+      font-size: 0.95rem;
+      margin-bottom: 2px;
+    }
+    #sliderFotos .carousel-caption p {
+      font-size: 0.75rem;
+    }
+  }
+
   .card { display:flex; flex-direction:column; height:100%; }
   .card-img-top { height:250px; object-fit:cover; }
   .card-body { flex-grow:1; display:flex; flex-direction:column; justify-content:space-between; }
   .btn-verde { background-color: #008000; color:#fff; border:none; }
   .btn-verde:hover { background-color:#006400; }
 
-  /* SIDEBAR */
   .sidebar { background-color:#e6f2e6; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px; }
   .sidebar h4 { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:15px; font-weight:600; }
   .sidebar a { text-decoration:none; color:#004d2e; display:flex; align-items:center; margin-bottom:10px; font-weight:500; }
   .sidebar a:hover { color:#006400; }
   .sidebar a i { margin-right:8px; font-size:1.2rem; }
 
-  /* FOOTER */
   footer { background-color:#004d2e; color:#fff; padding:20px 0; margin-top:30px; text-align:center; box-shadow:0 -2px 5px rgba(0,0,0,0.2); }
 
-  /* EMBED RESPONSIVE */
-  .youtube-embed, .radio-embed { width:100%; height:0; padding-bottom:56.25%; position:relative; margin-bottom:20px; }
-  .youtube-embed iframe, .radio-embed iframe { position:absolute; top:0; left:0; width:100%; height:100%; }
-
+  .youtube-embed, .radio-embed { width:100%; height:250px; margin-bottom:20px; }
   .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
 
   #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
@@ -156,7 +174,7 @@
         <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
 
         <h4 class="mt-4">Transmisión en vivo</h4>
-        <div class="radio-embed"><iframe src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe></div>
+        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
@@ -199,11 +217,12 @@
 <script>
 // === SLIDER DE FOTOS DINÁMICO ===
 const fotosSlider = [
-  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua"},
-  { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
+  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua"},
+  { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
 ];
+
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
 fotosSlider.forEach((foto, index) => {
@@ -266,24 +285,21 @@ document.querySelectorAll('.modal').forEach(modal=>{
 });
 
 // === MULTIMEDIA ===
-const multimediaItems = [{ tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" }, { tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }];
+const multimediaItems = [
+  { tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" }, 
+  { tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
+];
 const multimediaContent = document.getElementById('multimedia-content');
 multimediaItems.forEach(item=>{
   const div = document.createElement('div'); div.className='col-12';
-  if(item.tipo==="video") div.innerHTML=`<div class="youtube-embed"><iframe src="${item.src}" frameborder="0" allowfullscreen></iframe></div>`;
-  else if(item.tipo==="radio") div.innerHTML=`<div class="radio-embed"><iframe src="${item.src}" frameborder="0" allowfullscreen></iframe></div>`;
+  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
   multimediaContent.appendChild(div);
 });
 
 // === BOTÓN IR ARRIBA ===
 const btnUp = document.getElementById('btn-up');
-window.onscroll = ()=>{
-  if(document.body.scrollTop>200 || document.documentElement.scrollTop>200){
-    btnUp.style.opacity = "1"; btnUp.style.display="block";
-  }else{
-    btnUp.style.opacity = "0"; setTimeout(()=>{btnUp.style.display="none";},300);
-  }
-};
+window.onscroll = ()=>{ btnUp.style.display=(document.body.scrollTop>200 || document.documentElement.scrollTop>200) ? "block" : "none"; };
 btnUp.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth'}); });
 </script>
 </body>
