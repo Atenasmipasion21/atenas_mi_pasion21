@@ -18,8 +18,11 @@
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
 
-  /* Banner / Slider */
-  .banner { display:none; } /* ya usamos slider en su lugar */
+  /* Slider / Banner */
+  .banner { display:none; } /* Ocultamos la antigua banner */
+  #sliderFotos {
+    padding-top: 15px; /* espacio suave debajo del navbar */
+  }
   #sliderFotos .carousel-inner { height:auto; }
   #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
 
@@ -47,14 +50,9 @@
     margin: 0;
   }
 
-  @media (max-width: 768px) {
-    #sliderFotos .carousel-caption {
-      top:5px;
-      padding:6px 8px;
-    }
-    #sliderFotos .carousel-caption h5 { font-size: clamp(1rem,4vw,1.3rem); }
-    #sliderFotos .carousel-caption p { font-size: clamp(0.8rem,3vw,0.9rem); }
-  }
+  @media (min-width: 1200px) { #sliderFotos { padding-top: 20px; } }
+  @media (max-width: 1199px) { #sliderFotos { padding-top: 15px; } }
+  @media (max-width: 768px) { #sliderFotos { padding-top: 10px; } }
 
   .card { display:flex; flex-direction:column; height:100%; }
   .card-img-top { height:250px; object-fit:cover; }
@@ -167,7 +165,6 @@
         <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
-
         <!-- Títulos Nacionales -->
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
         <div class="d-flex flex-wrap gap-2 mb-3">
@@ -182,7 +179,6 @@
           <span class="badge bg-success">2008/09 Liga Nacional</span>
           <span class="badge bg-success">2023/24 Liga Argentina</span>
         </div>
-
         <!-- Títulos Internacionales -->
         <h5 class="mt-2">🌎 Internacionales (6)</h5>
         <div class="d-flex flex-wrap gap-2">
@@ -193,7 +189,6 @@
           <span class="badge bg-primary">1998 Liga Sudamericana</span>
           <span class="badge bg-primary">2004 Liga Sudamericana</span>
         </div>
-
       </div>
     </div>
 
@@ -212,11 +207,12 @@
 <script>
 // === SLIDER DE FOTOS DINÁMICO ===
 const fotosSlider = [
-  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
-  { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua"},
-  { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
+  { src: "buendia1.jpg", titulo: "Manuel Buendía", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "jose1.jpg", titulo: "Jose Montero", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" },
+  { src: "nico1.jpg", titulo: "Nico Zurchsmitten", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua"},
+  { src: "santiferryra1.jpg", titulo: "Santiago Ferreyra", descripcion: "Entrenamiento - Fotos Prensa Atenas | Ignacio Lingua" }
 ];
+
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
 fotosSlider.forEach((foto, index) => {
@@ -258,7 +254,7 @@ noticias.forEach((noticia, index)=>{
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">${noticia.titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
           <p>${noticia.contenido}</p>
