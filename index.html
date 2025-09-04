@@ -239,7 +239,7 @@ multimedia.forEach(item=>{
 });
 
 // === PARTIDOS ===
-const partidos=[{fecha:"15/09/2025",rival:"Boca Juniors",lugar:"Estadio Atenas"},{fecha:"20/09/2025",rival:"Peñarol",lugar:"Mar del Plata"}];
+const partidos=[];
 const lista=document.getElementById('lista-partidos');
 lista.innerHTML="";
 partidos.forEach(p=>lista.innerHTML+=`<li class="list-group-item"><strong>${p.fecha}</strong> - ${p.rival} (${p.lugar})</li>`);
@@ -251,4 +251,5 @@ btn.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behav
 </script>
 </body>
 </html>
+
 
