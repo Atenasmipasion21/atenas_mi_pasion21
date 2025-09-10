@@ -3,9 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Atenas mi pasión – Noticias y crónicas sobre la participación del club en la Liga Nacional</title>
+<title>Atenas mi pasión</title>
 <meta name="description" content="El blog no oficial de Atenas: noticias, crónicas, multimedia y palmarés nacional e internacional.">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#004d2e">
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 <style>
@@ -13,11 +20,14 @@
   .navbar { background-color: #004d2e; }
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
+
+  /* 🔧 Navbar hamburguesa visible */
   .navbar-toggler { border-color: rgba(255,255,255,0.5); }
   .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
 
+  /* Slider */
   #sliderFotos { padding-top: 15px; }
   #sliderFotos .carousel-inner { height:auto; }
   #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
@@ -33,6 +43,7 @@
     font-size: clamp(0.8rem, 2vw, 1rem); color: #e0f2e0; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); margin: 0;
   }
 
+  /* 📱 Ajustes móviles y tablets */
   @media (max-width: 430px) {
     #sliderFotos .carousel-caption { bottom:3%; left:4%; width:92%; padding:5px 8px; border-radius:4px; }
     #sliderFotos .carousel-caption h5 { font-size:0.95rem; margin-bottom:2px; }
@@ -193,79 +204,90 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-// === CARGA DINÁMICA DESDE JSON ===
-async function cargarJSON(url){ 
-  const res = await fetch(url); 
-  return await res.json();
-}
+// === SLIDER DE FOTOS DINÁMICO ===
+ const fotosSlider = [
+// ===  { src: "pilcha nueva1.jpg", titulo: "Atenas presento la camiseta de la temporada 2025/26", descripcion:   "Fotos Prensa Atenas | Ignacio Lingua" },
+ // === { src: "pilcha nueva21.jpg", titulo: "Atenas presento la camiseta de la temporada 2025/26", descripcion:  "Fotos Prensa Atenas | Ignacio Lingua" },
+  // ==={ src: "pilcha nueva81.jpg", titulo: "Atenas presento la camiseta de la temporada 2025/26", descripcion:  "Fotos Prensa Atenas | Ignacio Lingua" },
+  // ==={ src: "pilcha nueva821.jpg", titulo: "Atenas presento la camiseta de la temporada 2025/26", descripcion: "Fotos Prensa Atenas | Ignacio Lingua" } 
+]; 
 
-// === SLIDER DE FOTOS ===
-cargarJSON('fotosSlider.json').then(fotosSlider=>{
-  const sliderIndicators = document.getElementById('slider-indicators');
-  const sliderInner = document.getElementById('slider-inner');
-  fotosSlider.forEach((foto, index)=>{
-    const button = document.createElement('button');
-    button.type="button";
-    button.setAttribute('data-bs-target',"#sliderFotos");
-    button.setAttribute('data-bs-slide-to',index);
-    button.setAttribute('aria-label',`Slide ${index+1}`);
-    if(index===0){ button.className="active"; button.setAttribute('aria-current',"true"); }
-    sliderIndicators.appendChild(button);
+const sliderIndicators = document.getElementById('slider-indicators');
+const sliderInner = document.getElementById('slider-inner');
+fotosSlider.forEach((foto, index) => {
+  const button = document.createElement('button');
+  button.type = "button";
+  button.setAttribute('data-bs-target', "#sliderFotos");
+  button.setAttribute('data-bs-slide-to', index);
+  button.setAttribute('aria-label', `Slide ${index + 1}`);
+  if(index === 0){ button.className = "active"; button.setAttribute('aria-current', "true"); }
+  sliderIndicators.appendChild(button);
 
-    const div=document.createElement('div');
-    div.className = index===0?"carousel-item active":"carousel-item";
-    div.innerHTML = `<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-                     <div class="carousel-caption"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></div>`;
-    sliderInner.appendChild(div);
-  });
+  const div = document.createElement('div');
+  div.className = index === 0 ? "carousel-item active" : "carousel-item";
+  div.innerHTML = `<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
+                   <div class="carousel-caption">
+                     <h5>${foto.titulo}</h5>
+                     <p>${foto.descripcion}</p>
+                   </div>`;
+  sliderInner.appendChild(div);
 });
 
 // === NOTICIAS ===
-cargarJSON('noticias.json').then(noticias=>{
-  const noticiasGrilla = document.getElementById('noticias-grilla');
-  noticias.forEach((noticia,index)=>{
-    const modalId = `modalNoticia${index}`;
-    const col = document.createElement('div'); col.className='col mb-4';
-    col.innerHTML = `<div class="card h-100">
-      <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
-      <div class="card-body d-flex flex-column justify-content-between">
-        <h5 class="card-title">${noticia.titulo}</h5>
-        <p class="card-text">${noticia.descripcion}</p>
-        <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
-      </div>
+const noticias = [
+  {titulo:"Pilcha Nueva", descripcion:"Atenas presentó la camiseta nueva", contenido:" ", imagen:"pilcha nueva.jpg", audio:""},
+  {titulo:"Comenzó la temporada 2025/26", descripcion:"Comentamos cómo vemos a Atenas para esta temporada.", contenido:"La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.", imagen:"pretemporada.jpg", audio:"jose.mp3"}
+
+];
+const noticiasGrilla = document.getElementById('noticias-grilla');
+noticias.forEach((noticia, index)=>{
+  const modalId = `modalNoticia${index}`;
+  const col = document.createElement('div');
+  col.className = 'col mb-4';
+  col.innerHTML = `<div class="card h-100">
+    <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <h5 class="card-title">${noticia.titulo}</h5>
+      <p class="card-text">${noticia.descripcion}</p>
+      <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
     </div>
-    <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">${noticia.titulo}</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <p>${noticia.contenido}</p>
-            <audio controls preload="none"><source src="${noticia.audio}" type="audio/mpeg">Tu navegador no soporta audio.</audio>
-          </div>
+  </div>
+  <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">${noticia.titulo}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>${noticia.contenido}</p>
+          <audio controls preload="none">
+            <source src="${noticia.audio}" type="audio/mpeg">
+            Tu navegador no soporta audio.
+          </audio>
         </div>
       </div>
-    </div>`;
-    noticiasGrilla.appendChild(col);
-  });
-  document.querySelectorAll('.modal').forEach(modal=>{
-    modal.addEventListener('hidden.bs.modal',()=>{
-      modal.querySelectorAll('audio').forEach(audio=>{ audio.pause(); audio.currentTime=0; });
-    });
+    </div>
+  </div>`;
+  noticiasGrilla.appendChild(col);
+});
+document.querySelectorAll('.modal').forEach(modal=>{
+  modal.addEventListener('hidden.bs.modal', ()=>{
+    modal.querySelectorAll('audio').forEach(audio=>{ audio.pause(); audio.currentTime=0; });
   });
 });
 
 // === MULTIMEDIA ===
-cargarJSON('multimediaItems.json').then(multimediaItems=>{
-  const multimediaContent = document.getElementById('multimedia-content');
-  multimediaItems.forEach(item=>{
-    const div=document.createElement('div'); div.className='col-12';
-    if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
-    else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
-    multimediaContent.appendChild(div);
-  });
+const multimediaItems = [
+  { tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" }, 
+  { tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }
+];
+const multimediaContent = document.getElementById('multimedia-content');
+multimediaItems.forEach(item=>{
+  const div = document.createElement('div'); div.className='col-12';
+  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
+  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
+  multimediaContent.appendChild(div);
 });
 
 // === BOTÓN IR ARRIBA ===
