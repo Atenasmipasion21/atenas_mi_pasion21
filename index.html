@@ -15,18 +15,14 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
 <style>
   body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin:0; padding:0; }
   .navbar { background-color: #004d2e; }
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
   .navbar-toggler { border-color: rgba(255,255,255,0.5); }
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
+  .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
 
-  /* Slider */
   #sliderFotos { padding-top: 15px; }
   #sliderFotos .carousel-inner { height:auto; }
   #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
@@ -156,7 +152,7 @@
         <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
 
         <h4 class="mt-4">Transmisión en vivo</h4>
-        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen loading="lazy" title="Radio en vivo"></iframe>
+        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen loading="lazy"></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
@@ -183,7 +179,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </div>
 
@@ -195,43 +190,13 @@
   <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
 </footer>
 
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"NewsMediaOrganization",
-  "name":"Atenas mi pasión",
-  "url":"https://tu-sitio-web.com",
-  "logo":"https://tu-sitio-web.com/logo.png",
-  "sameAs":[
-    "https://www.facebook.com/groups/1607966346118447",
-    "https://www.instagram.com/atenas_mi_pasion/"
-  ],
-  "hasPart":[
-    {
-      "@type":"NewsArticle",
-      "headline":"Pilcha Nueva",
-      "image":"pilcha nueva.jpg",
-      "datePublished":"2025-09-10",
-      "description":"Atenas presentó la camiseta nueva",
-      "author":{"@type":"Person","name":"Marcelo Achával"}
-    },
-    {
-      "@type":"NewsArticle",
-      "headline":"Comenzó la temporada 2025/26",
-      "image":"https://atenasmipasion21.github.io/atenas_mi_pasion21/pretemporada.jpg",
-      "datePublished":"2025-08-30",
-      "description":"Analizamos cómo vemos a Atenas para esta temporada.",
-      "author":{"@type":"Person","name":"Marcelo Achával"}
-    },
-  ]
-}
-</script>
+<!-- JSON-LD SEO -->
+<script id="json-ld" type="application/ld+json">{}</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 // === SLIDER DINÁMICO ===
-const fotosSlider = []; // Si querés agregar fotos, solo completar array
+const fotosSlider = [];
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
 fotosSlider.forEach((foto,index)=>{
@@ -250,86 +215,86 @@ fotosSlider.forEach((foto,index)=>{
   sliderInner.appendChild(div);
 });
 
-// === NOTICIAS DINÁMICAS ===
-const noticias = [
-  {titulo:"Pilcha Nueva", descripcion:"Atenas presentó la camiseta nueva", contenido:"La nueva camiseta 2025/26 de Atenas fue presentada oficialmente. Colores renovados, diseño moderno y homenaje a la historia del club.", imagen:"pilcha nueva.jpg", audio:""},
-  {titulo:"Comenzó la temporada 2025/26", descripcion:"Analizamos cómo vemos a Atenas para esta temporada.", contenido:"La temporada 2025/26 de Atenas comienza con altas expectativas. Revisamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para destacarse en la Liga Nacional.", imagen:"pretemporada.jpg", audio:"audio_temporada.mp3"},
- 
-];
-const noticiasGrilla=document.getElementById('noticias-grilla');
-noticias.forEach((noticia,index)=>{
-  const modalId=`modalNoticia${index}`;
-  const col=document.createElement('div');
-  col.className='col mb-4';
-  col.innerHTML=`<div class="card h-100">
-    <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
-    <div class="card-body d-flex flex-column justify-content-between">
-      <h5 class="card-title">${noticia.titulo}</h5>
-      <p class="card-text">${noticia.descripcion}</p>
-      <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
-    </div>
-  </div>
-  <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">${noticia.titulo}</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+// === CARGAR NOTICIAS EXTERNAS ===
+const noticiasGrilla = document.getElementById('noticias-grilla');
+fetch('noticias.json')
+  .then(response => response.json())
+  .then(noticias => {
+    noticias.forEach((noticia,index) => {
+      const modalId = `modalNoticia${index}`;
+      const col = document.createElement('div');
+      col.className = 'col mb-4';
+      col.innerHTML = `
+        <div class="card h-100">
+          <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title">${noticia.titulo}</h5>
+            <p class="card-text">${noticia.descripcion}</p>
+            <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
+          </div>
         </div>
-        <div class="modal-body">
-          <p>${noticia.contenido}</p>
-          <audio controls preload="none">
-            <source src="${noticia.audio}" type="audio/mpeg">
-            Tu navegador no soporta audio.
-          </audio>
-        </div>
-      </div>
-    </div>
-  </div>`;
-  noticiasGrilla.appendChild(col);
-});
-document.querySelectorAll('.modal').forEach(modal=>{
-  modal.addEventListener('hidden.bs.modal',()=>{
-    modal.querySelectorAll('audio').forEach(audio=>{ audio.pause(); audio.currentTime=0; });
-  });
-});
+        <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">${noticia.titulo}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <p>${noticia.contenido}</p>
+                <audio controls preload="none">
+                  <source src="${noticia.audio}" type="audio/mpeg">
+                  Tu navegador no soporta audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>`;
+      noticiasGrilla.appendChild(col);
+    });
 
-// === MULTIMEDIA ===
-const multimediaItems=[
-  {tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs"},
-  {tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID"}
-];
-const multimediaContent=document.getElementById('multimedia-content');
-multimediaItems.forEach(item=>{
-  const div=document.createElement('div'); div.className='col-12';
-  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
-  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
-  multimediaContent.appendChild(div);
-});
+    // Pausar audio al cerrar modal
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('hidden.bs.modal', () => {
+        modal.querySelectorAll('audio').forEach(audio => { audio.pause(); audio.currentTime = 0; });
+      });
+    });
+
+    // Generar JSON-LD dinámico
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "name": "Atenas mi pasión",
+      "url": window.location.href,
+      "logo": "https://tu-sitio-web.com/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/groups/1607966346118447",
+        "https://www.instagram.com/atenas_mi_pasion/"
+      ],
+      "hasPart": noticias.map(n => ({
+        "@type":"NewsArticle",
+        "headline": n.titulo,
+        "image": `https://tu-sitio-web.com/${n.imagen}`,
+        "datePublished": "2025-09-10",
+        "description": n.descripcion,
+        "author": { "@type":"Person","name":"Marcelo Achával" }
+      }))
+    };
+    document.getElementById('json-ld').textContent = JSON.stringify(jsonLd);
+  })
+  .catch(err => console.error("Error cargando noticias:", err));
 
 // === BOTÓN IR ARRIBA ===
-const btnUp=document.getElementById('btn-up');
-window.onscroll=()=>{ btnUp.style.display=(document.body.scrollTop>200 || document.documentElement.scrollTop>200) ? "block" : "none"; };
-btnUp.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth'}); });
+const btnUp = document.getElementById('btn-up');
+window.addEventListener('scroll', () => { btnUp.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+btnUp.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth' }); });
 
-// === aria-current dinámico en navegación ===
-const navLinks=document.querySelectorAll('.nav-link');
-window.addEventListener('scroll', ()=>{
-  const sections=['noticias','multimedia','calendario','historia','contacto'];
-  let current='';
-  sections.forEach(id=>{
-    const section=document.getElementById(id);
-    if(window.scrollY >= section.offsetTop - 100){ current=id; }
-  });
-  navLinks.forEach(link=>{
-    if(link.getAttribute('href') === `#${current}`){ link.setAttribute('aria-current','page'); }
-    else{ link.removeAttribute('aria-current'); }
-  });
+// === ARIA CURRENT DINÁMICO ===
+const currentUrl = window.location.hash || "#noticias";
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.removeAttribute('aria-current');
+  if(link.getAttribute('href') === currentUrl) link.setAttribute('aria-current','page');
 });
 </script>
 </body>
 </html>
-
-
-
-
