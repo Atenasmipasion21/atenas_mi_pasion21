@@ -6,7 +6,6 @@
 <title>Atenas mi pasión – Noticias y crónicas sobre la participación del club en la Liga Nacional</title>
 <meta name="description" content="Atenas mi pasión: todas las noticias, crónicas y multimedia sobre la participación del club Atenas en la Liga Nacional de Básquet.">
 
-
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
@@ -16,19 +15,14 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
 <style>
   body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin:0; padding:0; }
   .navbar { background-color: #004d2e; }
   .navbar-brand, .nav-link { color: #fff !important; }
   .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
-
-  /* 🔧 Navbar hamburguesa visible */
   .navbar-toggler { border-color: rgba(255,255,255,0.5); }
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-
-  /* Slider */
+  .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
   #sliderFotos { padding-top: 15px; }
   #sliderFotos .carousel-inner { height:auto; }
   #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
@@ -36,25 +30,11 @@
     position: absolute; bottom: 5%; left: 5%; width: 90%; max-width: 500px;
     background-color: rgba(0, 77, 46, 0.55); padding: 6px 10px; border-radius: 6px; text-align: left;
   }
-  #sliderFotos .carousel-caption h5 {
-    font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; color: #fff;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.7); margin-bottom: 2px;
-  }
-  #sliderFotos .carousel-caption p {
-    font-size: clamp(0.8rem, 2vw, 1rem); color: #e0f2e0; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); margin: 0;
-  }
+  #sliderFotos .carousel-caption h5 { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); margin-bottom: 2px; }
+  #sliderFotos .carousel-caption p { font-size: clamp(0.8rem, 2vw, 1rem); color: #e0f2e0; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); margin: 0; }
 
-  /* 📱 Ajustes móviles y tablets */
-  @media (max-width: 430px) {
-    #sliderFotos .carousel-caption { bottom:3%; left:4%; width:92%; padding:5px 8px; border-radius:4px; }
-    #sliderFotos .carousel-caption h5 { font-size:0.95rem; margin-bottom:2px; }
-    #sliderFotos .carousel-caption p { font-size:0.75rem; }
-  }
-  @media (max-width: 768px) {
-    #sliderFotos .carousel-caption { bottom:4%; left:6%; width:88%; padding:6px; }
-    #sliderFotos .carousel-caption h5 { font-size:1rem; }
-    #sliderFotos .carousel-caption p { font-size:0.8rem; }
-  }
+  @media (max-width: 430px) { #sliderFotos .carousel-caption { bottom:3%; left:4%; width:92%; padding:5px 8px; border-radius:4px; } #sliderFotos .carousel-caption h5 { font-size:0.95rem; margin-bottom:2px; } #sliderFotos .carousel-caption p { font-size:0.75rem; } }
+  @media (max-width: 768px) { #sliderFotos .carousel-caption { bottom:4%; left:6%; width:88%; padding:6px; } #sliderFotos .carousel-caption h5 { font-size:1rem; } #sliderFotos .carousel-caption p { font-size:0.8rem; } }
 
   .card { display:flex; flex-direction:column; height:100%; }
   .card-img-top { height:250px; object-fit:cover; }
@@ -99,24 +79,24 @@
   </div>
 </nav>
 
-<!-- SLIDER DE FOTOS -->
-<div id="sliderFotos" class="carousel slide mb-5" data-bs-ride="carousel">
-  <div class="carousel-indicators" id="slider-indicators"></div>
-  <div class="carousel-inner" id="slider-inner"></div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#sliderFotos" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Anterior</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#sliderFotos" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Siguiente</span>
-  </button>
-</div>
-
-<div class="container">
+<main class="container mt-4">
   <div class="row">
     <!-- MAIN CONTENT -->
     <div class="col-lg-8">
+
+      <!-- SLIDER DE FOTOS -->
+      <div id="sliderFotos" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-indicators" id="slider-indicators"></div>
+        <div class="carousel-inner" id="slider-inner"></div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#sliderFotos" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#sliderFotos" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
 
       <!-- NOTICIAS -->
       <section id="noticias">
@@ -157,14 +137,14 @@
     </div>
 
     <!-- SIDEBAR -->
-    <div class="col-lg-4">
+    <aside class="col-lg-4">
       <div class="sidebar">
         <h4>Redes Sociales</h4>
-        <a href="https://www.facebook.com/groups/1607966346118447" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
-        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+        <a href="https://www.facebook.com/groups/1607966346118447" target="_blank" aria-label="Facebook Atenas mi pasión"><i class="bi bi-facebook"></i> Facebook</a>
+        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" aria-label="Instagram Atenas mi pasión"><i class="bi bi-instagram"></i> Instagram</a>
 
         <h4 class="mt-4">Transmisión en vivo</h4>
-        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen loading="lazy" title="Transmisión en vivo de Atenas"></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
@@ -190,10 +170,10 @@
           <span class="badge bg-primary">2004 Liga Sudamericana</span>
         </div>
       </div>
-    </div>
+    </aside>
 
   </div>
-</div>
+</main>
 
 <!-- Botón ir arriba -->
 <a href="#" id="btn-up" class="btn btn-verde">↑</a>
@@ -206,15 +186,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 // === SLIDER DE FOTOS DINÁMICO ===
- const fotosSlider = [
-// ===  { src: "pilcha nueva1.jpg", titulo: "Atenas presento la camiseta de la temporada 2025/26", descripcion:   "Fotos Prensa Atenas | Ignacio Lingua" },
- // === { src: "pilcha nueva21.jpg", titulo: "Atenas presento la camiseta de la temporada 2025/26", descripcion:  "Fotos Prensa Atenas | Ignacio Lingua" },
-  // ==={ src: "pilcha nueva81.jpg", titulo: "Atenas presento la camiseta de la temporada 2025/26", descripcion:  "Fotos Prensa Atenas | Ignacio Lingua" },
-  // ==={ src: "pilcha nueva821.jpg", titulo: "Atenas presento la camiseta de la temporada 2025/26", descripcion: "Fotos Prensa Atenas | Ignacio Lingua" } 
-]; 
+const fotosSlider = [
+  // { src: "pilcha nueva1.jpg", titulo: "Atenas presentó la camiseta 2025/26", descripcion: "Fotos Prensa Atenas | Ignacio Lingua" },
+];
 
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
+
+if(fotosSlider.length === 0){
+  sliderInner.innerHTML = '<div class="carousel-item active"><img src="placeholder.jpg" class="d-block w-100" alt="Imagen placeholder"><div class="carousel-caption"><h5>Próximamente</h5><p>Las fotos del club se mostrarán aquí.</p></div></div>';
+}
+
 fotosSlider.forEach((foto, index) => {
   const button = document.createElement('button');
   button.type = "button";
@@ -226,11 +208,7 @@ fotosSlider.forEach((foto, index) => {
 
   const div = document.createElement('div');
   div.className = index === 0 ? "carousel-item active" : "carousel-item";
-  div.innerHTML = `<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-                   <div class="carousel-caption">
-                     <h5>${foto.titulo}</h5>
-                     <p>${foto.descripcion}</p>
-                   </div>`;
+  div.innerHTML = `<figure><img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}"><figcaption class="carousel-caption"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></figcaption></figure>`;
   sliderInner.appendChild(div);
 });
 
@@ -238,21 +216,24 @@ fotosSlider.forEach((foto, index) => {
 const noticias = [
   {titulo:"Pilcha Nueva", descripcion:"Atenas presentó la camiseta nueva", contenido:" ", imagen:"pilcha nueva.jpg", audio:""},
   {titulo:"Comenzó la temporada 2025/26", descripcion:"Comentamos cómo vemos a Atenas para esta temporada.", contenido:"La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.", imagen:"pretemporada.jpg", audio:"jose.mp3"}
-
 ];
+
 const noticiasGrilla = document.getElementById('noticias-grilla');
 noticias.forEach((noticia, index)=>{
   const modalId = `modalNoticia${index}`;
   const col = document.createElement('div');
   col.className = 'col mb-4';
-  col.innerHTML = `<div class="card h-100">
-    <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
+  col.innerHTML = `<article class="card h-100">
+    <figure>
+      <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
+      <figcaption class="visually-hidden">${noticia.titulo}</figcaption>
+    </figure>
     <div class="card-body d-flex flex-column justify-content-between">
       <h5 class="card-title">${noticia.titulo}</h5>
       <p class="card-text">${noticia.descripcion}</p>
       <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
     </div>
-  </div>
+  </article>
   <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
@@ -262,16 +243,15 @@ noticias.forEach((noticia, index)=>{
         </div>
         <div class="modal-body">
           <p>${noticia.contenido}</p>
-          <audio controls preload="none">
-            <source src="${noticia.audio}" type="audio/mpeg">
-            Tu navegador no soporta audio.
-          </audio>
+          ${noticia.audio ? `<audio controls preload="none"><source src="${noticia.audio}" type="audio/mpeg">Tu navegador no soporta audio.</audio>` : ''}
         </div>
       </div>
     </div>
   </div>`;
   noticiasGrilla.appendChild(col);
 });
+
+// Pausar audio al cerrar modal
 document.querySelectorAll('.modal').forEach(modal=>{
   modal.addEventListener('hidden.bs.modal', ()=>{
     modal.querySelectorAll('audio').forEach(audio=>{ audio.pause(); audio.currentTime=0; });
@@ -286,8 +266,8 @@ const multimediaItems = [
 const multimediaContent = document.getElementById('multimedia-content');
 multimediaItems.forEach(item=>{
   const div = document.createElement('div'); div.className='col-12';
-  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
-  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy"></iframe>`;
+  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy" title="Video de Atenas"></iframe>`;
+  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen loading="lazy" title="Radio en vivo"></iframe>`;
   multimediaContent.appendChild(div);
 });
 
@@ -295,8 +275,27 @@ multimediaItems.forEach(item=>{
 const btnUp = document.getElementById('btn-up');
 window.onscroll = ()=>{ btnUp.style.display=(document.body.scrollTop>200 || document.documentElement.scrollTop>200) ? "block" : "none"; };
 btnUp.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth'}); });
+
+// === ARIA-CURRENT DINÁMICO ===
+const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href')));
+
+function updateAriaCurrent() {
+  let scrollPosition = window.scrollY + 120; // offset navbar
+  sections.forEach((section, index) => {
+    if(section){
+      const top = section.offsetTop;
+      const bottom = top + section.offsetHeight;
+      if (scrollPosition >= top && scrollPosition < bottom) {
+        navLinks.forEach(link => link.removeAttribute('aria-current'));
+        navLinks[index].setAttribute('aria-current', 'page');
+      }
+    }
+  });
+}
+
+window.addEventListener('scroll', updateAriaCurrent);
+window.addEventListener('load', updateAriaCurrent);
 </script>
 </body>
 </html>
-
-
