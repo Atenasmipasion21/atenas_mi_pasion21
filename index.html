@@ -226,7 +226,11 @@ fotosSlider.forEach((foto, index) => {
 });
 
 // === NOTICIAS ===
-const noticias = [{ titulo:"Comenzó la temporada 2025/26", descripcion:"Comentamos cómo vemos a Atenas para esta temporada.", contenido:"La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.", imagen:"pretemporada.jpg", audio:"jose.mp3"}];
+const noticias = [
+  {titulo:"Pilcha Nueva", descripcion:"Atenas presentó la camiseta nueva", contenido:" ", imagen:"pilchnueva1.jpg", audio:""},
+  {titulo:"Comenzó la temporada 2025/26", descripcion:"Comentamos cómo vemos a Atenas para esta temporada.", contenido:"La temporada 2025/26 de Atenas comienza con expectativas altas. Analizamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para conseguir nuevos títulos.", imagen:"pretemporada.jpg", audio:"jose.mp3"}
+
+];
 const noticiasGrilla = document.getElementById('noticias-grilla');
 noticias.forEach((noticia, index)=>{
   const modalId = `modalNoticia${index}`;
@@ -286,6 +290,7 @@ btnUp.addEventListener('click', e=>{ e.preventDefault(); window.scrollTo({ top:0
 </body>
 </html>
 ``
+
 
 
 
