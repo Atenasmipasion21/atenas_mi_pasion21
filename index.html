@@ -202,12 +202,7 @@ fotosSlider.forEach((f,i)=>{
 });
 
 // === NOTICIAS ===
-const noticias=[ 
-// ===   { titulo:"Pilcha Nueva",descripcion:"Atenas presento la nueva camiseta para la liga 2025/26.",contenido:"Indumentaria Nueva",imagen:"pilcha nueva.jpg"} ===
-  { titulo:"Comenzó la temporada 2025/26",descripcion:"Comentamos cómo vemos a Atenas para esta temporada.",contenido:"La temporada 2025/26 comienza con expectativas altas. Analizamos el plantel, refuerzos y estrategia para nuevos títulos.",imagen:"pretemporada.jpg",audio:"jose.mp3"},
-  
-
-];
+const noticias=[ { titulo:"Comenzó la temporada 2025/26",descripcion:"Comentamos cómo vemos a Atenas para esta temporada.",contenido:"La temporada 2025/26 comienza con expectativas altas. Analizamos el plantel, refuerzos y estrategia para nuevos títulos.",imagen:"pretemporada.jpg",audio:"jose.mp3"}];
 const noticiasGrilla=document.getElementById('noticias-grilla');
 noticias.forEach((n,i)=>{
   noticiasGrilla.innerHTML+=`
@@ -257,6 +252,7 @@ btn.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behav
 </script>
 </body>
 </html>
+
 
 
 
