@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-AR">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,157 +15,53 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
 <style>
-/* ==== ESTÉTICA GENERAL ==== */
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, #f9f9f9 0%, #f0f7f0 100%);
-  margin:0; padding:0;
-  transition: background 0.4s ease-in-out;
-}
+  body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin:0; padding:0; }
+  .navbar { background-color: #004d2e; }
+  .navbar-brand, .nav-link { color: #fff !important; }
+  .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
+  .navbar-toggler { border-color: rgba(255,255,255,0.5); }
+  .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
 
-/* ==== NAVBAR ==== */
-.navbar {
-  background: linear-gradient(90deg, #004d2e, #006400);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-.navbar-brand, .nav-link { color: #fff !important; }
-.navbar-brand {
-  font-weight: 700;
-  letter-spacing: 1px;
-  transition: transform 0.3s ease;
-}
-.navbar-brand:hover {
-  transform: scale(1.05);
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
-}
-.navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
-.navbar-toggler { border-color: rgba(255,255,255,0.5); }
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
+  #sliderFotos { padding-top: 15px; }
+  #sliderFotos .carousel-inner { height:auto; }
+  #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
+  #sliderFotos .carousel-caption {
+    position: absolute; bottom: 5%; left: 5%; width: 90%; max-width: 500px;
+    background-color: rgba(0, 77, 46, 0.55); padding: 6px 10px; border-radius: 6px; text-align: left;
+  }
+  #sliderFotos .carousel-caption h5 { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); margin-bottom: 2px; }
+  #sliderFotos .carousel-caption p { font-size: clamp(0.8rem, 2vw, 1rem); color: #e0f2e0; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); margin: 0; }
 
-/* ==== SLIDER ==== */
-#sliderFotos { padding-top: 15px; }
-#sliderFotos .carousel-inner { height:auto; }
-#sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
-#sliderFotos .carousel-caption {
-  position: absolute; bottom: 5%; left: 5%; width: 90%; max-width: 500px;
-  background-color: rgba(0, 77, 46, 0.55);
-  padding: 6px 10px; border-radius: 6px;
-  text-align: left;
-  animation: fadeInUp 1s ease;
-}
-#sliderFotos .carousel-caption h5 {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  font-weight: 700; color: #fff;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
-  margin-bottom: 2px;
-}
-#sliderFotos .carousel-caption p {
-  font-size: clamp(0.8rem, 2vw, 1rem);
-  color: #e0f2e0;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
-  margin: 0;
-}
-@keyframes fadeInUp {
-  from { opacity:0; transform: translateY(20px); }
-  to { opacity:1; transform: translateY(0); }
-}
-@media (max-width: 430px) {
-  #sliderFotos .carousel-caption { bottom:3%; left:4%; width:92%; padding:5px 8px; border-radius:4px; }
-  #sliderFotos .carousel-caption h5 { font-size:0.95rem; margin-bottom:2px; }
-  #sliderFotos .carousel-caption p { font-size:0.75rem; }
-}
-@media (max-width: 768px) {
-  #sliderFotos .carousel-caption { bottom:4%; left:6%; width:88%; padding:6px; }
-  #sliderFotos .carousel-caption h5 { font-size:1rem; }
-  #sliderFotos .carousel-caption p { font-size:0.8rem; }
-}
+  @media (max-width: 430px) {
+    #sliderFotos .carousel-caption { bottom:3%; left:4%; width:92%; padding:5px 8px; border-radius:4px; }
+    #sliderFotos .carousel-caption h5 { font-size:0.95rem; margin-bottom:2px; }
+    #sliderFotos .carousel-caption p { font-size:0.75rem; }
+  }
+  @media (max-width: 768px) {
+    #sliderFotos .carousel-caption { bottom:4%; left:6%; width:88%; padding:6px; }
+    #sliderFotos .carousel-caption h5 { font-size:1rem; }
+    #sliderFotos .carousel-caption p { font-size:0.8rem; }
+  }
 
-/* ==== CARDS ==== */
-.card {
-  display:flex; flex-direction:column; height:100%;
-  border: none; border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-}
-.card-img-top { height:250px; object-fit:cover; border-top-left-radius: 12px; border-top-right-radius: 12px; }
-.card-body { flex-grow:1; display:flex; flex-direction:column; justify-content:space-between; }
-.card-title { font-weight:700; color:#004d2e; }
-.card-text { font-size:0.95rem; line-height:1.4; }
+  .card { display:flex; flex-direction:column; height:100%; }
+  .card-img-top { height:250px; object-fit:cover; }
+  .card-body { flex-grow:1; display:flex; flex-direction:column; justify-content:space-between; }
+  .btn-verde { background-color: #008000; color:#fff; border:none; }
+  .btn-verde:hover { background-color:#006400; }
 
-/* ==== BOTONES ==== */
-.btn-verde {
-  background: linear-gradient(90deg, #008000, #006400);
-  color:#fff; border:none;
-  border-radius: 30px;
-  padding: 8px 16px;
-  font-weight:600;
-  transition: all 0.3s ease;
-}
-.btn-verde:hover {
-  background: linear-gradient(90deg, #009900, #004d2e);
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
+  .sidebar { background-color:#e6f2e6; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px; }
+  .sidebar h4 { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:15px; font-weight:600; }
+  .sidebar a { text-decoration:none; color:#004d2e; display:flex; align-items:center; margin-bottom:10px; font-weight:500; }
+  .sidebar a:hover { color:#006400; }
+  .sidebar a i { margin-right:8px; font-size:1.2rem; }
 
-/* ==== SIDEBAR ==== */
-.sidebar {
-  background: #ffffff;
-  border-radius: 15px;
-  border: 1px solid #cce3cc;
-  padding:20px;
-  transition: box-shadow 0.3s ease;
-  margin-bottom:20px;
-}
-.sidebar:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
-.sidebar h4 { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:15px; font-weight:600; }
-.sidebar a { text-decoration:none; color:#004d2e; display:flex; align-items:center; margin-bottom:10px; font-weight:500; }
-.sidebar a:hover { color:#006400; }
-.sidebar a i { margin-right:8px; font-size:1.2rem; }
+  footer { background-color:#004d2e; color:#fff; padding:20px 0; margin-top:30px; text-align:center; box-shadow:0 -2px 5px rgba(0,0,0,0.2); }
 
-/* ==== BOTÓN IR ARRIBA ==== */
-#btn-up {
-  position:fixed; bottom:20px; right:20px;
-  display:none;
-  border-radius:50%;
-  width:50px; height:50px;
-  text-align:center;
-  line-height:45px;
-  font-size:24px;
-  z-index:1030;
-  background: #008000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  animation: pulse 2s infinite;
-}
-#btn-up:hover {
-  background: #004d2e;
-  transform: scale(1.1);
-}
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(0,128,0,0.6); }
-  70% { box-shadow: 0 0 0 12px rgba(0,128,0,0); }
-  100% { box-shadow: 0 0 0 0 rgba(0,128,0,0); }
-}
+  .youtube-embed, .radio-embed { width:100%; height:250px; margin-bottom:20px; }
+  .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
 
-/* ==== FOOTER ==== */
-footer {
-  background: linear-gradient(90deg, #004d2e, #006400);
-  color:#fff;
-  padding:20px 0;
-  margin-top:30px;
-  text-align:center;
-  box-shadow:0 -2px 5px rgba(0,0,0,0.2);
-  font-size:0.9rem;
-  letter-spacing:0.5px;
-}
-.section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
+  #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
 </style>
 </head>
 <body>
@@ -209,6 +105,7 @@ footer {
   <div class="row">
     <!-- MAIN CONTENT -->
     <div class="col-lg-8">
+
       <!-- NOTICIAS -->
       <section id="noticias">
         <h2 class="section-title">Últimas Noticias</h2>
@@ -244,6 +141,7 @@ footer {
         <p><i class="bi bi-envelope-fill"></i> Correo: <a href="mailto:atenasmispasion21@gmail.com" class="btn btn-verde btn-sm">Enviar email</a></p>
         <p><i class="bi bi-whatsapp"></i> WhatsApp: <a href="https://wa.me/5491154756459" target="_blank" class="btn btn-verde btn-sm">Abrir WhatsApp</a></p>
       </section>
+
     </div>
 
     <!-- SIDEBAR -->
@@ -254,7 +152,7 @@ footer {
         <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
 
         <h4 class="mt-4">Transmisión en vivo</h4>
-        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen loading="lazy" title="Transmisión en vivo de Atenas"></iframe>
+        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen loading="lazy"></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
@@ -297,7 +195,108 @@ footer {
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-/* JS de slider, noticias y botón arriba se mantiene igual */
+// === SLIDER DINÁMICO ===
+const fotosSlider = [];
+const sliderIndicators = document.getElementById('slider-indicators');
+const sliderInner = document.getElementById('slider-inner');
+fotosSlider.forEach((foto,index)=>{
+  const button=document.createElement('button');
+  button.type="button";
+  button.setAttribute('data-bs-target','#sliderFotos');
+  button.setAttribute('data-bs-slide-to',index);
+  button.setAttribute('aria-label',`Slide ${index+1}`);
+  if(index===0){ button.className="active"; button.setAttribute('aria-current','true'); }
+  sliderIndicators.appendChild(button);
+
+  const div=document.createElement('div');
+  div.className=index===0?"carousel-item active":"carousel-item";
+  div.innerHTML=`<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
+                   <div class="carousel-caption"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></div>`;
+  sliderInner.appendChild(div);
+});
+
+// === CARGAR NOTICIAS EXTERNAS ===
+const noticiasGrilla = document.getElementById('noticias-grilla');
+fetch('noticias.json')
+  .then(response => response.json())
+  .then(noticias => {
+    noticias.forEach((noticia,index) => {
+      const modalId = `modalNoticia${index}`;
+      const col = document.createElement('div');
+      col.className = 'col mb-4';
+      col.innerHTML = `
+        <div class="card h-100">
+          <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title">${noticia.titulo}</h5>
+            <p class="card-text">${noticia.descripcion}</p>
+            <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
+          </div>
+        </div>
+        <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">${noticia.titulo}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <p>${noticia.contenido}</p>
+                <audio controls preload="none">
+                  <source src="${noticia.audio}" type="audio/mpeg">
+                  Tu navegador no soporta audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>`;
+      noticiasGrilla.appendChild(col);
+    });
+
+    // Pausar audio al cerrar modal
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('hidden.bs.modal', () => {
+        modal.querySelectorAll('audio').forEach(audio => { audio.pause(); audio.currentTime = 0; });
+      });
+    });
+
+    // Generar JSON-LD dinámico
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "NewsMediaOrganization",
+      "name": "Atenas mi pasión",
+      "url": window.location.href,
+      "logo": "https://tu-sitio-web.com/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/groups/1607966346118447",
+        "https://www.instagram.com/atenas_mi_pasion/"
+      ],
+      "hasPart": noticias.map(n => ({
+        "@type":"NewsArticle",
+        "headline": n.titulo,
+        "image":"https://tu-sitio-web.com/${n.imagen}",
+        "datePublished": "2025-09-10",
+        "description": n.descripcion,
+        "author": { "@type":"Person","name":"Marcelo Achával" }
+      }))
+    };
+    document.getElementById('json-ld').textContent = JSON.stringify(jsonLd);
+  })
+  .catch(err => console.error("Error cargando noticias:", err));
+
+// === BOTÓN IR ARRIBA ===
+const btnUp = document.getElementById('btn-up');
+window.addEventListener('scroll', () => { btnUp.style.display = window.scrollY > 300 ? 'block' : 'none'; });
+btnUp.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth' }); });
+
+// === ARIA CURRENT DINÁMICO ===
+const currentUrl = window.location.hash || "#noticias";
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.removeAttribute('aria-current');
+  if(link.getAttribute('href') === currentUrl) link.setAttribute('aria-current','page');
+});
 </script>
 </body>
 </html>
+
+
