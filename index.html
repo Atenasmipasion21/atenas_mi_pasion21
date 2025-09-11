@@ -285,6 +285,17 @@ fetch('noticias.json')
   })
   .catch(err => console.error("Error cargando noticias:", err));
 
+  // === MULTIMEDIA ===
+const multimediaItems = [{ tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" }, { tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }];
+const multimediaContent = document.getElementById('multimedia-content');
+multimediaItems.forEach(item=>{
+  const div = document.createElement('div'); div.className='col-12';
+  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
+  multimediaContent.appendChild(div);
+});
+
+
 // === BOTÓN IR ARRIBA ===
 const btnUp = document.getElementById('btn-up');
 window.addEventListener('scroll', () => { btnUp.style.display = window.scrollY > 300 ? 'block' : 'none'; });
@@ -299,6 +310,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 </script>
 </body>
 </html>
+
 
 
 
