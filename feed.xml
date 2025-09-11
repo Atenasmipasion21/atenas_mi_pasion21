@@ -1,52 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
-    <title>Atenas mi pasión – Noticias</title>
+    <title>Atenas mi pasión – Última noticia</title>
     <link>https://atenasmipasion21.github.io/atenas_mi_pasion21/index.html</link>
-    <description>Últimas noticias de Atenas: crónicas y multimedia</description>
+    <description>Última entrada del blog de Atenas mi pasión</description>
     <language>es-AR</language>
 
+    <!-- Última entrada -->
     <item>
-      <title>Crónica del partido Atenas vs Gimnasia</title>
-      <link>https://atenasmipasion21.github.io/atenas_mi_pasion21/post1.html</link>
-      <description>Resumen del partido y momentos destacados.</description>
-      <pubDate>Wed, 11 Sep 2025 14:00:00 +0000</pubDate>
-      <media:content url="https://atenasmipasion21.github.io/atenas_mi_pasion21/post1.jpg" type="image/jpeg" />
+      <title>Atenas sale al ruedo</title>
+      <link>https://atenasmipasion21.github.io/atenas_mi_pasion21/index.html</link>
+      <description>El 20/9 jugará un amistoso con Quimsa.</description>
+      <pubDate>Thu, 11 Sep 2025 14:50:00 +0000</pubDate>
+      <media:content url="https://atenasmipasion21.github.io/atenas_mi_pasion21/pilcha nueva21.jpg" type="image/jpeg" />
     </item>
-
-    <!-- Agregar más items siguiendo el mismo formato -->
 
   </channel>
 </rss>
-
-
-    <!-- NOTICIA 1 -->
-      <item>
-         <title>Sale al ruedo</title>
-         <link>https://atenasmipasion21.github.io/atenas_mi_pasion21/noticias/sale_al_ruedo</link>
-         <description>El 20 de septiembre, Atenas jugará su primer amistoso de la temporada 2025/26 contra Quimsa en Bell Ville, y enfrentará a San Isidro de local y visitante.</description>
-         <pubDate>Thu, 11 Sep 2025 14:45:00 +0000</pubDate>
-         <media:content url="https://atenasmipasion21.github.io/atenas_mi_pasion21/pilcha_nueva21.jpg" type="image/jpeg" />
-    </item>
-
-
-    <!-- EJEMPLO: agregar nuevas noticias -->
-    <!--
-    <item>
-      <title>Título de la nueva noticia</title>
-      <link>URL de la noticia</link>
-      <description>Resumen o descripción breve de la noticia</description>
-      <pubDate>Fecha en formato RFC 2822</pubDate>
-      <enclosure url="URL de la imagen destacada" type="image/jpeg"/>
-      <guid>URL única de la noticia</guid>
-    </item>
-    -->
-
-  </channel>
-</rss>
-
-
-
-
-
-
