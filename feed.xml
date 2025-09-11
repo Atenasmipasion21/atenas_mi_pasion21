@@ -8,14 +8,14 @@
     <lastBuildDate>Fri, 29 Aug 2025 16:00:00 GMT</lastBuildDate>
 
     <!-- NOTICIA 1 -->
-    <item>
-      <title>Sale al ruedo</title>
-      <link>https://atenasmipasion21.github.io/atenas_mi_pasion21/noticias/sale_al_ruedo</link>
-      <description>El 20 de septiembre, Atenas jugará su primer amistoso de la temporada 2025/26 contra Quimsa en Bell Ville, y enfrentará a San Isidro de local y visitante.</description>
-      <pubDate>Wed, 11 Sep 2025 13:40:00 GMT</pubDate>
-      <media:content url="https://atenasmipasion21.github.io/atenas_mi_pasion21/pilcha_nueva21.jpg" type="image/jpeg" />
-      <guid>https://atenasmipasion21.github.io/atenas_mi_pasion21/noticias/sale_al_ruedo</guid>
+      <item>
+         <title>Sale al ruedo</title>
+         <link>https://atenasmipasion21.github.io/atenas_mi_pasion21/noticias/sale_al_ruedo</link>
+         <description>El 20 de septiembre, Atenas jugará su primer amistoso de la temporada 2025/26 contra Quimsa en Bell Ville, y enfrentará a San Isidro de local y visitante.</description>
+         <pubDate>Thu, 11 Sep 2025 14:45:00 +0000</pubDate>
+         <media:content url="https://atenasmipasion21.github.io/atenas_mi_pasion21/pilcha_nueva21.jpg" type="image/jpeg" />
     </item>
+
 
     <!-- EJEMPLO: agregar nuevas noticias -->
     <!--
@@ -31,6 +31,7 @@
 
   </channel>
 </rss>
+
 
 
 
