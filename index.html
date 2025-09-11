@@ -13,8 +13,11 @@
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#004d2e">
 
+<!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+<!-- Estilos CSS3 -->
 <style>
   body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin:0; padding:0; }
   .navbar { background-color: #004d2e; }
@@ -58,7 +61,8 @@
 
   footer { background-color:#004d2e; color:#fff; padding:20px 0; margin-top:30px; text-align:center; box-shadow:0 -2px 5px rgba(0,0,0,0.2); }
 
-  .youtube-embed, .radio-embed { width:100%; height:250px; margin-bottom:20px; }
+  .youtube-embed, .radio-embed { width:100%; height:250px; margin-bottom:20px; border-radius:10px; }
+
   .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
 
   #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
@@ -115,7 +119,7 @@
       <!-- MULTIMEDIA -->
       <section id="multimedia" class="mt-5">
         <h2 class="section-title">Multimedia</h2>
-        <div id="" class="row g-3"></div>
+        <div id="multimedia-content" class="row g-3"></div>
       </section>
 
       <!-- CALENDARIO -->
@@ -148,12 +152,12 @@
     <div class="col-lg-4">
       <div class="sidebar">
         <h4>Redes Sociales</h4>
-        <a href="https://www.facebook.com/groups/1607966346118447" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
-        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
-        <a href="https://x.com/marcelo_ac60411" target="_blank"><i class="bi bi-twitter-x"></i> Twitter</a>
+        <a href="https://www.facebook.com/groups/1607966346118447" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i> Facebook</a>
+        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i> Instagram</a>
+        <a href="https://x.com/marcelo_ac60411" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter-x"></i> Twitter</a>
 
         <h4 class="mt-4">Transmisión en vivo</h4>
-        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" frameborder="0" allowfullscreen loading="lazy" title="Transmisión en vivo"></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
@@ -184,7 +188,7 @@
 </div>
 
 <!-- Botón ir arriba -->
-<a href="#" id="btn-up" class="btn btn-verde">↑</a>
+<a href="#" id="btn-up" class="btn btn-verde" aria-label="Ir arriba">↑</a>
 
 <!-- FOOTER -->
 <footer>
@@ -194,7 +198,10 @@
 <!-- JSON-LD SEO -->
 <script id="json-ld" type="application/ld+json">{}</script>
 
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- JS -->
 <script>
 // === SLIDER DINÁMICO ===
 const fotosSlider = [];
@@ -275,7 +282,7 @@ fetch('noticias.json')
       "hasPart": noticias.map(n => ({
         "@type":"NewsArticle",
         "headline": n.titulo,
-        "image":"https://tu-sitio-web.com/${n.imagen}",
+        "image": `https://tu-sitio-web.com/${n.imagen}`,
         "datePublished": "2025-09-10",
         "description": n.descripcion,
         "author": { "@type":"Person","name":"Marcelo Achával" }
@@ -285,16 +292,35 @@ fetch('noticias.json')
   })
   .catch(err => console.error("Error cargando noticias:", err));
 
-  // === MULTIMEDIA ===
-const multimediaItems = [{ tipo:"video", src:"https://www.youtube.com/embed/BzY15_tfnVs" }, { tipo:"radio", src:"https://www.youtube.com/embed/live_stream?channel=TU_CANAL_ID" }];
-const multimediaContent = document.getElementById('multimedia-content');
-multimediaItems.forEach(item=>{
-  const div = document.createElement('div'); div.className='col-12';
-  if(item.tipo==="video") div.innerHTML=`<iframe class="youtube-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  else if(item.tipo==="radio") div.innerHTML=`<iframe class="radio-embed w-100" src="${item.src}" frameborder="0" allowfullscreen></iframe>`;
-  multimediaContent.appendChild(div);
-});
+// === CARGAR ÚLTIMO VIDEO DE YOUTUBE AUTOMÁTICAMENTE ===
+const YOUTUBE_API_KEY = 'TU_API_KEY_AQUI';
+const CHANNEL_ID = 'ID_DE_TU_CANAL';
 
+function cargarUltimoVideo() {
+  const endpoint = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CHANNEL_ID}&maxResults=1&order=date&type=video&key=${YOUTUBE_API_KEY}`;
+  fetch(endpoint)
+    .then(res => res.json())
+    .then(data => {
+      if(data.items && data.items.length > 0){
+        const video = data.items[0];
+        const videoId = video.id.videoId;
+        const titulo = video.snippet.title;
+        const cont = document.getElementById('multimedia-content');
+        if(cont){
+          cont.innerHTML = `
+            <div class="col-12">
+              <iframe class="youtube-embed w-100" 
+                      src="https://www.youtube.com/embed/${videoId}" 
+                      frameborder="0" allowfullscreen loading="lazy"
+                      title="${titulo}"></iframe>
+            </div>`;
+        }
+      }
+    })
+    .catch(err => console.error("Error al traer video de YouTube:", err));
+}
+
+document.addEventListener('DOMContentLoaded', cargarUltimoVideo);
 
 // === BOTÓN IR ARRIBA ===
 const btnUp = document.getElementById('btn-up');
@@ -310,13 +336,3 @@ document.querySelectorAll('.nav-link').forEach(link => {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
