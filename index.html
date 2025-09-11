@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-AR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,6 +71,11 @@
 </head>
 <body>
 
+<!-- BANNER TRANSMISIÓN -->
+<div id="banner-vivo" class="alert alert-danger text-center m-0" style="display:none;">
+  🔴 Transmisión en vivo: <a href="#multimedia" class="alert-link">Ir a la radio</a>
+</div>
+
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
@@ -125,9 +130,7 @@
       <!-- CALENDARIO -->
       <section id="calendario" class="mt-5">
         <h2 class="section-title">Próximos Partidos</h2>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item text-center"><strong>25/9 - Regatas de Corrientes - Atenas de Córdoba</strong></li>
-        </ul>
+        <ul class="list-group list-group-flush" id="calendario-lista"></ul>
       </section>
 
       <!-- HISTORIA -->
@@ -156,7 +159,7 @@
         <a href="https://x.com/marcelo_ac60411" target="_blank"><i class="bi bi-twitter-x"></i> Twitter</a>
 
         <h4 class="mt-4">Transmisión en vivo</h4>
-        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=UCXXXXXXX" frameborder="0" allowfullscreen loading="lazy"></iframe>
+        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=UCXXXXXXX" frameborder="0" allowfullscreen loading="lazy" title="Radio en vivo"></iframe>
 
         <h4 class="mt-4">Títulos del Club</h4>
         <h5 class="mt-2">🏆 Nacionales (10)</h5>
@@ -207,8 +210,7 @@
 // === SLIDER DINÁMICO ===
 const fotosSlider = [
   {src:"fixture1.png", titulo:"Dificíl debut", descripcion:"Primera parada - En el Contte"},
-  {src:"fixture2.png", titulo:"Segundo partido", descripcion:"Juega en el Estadio Raúl Argentino Ortiz "},
- // ===  {src:"slider3.jpg", titulo:"Afición en las gradas", descripcion:"El apoyo de los hinchas es clave"}
+  {src:"fixture2.png", titulo:"Segundo partido", descripcion:"Juega en el Estadio Raúl Argentino Ortiz "}
 ];
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
@@ -274,64 +276,65 @@ fetch('noticias.json?nocache=' + new Date().getTime())
 
     const jsonLd = {
       "@context": "https://schema.org",
-      "@type": "NewsMediaOrganization",
+      "@type": "Organization",
       "name": "Atenas mi pasión",
       "url": window.location.href,
-      "logo": "https://tu-sitio-web.com/logo.png",
+      "logo": "https://atenasmipasion21.github.io/atenas_mi_pasion21/logo.png",
       "sameAs": [
         "https://www.facebook.com/groups/1607966346118447",
         "https://www.instagram.com/atenas_mi_pasion/"
       ],
-      "hasPart": noticias.map(n => ({
-        "@type":"NewsArticle",
-        "headline": n.titulo,
-        "image":"https://tu-sitio-web.com/"+n.imagen,
-        "datePublished": n.fecha || "2025-09-10",
-        "description": n.descripcion,
-        "author": { "@type":"Person","name":"Marcelo Achával" }
+      "publishes": noticias.map(noticia => ({
+        "@type": "NewsArticle",
+        "headline": noticia.titulo,
+        "image": noticia.imagen,
+        "datePublished": new Date().toISOString(),
+        "articleBody": noticia.contenido,
+        "publisher": {
+          "@type": "Organization",
+          "name": "Atenas mi pasión",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://atenasmipasion21.github.io/atenas_mi_pasion21/logo.png"
+          }
+        }
       }))
     };
-    document.getElementById('json-ld').textContent = JSON.stringify(jsonLd);
-  })
-  .catch(err => console.error("Error cargando noticias:", err));
+    document.getElementById('json-ld').textContent = JSON.stringify(jsonLd,null,2);
+  });
 
-// === CARGAR ÚLTIMO VIDEO DEL CANAL ===
-function cargarUltimoVideo() {
-  const videoId = 'BzY15_tfnVs';
-  const titulo = 'Último video de Atenas mi pasión';
-  const cont = document.getElementById('multimedia-content');
-  if(cont){
-    cont.innerHTML = `
-      <div class="col-12">
-        <iframe class="youtube-embed w-100" 
-                src="https://www.youtube.com/embed/${videoId}" 
-                frameborder="0" allowfullscreen loading="lazy"
-                title="${titulo}"></iframe>
-      </div>`;
-  }
-}
-document.addEventListener('DOMContentLoaded', cargarUltimoVideo);
+// === CARGAR CALENDARIO EXTERNO ===
+fetch('calendario.json?nocache=' + new Date().getTime())
+  .then(response => response.json())
+  .then(partidos => {
+    const lista = document.getElementById('calendario-lista');
+    lista.innerHTML = "";
+    partidos.forEach(p => {
+      const item=document.createElement('li');
+      item.className="list-group-item text-center";
+      item.innerHTML=`<strong>${p.fecha} - ${p.local} vs ${p.visitante}</strong>`;
+      lista.appendChild(item);
+    });
+  });
+
+// === MULTIMEDIA ===
+const multimediaContent=document.getElementById('multimedia-content');
+const videos=["https://www.youtube.com/embed/xxxxxxxx","https://www.youtube.com/embed/yyyyyyyy"];
+videos.forEach(url=>{
+  const col=document.createElement('div');
+  col.className="col-md-6";
+  col.innerHTML=`<iframe class="youtube-embed" src="${url}" frameborder="0" allowfullscreen loading="lazy" title="Video de Atenas"></iframe>`;
+  multimediaContent.appendChild(col);
+});
 
 // === BOTÓN IR ARRIBA ===
-const btnUp = document.getElementById('btn-up');
-window.addEventListener('scroll', () => { btnUp.style.display = window.scrollY > 300 ? 'block' : 'none'; });
-btnUp.addEventListener('click', e => { e.preventDefault(); window.scrollTo({ top:0, behavior:'smooth' }); });
+const btnUp=document.getElementById("btn-up");
+window.onscroll=()=>{ btnUp.style.display=(document.documentElement.scrollTop>200)?"block":"none"; };
 
-// === ARIA CURRENT DINÁMICO ===
-const currentUrl = window.location.hash || "#noticias";
-document.querySelectorAll('.nav-link').forEach(link => {
-  link.removeAttribute('aria-current');
-  if(link.getAttribute('href') === currentUrl) link.setAttribute('aria-current','page');
-});
+// === BANNER DE TRANSMISIÓN ===
+const hoy = new Date().toISOString().split('T')[0];
+const partidosVivo = ["2025-09-25"]; // editar con fechas reales
+if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.display="block"; }
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
