@@ -13,7 +13,7 @@
       <link>https://atenasmipasion21.github.io/atenas_mi_pasion21/noticias/sale_al_ruedo</link>
       <description>El 20 de septiembre, Atenas jugará su primer amistoso de la temporada 2025/26 contra Quimsa en Bell Ville, y enfrentará a San Isidro de local y visitante.</description>
       <pubDate>Wed, 11 Sep 2025 13:40:00 GMT</pubDate>
-      <enclosure url="https://atenasmipasion21.github.io/atenas_mi_pasion21/images/pilcha_nueva21.jpg" type="image/jpeg"/>
+      <enclosure url="https://atenasmipasion21.github.io/atenas_mi_pasion21/pilcha_nueva21.jpg" type="image/jpeg"/>
       <guid>https://atenasmipasion21.github.io/atenas_mi_pasion21/noticias/sale_al_ruedo</guid>
     </item>
 
@@ -31,5 +31,6 @@
 
   </channel>
 </rss>
+
 
 
