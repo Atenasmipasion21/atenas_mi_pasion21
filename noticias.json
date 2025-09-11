@@ -1,10 +1,11 @@
 [
+  
   {
-    "titulo": "Sale al ruedo",
-    "descripcion": "Atenas y los amistosos",
-    "contenido": "El 20/9 jugára el primer amistoso contra Quimsa en Bell Ville, además tiene programdo enfrentrar a San Isidro de local y visitante.",
-    "imagen": "pilcha nueva21.jpg",
-    "audio": ""
+    Título: Sale al ruedo
+    Descripción: Atenas y los amistosos
+    Contenido:"El 20 de septiembre, Atenas jugará su primer amistoso de la temporada 2025/26 contra Quimsa en Bell Ville. Además, tiene programado enfrentar a San Isidro tanto de local como de visitante, preparando al equipo para la Liga Nacional."
+    Imagen: pilcha_nueva21.jpg
+    Audio: (no disponible)
   },
   {
     "titulo": "Pilcha Nueva",
@@ -22,6 +23,7 @@
   }
  
 ]
+
 
 
 
