@@ -226,7 +226,8 @@ fotosSlider.forEach((foto,index)=>{
 
 // === CARGAR NOTICIAS EXTERNAS ===
 const noticiasGrilla = document.getElementById('noticias-grilla');
-fetch('noticias.json')
+fetch('noticias.json?nocache=' + new Date().getTime())
+
   .then(response => response.json())
   .then(noticias => {
     noticias.forEach((noticia,index) => {
@@ -322,4 +323,5 @@ document.querySelectorAll('.nav-link').forEach(link => {
 </script>
 </body>
 </html>
+
 
