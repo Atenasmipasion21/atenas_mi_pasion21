@@ -8,340 +8,335 @@
 <meta name="keywords" content="Atenas Córdoba, Liga Nacional, Básquet, Noticias, Crónicas, Partidos, Plantel">
 <meta name="robots" content="index, follow">
 
-<!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#004d2e">
 
-<!-- Bootstrap y Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
 <style>
-  body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin:0; padding:0; }
-  .navbar { background-color: #004d2e; }
-  .navbar-brand, .nav-link { color: #fff !important; }
-  .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
-  .navbar-toggler { border-color: rgba(255,255,255,0.5); }
-  .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+  body { font-family: Arial, sans-serif; background-color: #f9f9f9; margin:0; padding:0; }
+  .navbar { background-color: #004d2e; }
+  .navbar-brand, .nav-link { color: #fff !important; }
+  .navbar.sticky-top { position: sticky; top: 0; z-index: 1020; }
+  .navbar-toggler { border-color: rgba(255,255,255,0.5); }
+  .navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.95%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
 
-  #sliderFotos { padding-top: 15px; }
-  #sliderFotos .carousel-inner { height:auto; }
-  #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
-  #sliderFotos .carousel-caption {
-    position: absolute; bottom: 5%; left: 5%; width: 90%; max-width: 500px;
-    background-color: rgba(0, 77, 46, 0.55); padding: 6px 10px; border-radius: 6px; text-align: left;
-  }
-  #sliderFotos .carousel-caption h5 { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); margin-bottom: 2px; }
-  #sliderFotos .carousel-caption p { font-size: clamp(0.8rem, 2vw, 1rem); color: #e0f2e0; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); margin: 0; }
+  #sliderFotos { padding-top: 15px; }
+  #sliderFotos .carousel-inner { height:auto; }
+  #sliderFotos .carousel-item img { width:100%; height:auto; object-fit:cover; }
+  #sliderFotos .carousel-caption {
+    position: absolute; bottom: 5%; left: 5%; width: 90%; max-width: 500px;
+    background-color: rgba(0, 77, 46, 0.55); padding: 6px 10px; border-radius: 6px; text-align: left;
+  }
+  #sliderFotos .carousel-caption h5 { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.7); margin-bottom: 2px; }
+  #sliderFotos .carousel-caption p { font-size: clamp(0.8rem, 2vw, 1rem); color: #e0f2e0; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); margin: 0; }
 
-  @media (max-width: 430px) {
-    #sliderFotos .carousel-caption { bottom:3%; left:4%; width:92%; padding:5px 8px; border-radius:4px; }
-    #sliderFotos .carousel-caption h5 { font-size:0.95rem; margin-bottom:2px; }
-    #sliderFotos .carousel-caption p { font-size:0.75rem; }
-  }
-  @media (max-width: 768px) {
-    #sliderFotos .carousel-caption { bottom:4%; left:6%; width:88%; padding:6px; }
-    #sliderFotos .carousel-caption h5 { font-size:1rem; }
-    #sliderFotos .carousel-caption p { font-size:0.8rem; }
-  }
+  @media (max-width: 430px) {
+    #sliderFotos .carousel-caption { bottom:3%; left:4%; width:92%; padding:5px 8px; border-radius:4px; }
+    #sliderFotos .carousel-caption h5 { font-size:0.95rem; margin-bottom:2px; }
+    #sliderFotos .carousel-caption p { font-size:0.75rem; }
+  }
+  @media (max-width: 768px) {
+    #sliderFotos .carousel-caption { bottom:4%; left:6%; width:88%; padding:6px; }
+    #sliderFotos .carousel-caption h5 { font-size:1rem; }
+    #sliderFotos .carousel-caption p { font-size:0.8rem; }
+  }
 
-  .card { display:flex; flex-direction:column; height:100%; }
-  .card-img-top { height:250px; object-fit:cover; }
-  .card-body { flex-grow:1; display:flex; flex-direction:column; justify-content:space-between; }
-  .btn-verde { background-color: #008000; color:#fff; border:none; }
-  .btn-verde:hover { background-color:#006400; }
+  .card { display:flex; flex-direction:column; height:100%; }
+  .card-img-top { height:250px; object-fit:cover; }
+  .card-body { flex-grow:1; display:flex; flex-direction:column; justify-content:space-between; }
+  .btn-verde { background-color: #008000; color:#fff; border:none; }
+  .btn-verde:hover { background-color:#006400; }
 
-  .sidebar { background-color:#e6f2e6; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px; }
-  .sidebar h4 { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:15px; font-weight:600; }
-  .sidebar a { text-decoration:none; color:#004d2e; display:flex; align-items:center; margin-bottom:10px; font-weight:500; }
-  .sidebar a:hover { color:#006400; }
-  .sidebar a i { margin-right:8px; font-size:1.2rem; }
+  .sidebar { background-color:#e6f2e6; padding:20px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); margin-bottom:20px; }
+  .sidebar h4 { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:15px; font-weight:600; }
+  .sidebar a { text-decoration:none; color:#004d2e; display:flex; align-items:center; margin-bottom:10px; font-weight:500; }
+  .sidebar a:hover { color:#006400; }
+  .sidebar a i { margin-right:8px; font-size:1.2rem; }
 
-  footer { background-color:#004d2e; color:#fff; padding:20px 0; margin-top:30px; text-align:center; box-shadow:0 -2px 5px rgba(0,0,0,0.2); }
-  footer p { margin: 0.5rem 0; }
+  footer { background-color:#004d2e; color:#fff; padding:20px 0; margin-top:30px; text-align:center; box-shadow:0 -2px 5px rgba(0,0,0,0.2); }
+  footer p { margin: 0.5rem 0; }
 
-  .youtube-embed, .radio-embed { width:100%; height:250px; margin-bottom:20px; }
-  .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
+  .youtube-embed, .radio-embed { width:100%; height:250px; margin-bottom:20px; }
+  .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
 
 /* 🎨 CSS3 para Próximos Partidos */
-  #calendario-lista .list-group-item {
-    background: linear-gradient(135deg, #e6ffe6, #ccf2d6);
-    margin-bottom: 10px;
-    border-radius: 10px;
-    border: 1px solid #b3e6b3;
-    font-weight: 600;
-    color: #004d2e;
-    transition: all 0.3s ease;
-  }
-  #calendario-lista .list-group-item:hover {
-    transform: scale(1.03);
-    background: linear-gradient(135deg, #c2f0c2, #99e699);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    cursor: pointer;
-  }
-  
-  #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
+  #calendario-lista .list-group-item {
+    background: linear-gradient(135deg, #e6ffe6, #ccf2d6);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #b3e6b3;
+    font-weight: 600;
+    color: #004d2e;
+    transition: all 0.3s ease;
+  }
+  #calendario-lista .list-group-item:hover {
+    transform: scale(1.03);
+    background: linear-gradient(135deg, #c2f0c2, #99e699);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+  
+  #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
+
+/* 🆕 NUEVO: CSS3 para títulos de noticias */
+  .card-title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 700;
+    color: #004d2e;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
 </style>
 </head>
 <body>
 
-<!-- BANNER TRANSMISIÓN -->
 <div id="banner-vivo" class="alert alert-danger text-center m-0" style="display:none;">
-  🔴 Transmisión en vivo: <a href="#multimedia" class="alert-link">Ir a la radio</a>
+  🔴 Transmisión en vivo: <a href="#multimedia" class="alert-link">Ir a la radio</a>
 </div>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg sticky-top">
-  <div class="container">
-    <a class="navbar-brand" href="#">Atenas mi pasión</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#noticias">Noticias</a></li>
-        <li class="nav-item"><a class="nav-link" href="#multimedia">Multimedia</a></li>
-        <li class="nav-item"><a class="nav-link" href="plantel2.html">Plantel</a></li>
-        <li class="nav-item"><a class="nav-link" href="#calendario">Próximos Partidos</a></li>
-        <li class="nav-item"><a class="nav-link" href="#historia">Historia</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
-      </ul>
-    </div>
-  </div>
+  <div class="container">
+    <a class="navbar-brand" href="#">Atenas mi pasión</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#noticias">Noticias</a></li>
+        <li class="nav-item"><a class="nav-link" href="#multimedia">Multimedia</a></li>
+        <li class="nav-item"><a class="nav-link" href="plantel2.html">Plantel</a></li>
+        <li class="nav-item"><a class="nav-link" href="#calendario">Próximos Partidos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#historia">Historia</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<!-- SLIDER DE FOTOS -->
 <div id="sliderFotos" class="carousel slide mb-5" data-bs-ride="carousel">
-  <div class="carousel-indicators" id="slider-indicators"></div>
-  <div class="carousel-inner" id="slider-inner"></div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#sliderFotos" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Anterior</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#sliderFotos" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Siguiente</span>
-  </button>
+  <div class="carousel-indicators" id="slider-indicators"></div>
+  <div class="carousel-inner" id="slider-inner"></div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#sliderFotos" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Anterior</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#sliderFotos" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Siguiente</span>
+  </button>
 </div>
 
 <div class="container">
-  <div class="row">
-    <!-- MAIN CONTENT -->
-    <div class="col-lg-8">
-      <!-- NOTICIAS -->
-      <section id="noticias">
-        <h2 class="section-title">Últimas Noticias</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="noticias-grilla"></div>
-      </section>
+  <div class="row">
+        <div class="col-lg-8">
+            <section id="noticias">
+        <h2 class="section-title">Últimas Noticias</h2>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="noticias-grilla"></div>
+      </section>
 
-      <!-- MULTIMEDIA -->
-      <section id="multimedia" class="mt-5">
-        <h2 class="section-title">Multimedia</h2>
-        <div id="multimedia-content" class="row"></div>
-      </section>
+            <section id="multimedia" class="mt-5">
+        <h2 class="section-title">Multimedia</h2>
+        <div id="multimedia-content" class="row"></div>
+      </section>
 
-      <!-- CALENDARIO -->
-      <section id="calendario" class="mt-5">
-        <h2 class="section-title">Próximos Partidos</h2>
-        <ul class="list-group list-group-flush" id="calendario-lista"></ul>
-      </section>
+            <section id="calendario" class="mt-5">
+        <h2 class="section-title">Próximos Partidos</h2>
+        <ul class="list-group list-group-flush" id="calendario-lista"></ul>
+      </section>
 
-      <!-- HISTORIA -->
-      <section id="historia" class="mt-5">
-        <h2 class="section-title">Historia del Club</h2>
-        <p>
-          Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, <strong>con múltiples títulos nacionales e internacionales</strong>. 
-          Fundado el <strong>17 de abril de 1938</strong>, su presidente actual es <strong>Germán Baralle</strong>.
-        </p>
-      </section>
+            <section id="historia" class="mt-5">
+        <h2 class="section-title">Historia del Club</h2>
+        <p>
+          Atenas es uno de los clubes más importantes de <strong>Argentina</strong>, <strong>con múltiples títulos nacionales e internacionales</strong>. 
+          Fundado el <strong>17 de abril de 1938</strong>, su presidente actual es <strong>Germán Baralle</strong>.
+        </p>
+      </section>
 
-      <!-- CONTACTO -->
-      <section id="contacto" class="mt-5">
-        <h2 class="section-title">Contacto</h2>
-        <p><i class="bi bi-envelope-fill"></i> Correo: <a href="mailto:atenasmispasion21@gmail.com" class="btn btn-verde btn-sm">Enviar email</a></p>
-        <p><i class="bi bi-whatsapp"></i> WhatsApp: <a href="https://wa.me/5491154756459" target="_blank" class="btn btn-verde btn-sm">Abrir WhatsApp</a></p>
-      </section>
-    </div>
+            <section id="contacto" class="mt-5">
+        <h2 class="section-title">Contacto</h2>
+        <p><i class="bi bi-envelope-fill"></i> Correo: <a href="mailto:atenasmispasion21@gmail.com" class="btn btn-verde btn-sm">Enviar email</a></p>
+        <p><i class="bi bi-whatsapp"></i> WhatsApp: <a href="https://wa.me/5491154756459" target="_blank" class="btn btn-verde btn-sm">Abrir WhatsApp</a></p>
+      </section>
+    </div>
 
-    <!-- SIDEBAR -->
-    <div class="col-lg-4">
-      <div class="sidebar">
-        <h4>Redes Sociales</h4>
-        <a href="https://www.facebook.com/groups/1607966346118447" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
-        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
-        <a href="https://x.com/marcelo_ac60411" target="_blank"><i class="bi bi-twitter-x"></i> Twitter</a>
+        <div class="col-lg-4">
+      <div class="sidebar">
+        <h4>Redes Sociales</h4>
+        <a href="https://www.facebook.com/groups/1607966346118447" target="_blank"><i class="bi bi-facebook"></i> Facebook</a>
+        <a href="https://www.instagram.com/atenas_mi_pasion/" target="_blank"><i class="bi bi-instagram"></i> Instagram</a>
+        <a href="https://x.com/marcelo_ac60411" target="_blank"><i class="bi bi-twitter-x"></i> Twitter</a>
 
-        <h4 class="mt-4">Transmisión en vivo</h4>
-        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=UCXXXXXXX" frameborder="0" allowfullscreen loading="lazy" title="Radio en vivo"></iframe>
+        <h4 class="mt-4">Transmisión en vivo</h4>
+        <iframe class="radio-embed w-100 mb-3" src="https://www.youtube.com/embed/live_stream?channel=UCXXXXXXX" frameborder="0" allowfullscreen loading="lazy" title="Radio en vivo"></iframe>
 
-        <h4 class="mt-4">Títulos del Club</h4>
-        <h5 class="mt-2">🏆 Nacionales (10)</h5>
-        <div class="d-flex flex-wrap gap-2 mb-3">
-          <span class="badge bg-success">1987 Liga Nacional</span>
-          <span class="badge bg-success">1988 Liga Nacional</span>
-          <span class="badge bg-success">1990 Liga Nacional</span>
-          <span class="badge bg-success">1991/92 Liga Nacional</span>
-          <span class="badge bg-success">1997/98 Liga Nacional</span>
-          <span class="badge bg-success">1998/99 Liga Nacional</span>
-          <span class="badge bg-success">2001/02 Liga Nacional</span>
-          <span class="badge bg-success">2002/03 Liga Nacional</span>
-          <span class="badge bg-success">2008/09 Liga Nacional</span>
-          <span class="badge bg-success">2023/24 Liga Argentina</span>
-        </div>
-        <h5 class="mt-2">🏆 Internacionales (6)</h5>
-        <div class="d-flex flex-wrap gap-2">
-          <span class="badge bg-primary">1993 Sudamericano de Clubes</span>
-          <span class="badge bg-primary">1994 Sudamericano de Clubes</span>
-          <span class="badge bg-primary">1996 Campeonato Panamericano</span>
-          <span class="badge bg-primary">1997 Liga Sudamericana</span>
-          <span class="badge bg-primary">1998 Liga Sudamericana</span>
-          <span class="badge bg-primary">2004 Liga Sudamericana</span>
-        </div>
-      </div>
-    </div>
-  </div>
+        <h4 class="mt-4">Títulos del Club</h4>
+        <h5 class="mt-2">🏆 Nacionales (10)</h5>
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="badge bg-success">1987 Liga Nacional</span>
+          <span class="badge bg-success">1988 Liga Nacional</span>
+          <span class="badge bg-success">1990 Liga Nacional</span>
+          <span class="badge bg-success">1991/92 Liga Nacional</span>
+          <span class="badge bg-success">1997/98 Liga Nacional</span>
+          <span class="badge bg-success">1998/99 Liga Nacional</span>
+          <span class="badge bg-success">2001/02 Liga Nacional</span>
+          <span class="badge bg-success">2002/03 Liga Nacional</span>
+          <span class="badge bg-success">2008/09 Liga Nacional</span>
+          <span class="badge bg-success">2023/24 Liga Argentina</span>
+        </div>
+        <h5 class="mt-2">🏆 Internacionales (6)</h5>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge bg-primary">1993 Sudamericano de Clubes</span>
+          <span class="badge bg-primary">1994 Sudamericano de Clubes</span>
+          <span class="badge bg-primary">1996 Campeonato Panamericano</span>
+          <span class="badge bg-primary">1997 Liga Sudamericana</span>
+          <span class="badge bg-primary">1998 Liga Sudamericana</span>
+          <span class="badge bg-primary">2004 Liga Sudamericana</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- Botón ir arriba -->
 <a href="#" id="btn-up" class="btn btn-verde">↑</a>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
-  <p>
-    <strong>Aviso DMCA:</strong> Si cree que algún contenido de este sitio infringe sus derechos de autor, envíe una notificación a: 
-    <a href="mailto:atenasmispasion21@gmail.com" style="color:#fff; text-decoration:underline;">atenasmispasion21@gmail.com</a>. 
-    Revisaremos y retiraremos el contenido infractor de manera oportuna según la ley DMCA.
-  </p>
+  <p>© 2025 Atenas mi pasión | Hecho por Marcelo Achával</p>
+  <p>
+    <strong>Aviso DMCA:</strong> Si cree que algún contenido de este sitio infringe sus derechos de autor, envíe una notificación a: 
+    <a href="mailto:atenasmispasion21@gmail.com" style="color:#fff; text-decoration:underline;">atenasmispasion21@gmail.com</a>. 
+    Revisaremos y retiraremos el contenido infractor de manera oportuna según la ley DMCA.
+  </p>
 </footer>
 
-<!-- JSON-LD SEO -->
 <script id="json-ld" type="application/ld+json">{}</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
 // === SLIDER DINÁMICO ===
 /*const fotosSlider = [
-  {src:"", titulo:"", descripcion:""},
-  {src:"", titulo:"", descripcion:""} 
+  {src:"", titulo:"", descripcion:""},
+  {src:"", titulo:"", descripcion:""} 
 ];
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
 fotosSlider.forEach((foto,index)=>{
-  const button=document.createElement('button');
-  button.type="button";
-  button.setAttribute('data-bs-target','#sliderFotos');
-  button.setAttribute('data-bs-slide-to',index);
-  button.setAttribute('aria-label',`Slide ${index+1}`);
-  if(index===0){ button.className="active"; button.setAttribute('aria-current','true'); }
-  sliderIndicators.appendChild(button);
+  const button=document.createElement('button');
+  button.type="button";
+  button.setAttribute('data-bs-target','#sliderFotos');
+  button.setAttribute('data-bs-slide-to',index);
+  button.setAttribute('aria-label',`Slide ${index+1}`);
+  if(index===0){ button.className="active"; button.setAttribute('aria-current','true'); }
+  sliderIndicators.appendChild(button);
 
-  const div=document.createElement('div');
-  div.className=index===0?"carousel-item active":"carousel-item";
-  div.innerHTML=`<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
-                   <div class="carousel-caption"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></div>`;
-  sliderInner.appendChild(div);
+  const div=document.createElement('div');
+  div.className=index===0?"carousel-item active":"carousel-item";
+  div.innerHTML=`<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
+                   <div class="carousel-caption"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></div>`;
+  sliderInner.appendChild(div);
 }); */
 
 // === CARGAR NOTICIAS EXTERNAS ===
 const noticiasGrilla = document.getElementById('noticias-grilla');
 fetch('noticias.json?nocache=' + new Date().getTime())
-  .then(response => response.json())
-  .then(noticias => {
-    noticias.forEach((noticia,index) => {
-      const modalId = `modalNoticia${index}`;
-      const col = document.createElement('div');
-      col.className = 'col mb-4';
-      col.innerHTML = `
-        <div class="card h-100">
-          <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <h5 class="card-title">${noticia.titulo}</h5>
-            <p class="card-text">${noticia.descripcion}</p>
-            <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
-          </div>
-        </div>
-        <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
-          <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">${noticia.titulo}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-              </div>
-              <div class="modal-body">
-                <p>${noticia.contenido}</p>
-                <audio controls preload="none">
-                  <source src="${noticia.audio}" type="audio/mpeg">
-                  Tu navegador no soporta audio.
-                </audio>
-              </div>
-            </div>
-          </div>
-        </div>`;
-      noticiasGrilla.appendChild(col);
-    });
+  .then(response => response.json())
+  .then(noticias => {
+    noticias.forEach((noticia,index) => {
+      const modalId = `modalNoticia${index}`;
+      const col = document.createElement('div');
+      col.className = 'col mb-4';
+      col.innerHTML = `
+        <div class="card h-100">
+          <img src="${noticia.imagen}" class="card-img-top" alt="${noticia.titulo}" loading="lazy">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <h5 class="card-title">${noticia.titulo}</h5>
+            <p class="card-text">${noticia.descripcion}</p>
+            <button class="btn btn-verde mt-2" data-bs-toggle="modal" data-bs-target="#${modalId}">Leer más</button>
+          </div>
+        </div>
+        <div class="modal fade" id="${modalId}" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">${noticia.titulo}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+              </div>
+              <div class="modal-body">
+                <p>${noticia.contenido}</p>
+                <audio controls preload="none">
+                  <source src="${noticia.audio}" type="audio/mpeg">
+                  Tu navegador no soporta audio.
+                </audio>
+              </div>
+            </div>
+          </div>
+        </div>`;
+      noticiasGrilla.appendChild(col);
+    });
 
-    document.querySelectorAll('.modal').forEach(modal => {
-      modal.addEventListener('hidden.bs.modal', () => {
-        modal.querySelectorAll('audio').forEach(audio => { audio.pause(); audio.currentTime = 0; });
-      });
-    });
+    document.querySelectorAll('.modal').forEach(modal => {
+      modal.addEventListener('hidden.bs.modal', () => {
+        modal.querySelectorAll('audio').forEach(audio => { audio.pause(); audio.currentTime = 0; });
+      });
+    });
 
-    const jsonLd = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Atenas mi pasión",
-      "url": window.location.href,
-      "logo": "https://atenasmipasion21.github.io/atenas_mi_pasion21/logo.png",
-      "sameAs": [
-        "https://www.facebook.com/groups/1607966346118447",
-        "https://www.instagram.com/atenas_mi_pasion/"
-      ],
-      "publishes": noticias.map(noticia => ({
-        "@type": "NewsArticle",
-        "headline": noticia.titulo,
-        "image": noticia.imagen,
-        "datePublished": new Date().toISOString(),
-        "articleBody": noticia.contenido,
-        "publisher": {
-          "@type": "Organization",
-          "name": "Atenas mi pasión",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://atenasmipasion21.github.io/atenas_mi_pasion21/logo.png"
-          }
-        }
-      }))
-    };
-    document.getElementById('json-ld').textContent = JSON.stringify(jsonLd,null,2);
-  });
+    const jsonLd = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Atenas mi pasión",
+      "url": window.location.href,
+      "logo": "https://atenasmipasion21.github.io/atenas_mi_pasion21/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/groups/1607966346118447",
+        "https://www.instagram.com/atenas_mi_pasion/"
+      ],
+      "publishes": noticias.map(noticia => ({
+        "@type": "NewsArticle",
+        "headline": noticia.titulo,
+        "image": noticia.imagen,
+        "datePublished": new Date().toISOString(),
+        "articleBody": noticia.contenido,
+        "publisher": {
+          "@type": "Organization",
+          "name": "Atenas mi pasión",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://atenasmipasion21.github.io/atenas_mi_pasion21/logo.png"
+          }
+        }
+      }))
+    };
+    document.getElementById('json-ld').textContent = JSON.stringify(jsonLd,null,2);
+  });
 
 // === CARGAR CALENDARIO EXTERNO ===
 fetch('calendario.json?nocache=' + new Date().getTime())
-  .then(response => response.json())
-  .then(partidos => {
-    const lista = document.getElementById('calendario-lista');
-    lista.innerHTML = "";
-    partidos.forEach(p => {
-      const item=document.createElement('li');
-      item.className="list-group-item text-center";
-      item.innerHTML=`<strong>${p.fecha} - ${p.local} vs ${p.visitante} - ${p.lugar} </strong>`;
-      lista.appendChild(item);
-    });
-  });
+  .then(response => response.json())
+  .then(partidos => {
+    const lista = document.getElementById('calendario-lista');
+    lista.innerHTML = "";
+    partidos.forEach(p => {
+      const item=document.createElement('li');
+      item.className="list-group-item text-center";
+      item.innerHTML=`<strong>${p.fecha} - ${p.local} vs ${p.visitante} - ${p.lugar} </strong>`;
+      lista.appendChild(item);
+    });
+  });
 
 // === MULTIMEDIA ===
 const multimediaContent=document.getElementById('multimedia-content');
 const videos=["https://www.youtube.com/embed/BzY15_tfnVs"];
 videos.forEach(url=>{
-  const col=document.createElement('div');
-  col.className="col-md-6";
-  col.innerHTML=`<iframe class="youtube-embed" src="${url}" frameborder="0" allowfullscreen loading="lazy" title="Video de Atenas"></iframe>`;
-  multimediaContent.appendChild(col);
+  const col=document.createElement('div');
+  col.className="col-md-6";
+  col.innerHTML=`<iframe class="youtube-embed" src="${url}" frameborder="0" allowfullscreen loading="lazy" title="Video de Atenas"></iframe>`;
+  multimediaContent.appendChild(col);
 });
 
 // === BOTÓN IR ARRIBA ===
@@ -355,15 +350,3 @@ if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.dis
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
