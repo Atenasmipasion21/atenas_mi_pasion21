@@ -1,8 +1,15 @@
 [
-  { "titulo": "Sale al ruedo", 
+  { "titulo": "Atenas y su Fixture", 
+    "descripcion": "Atenas debuta en el Contte", 
+    "contenido": "", 
+    "imagen": "", 
+    "audio": "" 
+  },
+  
+ { "titulo": "Sale al ruedo", 
     "descripcion": "Atenas y los amistosos", 
     "contenido": "El 20 de septiembre, Atenas jugará su primer amistoso de la temporada 2025/26 contra Quimsa en Bell Ville. Además, tiene programado enfrentar a San Isidro tanto de local como de visitante, preparando al equipo para la Liga Nacional.", 
-    "imagen": "pilcha nueva21.jpg", 
+    "imagen": "fixture1.png", 
     "audio": "" 
   },
   {
@@ -11,16 +18,10 @@
     "contenido": "La nueva camiseta 2025/26 de Atenas fue presentada oficialmente. Colores renovados, diseño moderno y homenaje a la historia del club.",
     "imagen": "pilcha nueva.jpg",
     "audio": ""
-  },
-  {
-    "titulo": "Comenzó la temporada 2025/26",
-    "descripcion": "Analizamos cómo vemos a Atenas para esta temporada.",
-    "contenido": "La temporada 2025/26 de Atenas comienza con altas expectativas. Revisamos el plantel, los refuerzos y la estrategia que podría seguir el equipo para destacarse en la Liga Nacional.",
-    "imagen": "pretemporada.jpg",
-    "audio": "jose.mp3"
   }
- 
+
 ]
+
 
 
 
