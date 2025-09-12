@@ -319,7 +319,7 @@ fetch('calendario.json?nocache=' + new Date().getTime())
 
 // === MULTIMEDIA ===
 const multimediaContent=document.getElementById('multimedia-content');
-const videos=[""https://www.youtube.com/embed/BzY15_tfnVs"];
+const videos=["https://www.youtube.com/embed/BzY15_tfnVs"];
 videos.forEach(url=>{
   const col=document.createElement('div');
   col.className="col-md-6";
@@ -338,5 +338,6 @@ if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.dis
 </script>
 </body>
 </html>
+
 
 
