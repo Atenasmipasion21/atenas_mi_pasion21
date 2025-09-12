@@ -331,19 +331,27 @@ fetch('noticias.json?nocache=' + new Date().getTime())
     document.getElementById('json-ld').textContent = JSON.stringify(jsonLd,null,2);
   });
 
-// === CARGAR CALENDARIO EXTERNO ===
+// Cargar calendario y resaltar partidos de Atenas
 fetch('calendario.json?nocache=' + new Date().getTime())
   .then(response => response.json())
   .then(partidos => {
     const lista = document.getElementById('calendario-lista');
     lista.innerHTML = "";
+
     partidos.forEach(p => {
-      const item=document.createElement('li');
-      item.className="list-group-item text-center";
-      item.innerHTML=`<strong>${p.fecha} - ${p.local} vs ${p.visitante}</strong>`;
+      const item = document.createElement('li');
+      item.className = "list-group-item text-center";
+
+      // Detecta si Atenas juega
+      if (p.local.toLowerCase().includes('atenas') || p.visitante.toLowerCase().includes('atenas')) {
+        item.classList.add('proximo');
+      }
+
+      item.innerHTML = `<strong>${p.fecha} - ${p.local} vs ${p.visitante}</strong>`;
       lista.appendChild(item);
     });
   });
+
 
 // === MULTIMEDIA ===
 const multimediaContent=document.getElementById('multimedia-content');
@@ -382,6 +390,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
