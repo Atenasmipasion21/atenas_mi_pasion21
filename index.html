@@ -274,7 +274,6 @@ fetch('noticias.json?nocache=' + new Date().getTime())
               </div>
               <div class="modal-body">
                 <p>${noticia.contenido}</p>
-                <p>${noticia.imagen}</p>
                 <audio controls preload="none">
                   <source src="${noticia.audio}" type="audio/mpeg">
                   Tu navegador no soporta audio.
@@ -356,6 +355,7 @@ if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.dis
 </script>
 </body>
 </html>
+
 
 
 
