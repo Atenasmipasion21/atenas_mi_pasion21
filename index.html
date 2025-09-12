@@ -329,7 +329,7 @@ fetch('calendario.json?nocache=' + new Date().getTime())
     partidos.forEach(p => {
       const item=document.createElement('li');
       item.className="list-group-item text-center";
-      item.innerHTML=`<strong> FECHA: ${p.fecha} - LOCAL:  ${p.local} vs VISITANTE: ${p.visitante} -CANCHA: ${p.lugar} </strong>`;
+      item.innerHTML=`<strong> FECHA: ${p.fecha} - ${p.local} vs ${p.visitante} - CANCHA: ${p.lugar} </strong>`;
       lista.appendChild(item);
     });
   });
@@ -355,6 +355,7 @@ if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.dis
 </script>
 </body>
 </html>
+
 
 
 
