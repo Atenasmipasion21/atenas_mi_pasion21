@@ -67,42 +67,29 @@
   .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
 
   #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
-/* 🎨 CSS3 para Próximos Partidos */
+  /* Próximos Partidos */
   #calendario-lista .list-group-item {
-    background: linear-gradient(135deg, #e6ffe6, #ccf2d6);
-    margin-bottom: 10px;
-    border-radius: 10px;
-    border: 1px solid #b3e6b3;
-    font-weight: 600;
-    color: #004d2e;
-    transition: all 0.3s ease;
+    background-color: rgba(0,0,0,0.03);
+    margin-bottom: 5px;
+    border-radius: 6px;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
   #calendario-lista .list-group-item:hover {
-    transform: scale(1.03);
-    background: linear-gradient(135deg, #c2f0c2, #99e699);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    cursor: pointer;
+    transform: scale(1.01);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   }
+  /* Destacar partidos de Atenas */
   #calendario-lista .proximo {
-    border: 2px solid #ff9800;
-    background: linear-gradient(135deg, #fff2cc, #ffe699);
-    color: #e65100;
-  }
-#calendario-lista .proximo {
-    border-left: 4px solid #008000;              /* borde verde Atenas */
-    background-color: rgba(0, 128, 0, 0.15);    /* fondo verde translúcido */
-    color: #004d2e;                              /* texto oscuro acorde al verde */
+    border-left: 4px solid #008000;
+    background-color: rgba(0, 128, 0, 0.15);
+    color: #004d2e;
     font-weight: 700;
     font-size: 1.05rem;
     padding: 0.75rem 1rem;
-    border-radius: 6px;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
+  }
+  
 
-#calendario-lista .proximo:hover {
-    transform: scale(1.02);
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-}
+
 
 </style>
 </head>
@@ -395,6 +382,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
