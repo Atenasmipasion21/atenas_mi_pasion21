@@ -88,7 +88,21 @@
     background: linear-gradient(135deg, #fff2cc, #ffe699);
     color: #e65100;
   }
+#calendario-lista .proximo {
+    border-left: 4px solid #008000;              /* borde verde Atenas */
+    background-color: rgba(0, 128, 0, 0.15);    /* fondo verde translúcido */
+    color: #004d2e;                              /* texto oscuro acorde al verde */
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
 
+#calendario-lista .proximo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
 
 </style>
 </head>
@@ -381,6 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
