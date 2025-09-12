@@ -67,6 +67,29 @@
   .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
 
   #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
+/* 🎨 CSS3 para Próximos Partidos */
+  #calendario-lista .list-group-item {
+    background: linear-gradient(135deg, #e6ffe6, #ccf2d6);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #b3e6b3;
+    font-weight: 600;
+    color: #004d2e;
+    transition: all 0.3s ease;
+  }
+  #calendario-lista .list-group-item:hover {
+    transform: scale(1.03);
+    background: linear-gradient(135deg, #c2f0c2, #99e699);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+  #calendario-lista .proximo {
+    border: 2px solid #ff9800;
+    background: linear-gradient(135deg, #fff2cc, #ffe699);
+    color: #e65100;
+  }
+
+
 </style>
 </head>
 <body>
@@ -127,11 +150,15 @@
         <div id="multimedia-content" class="row"></div>
       </section>
 
-      <!-- CALENDARIO -->
-      <section id="calendario" class="mt-5">
-        <h2 class="section-title">Próximos Partidos</h2>
-        <ul class="list-group list-group-flush" id="calendario-lista"></ul>
-      </section>
+     <!-- 📅 Próximos Partidos -->
+<section id="calendario" class="container my-4">
+  <h2 class="section-title">📅 Próximos Partidos</h2>
+  <ul id="calendario-lista" class="list-group">
+    <li class="list-group-item" data-fecha="2025-09-13T21:00">Atenas vs Gimnasia (CR) – 13/09/2025 – 21:00 hs</li>
+    <li class="list-group-item" data-fecha="2025-09-20T20:30">Atenas vs Instituto – 20/09/2025 – 20:30 hs</li>
+    <li class="list-group-item" data-fecha="2025-09-27T21:00">Atenas vs Riachuelo – 27/09/2025 – 21:00 hs</li>
+  </ul>
+</section>
 
       <!-- HISTORIA -->
       <section id="historia" class="mt-5">
@@ -335,9 +362,26 @@ window.onscroll=()=>{ btnUp.style.display=(document.documentElement.scrollTop>20
 const hoy = new Date().toISOString().split('T')[0];
 const partidosVivo = ["2025-09-25"]; // editar con fechas reales
 if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.display="block"; }
+
+  /* 📅 Ordenar partidos y marcar próximo */
+document.addEventListener("DOMContentLoaded", () => {
+  const lista = document.getElementById("calendario-lista");
+  const items = Array.from(lista.querySelectorAll("li"));
+
+  items.sort((a,b) => new Date(a.dataset.fecha) - new Date(b.dataset.fecha));
+  lista.innerHTML = "";
+  items.forEach(item => lista.appendChild(item));
+
+  const ahora = new Date();
+  const proximo = items.find(item => new Date(item.dataset.fecha) > ahora);
+  if (proximo) {
+    proximo.classList.add("proximo");
+  }
+});
 </script>
 </body>
 </html>
+
 
 
 
