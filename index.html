@@ -311,10 +311,21 @@ fetch('calendario.json?nocache=' + new Date().getTime())
     lista.innerHTML = "";
     partidos.forEach(p => {
       const item=document.createElement('li');
-      item.className="list-group-item text-center";
-      item.innerHTML=`<strong>${p.fecha} - ${p.local} vs ${p.visitante}</strong>`;
+      item.className="list-group-item text-start";
+      item.innerHTML=`
+        <div>
+          <strong>${p.fecha} - ${p.hora}</strong> ${vivo}<br>
+          <span>${p.local} vs ${p.visitante}</span><br>
+          <small><i class="bi bi-geo-alt"></i> ${p.lugar} | <i class="bi bi-tv"></i> ${p.tv}</small>
+        </div>
+      `;
+      if(esHoy){ item.classList.add("list-group-item-success"); }
       lista.appendChild(item);
     });
+    // Activar banner automáticamente si hay partido en vivo
+    if(partidos.some(p => p.en_vivo && p.fecha === new Date().toISOString().split('T')[0])){
+      document.getElementById('banner-vivo').style.display="block";
+    }
   });
 
 // === MULTIMEDIA ===
@@ -338,5 +349,6 @@ if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.dis
 </script>
 </body>
 </html>
+
 
 
