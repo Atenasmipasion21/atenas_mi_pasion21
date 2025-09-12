@@ -66,6 +66,23 @@
   .youtube-embed, .radio-embed { width:100%; height:250px; margin-bottom:20px; }
   .section-title { border-bottom:2px solid #008000; padding-bottom:5px; margin-bottom:20px; scroll-margin-top:90px; }
 
+/* 🎨 CSS3 para Próximos Partidos */
+  #calendario-lista .list-group-item {
+    background: linear-gradient(135deg, #e6ffe6, #ccf2d6);
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid #b3e6b3;
+    font-weight: 600;
+    color: #004d2e;
+    transition: all 0.3s ease;
+  }
+  #calendario-lista .list-group-item:hover {
+    transform: scale(1.03);
+    background: linear-gradient(135deg, #c2f0c2, #99e699);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    cursor: pointer;
+  }
+  
   #btn-up { position:fixed; bottom:20px; right:20px; display:none; border-radius:50%; width:50px; height:50px; text-align:center; line-height:45px; font-size:24px; z-index:1030; }
 </style>
 </head>
@@ -338,5 +355,6 @@ if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.dis
 </script>
 </body>
 </html>
+
 
 
