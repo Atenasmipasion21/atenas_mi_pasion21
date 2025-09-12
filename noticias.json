@@ -2,14 +2,14 @@
   { "titulo": "Atenas y su Fixture", 
     "descripcion": "Atenas debuta en el Contte", 
     "contenido": "", 
-    "imagen": "", 
+    "imagen": "fixture1.png", 
     "audio": "" 
   },
   
  { "titulo": "Sale al ruedo", 
     "descripcion": "Atenas y los amistosos", 
     "contenido": "El 20 de septiembre, Atenas jugará su primer amistoso de la temporada 2025/26 contra Quimsa en Bell Ville. Además, tiene programado enfrentar a San Isidro tanto de local como de visitante, preparando al equipo para la Liga Nacional.", 
-    "imagen": "fixture1.png", 
+    "imagen": "pilcha nueva21.jpg", 
     "audio": "" 
   },
   {
@@ -21,6 +21,7 @@
   }
 
 ]
+
 
 
 
