@@ -226,8 +226,8 @@
 <script>
 // === SLIDER DINÁMICO ===
 const fotosSlider = [
-  {src:"atenas-2025-1-1.jpg", titulo:" 1", descripcion:" SANDERS"}
- /* {src:"", titulo:"", descripcion:""} */
+  {src:"atenas-2025-1-1.jpg", titulo:" 1", descripcion:" SANDERS"},
+  {src:"", titulo:"", descripcion:""} 
 ];
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
@@ -245,7 +245,7 @@ fotosSlider.forEach((foto,index)=>{
   div.innerHTML=`<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
                    <div class="carousel-caption"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></div>`;
   sliderInner.appendChild(div);
-}); */
+}); 
 
 // === CARGAR NOTICIAS EXTERNAS ===
 const noticiasGrilla = document.getElementById('noticias-grilla');
@@ -355,6 +355,7 @@ if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.dis
 </script>
 </body>
 </html>
+
 
 
 
