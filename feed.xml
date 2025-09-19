@@ -7,6 +7,13 @@
     <language>es-AR</language>
 
     <!-- Última entrada -->
+     <item>
+      <title>Atenas Plantel Completo</title>
+      <link>https://atenasmipasion21.github.io/atenas_mi_pasion21/index.html</link>
+      <description></description>
+      <pubDate>Thu, 18 Sep 2025 14:50:00 +0000</pubDate>
+      <media:content url="https://atenasmipasion21.github.io/atenas_mi_pasion21/completo2.jpg" type="image/jpeg" />
+    </item>
     <item>
       <title>Atenas sale al ruedo</title>
       <link>https://atenasmipasion21.github.io/atenas_mi_pasion21/index.html</link>
@@ -17,5 +24,6 @@
 
   </channel>
 </rss>
+
 
 
