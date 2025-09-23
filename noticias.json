@@ -1,4 +1,11 @@
 [
+      {
+  "titulo": "Horario del partido  ",
+  "descripcion": " Se conocio el horario del partido del viernes vs a San Martin",
+  "contenido": " En el día de ayer la asociación dio a conocer el horario de los partidos de está semana",
+  "imagen": "partido111.jpg"
+  
+},
     {
   "titulo": "Atenas  - Plantel Completo ",
   "descripcion": "El debut de Atenas en la temporada de la Liga Nacional de Básquet.",
@@ -18,6 +25,7 @@
 
 
 ]
+
 
 
 
