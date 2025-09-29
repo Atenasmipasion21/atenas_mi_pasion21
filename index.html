@@ -231,7 +231,7 @@ const fotosSlider = [
 /*  {src:"fliagriega11.jpg", titulo:"Entrenamiento a Puerta Abierta", descripcion:"Fotos Prensa Atenas | Ignacio Lingua."},
   {src:"fliagriega21.jpg", titulo:"Entrenamiento a Puerta Abierta", descripcion:"Fotos Prensa Atenas | Ignacio Lingua."},
   {src:"fliagriega31.jpg", titulo:"Entrenamiento a Puerta Abierta", descripcion:"Fotos Prensa Atenas | Ignacio Lingua."}, 
-  {src:"fliagriega41.jpg", titulo:"Entrenamiento a Puerta Abierta", descripcion:"Fotos Prensa Atenas | Ignacio Lingua."} */
+  {src:"fliagriega41.jpg", titulo:"Entrenamiento a Puerta Abierta", descripcion:"Fotos Prensa Atenas | Ignacio Lingua."} 
 ];
 const sliderIndicators = document.getElementById('slider-indicators');
 const sliderInner = document.getElementById('slider-inner');
@@ -249,7 +249,7 @@ fotosSlider.forEach((foto,index)=>{
   div.innerHTML=`<img src="${foto.src}" class="d-block w-100" alt="${foto.titulo}">
                    <div class="carousel-caption"><h5>${foto.titulo}</h5><p>${foto.descripcion}</p></div>`;
   sliderInner.appendChild(div);
-}); 
+}); */
 
 // === CARGAR NOTICIAS EXTERNAS ===
 const noticiasGrilla = document.getElementById('noticias-grilla');
@@ -340,7 +340,7 @@ fetch('calendario.json?nocache=' + new Date().getTime())
 
 // === MULTIMEDIA ===
 const multimediaContent=document.getElementById('multimedia-content');
-const videos=["https://www.youtube.com/embed/qNVKxTOil9Q"];
+const videos=["https://www.youtube.com/embed/JNMGrr0C1n8"];
 videos.forEach(url=>{
   const col=document.createElement('div');
   col.className="col-md-6";
@@ -359,6 +359,7 @@ if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.dis
 </script>
 </body>
 </html>
+
 
 
 
