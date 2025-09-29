@@ -325,7 +325,7 @@ fetch('noticias.json?nocache=' + new Date().getTime())
   });
 
 // === CARGAR CALENDARIO EXTERNO ===
-/*fetch('calendario.json?nocache=' + new Date().getTime())
+fetch('calendario.json?nocache=' + new Date().getTime())
   .then(response => response.json())
   .then(partidos => {
     const lista = document.getElementById('calendario-lista');
@@ -335,7 +335,7 @@ fetch('noticias.json?nocache=' + new Date().getTime())
       item.className="list-group-item text-center";
       item.innerHTML=`<strong>${p.fecha} - ${p.local} vs ${p.visitante} - ${p.lugar} </strong>`;
       lista.appendChild(item);
-    });*/
+    });
   });
 
 // === MULTIMEDIA ===
@@ -359,6 +359,7 @@ if(partidosVivo.includes(hoy)){ document.getElementById('banner-vivo').style.dis
 </script>
 </body>
 </html>
+
 
 
 
