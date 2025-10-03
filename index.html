@@ -147,7 +147,10 @@
   transform: translateY(-4px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
-
+.list-group-item.partido-card:hover2 {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
 .partido-card .fecha-tv {
   display: flex;
   justify-content: space-between;
@@ -215,6 +218,59 @@
   font-size: 0.75rem;
   padding: 4px 6px;
   border-radius: 6px;
+}
+/* Estilo exclusivo para los partidos */
+.partido-card2 {
+  background: linear-gradient(135deg, #ffffff, #f2f2f2);
+  border: 2px solid #006400; /* verde oscuro Atenas */
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto hover para destacar */
+.partido-card2:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* Ajuste tipográfico */
+.partido-card2 .fecha-tv2 {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.partido-card2 .equipos2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.partido-card2 .lugar {
+  text-align: center;
+  font-size: 0.95em;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.partido-card2 .en-vivo {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1em;
+  color: #fff;
+  background: #d80000;
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 0 auto;
 }
 
   </style>
@@ -319,7 +375,26 @@
             <div class="lugar">📍  EL FORTIN DE LAS MOROCHAS </div>
             <div class="en-vivo">POR NUESTRO CANAL "ATENAS MIS PASION"</div>
         </li>
-      <li class="list-group-item partido-card2">
+       <li class="list-group-item partido-card2">
+      <div class="fecha-tv2">
+        <span>📅 11-10-2025 - 11:30 HS</span>
+        <span>📺 TyC Sports</span>
+      </div>
+      <div class="equipos2">
+        <div class="equipo">
+          <img src="ada1.png" alt="Escudo Atenas de Córdoba" class="escudo">
+          <span>Atenas de Córdoba</span>
+        </div>
+        <span>vs</span>
+        <div class="equipo">
+          <img src="boca.png" alt="Escudo Boca Juniors" class="escudo">
+          <span>Boca Juniors</span>
+        </div>
+      </div>
+      <div class="lugar">📍 Estructura Pretensa Atenas</div>
+      <div class="en-vivo">🔴 EN VIVO</div>
+    </li>
+  <!--    <li class="list-group-item partido-card2">
             <div class="fecha-tv2">
                 <span>📅 11-10-2025 - 11:30 HS</span>
                 <span>📺 TYC SPORT</span>
@@ -654,6 +729,7 @@ partidos.forEach(p => {
   </script>
 </body>
 </html>
+
 
 
 
