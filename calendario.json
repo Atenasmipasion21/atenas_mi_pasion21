@@ -17,7 +17,18 @@
     "tv": "",
     "en_vivo": false
   }
+
+   {
+    "fecha": "11-10-2025",
+    "hora": "11:30",
+    "local": "Atenas de Córdoba",
+    "visitante": "Boca Juniors",
+    "lugar": "Estructura Pretensa Atenas",
+    "tv": "TYC - SPORT",
+    "en_vivo": TRUE
+  }
 ]
+
 
 
 
