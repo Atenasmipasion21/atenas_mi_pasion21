@@ -236,13 +236,30 @@
           </ul>
 
           <!-- CALENDARIO -->
-          <section id="calendario" class="mb-5" aria-labelledby="calendario-label">
+          <!--<section id="calendario" class="mb-5" aria-labelledby="calendario-label">
             <h2 id="calendario-label" class="section-title">Próximos Partidos <small>Fixture</small></h2>
-            <ul class="list-group list-group-flush" id="calendario-lista">
+            /*<ul class="list-group list-group-flush" id="calendario-lista">
             <!-- JS llenará aquí -->
-          </ul>
-          </section>
-
+          </ul>*/ 
+          </section> -->
+<!-- CALENDARIO -->
+<section id="calendario" class="mb-5" aria-labelledby="calendario-label">
+    <h2 id="calendario-label" class="section-title">Próximos Partidos <small>Fixture</small></h2>
+    <ul class="list-group list-group-flush" id="calendario-lista">
+        <li class="list-group-item partido-card">
+            <div class="fecha-tv">
+                <span>📅 06-10-2025 - 20:30 HS</span>
+                <span>📺 TyC Sports</span>
+            </div>
+            <div class="equipos">
+                <span>Racing de Chivilcoy</span> vs <span>Atenas</span>
+            </div>
+            <div class="lugar">📍 El Fortín de las Morochas</div>
+            <div class="en-vivo">EN VIVO</div>
+        </li>
+        <!-- Agregar más partidos en el mismo formato -->
+    </ul>
+</section>
           <!-- TABLA DE POSICIONES -->
           <section id="tabla-posiciones" aria-labelledby="posiciones-label">
             <h2 id="posiciones-label" class="section-title">📊 Tabla de Posiciones <small>Liga Nacional de Básquet – 3/10/2025</small></h2>
@@ -559,6 +576,7 @@ partidos.forEach(p => {
   </script>
 </body>
 </html>
+
 
 
 
