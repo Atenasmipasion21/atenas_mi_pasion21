@@ -497,7 +497,21 @@
         noticiasGrilla.innerHTML = '<p class="text-muted">Error al cargar noticias. Por favor intenta nuevamente más tarde.</p>';
       });
 
+
+
     // --------------------------
+    // Multimedia (ejemplo con videos)
+    // --------------------------
+    const multimediaContent = document.getElementById('multimedia-content');
+    const videos = ["https://www.youtube.com/embed/JNMGrr0C1n8"];
+    videos.forEach(url => {
+      const col = document.createElement('div'); col.className='col-md-6';
+      col.innerHTML = `<iframe class="youtube-embed w-100" src="${url}" frameborder="0" allowfullscreen loading="lazy" title="Video de Atenas"></iframe>`;
+      multimediaContent.appendChild(col);
+    });
+
+
+        // --------------------------
     // Cargar calendario.json y decidir banner en vivo
     // --------------------------
   // Ejemplo JS para renderizar partidos
@@ -525,17 +539,6 @@ partidos.forEach(p => {
 });
 
     // --------------------------
-    // Multimedia (ejemplo con videos)
-    // --------------------------
-    const multimediaContent = document.getElementById('multimedia-content');
-    const videos = ["https://www.youtube.com/embed/JNMGrr0C1n8"];
-    videos.forEach(url => {
-      const col = document.createElement('div'); col.className='col-md-6';
-      col.innerHTML = `<iframe class="youtube-embed w-100" src="${url}" frameborder="0" allowfullscreen loading="lazy" title="Video de Atenas"></iframe>`;
-      multimediaContent.appendChild(col);
-    });
-
-    // --------------------------
     // Botón ir arriba
     // --------------------------
     const btnUp = document.getElementById('btn-up');
@@ -556,6 +559,7 @@ partidos.forEach(p => {
   </script>
 </body>
 </html>
+
 
 
 
