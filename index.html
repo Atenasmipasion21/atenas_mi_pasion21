@@ -174,13 +174,38 @@
   font-size: 1.2rem;
   gap: 12px;
 }
+  .partido-card .equipos2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  gap: 12px;
+}
 
 .partido-card .lugar {
   font-size: 0.9rem;
   text-align: center;
 }
+.partido-card .lugar2 {
+  font-size: 0.9rem;
+  text-align: center;
+}
 
 .partido-card .en-vivo {
+  position: absolute;
+  top: 12px;
+  right: 52px;
+  background: red;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+.partido-card2 .en-vivo2 {
   position: absolute;
   top: 12px;
   right: 52px;
@@ -307,7 +332,7 @@
                
             </div>
             <div class="lugar">📍  ESTRUCTURA PRETENSA ATENAS </div>
-            <div class="en-vivo">VIVO"</div>
+            <div class="en-vivo2">VIVO"</div>
         </li>
       
         <!-- Agregar más partidos en el mismo formato -->
@@ -629,6 +654,7 @@ partidos.forEach(p => {
   </script>
 </body>
 </html>
+
 
 
 
