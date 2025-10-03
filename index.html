@@ -452,7 +452,7 @@
           partidos.forEach(p=>{
             const li = document.createElement('li');
             li.className = 'list-group-item text-center';
-            li.innerHTML = `<strong>${p.fecha} - ${p.local} vs ${p.visitante} - ${p.lugar}  ${p.tv}</strong>`;
+            li.innerHTML = `<strong>${p.fecha} - ${p.local} vs ${p.visitante} - ${p.lugar} - ${p.tv}</strong>`;
             calendarioLista.appendChild(li);
             // Si partido con campo en_vivo true o fecha==hoy y en_vivo
             if((p.en_vivo === true) || (p.fecha === hoy && p.en_vivo === true)) tieneVivo = true;
@@ -499,6 +499,7 @@
   </script>
 </body>
 </html>
+
 
 
 
