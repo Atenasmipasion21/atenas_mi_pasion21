@@ -198,9 +198,7 @@
       </div>
     </div>
   </nav>
-<ul class="list-group list-group-flush" id="calendario-lista">
-  <!-- JS llenará aquí -->
-</ul>
+
 
   <!-- BANNER VIVO (se mostrará dinámicamente) -->
   <div id="banner-vivo" class="alert alert-danger text-center m-0" role="status" aria-live="polite">
@@ -233,11 +231,17 @@
             <h2 id="multimedia-label" class="section-title">Multimedia <small>Videos y transmisiones</small></h2>
             <div id="multimedia-content" class="row g-3"></div>
           </section>
+          <ul class="list-group list-group-flush" id="calendario-lista">
+            <!-- JS llenará aquí -->
+          </ul>
 
           <!-- CALENDARIO -->
           <section id="calendario" class="mb-5" aria-labelledby="calendario-label">
             <h2 id="calendario-label" class="section-title">Próximos Partidos <small>Fixture</small></h2>
-            <ul class="list-group list-group-flush" id="calendario-lista" aria-live="polite"></ul>
+            /*<ul class="list-group list-group-flush" id="calendario-lista" aria-live="polite"></ul>*/
+            <ul class="list-group list-group-flush" id="calendario-lista">
+            <!-- JS llenará aquí -->
+          </ul>
           </section>
 
           <!-- TABLA DE POSICIONES -->
@@ -553,6 +557,7 @@ partidos.forEach(p => {
   </script>
 </body>
 </html>
+
 
 
 
