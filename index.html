@@ -221,15 +221,17 @@
 }*/
 /* Estilo exclusivo para los partidos */
 .partido-card2 {
-  background: linear-gradient(90deg, #ffffff, #f2f2f2);
-  border: 2px solid #006400; /* verde oscuro Atenas */
-  border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(90deg, #ffffff, #f2f2f2);    
+ color: #fff;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-
 /* Efecto hover para destacar */
 .partido-card2:hover {
   transform: translateY(-5px);
@@ -729,6 +731,7 @@ partidos.forEach(p => {
   </script>
 </body>
 </html>
+
 
 
 
