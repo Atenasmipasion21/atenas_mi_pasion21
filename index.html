@@ -116,6 +116,62 @@
     /* small helpers */
     .muted { color:#6b6b6b; }
     .small-muted { font-size:0.9rem; color:#7a7a7a; }
+
+    /* Cards Próximos Partidos */
+.list-group-item.partido-card {
+  background: linear-gradient(90deg, #004225, #1FA060);
+  color: #fff;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.list-group-item.partido-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.partido-card .fecha-tv {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.95rem;
+}
+
+.partido-card .equipos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  gap: 12px;
+}
+
+.partido-card .lugar {
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.partido-card .en-vivo {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: red;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 6px;
+  border-radius: 6px;
+}
+
   </style>
 </head>
 <body>
@@ -142,6 +198,9 @@
       </div>
     </div>
   </nav>
+<ul class="list-group list-group-flush" id="calendario-lista">
+  <!-- JS llenará aquí -->
+</ul>
 
   <!-- BANNER VIVO (se mostrará dinámicamente) -->
   <div id="banner-vivo" class="alert alert-danger text-center m-0" role="status" aria-live="polite">
@@ -438,34 +497,29 @@
     // --------------------------
     // Cargar calendario.json y decidir banner en vivo
     // --------------------------
+  // Ejemplo JS para renderizar partidos
     const calendarioLista = document.getElementById('calendario-lista');
-    fetch('calendario.json?nocache=' + Date.now())
-      .then(res => {
-        if(!res.ok) throw new Error('No se pudo cargar calendario.json');
-        return res.json();
-      })
-      .then(partidos => {
-        calendarioLista.innerHTML = '';
-        const hoy = new Date().toISOString().split('T')[0];
-        let tieneVivo = false;
-        if(Array.isArray(partidos) && partidos.length){
-          partidos.forEach(p=>{
-            const li = document.createElement('li');
-            li.className = 'list-group-item text-center';
-            li.innerHTML = `<strong>${p.fecha} - ${p.local} vs ${p.visitante} - ${p.lugar} - ${p.tv}</strong>`;
-            calendarioLista.appendChild(li);
-            // Si partido con campo en_vivo true o fecha==hoy y en_vivo
-            if((p.en_vivo === true) || (p.fecha === hoy && p.en_vivo === true)) tieneVivo = true;
-          });
-        } else {
-          calendarioLista.innerHTML = '<li class="list-group-item text-muted">No hay partidos cargados</li>';
-        }
-        if(tieneVivo) document.getElementById('banner-vivo').style.display = 'block';
-      })
-      .catch(err => {
-        console.error('Calendario error:', err);
-        calendarioLista.innerHTML = '<li class="list-group-item text-muted">Error cargando calendario</li>';
-      });
+const partidos = [
+  {fecha:'06-10-2025', hora:'20:00', local:'Racing de Chivilcoy', visitante:'Atenas', lugar:'', tv:'', en_vivo:false},
+  {fecha:'08-10-2025', hora:'21:30', local:'Argentino de Junin', visitante:'Atenas', lugar:'El Fortín de las Morochas', tv:'TyC', en_vivo:false}
+];
+
+partidos.forEach(p => {
+  const li = document.createElement('li');
+  li.className = 'list-group-item partido-card';
+  li.innerHTML = `
+    <div class="fecha-tv">
+      <span>📅 ${p.fecha} ${p.hora}</span>
+      <span>📺 ${p.tv}</span>
+    </div>
+    <div class="equipos">
+      <span>${p.local}</span> vs <span>${p.visitante}</span>
+    </div>
+    <div class="lugar">📍 ${p.lugar}</div>
+    ${p.en_vivo ? `<div class="en-vivo">EN VIVO</div>` : ''}
+  `;
+  calendarioLista.appendChild(li);
+});
 
     // --------------------------
     // Multimedia (ejemplo con videos)
@@ -499,6 +553,7 @@
   </script>
 </body>
 </html>
+
 
 
 
