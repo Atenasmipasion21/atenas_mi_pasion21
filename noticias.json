@@ -1,5 +1,16 @@
 [
-{
+
+ {
+  "titulo": "Volvió al triunfo",
+  "descripcion": "Después de dos tropiezos, Atenas se reencontró con la victoria en Chivilcoy al vencer a Racing por 83-80.",
+  "contenido": "🏀 ¡Escúchalo por nuestro canal y no te pierdas ningún detalle del regreso del Griego a la senda ganadora!"
+  "imagen": "21.png"
+},
+
+  
+  
+},
+  {
   "titulo": "📅 ¡No te pierdas el emocionante partido entre Racing de Chivilcoy y Atenas de Córdoba",
   "descripcion": " 🗓️ **Lunes 06/10/2025**  🕣 **20:30 HS** ",
   "contenido": "🏀 ¡Escúchalo por nuestro canal y no te pierdas ningún detalle!",
@@ -35,6 +46,7 @@
       
      
 ]
+
 
 
 
