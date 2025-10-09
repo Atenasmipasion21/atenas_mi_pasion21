@@ -1,6 +1,13 @@
 [
 
  {
+  "titulo": "Atenas ganó en Junín",
+  "descripcion": "El Griego volvió a mostrar solidez y superó a Argentino en condición de visitante por 84-66",
+  "contenido": "🏀 Con un gran trabajo colectivo, Atenas se impuso en Junín y sigue sumando victorias en la Liga Nacional.",
+  "imagen": "argada31.png"
+},
+
+ {
   "titulo": "Volvió al triunfo",
   "descripcion": "Después de dos tropiezos, Atenas se reencontró con la victoria en Chivilcoy al vencer a Racing por 83-80.",
   "contenido": "🏀 ¡Escúchalo por nuestro canal y no te pierdas ningún detalle del regreso del Griego a la senda ganadora!",
@@ -21,18 +28,10 @@
   "contenido": "Tras 25 minutos de paridad con los Correntinos, se quedo sin gol",
   "imagen": "DESTACADO.png"
   
-},
-  
-  
-  {
-  "titulo": "Atenas busca revancha.",
-  "descripcion": "Luego del traspie con San Martín, busca el triunfo",
-  "contenido": "Este domingo a las 20:30 enfrentara a Regatas de Corriente que viene de ganarle de visitante a La Unión",
-  "imagen": "REGADA11.jpg"
-  
 }
      
 ]
+
 
 
 
