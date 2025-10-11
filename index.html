@@ -634,7 +634,7 @@
     // Multimedia (ejemplo con videos)
     // --------------------------
     const multimediaContent = document.getElementById('multimedia-content');
-    const videos = ["https://www.youtube.com/embed/16H728u1LuM"];/*"https://www.youtube.com/embed/JNMGrr0C1n8"*/
+    const videos = ["https://www.youtube.com/embed/16H728u1LuM", "https://www.youtube.com/embed/rm3GPpHs9pI"]; 
     videos.forEach(url => {
       const col = document.createElement('div'); col.className='col-md-6';
       col.innerHTML = `<iframe class="youtube-embed w-100" src="${url}" frameborder="0" allowfullscreen loading="lazy" title="Video de Atenas"></iframe>`;
@@ -690,6 +690,7 @@ partidos.forEach(p => {
   </script>
 </body>
 </html>
+
 
 
 
