@@ -6,7 +6,17 @@
   "imagen": "adaind2.png",
   
 },
+
+  {
+    "titulo": "Pilcha Nueva",
+    "descripcion": "Atenas presentó la camiseta nueva",
+    "contenido": "La nueva camiseta 2025/26 de Atenas fue presentada oficialmente. Colores renovados, diseño moderno y homenaje a la historia del club.",
+    "imagen": "pilcha_nueva.jpg",
+    "audio": "audio_pilcha.mp3"
+  }
+
 ]
+
 
 
 
