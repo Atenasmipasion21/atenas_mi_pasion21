@@ -1,5 +1,12 @@
 [
-
+  
+{
+    "titulo": "📅 ¡Sin Palabra!",
+    "descripcion": "En un mal partido, sumo la 7 derrota consecutiva",
+    "contenido": "🏀 ¡Escúchalo por nuestro canal y no te pierdas ningún detalle!",
+    "imagen": "adaind4.png",
+    
+  },
   {
     "titulo": "📅 ¡No te pierdas el emocionante partido entre Atenas de Córdoba y Independiente de Oliva!",
     "descripcion": "🗓️ Miercoles 03/12/2025 — 🕣 20:50 HS",
@@ -8,6 +15,7 @@
     "audio":"VENTA.mp3"
   }
 ]
+
 
 
 
