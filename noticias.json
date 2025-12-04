@@ -1,12 +1,10 @@
 [
-  
-
-  {
+    {
   "titulo": "📅 ¡Sin Palabra!",
   "descripcion": "Atenas volvió a caer",
   "contenido": "🏀 Todos los datos y el análisis, solo en nuestro canal",
   "imagen": "adaind41.png"
-}
+},
 
 
   {
@@ -17,6 +15,7 @@
     "audio":"VENTA.mp3"
   }
 ]
+
 
 
 
