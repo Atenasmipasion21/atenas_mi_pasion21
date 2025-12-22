@@ -481,27 +481,31 @@
     // --------------------------
     // Datos estáticos: tabla (transcripción de la imagen)
     // --------------------------
-    const posiciones = [
-      {pos:1, equipo:"Ferro Carril Oeste ", pct:"91%", pj:11, pg:10},
-      {pos:2, equipo:"Obras Sanitarias", pct:"67%", pj:12, pg:8},
-      {pos:3, equipo:"Oberá Tenis Club", pct:"64%", pj:11, pg:7},
-      {pos:4, equipo:"Boca juniors", pct:"63%", pj:16, pg:10},
-      {pos:5, equipo:"La Unión", pct:"62%", pj:13, pg:8},
-      {pos:6, equipo:"Regatas (Corrientes)", pct:"60%", pj:10, pg:6},
-      {pos:7, equipo:"Independiente(Oliva)", pct:"58%", pj:12, pg:7},
-      {pos:8, equipo:"Instituto (Cba)", pct:"56%", pj:16, pg:9},
-      {pos:9, equipo:"San Martín (Corrientes)", pct:"55%", pj:11, pg:6},
-      {pos:10, equipo:"Gimnasia y Esgrima  (C.R)", pct:"54%", pj:13, pg:7},
-      {pos:11, equipo:"Peñarol (Mar del Plata)", pct:"54%", pj:13, pg:7},
-      {pos:12, equipo:"Platense", pct:"50%", pj:10, pg:5},
-      {pos:13, equipo:"Quimsa (Santiago del Estero)", pct:"45%", pj:11, pg:5},
-      {pos:14, equipo:"San Lorenzo (Almagro)", pct:"38%", pj:13, pg:5},
-      {pos:15, equipo:"Olimpico (La Banda)", pct:"36%", pj:11, pg:4},
-      {pos:16, equipo:"Union (Santa Fe)", pct:"33%", pj:12, pg:4},
-      {pos:17, equipo:"Racing de Chivilcoy", pct:"30%", pj:10, pg:3},
-      {pos:18, equipo:"Atenas (Cba)", pct:"29%", pj:14, pg:4},
-      {pos:19, equipo:"Argentinos (Junín)", pct:"8%", pj:13, pg:1},
-];
+  let posiciones = [];
+
+// Cargar posiciones desde CSV
+fetch('posiciones.csv?nocache=' + Date.now())
+  .then(res => {
+    if (!res.ok) throw new Error('No se pudo cargar posiciones.csv');
+    return res.text();
+  })
+  .then(text => {
+    const filas = text.trim().split('\n');
+    filas.shift(); // elimina encabezado
+
+    posiciones = filas.map(fila => {
+      const [pos, equipo, pct, pj, pg] = fila.split(',');
+      return { pos, equipo, pct, pj, pg };
+    });
+
+    renderPosiciones();
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById('pos-body').innerHTML =
+      `<tr><td colspan="5">No se pudo cargar la tabla de posiciones</td></tr>`;
+  });
+
 
     // render tabla HTML
     function renderPosiciones(){
@@ -676,6 +680,7 @@ partidos.forEach(p => {
   </script>
 </body>
 </html>
+
 
 
 
