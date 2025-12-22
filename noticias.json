@@ -1,8 +1,8 @@
 [
     {
   "titulo": "Bienvenido Danjel",
-  "descripcion": "Danjel Purifol es el nuevo ala-pivot de Atenas",
-  "contenido": "",
+  "descripcion": "Refuerzo del Griego",
+  "contenido": "Danjel Purifol es el nuevo ala-pivot de Atenas",
   "imagen": "Purifol.jpg"
 },
     {
@@ -21,6 +21,7 @@
     "audio":"VENTA.mp3"
   }
 ]
+
 
 
 
