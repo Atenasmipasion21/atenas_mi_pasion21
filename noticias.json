@@ -1,4 +1,12 @@
 [
+   {
+    "titulo": "📅 ¡No te pierdas el emocionante partido entre Atenas de Córdoba y Olimpico de la Banda!",
+    "descripcion": "🗓️ Sabado 10/01/2026 — 🕣 20:30 HS",
+    "contenido": "🏀 ¡Escúchalo por nuestro canal y no te pierdas ningún detalle!",
+    "imagen": "",
+    "audio":""
+  },
+    
     {
   "titulo": "Bienvenido Chuzito",
   "descripcion": "Refuerzo del Griego",
@@ -17,17 +25,10 @@
   "descripcion": "Sin palabra",
   "contenido": "🏀 Todos los datos y el análisis, solo en nuestro canal",
   "imagen": "adaind41.png"
-},
+}
 
- {
-    "titulo": "📅 ¡No te pierdas el emocionante partido entre Atenas de Córdoba y Independiente de Oliva!",
-    "descripcion": "🗓️ Miercoles 03/12/2025 — 🕣 20:50 HS",
-    "contenido": "🏀 ¡Escúchalo por nuestro canal y no te pierdas ningún detalle!",
-    "imagen": "adaind2.png",
-    "audio":"VENTA.mp3"
-  }
- 
-]
+ ]
+
 
 
 
