@@ -1,5 +1,12 @@
 [
     {
+  "titulo": "Bienvenido Chuzito",
+  "descripcion": "Refuerzo del Griego",
+  "contenido": "Chuzito Gonzales es el nuevo escolta de Atenas",
+  "imagen": ""
+},
+    
+    {
   "titulo": "Bienvenido Danjel",
   "descripcion": "Refuerzo del Griego",
   "contenido": "Danjel Purifol es el nuevo ala-pivot de Atenas",
@@ -21,6 +28,7 @@
     "audio":"VENTA.mp3"
   }
 ]
+
 
 
 
