@@ -1,20 +1,20 @@
-"pos","equipo","pct","pj","pg"
-"1","Ferro Carril Oeste","80%","15","12"
-"2","Obras Sanitarias","69%","16","11"
-"3","La Unión (Formosa)","65%","17","11"
-"4","Oberá Tenis Club","64%","14","9"
-"5","Regatas (Corrientes)","64%","14","9"
-"6","Independiente (Oliva)","60%","15","9"
-"7","San Martín (Corrientes)","57%","14","8"
-"8","Peñarol (Mar del Plata)","56%","16","9"
-"9","Boca Juniors","56%","18","10"
-"10","Gimnasia y Esgrima (C. Rivadavia)","53%","15","8"
-"11","Quimsa (Santiago del Estero)","53%","15","8"
-"12","Instituto (Córdoba)","53%","19","10"
-"13","Platense","44%","16","7"
-"14","Unión (Santa Fe)","40%","15","6"
-"15","Racing Chivilcoy","33%","15","5"
-"16","Olímpico (La Banda)","33%","15","5"
-"17","San Lorenzo (Almagro)","33%","15","5"
-"18","Atenas (Córdoba)","28%","18","5"
-"19","Argentino (Junín)","13%","16","2"
+pos,equipo,pct,pj,pg
+1,Ferro Carril Oeste,80%,15,12
+2,Obras Sanitarias,69%,16,11
+3,La Unión (Formosa),65%,17,11
+4,Oberá Tenis Club,64%,14,9
+5,Regatas (Corrientes),64%,14,9
+6,Independiente (Oliva),60%,15,9
+7,San Martín (Corrientes),57%,14,8
+8,Peñarol (Mar del Plata),56%,16,9
+9,Boca Juniors,56%,18,10
+10,Gimnasia y Esgrima (C. Rivadavia),53%,15,8
+11,Quimsa (Santiago del Estero),53%,15,8
+12,Instituto (Córdoba),53%,19,10
+13,Platense,44%,16,7
+14,Unión (Santa Fe),40%,15,6
+15,Racing Chivilcoy,33%,15,5
+16,Olímpico (La Banda),33%,15,5
+17,San Lorenzo (Almagro),33%,15,5
+18,Atenas (Córdoba),28%,18,5
+19,Argentino (Junín),13%,16,2
