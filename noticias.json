@@ -1,8 +1,8 @@
 [
        {
   "titulo": "Gran Triunfo!!!!",
-  "descripcion": "En un excelente partido Atenas vencio a los Santiagueños",
-  "contenido": "",
+  "descripcion": "",
+  "contenido": "En un excelente partido Atenas vencio a los Santiagueños",
   "imagen": "adaolimpr.png"
 },
    
@@ -30,6 +30,7 @@
   
 
  ]
+
 
 
 
