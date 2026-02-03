@@ -1,4 +1,14 @@
 [
+   {
+  {
+  "titulo": "Gran triunfo de Atenas con autoridad y eficacia",
+  "descripcion": "El Griego se impuso con un gran primer tiempo y supo cerrarlo en los momentos clave.",
+  "contenido": "Atenas logró un gran triunfo tras un partido intenso y cambiante. El Verde construyó la diferencia en el primer tiempo con defensa firme, buen control del rebote y alta eficacia ofensiva. En el complemento, San Martín reaccionó desde el juego colectivo y emparejó el trámite, pero Atenas fue más certero en los momentos decisivos, especialmente desde el perímetro, y terminó inclinando la balanza a su favor. Un triunfo que refleja carácter, efectividad y solidez en los detalles.",
+  "imagen": ""
+}
+
+},
+       
        {
   "titulo": "Gran Triunfo!!!!",
   "descripcion": "",
@@ -21,15 +31,8 @@
   "imagen": "chuzo.png"
 },
     
-    {
-  "titulo": "Bienvenido Danjel",
-  "descripcion": "Refuerzo del Griego",
-  "contenido": "Danjel Purifol es el nuevo ala-pivot de Atenas",
-  "imagen": "Purifol.jpg"
-}
-  
-
  ]
+
 
 
 
