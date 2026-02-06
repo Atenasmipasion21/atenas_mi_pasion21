@@ -1,5 +1,9 @@
 [
-   
+{   "titulo": "Atenas cayó ante San Lorenzo: el rebote y el triple marcaron la diferencia",
+"descripcion": "Análisis post partido de Atenas vs San Lorenzo por la Liga Nacional. El Griego fue fuerte en la pintura, pero perdió por las segundas oportunidades y la baja efectividad en triples.",
+"contenido": "Atenas tuvo un muy buen rendimiento cerca del aro, con más del 60% de efectividad en la pintura, pero el partido se le escapó por dos factores clave: el rebote ofensivo y el triple. San Lorenzo capturó 16 rebotes en ataque contra solo 5 de Atenas, generando muchas segundas oportunidades. Además, Atenas lanzó apenas 20% en triples, lo que permitió que la defensa rival se cerrara en la pintura. A esto se sumaron 15 pérdidas, que cortaron el ritmo del equipo. En la Liga Nacional, sin rebote ofensivo, sin triple y con errores, es muy difícil ganar de visitante.",
+"imagen": ""
+},
   {
   "titulo": "Gran triunfo de Atenas con autoridad y eficacia",
   "descripcion": "El Griego se impuso con un gran primer tiempo y supo cerrarlo en los momentos clave.",
@@ -21,16 +25,11 @@
     "contenido": "🏀 ¡Escúchalo por nuestro canal y no te pierdas ningún detalle!",
     "imagen": "adaoli.png",
     "audio":""
-  },
+  }
     
-    {
-  "titulo": "Bienvenido Chuzito",
-  "descripcion": "Refuerzo del Griego",
-  "contenido": "Chuzito Gonzales es el nuevo escolta de Atenas",
-  "imagen": "chuzo.png"
-}
     
  ]
+
 
 
 
