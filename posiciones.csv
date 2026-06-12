@@ -1,20 +1,20 @@
-pos,equipo,pct,pj,pg
-1,Ferro Carril Oeste,68%,19,13
-2,Ober√° Tenis Club,67%,21,14
-3,Independiente (Oliva),67%,21,14
-4,Regatas (Corrientes),65%,20,13
-5,Obras Sanitarias,64%,22,14
-6,Gimnasia y Esgrima (C. Rivadavia),59%,22,13
-7,La Uni√≥n (Formosa),58%,24,14
-8,Instituto (C√≥rdoba),58%,24,14
-9,Quimsa (Santiago del Estero),57%,23,13
-10,Pe√±arol (Mar del Plata),52%,21,11
-11,Uni√≥n (Santa Fe),50%,20,10
-12,Boca Juniors,45%,22,10
-13,San Mart√≠n (Corrientes),45%,22,10
-14,Ol√≠mpico (La Banda),43%,23,10
-15,Platense,41%,22,9
-16,Atenas (C√≥rdoba),36%,22,8
-17,San Lorenzo (Almagro),33%,21,7
-18,Racing Chivilcoy,30%,23,7
-19,Argentino (Jun√≠n),14%,22,3
+Pos;Equipo;% Victorias;PJ;PG
+1;Argentino (JunÌn);0;0;0
+2;Atenas (CÛrdoba);0;0;0
+3;Boca Juniors;0;0;0
+4;Ferro Carril Oeste;0;0;0
+5;Gimnasia y Esgrima (C. Rivadavia);0;0;0
+6;Independiente (Oliva);0;0;0
+7;Instituto (CÛrdoba);0;0;0
+8;La UniÛn (Formosa);0;0;0
+9;Lanus;0;0;0
+10;Ober· Tenis Club;0;0;0
+11;OlÌmpico (La Banda);0;0;0
+12;PeÒarol (Mar del Plata);0;0;0
+13;Platense;0;0;0
+14;Quimsa (Santiago del Estero);0;0;0
+15;Racing Chivilcoy;0;0;0
+16;Regatas (Corrientes);0;0;0
+17;San Lorenzo (Almagro);0;0;0
+18;San MartÌn (Corrientes);0;0;0
+19;UniÛn (Santa Fe);0;0;0
