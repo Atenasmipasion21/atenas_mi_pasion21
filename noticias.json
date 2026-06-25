@@ -1,4 +1,11 @@
 [
+ {
+  "titulo": "Bienvenido Adonys Henriquez a Atenas",
+  "descripcion": "",
+  "contenido": "",
+  "imagen": " Arengo.png"
+},
+ 
   {
   "titulo": "Bienvenido Adonys Henriquez a Atenas",
   "descripcion": "",
@@ -23,15 +30,7 @@
   "descripcion": "",
   "contenido": "",
   "imagen": "Balbi.png"
-},
-    {
-  "titulo": "Bienvenido Gonzalo Bressan a Atenas",
-  "descripcion": "",
-  "contenido": "",
-  "imagen": "Bresan.png"
 }
-
-
 
 ]
 
