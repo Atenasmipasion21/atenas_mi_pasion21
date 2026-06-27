@@ -1,4 +1,12 @@
 [
+
+ {
+  "titulo": "Vuelve Tomas Cavallero a   Atenas",
+  "descripcion": "",
+  "contenido": "",
+  "imagen": "cavallero.png"
+  
+  },
  {
   "titulo": "Bienvenido Adonys Henriquez a Atenas",
   "descripcion": "",
@@ -24,13 +32,8 @@
   "descripcion": "",
   "contenido": "",
   "imagen": "vazquez.png"
-},
-{
-  "titulo": "Bienvenido Franco Balbi a Atenas",
-  "descripcion": "",
-  "contenido": "",
-  "imagen": "Balbi.png"
 }
+
 
 ]
 
