@@ -1,4 +1,13 @@
 [
+{
+  "titulo": "Bienvenido Bryan Carabali a   Atenas",
+  "descripcion": "",
+  "contenido": "",
+  "imagen": "carabali2.png"
+  
+  },
+ 
+ 
  {
   "titulo": "Bienvenido Daniel Laster a   Atenas",
   "descripcion": "",
@@ -18,14 +27,8 @@
   "descripcion": "",
   "contenido": "",
   "imagen": " Arengo.png"
-},
- 
-  {
-  "titulo": "Bienvenido Adonys Henriquez a Atenas",
-  "descripcion": "",
-  "contenido": "",
-  "imagen": "Henriquez.png"
 }
+ 
 
 ]
 
