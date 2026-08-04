@@ -9,7 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
-  <!-- Chart.js para los gráficos dinámicos -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
@@ -25,7 +25,7 @@
     .navbar-brand { color: #fff; font-weight: bold; }
     .navbar-nav .nav-link { color: #fff !important; }
 
-    /* Tarjetas de Jugadores Clickeables */
+    /* Tarjetas de Jugadores */
     .card { 
       border: none; 
       border-radius: 12px; 
@@ -58,11 +58,20 @@
     /* Estilo Especial Extranjeros */
     .card-usa {
       border: 2px solid #FFD700;
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.5);
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
     }
     .card-usa .badge {
       background-color: #FFD700 !important;
       color: #000 !important;
+    }
+
+    /* Tarjeta DT (Sin Clic) */
+    .card-dt {
+      cursor: default;
+    }
+    .card-dt:hover {
+      transform: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     /* Sidebar */
@@ -106,13 +115,11 @@
       margin-top: 20px; 
     }
 
-    /* Estilos del Modal */
     .modal-header {
       background-color: #00543D;
       color: white;
     }
 
-    /* Media Queries */
     @media (max-width: 768px) { 
       .card-img-top { height: 180px; } 
       h1 { font-size: 2rem; } 
@@ -148,9 +155,9 @@
     <p class="text-center text-muted mb-4"><i class="bi bi-info-circle"></i> Haz clic sobre un jugador para ver su ficha, estadísticas y gráfico de rendimiento.</p>
 
     <div class="row">
-      <!-- Grid de Jugadores -->
+      <!-- Grid de Jugadores (8 Columnas) -->
       <div class="col-lg-8">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4" id="plantel">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4" id="plantel">
 
           <!-- Santiago Ferreyra -->
           <div class="col">
@@ -164,14 +171,8 @@
                  data-nacimiento="11/03/1997"
                  data-origen="Argentina 🇦🇷"
                  data-imagen="santi.png"
-                 data-pts=""
-                 data-reb=""
-                 data-ast=""
-                 data-rob=""
-                 data-tap=""
-                 data-pj=""
-                 data-min=""
-                 data-t3="">
+                 data-pts="0" data-reb="0" data-ast="0" data-rob="0" data-tap="0"
+                 data-pj="0" data-min="0" data-t3="0%">
               <img src="santi.png" alt="Santiago Ferreyra" class="card-img-top" loading="lazy">
               <div class="card-body">
                 <h5><span class="badge bg-success">3</span></h5>
@@ -182,26 +183,20 @@
             </div>
           </div>
 
-    <!-- Franco Balbi -->
+          <!-- Franco Balbi -->
           <div class="col">
             <div class="card text-center h-100"
                  data-bs-toggle="modal" 
                  data-bs-target="#jugadorModal"
                  data-nombre="Franco Balbi"
-                 data-dorsal="06"
+                 data-dorsal="6"
                  data-posicion="Base"
                  data-altura="1.84 m"
                  data-nacimiento="21/08/1989"
                  data-origen="Argentina 🇦🇷"
                  data-imagen="Balbi.png"
-                 data-pts=""
-                 data-reb=""
-                 data-ast=""
-                 data-rob=""
-                 data-tap=""
-                 data-pj=""
-                 data-min=""
-                 data-t3="">
+                 data-pts="0" data-reb="0" data-ast="0" data-rob="0" data-tap="0"
+                 data-pj="0" data-min="0" data-t3="0%">
               <img src="Balbi.png" alt="Franco Balbi" class="card-img-top" loading="lazy">
               <div class="card-body">
                 <h5><span class="badge bg-success">6</span></h5>
@@ -211,27 +206,21 @@
               </div>
             </div>
           </div>
-          
- <!-- Facundo Vázquez -->
+
+          <!-- Facundo Vázquez -->
           <div class="col">
             <div class="card text-center h-100"
                  data-bs-toggle="modal" 
                  data-bs-target="#jugadorModal"
                  data-nombre="Facundo Vázquez"
-                 data-dorsal="08"
+                 data-dorsal="8"
                  data-posicion="Base"
                  data-altura="1.85 m"
                  data-nacimiento="23/04/1998"
                  data-origen="Argentina 🇦🇷"
                  data-imagen="vazquez.png"
-                 data-pts=""
-                 data-reb=""
-                 data-ast=""
-                 data-rob=""
-                 data-tap=""
-                 data-pj=""
-                 data-min=""
-                 data-t3="">
+                 data-pts="0" data-reb="0" data-ast="0" data-rob="0" data-tap="0"
+                 data-pj="0" data-min="0" data-t3="0%">
               <img src="vazquez.png" alt="Facundo Vázquez" class="card-img-top" loading="lazy">
               <div class="card-body">
                 <h5><span class="badge bg-success">8</span></h5>
@@ -241,7 +230,8 @@
               </div>
             </div>
           </div>
-<!-- Adonys Henriquez -->
+
+          <!-- Adonys Henriquez -->
           <div class="col">
             <div class="card text-center h-100 card-usa" 
                  data-bs-toggle="modal" 
@@ -253,14 +243,8 @@
                  data-nacimiento="13/11/1994"
                  data-origen="Estados Unidos 🇺🇸"
                  data-imagen="Henriquez.png"
-                 data-pts=""
-                 data-reb=""
-                 data-ast=""
-                 data-rob=""
-                 data-tap=""
-                 data-pj=""
-                 data-min=""
-                 data-t3="">
+                 data-pts="0" data-reb="0" data-ast="0" data-rob="0" data-tap="0"
+                 data-pj="0" data-min="0" data-t3="0%">
               <img src="Henriquez.png" alt="Adonys Henriquez" class="card-img-top" loading="lazy">
               <div class="card-body">
                 <h5><span class="badge bg-success">10</span></h5>
@@ -270,7 +254,8 @@
               </div>
             </div>
           </div>
-   <!-- Gonzalo Bressan --> 
+
+          <!-- Gonzalo Bressan --> 
           <div class="col">
             <div class="card text-center h-100"
                  data-bs-toggle="modal" 
@@ -282,24 +267,19 @@
                  data-nacimiento="16/11/2001"
                  data-origen="Argentina 🇦🇷"
                  data-imagen="Bresan.png"
-                 data-pts=""
-                 data-reb=""
-                 data-ast=""
-                 data-rob=""
-                 data-tap=""
-                 data-pj=""
-                 data-min=""
-                 data-t3="">
+                 data-pts="0" data-reb="0" data-ast="0" data-rob="0" data-tap="0"
+                 data-pj="0" data-min="0" data-t3="0%">
               <img src="Bresan.png" alt="Gonzalo Bressan" class="card-img-top" loading="lazy">
               <div class="card-body">
                 <h5><span class="badge bg-success">12</span></h5>
                 <h4 class="card-title"><strong>Gonzalo Bressan</strong></h4>
-                <h6>16/11/2001</h6>
+                <h6>16/11/01</h6>
                 <p class="card-text">Pivot<br>Altura: 2.10 m</p>
               </div>
             </div>
           </div>
-      <!-- Tomás Cavallero -->
+
+          <!-- Tomás Cavallero -->
           <div class="col">
             <div class="card text-center h-100"
                  data-bs-toggle="modal" 
@@ -311,14 +291,8 @@
                  data-nacimiento="24/05/1998"
                  data-origen="Argentina 🇦🇷"
                  data-imagen="cavallero.png"
-                 data-pts=""
-                 data-reb=""
-                 data-ast=""
-                 data-rob=""
-                 data-tap=""
-                 data-pj=""
-                 data-min=""
-                 data-t3="">
+                 data-pts="0" data-reb="0" data-ast="0" data-rob="0" data-tap="0"
+                 data-pj="0" data-min="0" data-t3="0%">
               <img src="cavallero.png" alt="Tomás Cavallero" class="card-img-top" loading="lazy">
               <div class="card-body">
                 <h5><span class="badge bg-success">18</span></h5>
@@ -328,9 +302,8 @@
               </div>
             </div>
           </div> 
-          </div>
-      </div>
-  <!-- Juan Pablo Arengo -->
+
+          <!-- Juan Pablo Arengo -->
           <div class="col">
             <div class="card text-center h-100"
                  data-bs-toggle="modal" 
@@ -342,14 +315,8 @@
                  data-nacimiento="05/06/1996"
                  data-origen="Argentina 🇦🇷"
                  data-imagen="Arengo.png"
-                 data-pts=""
-                 data-reb=""
-                 data-ast=""
-                 data-rob=""
-                 data-tap=""
-                 data-pj=""
-                 data-min=""
-                 data-t3="">
+                 data-pts="0" data-reb="0" data-ast="0" data-rob="0" data-tap="0"
+                 data-pj="0" data-min="0" data-t3="0%">
               <img src="Arengo.png" alt="Juan Pablo Arengo" class="card-img-top" loading="lazy">
               <div class="card-body">
                 <h5><span class="badge bg-success">20</span></h5>
@@ -359,7 +326,8 @@
               </div>
             </div>
           </div>
-<!-- Daniel Laster -->
+
+          <!-- Daniel Laster -->
           <div class="col">
             <div class="card text-center h-100 card-usa"
                  data-bs-toggle="modal" 
@@ -371,14 +339,8 @@
                  data-nacimiento="16/08/1996"
                  data-origen="Estados Unidos 🇺🇸"
                  data-imagen="daniellaster.png"
-                 data-pts=""
-                 data-reb=""
-                 data-ast=""
-                 data-rob=""
-                 data-tap=""
-                 data-pj=""
-                 data-min=""
-                 data-t3="">
+                 data-pts="0" data-reb="0" data-ast="0" data-rob="0" data-tap="0"
+                 data-pj="0" data-min="0" data-t3="0%">
               <img src="daniellaster.png" alt="Daniel Laster" class="card-img-top" loading="lazy">
               <div class="card-body">
                 <h5><span class="badge bg-success">21</span></h5>
@@ -388,7 +350,8 @@
               </div>
             </div>
           </div> 
-  <!-- Bryan Carabalí -->
+
+          <!-- Bryan Carabalí -->
           <div class="col">
             <div class="card text-center h-100 card-usa"
                  data-bs-toggle="modal" 
@@ -400,37 +363,34 @@
                  data-nacimiento="24/08/1999"
                  data-origen="Ecuador 🇪🇨"
                  data-imagen="carabali2.png"
-                 data-pts=""
-                 data-reb=""
-                 data-ast=""
-                 data-rob=""
-                 data-tap=""
-                 data-pj=""
-                 data-min=""
-                 data-t3="0.0%">
+                 data-pts="0" data-reb="0" data-ast="0" data-rob="0" data-tap="0"
+                 data-pj="0" data-min="0" data-t3="0%">
               <img src="carabali2.png" alt="Bryan Carabalí" class="card-img-top" loading="lazy">
               <div class="card-body">
                 <h5><span class="badge bg-success">22</span></h5>
                 <h4 class="card-title"><strong>Bryan Carabalí</strong></h4>
-                <h6>24/08/1999</h6>
+                <h6>24/08/99</h6>
                 <p class="card-text">Pivot<br>Altura: 2.16 m</p>
               </div>
             </div>
           </div> 
-       
-<!-- DT -->
-<div class="col">
-<div class="card text-center h-100">
-<img src="LeoGuti.png" alt="Leo Gutierrez, DT, Atenas 2026" class="card-img-top">
-<div class="card-body d-flex flex-column justify-content-between">
-<h5><span class="badge bg-success">DT</span></h5>
-<h4 class="card-title"><strong>Leo Gutierrez</strong></h4>
-<h6></h6>
-<p class="card-text"></p>
-</div>
-</div>
-</div>
-      <!-- Sidebar -->
+        
+          <!-- DT -->
+          <div class="col">
+            <div class="card text-center h-100 card-dt">
+              <img src="LeoGuti.png" alt="Leo Gutierrez, Director Técnico" class="card-img-top">
+              <div class="card-body">
+                <h5><span class="badge bg-dark">DT</span></h5>
+                <h4 class="card-title"><strong>Leo Gutiérrez</strong></h4>
+                <p class="card-text text-muted mb-0">Director Técnico</p>
+              </div>
+            </div>
+          </div>
+
+        </div> <!-- Fin de #plantel -->
+      </div> <!-- Fin de col-lg-8 -->
+
+      <!-- Sidebar (4 Columnas) -->
       <div class="col-lg-4">
         <div class="sidebar">
           <h4>Redes Sociales</h4>
@@ -473,7 +433,7 @@
     </div>
   </div>
 
-  <!-- Modal con Gráfico y Estadísticas Completa -->
+  <!-- Modal con Gráfico y Estadísticas -->
   <div class="modal fade" id="jugadorModal" tabindex="-1" aria-labelledby="jugadorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
@@ -491,7 +451,7 @@
               <p class="mb-2"><span id="modalDorsal" class="badge bg-success fs-6"></span></p>
             </div>
 
-            <!-- Datos Físicos y Posición -->
+            <!-- Datos Físicos -->
             <div class="col-md-7">
               <ul class="list-group list-group-flush mb-3">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -513,7 +473,7 @@
 
           <hr class="my-4">
 
-          <!-- Gráfico de Estadísticas -->
+          <!-- Gráfico -->
           <h5 class="fw-bold text-success mb-3"><i class="bi bi-graph-up"></i> Gráfico de Rendimiento (Por Partido)</h5>
           <div class="p-3 bg-light rounded border mb-4" style="position: relative; height:250px;">
             <canvas id="graficoEstadisticas"></canvas>
@@ -565,34 +525,31 @@
   <!-- Bootstrap 5 JS Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Script para Rellenar Modal y Generar el Gráfico -->
+  <!-- Script Modal + Chart.js -->
   <script>
     const jugadorModal = document.getElementById('jugadorModal');
-    let chartInstance = null; // Variable para controlar la instancia de Chart.js
+    let chartInstance = null;
 
     jugadorModal.addEventListener('show.bs.modal', function (event) {
       const card = event.relatedTarget;
       
-      // Extracción de datos básicos
-      const nombre = card.getAttribute('data-nombre');
-      const dorsal = card.getAttribute('data-dorsal');
-      const posicion = card.getAttribute('data-posicion');
-      const altura = card.getAttribute('data-altura');
-      const nacimiento = card.getAttribute('data-nacimiento');
-      const origen = card.getAttribute('data-origen');
-      const imagen = card.getAttribute('data-imagen');
+      const nombre = card.getAttribute('data-nombre') || '';
+      const dorsal = card.getAttribute('data-dorsal') || '';
+      const posicion = card.getAttribute('data-posicion') || '';
+      const altura = card.getAttribute('data-altura') || '';
+      const nacimiento = card.getAttribute('data-nacimiento') || '';
+      const origen = card.getAttribute('data-origen') || '';
+      const imagen = card.getAttribute('data-imagen') || '';
       
-      // Extracción de estadísticas
       const pts = parseFloat(card.getAttribute('data-pts')) || 0;
       const reb = parseFloat(card.getAttribute('data-reb')) || 0;
       const ast = parseFloat(card.getAttribute('data-ast')) || 0;
       const rob = parseFloat(card.getAttribute('data-rob')) || 0;
       const tap = parseFloat(card.getAttribute('data-tap')) || 0;
-      const pj = card.getAttribute('data-pj');
-      const min = card.getAttribute('data-min');
-      const t3 = card.getAttribute('data-t3');
+      const pj = card.getAttribute('data-pj') || '0';
+      const min = card.getAttribute('data-min') || '0';
+      const t3 = card.getAttribute('data-t3') || '0%';
 
-      // Actualizar campos del modal
       jugadorModal.querySelector('#modalNombre').textContent = nombre;
       jugadorModal.querySelector('#modalDorsal').textContent = 'N° ' + dorsal;
       jugadorModal.querySelector('#modalPosicion').textContent = posicion;
@@ -602,7 +559,6 @@
       jugadorModal.querySelector('#modalImagen').src = imagen;
       jugadorModal.querySelector('#modalImagen').alt = nombre;
 
-      // Actualizar la tabla
       jugadorModal.querySelector('#modalPts').textContent = pts;
       jugadorModal.querySelector('#modalReb').textContent = reb;
       jugadorModal.querySelector('#modalAst').textContent = ast;
@@ -612,10 +568,8 @@
       jugadorModal.querySelector('#modalMin').textContent = min;
       jugadorModal.querySelector('#modalT3').textContent = t3;
 
-      // --- GENERAR O ACTUALIZAR GRÁFICO (Chart.js) ---
       const ctx = document.getElementById('graficoEstadisticas').getContext('2d');
 
-      // Si existe un gráfico previo, destruirlo para que no se superpongan
       if (chartInstance) {
         chartInstance.destroy();
       }
@@ -628,14 +582,14 @@
             label: 'Promedio por Partido',
             data: [pts, reb, ast, rob, tap],
             backgroundColor: [
-              'rgba(0, 128, 0, 0.7)',   /* Verde Verde */
-              'rgba(54, 162, 235, 0.7)', /* Azul */
-              'rgba(255, 206, 86, 0.7)', /* Amarillo */
-              'rgba(75, 192, 192, 0.7)', /* Turquesa */
-              'rgba(153, 102, 255, 0.7)' /* Púrpura */
+              'rgba(0, 84, 61, 0.8)',
+              'rgba(54, 162, 235, 0.8)',
+              'rgba(255, 206, 86, 0.8)',
+              'rgba(75, 192, 192, 0.8)',
+              'rgba(153, 102, 255, 0.8)'
             ],
             borderColor: [
-              '#008000',
+              '#00543D',
               '#36A2EB',
               '#FFCE56',
               '#4BC0C0',
@@ -654,7 +608,7 @@
           scales: {
             y: {
               beginAtZero: true,
-              ticks: { stepSize: 2 }
+              ticks: { precision: 0 }
             }
           }
         }
