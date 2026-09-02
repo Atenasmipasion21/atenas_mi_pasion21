@@ -496,7 +496,7 @@
   let posiciones = [];
 
 // Cargar posiciones desde CSV
-fetch('posiciones.csv?nocache=' + Date.now())
+fetch('posiciones..csv.csv?nocache=' + Date.now())
   .then(res => {
     if (!res.ok) throw new Error('No se pudo cargar posiciones.csv');
     return res.text();
